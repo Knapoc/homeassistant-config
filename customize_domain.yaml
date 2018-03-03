@@ -1,0 +1,4 @@
+automation:
+  icon: mdi:arrow-right-drop-circle
+light:
+  homebridge_hidden: true

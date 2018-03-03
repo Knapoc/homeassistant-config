@@ -1,0 +1,250 @@
+- platform: google_travel_time
+  name: google_travel_time_dev1_driving
+  api_key: !secret google_api
+  #origin: !secret google_orig
+  origin: !secret device1
+  destination: !secret zone1_fullname
+  options:
+    mode: driving
+- platform: google_travel_time
+  name: google_travel_time_dev1_bicycling
+  api_key: !secret google_api
+  #origin: !secret google_orig
+  origin: !secret device1
+  destination: !secret zone1_fullname
+  options:
+    mode: bicycling
+- platform: google_travel_time
+  name: google_travel_time_dev1_transit
+  api_key: !secret google_api
+  #origin: !secret google_orig
+  origin: !secret device1
+  destination: !secret zone1_fullname
+  options:
+    mode: transit
+- platform: google_travel_time
+  name: google_travel_time_dev1_dynamic_home
+  api_key: !secret google_api
+  origin: !secret device1
+  destination: zone.home
+  options:
+    mode: transit
+- platform: google_travel_time
+  name: google_travel_time_dev2_driving
+  api_key: !secret google_api
+  #origin: !secret google_orig
+  origin: !secret device2
+  destination: !secret zone2_fullname
+  options:
+    mode: driving
+- platform: google_travel_time
+  name: google_travel_time_dev2_bicycling
+  api_key: !secret google_api
+  #origin: !secret google_orig
+  origin: !secret device2
+  destination: !secret zone2_fullname
+  options:
+    mode: bicycling
+- platform: google_travel_time
+  name: google_travel_time_dev2_transit
+  api_key: !secret google_api
+  #origin: !secret google_orig
+  origin: !secret device2
+  destination: !secret zone2_fullname
+  options:
+    mode: transit
+- platform: google_travel_time
+  name: google_travel_time_dev2_dynamic_home
+  api_key: !secret google_api
+  origin: !secret device2
+  destination: zone.home
+  options:
+    mode: driving
+- platform: zamg
+  station_id: !secret zamg_station
+  monitored_conditions:
+    - temperature
+    - humidity
+    - precipitation
+    - wind_speed
+    - dewpoint
+- platform: uber
+  server_token: !secret uber_st
+  end_latitude: !secret uber_endlat
+  end_longitude: !secret uber_endlong
+  product_ids:
+    - '0af354f1-e12e-4253-abae-3df48506c658'
+- platform: darksky
+  api_key: !secret darksky_ak
+  monitored_conditions:
+    - icon
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - temperature
+    - dew_point
+    - apparent_temperature
+    - cloud_cover
+    - temperature_min
+    - temperature_max
+    - ozone
+    - uv_index
+    - visibility
+    - pressure
+    - wind_speed
+    - wind_bearing
+    - humidity
+    - apparent_temperature_min
+    - apparent_temperature_max
+    - precip_intensity_max
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+#- platform: imap
+#  name: mail
+#  server: !secret mail_server
+#  port: 993
+#  username: !secret mail_uname
+#  password: !secret mail_pw
+- platform: mqtt
+  name: sonoff_3028_version
+  state_topic: "stat/sonoff/STATUS2"
+  value_template: "{{ value_json['StatusFWR'].Version }}"
+- platform: mqtt
+  name: sonoff_room_temperature
+  state_topic: "tele/sonoff/SENSOR"
+  value_template: "{{ value_json['AM2301'].Temperature }}"
+  unit_of_measurement: "°C"
+- platform: mqtt
+  name: sonoff_room_humidty
+  state_topic: "tele/sonoff/SENSOR"
+  value_template: "{{ value_json['AM2301'].Humidity }}"
+  unit_of_measurement: "%"
+- platform: mqtt
+  name: sonoff_uptime
+  state_topic: "tele/sonoff/STATE"
+  value_template: "{{ value_json.Uptime }}"
+  unit_of_measurement: "h"
+- platform: mqtt
+  name: sonoff_rssi
+  state_topic: "tele/sonoff/STATE"
+  value_template: "{{ value_json['Wifi'].RSSI }}"
+  unit_of_measurement: "dBm"
+- platform: mqtt
+  name: sonoff_vcc
+  state_topic: "tele/sonoff/STATE"
+  value_template: "{{ value_json.Vcc }}"
+  unit_of_measurement: "V"
+- platform: mqtt
+  name: sonoff_maddox_version
+  state_topic: "sonoff-version"
+  #value_template: "{{ value_json['Wifi'].RSSI }}"
+  #unit_of_measurement: "dBm"
+- platform: cert_expiry
+  name: ssl_certificate_expiry
+  host: !secret host_domain
+- platform: systemmonitor
+  resources:
+    - type: disk_free
+      arg: /
+    - type: disk_use_percent
+      arg: /
+    - type: memory_free
+    - type: memory_use_percent
+    - type: processor_use
+    - type: network_in
+      arg: eth0
+    - type: network_out
+      arg: eth0
+    - type: swap_use_percent
+#- platform: geizhals
+#  name: geizh_huee27
+#  product_id: 1455121
+#  description: "Hue E27"
+#  domain: 'geizhals.at'
+#  regex: '\D\s(\d*)[\,|\.](\d*)'
+#- platform: geizhals
+#  name: geizh_gu10
+#  product_id: 1517040
+#  description: "Hue GU10"
+#  domain: 'geizhals.at'
+#  regex: '\D\s(\d*)[\,|\.](\d*)'
+- platform: command_line
+  name: CPU Temperature
+  command: cat /sys/class/thermal/thermal_zone1/temp
+  unit_of_measurement: '°C'
+  value_template: '{{ (value|int / 1000)|round(1) }}'
+- platform: speedtest
+  name: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+- platform: uptime
+  name: Uptime
+  unit_of_measurement: hours
+- platform: luftdaten
+  sensorid: !secret luftdaten_sensor1
+  name: luftdaten_particle_sensor
+  verify_ssl: true
+  monitored_conditions:
+      - P1
+      - P2
+- platform: luftdaten
+  name: luftdaten_climate_sensor
+  sensorid: !secret luftdaten_sensor2
+  verify_ssl: true
+  monitored_conditions:
+    - temperature
+    - humidity
+- platform: version
+  name: hass_version
+#- platform: bitcoin
+#  currency: USD
+#  display_options:
+#    - exchangerate
+#    - trade_volume_btc
+- platform: template
+  sensors:
+    wakeup_alarm_time:
+      friendly_name: 'Alarm'
+      value_template: '{% if states.input_number.wakeup_hour.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_hour.state | int }}:{% if states.input_number.wakeup_minutes.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_minutes.state | int }}'
+- platform: template
+  sensors:
+    wakeup_start_time_lights:
+      friendly_name: 'Fade-in Startzeit'
+      value_template: >
+        {% if states.sensor.wakeup_alarm_time and states.input_number.wakeup_duration %}
+        {% set alarmtime = states.sensor.wakeup_alarm_time.state %}
+        {% set alarm_hour = alarmtime.split(":")[0] | int %}
+        {% set alarm_min = alarmtime.split(":")[1] | int %}
+        {% set light_dur = states.input_number.wakeup_duration.state | int %}
+        {% set alarm_min_light = alarm_min - light_dur %}
+        {% if alarm_min_light  < 0 %}
+        {% set alarm_min_light = alarm_min_light + 60 %}
+        {% set alarm_hour_light = alarm_hour - 1 %}
+        {% if alarm_hour_light < 0 %}{% set alarm_hour_light = 23 %}{% endif %}
+        {% if alarm_hour_light < 10 %}0{% endif %}{{ alarm_hour_light}}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% else %}
+        {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% endif %}
+        {% endif %}
+- platform: template
+  sensors:
+    wakeup_fadein_duration:
+      friendly_name: 'Fade-in Dauer'
+      value_template: '{{ states.input_number.wakeup_duration.state | int }}'
+      unit_of_measurement: 'min'
+- platform: sql
+  db_url: !secret mysql_db
+  queries:
+    - name: database size
+      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hassdb" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: MB
+#- platform: waqi
+#  name: waqi
+#  token: !secret waqi_token
+#  locations:
+#    - !secret waqi_location

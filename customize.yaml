@@ -1,0 +1,251 @@
+###Media players
+media_player.braviatv_1:
+  friendly_name: !secret tv_tv1_name
+  homebridge_name: Fernseher
+  homebridge_media_player_switch: on_off
+media_player.mopidy:
+  homebridge_name: Lautsprecher
+  homebridge_media_player_switch: on_off
+media_player.braviatv_2:
+  friendly_name: !secret tv_tv2_name
+  homebridge_name: !secret tv_tv2_hbname
+  homebridge_media_player_switch: on_off
+media_player.playstation_4:
+  #homebridge_name: Spielkonsole
+  homebridge_media_player_switch: on_off
+
+###Binary sensors
+binary_sensor.workday_sensor:
+  homebridge_hidden: true
+
+###Google Sensors
+sensor.google_travel_time_dev1_driving:
+  friendly_name: Arbeitsweg - Auto
+  icon: mdi:car
+sensor.google_travel_time_dev1_bicycling:
+  friendly_name: Arbeitsweg - Fahrrad
+  icon: mdi:bike
+sensor.google_travel_time_dev1_transit:
+  friendly_name: Arbeitsweg - Öffis
+  icon: mdi:train
+sensor.google_travel_time_dev1_dynamic_home:
+  friendly_name: Heimweg - dynamisch
+  icon: mdi:google-circles-extended
+sensor.google_travel_time_dev2_driving:
+  friendly_name: Arbeitsweg - Auto
+  icon: mdi:car
+sensor.google_travel_time_dev2_bicycling:
+  friendly_name: Arbeitsweg - Fahrrad
+  icon: mdi:bike
+sensor.google_travel_time_dev2_transit:
+  friendly_name: Arbeitsweg - Öffis
+  icon: mdi:train
+sensor.google_travel_time_dev2_dynamic_home:
+  friendly_name: Heimweg - dynamisch
+  icon: mdi:google-circles-extended
+
+###Sensors
+sensor.mail:
+  homebridge_hidden: true
+sensor.time:
+  homebridge_hidden: true
+sensor.zamg_humidity:
+  friendly_name: Luftfeuchtigkeit
+  icon: mdi:water-percent
+sensor.zamg_temperature:
+  friendly_name: Temperatur
+sensor.zamg_wind_speed:
+  friendly_name: Windgeschwindigkeit
+  icon: mdi:weather-windy
+sensor.zamg_precipitation:
+  friendly_name: Niederschlag
+  icon: mdi:weather-rainy
+sensor.zamg_dewpoint:
+  friendly_name: Taupunkt
+  icon: mdi:image-filter-center-focus-weak
+sensor.uberx_time:
+  friendly_name: uberX - Fahrtzeit
+  icon: mdi:uber
+sensor.uberx_price:
+  friendly_name: uberX - Preis
+  icon: mdi:uber
+sensor.sonoff_room_temperature:
+  friendly_name: Temperatur
+  homebridge_hidden: false
+sensor.sonoff_room_humidty:
+  friendly_name: Luftfeuchtigkeit
+  icon: mdi:water-percent
+  homebridge_hidden: false
+sensor.sonoff_uptime:
+  friendly_name: Betriebszeit
+  icon: mdi:arrow-up-thick
+sensor.sonoff_rssi:
+  friendly_name: Signalstärke
+  icon: mdi:signal-variant
+sensor.sonoff_vcc:
+  friendly_name: Versorgungsspannung
+  icon: mdi:flash
+sensor.ssl_cert_expiry:
+  homebridge_hidden: true
+sensor.memory_use_percent:
+  friendly_name: RAM
+  icon: mdi:memory
+  homebridge_hidden: true
+sensor.disk_free_:
+  friendly_name: HDD
+  homebridge_hidden: true
+sensor.disk_use_percent_:
+  friendly_name: HDD
+  homebridge_hidden: true
+sensor.processor_use:
+  friendly_name: CPU
+  icon: mdi:desktop-classic
+  homebridge_hidden: true
+sensor.cpu_temperature:
+  friendly_name: CPU Temperatur
+  homebridge_hidden: true
+sensor.network_in_eth0:
+  friendly_name: Download
+  icon: mdi:download-network
+  homebridge_hidden: true
+sensor.network_out_eth0:
+  friendly_name: Upload
+  icon: mdi:upload-network
+  homebridge_hidden: true
+sensor.speedtest_download:
+  friendly_name: Download
+  icon: mdi:download
+sensor.speedtest_upload:
+  friendly_name: Upload
+  icon: mdi:upload
+sensor.speedtest_ping:
+  friendly_name: Ping
+  icon: mdi:webpack
+sensor.uptime:
+  friendly_name: HA Betriebszeit
+  icon: mdi:arrow-up-thick
+sensor.database_size:
+  friendly_name: Datenbankgröße
+  icon: mdi:database
+sensor.luftdaten_particle_sensor_pm10:
+  friendly_name: Feinstaub (PM10)
+  icon: mdi:cloud
+sensor.luftdaten_particle_sensor_pm25:
+  friendly_name: Feinstaub (PM2,5)
+  icon: mdi:cloud
+sensor.luftdaten_climate_sensor_temperature:
+  friendly_name: Temperatur
+sensor.luftdaten_climate_sensor_humidity:
+  friendly_name: Luftfeuchtigkeit
+  icon: mdi:water-percent
+sensor.dark_sky_temperature:
+  friendly_name: Temperatur
+sensor.dark_sky_temperature_min:
+  friendly_name: Temperatur - min
+sensor.dark_sky_temperature_max:
+  friendly_name: Temperatur - max
+sensor.dark_sky_precip_type:
+  friendly_name: Niederschlagsart
+sensor.dark_sky_precip_intensity:
+  friendly_name: Niederschlag
+sensor.dark_sky_precip_probability:
+  friendly_name: Niederschlag - %
+sensor.dark_sky_precip_intensity_max:
+  friendly_name: Niederschlag - max
+sensor.dark_sky_humidity:
+  friendly_name: Luftfeuchtigkeit
+sensor.dark_sky_dew_point:
+  friendly_name: Taupunkt
+  icon: mdi:image-filter-center-focus-weak
+sensor.dark_sky_pressure:
+  friendly_name: Luftdruck
+sensor.dark_sky_wind_speed:
+  friendly_name: Windgeschwindigkeit
+sensor.dark_sky_wind_bearing:
+  friendly_name: Windrichtung
+sensor.dark_sky_apparent_temperature:
+  friendly_name: Temperatur gef.
+sensor.dark_sky_apparent_temperature_min:
+  friendly_name: Temperatur - min gef.
+sensor.dark_sky_apparent_temperature_max:
+  friendly_name: Temperatur - max gef.
+sensor.dark_sky_ozone:
+  friendly_name: Ozon
+sensor.dark_sky_uv_index:
+  friendly_name: UV-Index
+sensor.dark_sky_visibility:
+  friendly_name: Sichtweite
+sensor.dark_sky_cloud_cover:
+  friendly_name: Wolkendichte
+sensor.hass_version:
+  friendly_name: HA-Version
+sensor.sonoff_3028_version:
+  friendly_name: Tasmota Version
+#sensor.exchange_rate_1_btc:
+#  friendly_name: Kurs (1 BTC)
+#  homebridge_hidden: true
+
+###Switches
+switch.mopidy:
+  homebridge_hidden: true
+  icon: mdi:music-box
+  custom_ui_state_card: state-card-custom-toggle-url
+  url: !secret moped_url
+switch.wind_machine:
+  icon: mdi:fan
+  friendly_name: Ventilator
+switch.braviatv_1:
+  friendly_name: !secret tv_tv1_name
+switch.braviatv_2:
+  friendly_name: !secret tv_tv2_name
+
+###Input booleans
+input_boolean.fan_living_room:
+  homebridge_hidden: true
+input_boolean.loop_livingcolors:
+  friendly_name: Loop-Effekt
+  icon: mdi:spotlight
+
+###Sonoff Upgrade Scripts
+script.1515151540311:
+  can_cancel: false
+
+###Input number
+#input_number.btc_slider_low:
+#  friendly_name: BTC low
+#  icon: mdi:currency-btc
+#  unit_of_measurement: USD
+#input_number.btc_slider_high:
+#  friendly_name: BTC high
+#  icon: mdi:currency-btc
+#  unit_of_measurement: USD
+
+###Input select
+input_select.log_level:
+  icon: mdi:note-text
+input_select.hue_scenes:
+  friendly_name: hue Szene
+  icon: mdi:spotlight
+
+####Lights
+light.zimmer:
+  friendly_name: Zimmerlicht
+  custom_ui_state_card: state-card-custom-light
+light.buro:
+  friendly_name: Bürolicht
+light.wohnzimmer:
+  friendly_name: Wohnzimmerlicht
+
+###Zones
+zone.work_1:
+  friendly_name: !secret zone1_friendly_name
+zone.work_2:
+  friendly_name: !secret zone2_friendly_name
+#!secret zone00_fullname:
+#  friendly_name: !secret zone00_friendly_name
+#!secret zone01_fullname:
+#  friendly_name: !secret zone01_friendly_name
+!secret zone1_fullname:
+  friendly_name: !secret zone1_friendly_name
+!secret zone2_fullname:
+  friendly_name: !secret zone2_friendly_name

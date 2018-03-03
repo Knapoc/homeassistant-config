@@ -1,0 +1,7 @@
+domains:
+  - media_player
+  - sensor
+  - light
+  - device_tracker
+  - switch
+  - automation

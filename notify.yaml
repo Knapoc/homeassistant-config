@@ -1,0 +1,25 @@
+- name: twitter
+  platform: twitter
+  consumer_key: !secret twitter_ck
+  consumer_secret: !secret twitter_cs
+  access_token: !secret twitter_at
+  access_token_secret: !secret twitter_ats
+- name: html5
+  platform: html5
+  gcm_api_key: !secret gcm_api_key
+  gcm_sender_id: !secret gcm_sender_id
+- name: smtp
+  platform: smtp
+  server: !secret mail_acc_2_smtp
+  port: 587
+  timeout: 15
+  sender: !secret mail_acc_2
+  username: !secret mail_acc_2_user
+  password: !secret mail_acc_2_pw
+  encryption: starttls
+  recipient:
+    - !secret mail_acc_3
+  sender_name: Home Assistant
+- name: file
+  platform: file
+  filename: notifications.log

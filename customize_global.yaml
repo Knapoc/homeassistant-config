@@ -1,0 +1,35 @@
+"sensor.dark_sky_*":
+  homebridge_hidden: true
+"sensor.uberx_*":
+  homebridge_hidden: true
+"sensor.google_travel_time*":
+  homebridge_hidden: true
+"sensor.*_iphone_battery_*":
+  homebridge_hidden: true
+"switch.braviatv_*":
+  homebridge_hidden: true
+  icon: mdi:television
+"sensor.geizh_*":
+  homebridge_hidden: true
+"sensor.zamg_*":
+  homebridge_hidden: true
+"sensor.sonoff_*":
+  homebridge_hidden: true
+"sensor.speedtest_*":
+  homebridge_hidden: true
+"zone.*home":
+  friendly_name: home
+#"input_number*":
+#  state_card_mode: single-line
+"light.hue_*":
+  custom_ui_state_card: state-card-custom-ui
+  state_card_mode: hide-slider
+  slider_theme:
+    return_when_not_changed: false
+"group.sonoff_*":
+  control: hidden
+"sensor.wakeup_*":
+  homebridge_hidden: true
+"script.scene_*":
+  homebridge_hidden: true
+  icon: mdi:spotlight

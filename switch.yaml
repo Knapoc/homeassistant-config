@@ -1,0 +1,23 @@
+- platform: mqtt
+  name: wind machine
+  command_topic: "cmnd/sonoff/power"
+  state_topic: "stat/sonoff/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+- platform: mpdsmall
+  name: Mopidy
+  host: !secret host_ip
+- platform: braviasmall
+  name: braviatv_1
+  host: !secret tv_tv1_ip
+- platform: braviasmall
+  name: braviatv_2
+  host: !secret tv_tv2_ip
+#- platform: wake_on_lan
+#  name: braviatv_2
+#  mac_address: !secret tv_tv2_mac
+#  turn_off:
+#    service: media_player.turn_off
+#      - entity_id: media_player.braviatv_2

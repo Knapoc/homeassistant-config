@@ -1,0 +1,17 @@
+push:
+  categories:
+    - name: Sonoff update
+      identifier: 'sonoffupdate'
+      actions:
+        - identifier: 'DISMISS'
+          title: 'Dismiss'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
+          behavior: 'default'
+        - identifier: 'UPDATE_SONOFF'
+          title: 'Update Sonoff'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'

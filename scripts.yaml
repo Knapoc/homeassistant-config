@@ -1,0 +1,92 @@
+'1515151540311':
+  alias: upgrade
+  sequence:
+  - data:
+      payload: http://sonoff.maddox.co.uk/tasmota/sonoff-minimal.bin
+      topic: cmnd/sonoff/OtaUrl
+    service: mqtt.publish
+  - delay: 00:00:05
+  - data:
+      payload: '1'
+      topic: cmnd/sonoff/Upgrade
+    service: mqtt.publish
+  - delay: 00:03:00
+  - data:
+      payload: http://sonoff.maddox.co.uk/tasmota/sonoff.bin
+      topic: cmnd/sonoff/OtaUrl
+    service: mqtt.publish
+  - delay: 00:00:05
+  - data:
+      payload: '1'
+      topic: cmnd/sonoff/Upgrade
+    service: mqtt.publish
+  - delay: 00:03:00
+  - service: script.2215152489107
+'1515152338107':
+  alias: restart
+  sequence:
+  - data:
+      payload: '1'
+      topic: cmnd/sonoff/Restart
+    service: mqtt.publish
+'1515152489107':
+  alias: Status
+  sequence:
+  - data:
+      payload: '0'
+      topic: cmnd/sonoff/Status
+    service: mqtt.publish
+'1515152636091':
+  alias: reset
+  sequence:
+  - data:
+      payload: '1'
+      topic: cmnd/sonoff/Reset
+    service: mqtt.publish
+'2215152489107':
+  alias: FW-Status
+  sequence:
+  - data:
+      payload: '2'
+      topic: cmnd/sonoff/Status
+    service: mqtt.publish
+wakeup_zimmer:
+  alias: 'Wakeup lighting, smooth transition'
+  sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.zimmer
+        brightness: 1
+        xy_color: [0.5017, 0.4152]
+        color_temp: 443
+    - delay:
+        seconds: 1
+    - service: light.turn_on
+      data_template:
+        entity_id: light.zimmer
+        brightness: 146
+        transition: '{{ states.input_number.wakeup_duration.state | multiply(60) | int }}'
+scene_bright:
+  alias: 'Bright'
+  sequence:
+    - alias: 'scene_bright'
+      service: hue.hue_activate_scene
+      data_template:
+        group_name: "Zimmer"
+        scene_name: "Bright"
+scene_tropical_twilight:
+  alias: 'Tropical twilight'
+  sequence:
+    - alias: 'scene_tropical_twilight'
+      service: hue.hue_activate_scene
+      data_template:
+        group_name: "Zimmer"
+        scene_name: "Tropical twilight"
+scene_nightlight:
+  alias: 'Nightlight'
+  sequence:
+    - alias: 'scene_nightlight'
+      service: hue.hue_activate_scene
+      data_template:
+        group_name: "Zimmer"
+        scene_name: "Nightlight"

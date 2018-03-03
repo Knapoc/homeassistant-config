@@ -1,0 +1,14 @@
+- platform: mpd
+  name: Mopidy
+  host: !secret host_ip
+- platform: braviatv
+  name: braviatv_1
+  host: !secret tv_tv1_ip
+- platform: braviatv
+  name: braviatv_2
+  host: !secret tv_tv2_ip
+#- platform: cast
+- platform: ps4
+  host: !secret ps4waker_host
+  ps4_ip: !secret ps4_ip
+  imagemap_json: https://raw.githubusercontent.com/Knapoc/homeassistant-config/master/games.json

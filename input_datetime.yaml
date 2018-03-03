@@ -1,0 +1,5 @@
+time_turnoff_devices:
+  name: Turn-off time devices
+  has_date: false
+  has_time: true
+  initial: '01:00'

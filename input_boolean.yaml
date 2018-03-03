@@ -1,0 +1,14 @@
+fan_living_room:
+  name: fan_living_room
+  initial: off
+loop_livingcolors:
+  name: Loop LivingColors
+  initial: off
+wakeup:
+  name: 'Aufwachbeleuchtung'
+  icon: mdi:power
+  initial: on
+wakeup_weekends:
+  name: 'Wochenenden'
+  icon: mdi:power
+  initial: off

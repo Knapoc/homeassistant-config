@@ -1,0 +1,32 @@
+log_level:
+  name: Log Level
+  options:
+    - none
+    - critical
+    - fatal
+    - error
+    - warning
+    - warn
+    - info
+    - debug
+    - notset
+  initial: none
+hue_scenes:
+  name: hue scene
+  initial: none
+  options:
+    - none
+    - Savanna sunset
+    - Tropical twilight
+    - Arctic aurora
+    - Spring blossom
+    - Relax
+    - Read
+    - Concentrate
+    - Energize
+    - Bright
+    - Dimmed
+    - Nightlight
+    - Mountain Dawn
+    - KTBFFH
+    - RLD

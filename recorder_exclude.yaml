@@ -1,0 +1,8 @@
+entities:
+  - sensor.time
+  - sensor.date
+  #- sensor.ssl_cert_expiry
+  #- sensor.dark_sky_summary
+  #- sensor.wakeup_start_time_lights
+  #- sensor.wakeup_alarm_time
+  #- sensor.wakeup_fadein_duration
