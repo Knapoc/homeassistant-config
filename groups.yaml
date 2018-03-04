@@ -39,9 +39,10 @@ weater_view:
   view: yes
   icon: mdi:weather-partlycloudy
   entities:
+    - group.weather_card_today
+    - group.weather_card_forecast
     - group.zamg_weather
     - group.luftdaten_weather
-    - group.darksky_weather
 
 automation_view:
   view: yes
@@ -247,29 +248,6 @@ luftdaten_weather:
 #    - input_number.btc_slider_high
 #  name: Bitcoins
 
-darksky_weather:
-  name: Dark Sky - Wetter
-  entities:
-    - sensor.dark_sky_temperature
-    - sensor.dark_sky_temperature_min
-    - sensor.dark_sky_temperature_max
-    - sensor.dark_sky_precip_type
-    - sensor.dark_sky_precip_intensity
-    - sensor.dark_sky_precip_probability
-    - sensor.dark_sky_precip_intensity_max
-    - sensor.dark_sky_humidity
-    - sensor.dark_sky_dew_point
-    - sensor.dark_sky_pressure
-    - sensor.dark_sky_wind_speed
-    - sensor.dark_sky_wind_bearing
-    - sensor.dark_sky_apparent_temperature
-    - sensor.dark_sky_apparent_temperature_min
-    - sensor.dark_sky_apparent_temperature_max
-    - sensor.dark_sky_ozone
-    - sensor.dark_sky_uv_index
-    - sensor.dark_sky_visibility
-    - sensor.dark_sky_cloud_cover
-
 ###Lights
 wakeuplight:
   name: Aufwachbeleuchtung
@@ -303,3 +281,27 @@ light_automations:
     - automation.hue_scene_activation
     - automation.random_light
     - automation.wakeup_light_bedroom
+
+weather_card_today:
+  name: Heute
+  view: no
+  entities:
+    - sensor.forecast_today
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_wind_speed
+    - sensor.dark_sky_uv_index
+    - sensor.dark_sky_dew_point
+weather_card_forecast:
+  name: Vorhersage
+  view: no
+  entities:
+    - sensor.forecast_1
+    - sensor.forecast_2
+    - sensor.forecast_3
+    - sensor.forecast_4
+    - sensor.forecast_5
+    - sensor.forecast_6
+    - sensor.forecast_7

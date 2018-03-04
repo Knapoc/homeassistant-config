@@ -41,6 +41,7 @@ config:
 
 http:
   api_password: !secret http_password
+  use_x_forwarded_for: true
   #base_url: !secret hass_baseurl
   #ssl_certificate: !secret hass_sslcert
   #ssl_key: !secret hass_sslkey
@@ -80,6 +81,8 @@ logbook:
 
 logger:
   default: error
+  logs:
+    homeassistant.components.http.ban: warning
 
 # Track the sun
 sun:
