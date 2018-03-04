@@ -88,3 +88,4 @@ notifications.log
 #games.json
 ps4-games.json
 entity_registry.yaml
+.zamg-stations.json.gz
