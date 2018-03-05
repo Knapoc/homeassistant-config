@@ -90,3 +90,11 @@ scene_nightlight:
       data_template:
         group_name: "Zimmer"
         scene_name: "Nightlight"
+#google_tts_test:
+#  alias: 'Google TTS test'
+#  sequence:
+#    - alias: 'tts'
+#      service: tts.google_say
+#      entity_id: media_player.mpd
+#      data:
+#        message: 'Hallo Stinker'

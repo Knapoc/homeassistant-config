@@ -42,7 +42,7 @@ config:
 http:
   api_password: !secret http_password
   use_x_forwarded_for: true
-  #base_url: !secret hass_baseurl
+  base_url: !secret hass_baseurl
   #ssl_certificate: !secret hass_sslcert
   #ssl_key: !secret hass_sslkey
   #ip_ban_enabled: true
@@ -88,8 +88,9 @@ logger:
 sun:
 
 # Text to speech
-tts:
-  platform: google
+#tts:
+#  - platform: google
+#    language: 'de'
 
 map:
 
