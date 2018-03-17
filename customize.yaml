@@ -6,10 +6,10 @@ media_player.braviatv_1:
 media_player.mopidy:
   homebridge_name: Lautsprecher
   homebridge_media_player_switch: on_off
-media_player.braviatv_2:
-  friendly_name: !secret tv_tv2_name
-  homebridge_name: !secret tv_tv2_hbname
-  homebridge_media_player_switch: on_off
+#media_player.braviatv_2:
+#  friendly_name: !secret tv_tv2_name
+#  homebridge_name: !secret tv_tv2_hbname
+#  homebridge_media_player_switch: on_off
 media_player.playstation_4:
   #homebridge_name: Spielkonsole
   homebridge_media_player_switch: on_off
@@ -49,20 +49,6 @@ sensor.mail:
   homebridge_hidden: true
 sensor.time:
   homebridge_hidden: true
-sensor.zamg_humidity:
-  friendly_name: Luftfeuchtigkeit
-  icon: mdi:water-percent
-sensor.zamg_temperature:
-  friendly_name: Temperatur
-sensor.zamg_wind_speed:
-  friendly_name: Windgeschwindigkeit
-  icon: mdi:weather-windy
-sensor.zamg_precipitation:
-  friendly_name: Niederschlag
-  icon: mdi:weather-rainy
-sensor.zamg_dewpoint:
-  friendly_name: Taupunkt
-  icon: mdi:image-filter-center-focus-weak
 sensor.uberx_time:
   friendly_name: uberX - Fahrtzeit
   icon: mdi:uber
@@ -124,63 +110,26 @@ sensor.speedtest_ping:
 sensor.uptime:
   friendly_name: HA Betriebszeit
   icon: mdi:arrow-up-thick
-sensor.database_size:
-  friendly_name: Datenbankgröße
+sensor.database_size_hass:
+  friendly_name: Datenbankgröße HA
   icon: mdi:database
-sensor.luftdaten_particle_sensor_pm10:
-  friendly_name: Feinstaub (PM10)
-  icon: mdi:cloud
-sensor.luftdaten_particle_sensor_pm25:
-  friendly_name: Feinstaub (PM2,5)
-  icon: mdi:cloud
-sensor.luftdaten_climate_sensor_temperature:
-  friendly_name: Temperatur
-sensor.luftdaten_climate_sensor_humidity:
-  friendly_name: Luftfeuchtigkeit
-  icon: mdi:water-percent
-sensor.dark_sky_temperature:
-  friendly_name: Temperatur
-sensor.dark_sky_temperature_min:
-  friendly_name: Temperatur - min
-sensor.dark_sky_temperature_max:
-  friendly_name: Temperatur - max
-sensor.dark_sky_precip_type:
-  friendly_name: Niederschlagsart
-sensor.dark_sky_precip_intensity:
-  friendly_name: Niederschlag
-sensor.dark_sky_precip_probability:
-  friendly_name: Niederschlag - %
-sensor.dark_sky_precip_intensity_max:
-  friendly_name: Niederschlag - max
-sensor.dark_sky_humidity:
-  friendly_name: Luftfeuchtigkeit
-sensor.dark_sky_dew_point:
-  friendly_name: Taupunkt
-  icon: mdi:image-filter-center-focus-weak
-sensor.dark_sky_pressure:
-  friendly_name: Luftdruck
-sensor.dark_sky_wind_speed:
-  friendly_name: Windgeschwindigkeit
-sensor.dark_sky_wind_bearing:
-  friendly_name: Windrichtung
-sensor.dark_sky_apparent_temperature:
-  friendly_name: Temperatur gef.
-sensor.dark_sky_apparent_temperature_min:
-  friendly_name: Temperatur - min gef.
-sensor.dark_sky_apparent_temperature_max:
-  friendly_name: Temperatur - max gef.
-sensor.dark_sky_ozone:
-  friendly_name: Ozon
-sensor.dark_sky_uv_index:
-  friendly_name: UV-Index
-sensor.dark_sky_visibility:
-  friendly_name: Sichtweite
-sensor.dark_sky_cloud_cover:
-  friendly_name: Wolkendichte
+sensor.database_size_nc:
+  friendly_name: Datenbankgröße NC
+  icon: mdi:database
+
 sensor.hass_version:
   friendly_name: HA-Version
 sensor.sonoff_3028_version:
   friendly_name: Tasmota Version
+sensor.fail2ban_nextcloud:
+  friendly_name: nextcloud
+  icon: mdi:shield
+sensor.fail2ban_homeassistant:
+  friendly_name: homeassistant
+  icon: mdi:shield
+sensor.fail2ban_sshd:
+  friendly_name: sshd
+  icon: mdi:shield
 #sensor.exchange_rate_1_btc:
 #  friendly_name: Kurs (1 BTC)
 #  homebridge_hidden: true
@@ -196,8 +145,8 @@ switch.wind_machine:
   friendly_name: Ventilator
 switch.braviatv_1:
   friendly_name: !secret tv_tv1_name
-switch.braviatv_2:
-  friendly_name: !secret tv_tv2_name
+#switch.braviatv_2:
+#  friendly_name: !secret tv_tv2_name
 
 ###Input booleans
 input_boolean.fan_living_room:

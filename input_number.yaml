@@ -10,24 +10,3 @@
 #  max: 20000
 #  step: 1
 #  mode: box
-wakeup_hour:
-  name: Stunde
-  icon: mdi:clock-in
-  initial: 6
-  min: 0
-  max: 23
-  step: 1
-wakeup_minutes:
-  name: Minuten
-  icon: mdi:clock-in
-  initial: 20
-  min: 0
-  max: 55
-  step: 5
-wakeup_duration:
-  name: Fade-in
-  icon: mdi:clock-in
-  initial: 10
-  min: 5
-  max: 60
-  step: 5

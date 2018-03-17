@@ -1,32 +1,20 @@
-- alias: Startup Theme
-  id: '1500581870914'
+- alias: Automatic Theme Change
+  id: '84938322222'
   trigger:
-    event: start
-    platform: homeassistant
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sun.sun
   action:
-    service: frontend.set_theme
-    data:
-      name: basics
-- alias: Day Theme
-  id: '1500777770914'
-  trigger:
-    platform: sun
-    event: sunrise
-    offset: -00:05:00
-  action:
-    service: frontend.set_theme
-    data:
-      name: basics
-- alias: Night Theme
-  id: '1506666870914'
-  trigger:
-    platform: sun
-    event: sunset
-    offset: -00:05:00
-  action:
-    service: frontend.set_theme
-    data:
-      name: darkblue
+    - service_template: frontend.set_theme
+      data_template:
+        name: >
+          {% if states.sun.sun.state == "above_horizon" %}
+            basics
+          {% else %}
+            darkblue
+          {% endif %}
+
 - alias: SSL expiry notification
   id: '1500779870955'
   trigger:
@@ -38,6 +26,7 @@
     data_template:
       message: Warning - SSL certificate expires in {{ states.sensor.ssl_certificate_expiry.state
         }} days and has not been automatically renewed.
+
 - alias: Update notifications
   id: '49494'
   trigger:
@@ -47,6 +36,7 @@
     service: !secret notify_ios
     data_template:
       message: Home Assistant {{ states.updater.updater.state }} is now available.
+
 - alias: Disk Use Alarm
   id: '7592974'
   trigger:
@@ -58,6 +48,7 @@
     data_template:
       message: Your harddrive is running out of Space! /dev/root:{{ states.sensor.disk_use_.state
         }}%!
+
 - alias: Lights and TV off
   id: '756390032'
   trigger:
@@ -74,6 +65,7 @@
       entity_id:
       - switch.braviatv_1
       - light.zimmer
+
 - alias: Sonoff-Tasmota update availability
   id: '111999111'
   trigger:
@@ -92,6 +84,7 @@
       data:
         push:
           category: sonoffupdate
+
 - alias: Update Sonoff-Tasmota
   id: '999111999'
   trigger:
@@ -101,21 +94,27 @@
       actionName: UPDATE_SONOFF
   action:
   - service: script.1515151540311
-- alias: get sonoff 3028 version on startup
+
+- alias: get sonoff 3028 version
   id: '1500581870914'
   trigger:
-    event: start
-    platform: homeassistant
+    - platform: homeassistant
+      event: start
+    - platform: time
+      at: 09:00:00
   action:
   - service: script.2215152489107
-- alias: get sonoff 3028 version
-  id: '9900581990914'
+
+- alias: left home device1
+  id: '1515583360531'
   trigger:
-    at: 09:00:00
-    platform: time
+  - entity_id: !secret device1
+    for:
+      minutes: 5
+    from: home
+    platform: state
+    to: not_home
   action:
-  - service: script.2215152489107
-- action:
   - data:
       entity_id: light.zimmer
     service: light.turn_off
@@ -131,28 +130,21 @@
   - data:
       entity_id: light.buro
     service: light.turn_off
-  alias: left home device1
-  id: '1515583360531'
-  trigger:
-  - entity_id: !secret device1
-    for:
-      minutes: 5
-    from: home
-    platform: state
-    to: not_home
-- action:
-  - data:
-      entity_id: media_player.braviatv_2
-    service: media_player.turn_off
-  alias: left home device2
-  id: '9915583360531'
-  trigger:
-  - entity_id: !secret device2
-    for:
-      minutes: 5
-    from: home
-    platform: state
-    to: not_home
+
+#- action:
+#  - data:
+#      entity_id: media_player.braviatv_2
+#    service: media_player.turn_off
+#  alias: left home device2
+#  id: '9915583360531'
+#  trigger:
+#  - entity_id: !secret device2
+#    for:
+#      minutes: 5
+#    from: home
+#    platform: state
+#    to: not_home
+
 - alias: Log Level
   id: '1500589870955'
   trigger:
@@ -165,6 +157,7 @@
     service: logger.set_level
     data_template:
       homeassistant.components: '{{ trigger.to_state.state }}'
+
 - alias: WakeUp Light Bedroom
   id: '1500581870955'
   trigger:
@@ -190,6 +183,7 @@
         state: 'on'
   action:
     service: script.wakeup_zimmer
+
 - alias: Hue Scene Activation
   id: '1500589870955'
   trigger:
@@ -203,6 +197,7 @@
     data_template:
       group_name: Zimmer
       scene_name: '{{ trigger.to_state.state }}'
+
 - alias: Random light
   id: '33223'
   trigger:
@@ -220,12 +215,13 @@
       effect: random
       transition: 5
       brightness: 255
-- action:
-  - data:
-      group_name: Zimmer
-      scene_name: Arctic aurora
-    service: hue.hue_activate_scene
-  alias: Gaming PS4
+
+- alias: Gaming PS4
+  id: '1519076898412'
+  trigger:
+  - entity_id: media_player.playstation_4
+    platform: state
+    to: playing
   condition:
   - after: '19:00:00'
     condition: time
@@ -235,17 +231,18 @@
   - condition: state
     entity_id: !secret device1
     state: home
-  id: '1519076898412'
-  trigger:
-  - entity_id: media_player.playstation_4
-    platform: state
-    to: playing
-- action:
+  action:
   - data:
       group_name: Zimmer
-      scene_name: Nightlight
+      scene_name: Arctic aurora
     service: hue.hue_activate_scene
-  alias: Stop playing PS4
+
+- alias: Stop playing PS4
+  id: '1519077187087'
+  trigger:
+  - entity_id: media_player.playstation_4
+    from: playing
+    platform: state
   condition:
   - condition: state
     entity_id: sun.sun
@@ -255,17 +252,17 @@
   - condition: state
     entity_id: !secret device1
     state: home
-  id: '1519077187087'
-  trigger:
-  - entity_id: media_player.playstation_4
-    from: playing
-    platform: state
-- action:
+  action:
   - data:
       group_name: Zimmer
       scene_name: Nightlight
     service: hue.hue_activate_scene
-  alias: Ready for bed
+
+- alias: Ready for bed
+  id: '1519077406569'
+  trigger:
+  - at: '21:30:00'
+    platform: time
   condition:
   - condition: state
     entity_id: sun.sun
@@ -276,7 +273,18 @@
   - condition: state
     entity_id: binary_sensor.workday_sensor
     state: 'on'
-  id: '1519077406569'
+  action:
+  - data:
+      group_name: Zimmer
+      scene_name: Nightlight
+    service: hue.hue_activate_scene
+
+- alias: SC Tiles update info
   trigger:
-  - at: '21:30:00'
-    platform: time
+    platform: state
+    entity_id: sensor.sc_tiles_latest_version
+  action:
+    service: persistent_notification.create
+    data:
+      title: Update available
+      message: A new version for [Tiles custom state card](https://github.com/c727/home-assistant-tiles#changelog) is available.

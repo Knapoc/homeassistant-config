@@ -6,6 +6,7 @@ https://home-assistant.io/components/media_player.braviatv/
 """
 import logging
 import re
+import requests
 
 import voluptuous as vol
 
@@ -19,8 +20,8 @@ import homeassistant.helpers.config_validation as cv
 from homeassistant.util.json import load_json, save_json
 
 REQUIREMENTS = [
-    'https://github.com/aparraga/braviarc/archive/master.zip'
-    '#braviarc==master']
+    'https://github.com/aparraga/braviarc/archive/0.3.7.zip', 'requests'
+    '#braviarc==0.3.7']
 
 BRAVIA_CONFIG_FILE = 'bravia.conf'
 
@@ -29,6 +30,10 @@ CLIENTID_PREFIX = 'HomeAssistant'
 DEFAULT_NAME = 'Sony Bravia TV'
 
 NICKNAME = 'Home Assistant'
+
+CONF_WOLREST = 'wolrest'
+
+DEFAULT_RESTHOST = ''
 
 # Map ip to request id for configuring
 _CONFIGURING = {}
@@ -43,6 +48,8 @@ SUPPORT_BRAVIA = SUPPORT_PAUSE | SUPPORT_VOLUME_STEP | \
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_HOST): cv.string,
+    vol.Optional(CONF_WOLREST, default=False): cv.boolean,
+    vol.Optional(CONF_RESTHOST, default=DEFAULT_RESTHOST): cv.string,
     vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
 })
 
@@ -64,6 +71,7 @@ def _get_mac_address(ip_address):
 def setup_platform(hass, config, add_devices, discovery_info=None):
     """Set up the Sony Bravia TV platform."""
     host = config.get(CONF_HOST)
+    wolrest = config.get(CONF_ANDROID)
 
     if host is None:
         return
@@ -86,7 +94,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 def setup_bravia(config, pin, hass, add_devices):
     """Set up a Sony Bravia TV based on host parameter."""
     host = config.get(CONF_HOST)
-    name = config.get(CONF_NAME)
+    name = config.get(CONF_WOLREST)
 
     if pin is None:
         request_configuration(config, hass, add_devices)
@@ -152,6 +160,8 @@ class BraviaTVDevice(MediaPlayerDevice):
         """Initialize the Sony Bravia device."""
         from braviarc import braviarc
 
+        self._wolrest = wolrest
+        self._
         self._pin = pin
         self._braviarc = braviarc.BraviaRC(host, mac)
         self._name = name
@@ -309,6 +319,8 @@ class BraviaTVDevice(MediaPlayerDevice):
 
     def turn_on(self):
         """Turn the media player on."""
+        if self._wolrest:
+
         self._braviarc.turn_on()
 
     def turn_off(self):

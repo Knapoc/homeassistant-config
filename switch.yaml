@@ -12,12 +12,13 @@
 - platform: braviasmall
   name: braviatv_1
   host: !secret tv_tv1_ip
-- platform: braviasmall
-  name: braviatv_2
-  host: !secret tv_tv2_ip
+#- platform: braviasmall
+#  name: braviatv_2
+#  host: !secret tv_tv2_ip
 #- platform: wake_on_lan
 #  name: braviatv_2
 #  mac_address: !secret tv_tv2_mac
+#  host: !secret tv_tv2_ip
 #  turn_off:
 #    service: media_player.turn_off
 #      - entity_id: media_player.braviatv_2

@@ -23,3 +23,7 @@
 - name: file
   platform: file
   filename: notifications.log
+#- name: Uschi
+#  platform: group
+#  services:
+#    - service: !secret ios_dev_1

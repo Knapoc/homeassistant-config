@@ -51,14 +51,14 @@
       topic: cmnd/sonoff/Status
     service: mqtt.publish
 wakeup_zimmer:
-  alias: 'Wakeup lighting, smooth transition'
+  alias: 'Wakeup routine: lights and weather'
   sequence:
     - service: light.turn_on
       data_template:
         entity_id: light.zimmer
         brightness: 1
-        xy_color: [0.5017, 0.4152]
-        color_temp: 443
+        xy_color: [0.5609, 0.4042]
+#        color_temp: 443
     - delay:
         seconds: 1
     - service: light.turn_on
@@ -66,6 +66,9 @@ wakeup_zimmer:
         entity_id: light.zimmer
         brightness: 146
         transition: '{{ states.input_number.wakeup_duration.state | multiply(60) | int }}'
+    - delay:
+        minutes: 2
+    - service: script.weather_presentation
 scene_bright:
   alias: 'Bright'
   sequence:
@@ -90,11 +93,58 @@ scene_nightlight:
       data_template:
         group_name: "Zimmer"
         scene_name: "Nightlight"
-#google_tts_test:
-#  alias: 'Google TTS test'
-#  sequence:
-#    - alias: 'tts'
-#      service: tts.google_say
-#      entity_id: media_player.mpd
-#      data:
-#        message: 'Hallo Stinker'
+weather_presentation:
+  alias: weather 1
+  sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.mopidy
+        volume_level: 0.75
+    - delay:
+        seconds: 3
+    - service: tts.google_say
+      entity_id: media_player.mopidy
+      data_template:
+        cache: false
+        message: >
+          {% if is_state("sensor.dark_sky_icon", "clear-day") %}
+          Es sind keine Wolken am Himmel zu sehen. Rechne mit Sonnenschein.
+          {% elif is_state("sensor.dark_sky_icon", "clear-night") %}
+          Es sind keine Wolken am Himmel zu sehen. Rechne mit einer klaren Nacht.
+          {% elif is_state("sensor.dark_sky_icon", "cloudy") %}
+          Das Wetter wird heute bewölkt sein.
+          {% elif is_state("sensor.dark_sky_icon", "rain") %}
+          Ein regnerischer Tag steht bevor.
+          {% elif is_state("sensor.dark_sky_icon", "sleet") %}
+          Es ist Schneeregen zu erwarten.
+          {% elif is_state("sensor.dark_sky_icon", "snow") %}
+          Heute ist mir Neuschnee zu rechnen.
+          {% elif is_state("sensor.dark_sky_icon", "wind") %}
+          Heute ist ein stürmischer Tag.
+          {% elif is_state("sensor.dark_sky_icon", "fog") %}
+          Aktuell ist es nebelig.
+          {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-day") %}
+          Das Wetter ist teilweise bewölkt.
+          {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-night") %}
+          Das Wetter ist teilweise bewölkt.
+          {% else %}
+          error
+          {% endif %}
+          Die aktuelle Temperatur beträgt {{states('sensor.dark_sky_temperature') | round(0)}} Grad. Der Tageshöchstwert liegt bei {{states('sensor.dark_sky_daily_high_temperature') | round(0)}} Grad. Die Niederschlagswahrscheinlichkeit liegt bei {{states('sensor.dark_sky_precip_probability') | round(0)}} Prozent, die Luftfeuchtigkeit bei {{states('sensor.dark_sky_humidity') | round(0)}} Prozent.
+          {% if states('sensor.dark_sky_wind_speed') | float > 5 %}
+          Die aktuelle Windgeschwindigkeit beträgt {{states('sensor.dark_sky_wind_speed') | round(0)}} Meter pro Sekunde.
+          {% endif %}
+          {% if states('sensor.dark_sky_daily_max_precip_intensity') | float > 1 %}
+          Die erwartete Niederschlagsmenge liegt bei {{states('sensor.dark_sky_daily_max_precip_intensity') | round(0)}} Milimeter im Mittel.
+          {% endif %}
+    - delay:
+        minutes: 1
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.mopidy
+        volume_level: 0.4
+#          {% if states('sensor.aarhus_daily_max_precip_intensity') | float > 1 %}
+#          Highest expected rain intensity for today is {{states('sensor.aarhus_daily_max_precip_intensity') | round(0)}} millimeters per hour.
+#          {% else %}
+#          No rain expected today.
+#          {% endif %}

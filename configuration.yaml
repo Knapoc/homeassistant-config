@@ -13,7 +13,7 @@ homeassistant:
   customize: !include customize.yaml
   customize_domain: !include customize_domain.yaml
   customize_glob: !include customize_global.yaml
-  #packages: !include_dir_named packages
+  packages: !include_dir_named packages
 
 # Show links to resources in log and frontend
 # introduction:
@@ -28,6 +28,7 @@ frontend:
   extra_html_url_es5:
     - /local/custom_ui/state-card-custom-light.html
     - /local/custom_ui/state-card-custom-toggle-url.html
+    - /local/custom_ui/state-card-tiles_es5.html
 
 panel_custom:
   - name: floorplan
@@ -88,9 +89,9 @@ logger:
 sun:
 
 # Text to speech
-#tts:
-#  - platform: google
-#    language: 'de'
+tts:
+  - platform: google
+    language: 'de'
 
 map:
 
@@ -111,6 +112,15 @@ mqtt:
     topic: 'hass/status'
     payload: 'offline'
 
+#calendar:
+#  - platform: caldav
+#    url: !secret caldav_url
+#    username: !secret caldav_user
+#    password: !secret caldav_pw
+#    calendars:
+#      - !secret caldav_cal
+
+
 hue:
   bridges:
     - host: !secret hue_ip
@@ -127,7 +137,7 @@ binary_sensor: !include binary_sensor.yaml
 device_tracker: !include device_tracker.yaml
 input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
-input_number: !include input_number.yaml
+#input_number: !include input_number.yaml
 input_select: !include input_select.yaml
 #intent_script: !include intent_script.yaml
 ios: !include ios.yaml

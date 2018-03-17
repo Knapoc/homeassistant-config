@@ -4,7 +4,7 @@ default_view:
   entities:
     - group.device_tracker
     - group.devices_dev_bed_room
-    - group.devices_dev_living_room
+#    - group.devices_dev_living_room
     - group.devices_dev_buero
     - group.room_climate
     - group.weather
@@ -21,11 +21,11 @@ bed_room:
     - group.wakeuplight
     - group.bed_room_other
 
-living_room:
-  name: Wohnzimmer
-  view: yes
-  entities:
-    - group.devices_living_room
+#living_room:
+#  name: Wohnzimmer
+#  view: yes
+#  entities:
+#    - group.devices_living_room
 
 office:
   name: Büro
@@ -60,6 +60,7 @@ settings_view:
   entities:
     - group.server_info
     - group.isp_performance
+    - group.fail2ban_jails
     - input_select.log_level
     - group.links
     - group.sonoff_3028
@@ -73,9 +74,9 @@ devices_bed_room:
     - media_player.playstation_4
     - media_player.kdl43w756c
 
-devices_living_room:
-  entities:
-    - media_player.braviatv_2
+#devices_living_room:
+#  entities:
+#    - media_player.braviatv_2
 
 office_lights:
   name: Bürobeleuchtung
@@ -89,10 +90,10 @@ devices_dev_bed_room:
     - switch.mopidy
     - light.zimmer
 
-devices_dev_living_room:
-  name: Wohnzimmer
-  entities:
-    - switch.braviatv_2
+#devices_dev_living_room:
+#  name: Wohnzimmer
+#  entities:
+#    - switch.braviatv_2
 
 devices_dev_buero:
   name: Büro
@@ -151,7 +152,8 @@ server_info:
     - sensor.memory_use_percent
     - sensor.disk_use_percent_
     - sensor.disk_free_
-    - sensor.database_size
+    - sensor.database_size_hass
+    - sensor.database_size_nc
     - sensor.cpu_temperature
     - sensor.network_in_eth0
     - sensor.network_out_eth0
@@ -223,23 +225,6 @@ bed_room_other:
   entities:
     - input_datetime.time_turnoff_devices
 
-zamg_weather:
-  name: ZAMG - Wetter
-  entities:
-    - sensor.zamg_temperature
-    - sensor.zamg_humidity
-    - sensor.zamg_wind_speed
-    - sensor.zamg_precipitation
-    - sensor.zamg_dewpoint
-
-luftdaten_weather:
-  name: Luftdaten - Wetter
-  entities:
-    - sensor.luftdaten_climate_sensor_temperature
-    - sensor.luftdaten_climate_sensor_humidity
-    - sensor.luftdaten_particle_sensor_pm10
-    - sensor.luftdaten_particle_sensor_pm25
-
 #BTC:
 #  entities:
 #    - sensor.exchange_rate_1_btc
@@ -249,18 +234,7 @@ luftdaten_weather:
 #  name: Bitcoins
 
 ###Lights
-wakeuplight:
-  name: Aufwachbeleuchtung
-  control: hidden
-  entities:
-    - sensor.wakeup_alarm_time
-    - sensor.wakeup_start_time_lights
-    - sensor.wakeup_fadein_duration
-    - input_number.wakeup_hour
-    - input_number.wakeup_minutes
-    - input_number.wakeup_duration
-    - input_boolean.wakeup
-    - input_boolean.wakeup_weekends
+
 bedroom_lights:
   name: Beleuchtung
   control: hidden
@@ -282,26 +256,9 @@ light_automations:
     - automation.random_light
     - automation.wakeup_light_bedroom
 
-weather_card_today:
-  name: Heute
-  view: no
+fail2ban_jails:
+  name: fail2ban
   entities:
-    - sensor.forecast_today
-    - sensor.dark_sky_temperature
-    - sensor.dark_sky_humidity
-    - sensor.dark_sky_precip_probability
-    - sensor.dark_sky_precip_intensity
-    - sensor.dark_sky_wind_speed
-    - sensor.dark_sky_uv_index
-    - sensor.dark_sky_dew_point
-weather_card_forecast:
-  name: Vorhersage
-  view: no
-  entities:
-    - sensor.forecast_1
-    - sensor.forecast_2
-    - sensor.forecast_3
-    - sensor.forecast_4
-    - sensor.forecast_5
-    - sensor.forecast_6
-    - sensor.forecast_7
+    - sensor.fail2ban_homeassistant
+    - sensor.fail2ban_nextcloud
+    - sensor.fail2ban_sshd

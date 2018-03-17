@@ -5,10 +5,13 @@
 - platform: braviatv
   name: braviatv_1
   host: !secret tv_tv1_ip
-- platform: braviatv
-  name: braviatv_2
-  host: !secret tv_tv2_ip
-#- platform: cast
+#- platform: braviatv_psk
+#  name: braviatv_2
+#  host: !secret tv_tv2_ip
+#  psk: !secret tv_tv2_psk
+#  mac: !secret tv_tv2_mac
+#  amp: false
+#  android: false
 - platform: ps4
   host: !secret ps4waker_host
   ps4_ip: !secret ps4_ip

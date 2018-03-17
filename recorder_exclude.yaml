@@ -1,6 +1,7 @@
 entities:
   - sensor.time
   - sensor.date
+  - automation.automatic_theme_change
   #- sensor.ssl_cert_expiry
   #- sensor.dark_sky_summary
   #- sensor.wakeup_start_time_lights
