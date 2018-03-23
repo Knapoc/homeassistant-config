@@ -1,5 +1,9 @@
+#- platform: mpd
+#  name: Mopidy
+#  host: !secret mopidy_ip
+#  port: !secret mopidy_port
 - platform: mpd
-  name: Mopidy
+  name: mpd
   host: !secret mpd_ip
   port: !secret mpd_port
 - platform: braviatv

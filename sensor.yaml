@@ -205,9 +205,9 @@
     - nextcloud
     - sshd
 
-- platform: rest
-  name: SC Tiles latest version
-  resource: https://raw.githubusercontent.com/c727/home-assistant-tiles/master/LATEST_VERSION
+#- platform: rest
+#  name: SC Tiles latest version
+#  resource: https://raw.githubusercontent.com/c727/home-assistant-tiles/master/LATEST_VERSION
 #- platform: waqi
 #  name: waqi
 #  token: !secret waqi_token

@@ -1,14 +1,16 @@
 <script>
-const CUI_NAME = 'Tiles custom state card';
-const CUI_URL = 'https://github.com/c727/home-assistant-tiles';
-const CUI_VERSION = '20180314.1';
+{
+  const _NAME = 'Tiles custom state card';
+  const _URL = 'https://github.com/c727/home-assistant-tiles';
+  const _VERSION = '20180319';
 
-if (!window.CUSTOM_UI_LIST) window.CUSTOM_UI_LIST = [];
-window.CUSTOM_UI_LIST.push({
-  name: CUI_NAME,
-  version: CUI_VERSION,
-  url: CUI_URL
-});
+  if (!window.CUSTOM_UI_LIST) window.CUSTOM_UI_LIST = [];
+  window.CUSTOM_UI_LIST.push({
+    name: _NAME,
+    url: _URL,
+    version: _VERSION
+  });
+}
 </script>
 
 <dom-module id='state-card-tiles'>
@@ -26,6 +28,9 @@ window.CUSTOM_UI_LIST.push({
         --tiles-text-color-on: var(--tiles-text-color);
         --tiles-text-color-off: var(--tiles-text-color);
         --tiles-text-size: 1em;
+        --tiles-text-sec-color: var(--tiles-text-color);
+        --tiles-text-sec-color-on: var(--tiles-text-color-on);
+        --tiles-text-sec-color-off: var(--tiles-text-color-off);
         --tiles-text-sec-size: 1em;
         --tiles-text-align: center;
         --tiles-text-transform: uppercase;
@@ -93,153 +98,161 @@ window.CUSTOM_UI_LIST.push({
 </dom-module>
 
 <script>
-const DOMAIN_SCRIPT = ['script', 'python_script'];
-const DOMAIN_SENSOR = ['sensor', 'binary_sensor', 'device_tracker'];
-const DOMAIN_NO_TOGGLE = DOMAIN_SCRIPT.concat(DOMAIN_SENSOR, 'scene');
+{
+  const DOMAIN_SCRIPT = ['script', 'python_script'];
+  const DOMAIN_SENSOR = ['sensor', 'binary_sensor', 'device_tracker'];
+  const DOMAIN_NO_TOGGLE = DOMAIN_SCRIPT.concat(DOMAIN_SENSOR, 'scene');
 
-class StateCardTiles extends window.hassMixins.EventsMixin(Polymer.Element) {
-  static get is() { return 'state-card-tiles'; }
-  static get properties() {
-    return {
-      hass: Object,
-      stateObj: Object,
-    };
-  }
-
-  ready() {
-    super.ready();
-    const config = this.stateObj.attributes.config;
-    let style = {};
-    if ('columns' in config) style['--tiles-columns'] = config.columns;
-    if ('column_width' in config) style['--tiles-column-width'] = config.column_width;
-    if ('row_height' in config) style['--tiles-row-height'] = config.row_height;
-    if ('gap' in config) style['--tiles-gap'] = config.gap;
-    if ('color' in config) style['--tiles-color'] = config.color;
-    if ('color_on' in config) style['--tiles-color-on'] = config.color_on;
-    if ('color_off' in config) style['--tiles-color-off'] = config.color_off;
-    if ('text_color' in config) style['--tiles-text-color'] = config.text_color;
-    if ('text_color_on' in config) style['--tiles-text-color-on'] = config.text_color_on;
-    if ('text_color_off' in config) style['--tiles-text-color-off'] = config.text_color_off;
-    if ('text_size' in config) style['--tiles-text-size'] = config.text_size;
-    if ('text_uppercase' in config) style['--tiles-text-transform'] = config.text_uppercase ? 'uppercase' : 'none';
-    if ('text_sec_size' in config) style['--tiles-text-sec-size'] = config.text_sec_size;
-    if ('text_align' in config) style['--tiles-text-align'] = config.text_align;
-    if ('icon_size' in config) style['--tiles-icon-size'] = config.icon_size;
-    this.updateStyles(style);
-  }
-
-  computeFromTemplate(hass, entity, template) {
-    const state = hass.states[entity.entity].state;
-    const attributes = hass.states[entity.entity].attributes;
-    const entities = hass.states;
-    return Function('state', 'attributes', 'entities', entity[template])(state, attributes, entities);
-  }
-
-  computeLabel(hass, entity) {
-    if (entity.label_template) {
-      return this.computeFromTemplate(hass, entity, 'label_template');
-    } else if (entity.label_state) {
-      const stateObj = hass.states[entity.label_state];
-      return stateObj.attributes && stateObj.attributes.unit_of_measurement ? `${stateObj.state} ${stateObj.attributes.unit_of_measurement}` : stateObj.state;
-    } else if (entity.label) {
-      return entity.label;
-    } else if (DOMAIN_SENSOR.includes(entity.entity.split('.')[0])) {
-      const stateObj = hass.states[entity.entity];
-      return stateObj.attributes && stateObj.attributes.unit_of_measurement ? `${stateObj.state} ${stateObj.attributes.unit_of_measurement}` : stateObj.state;
-    } else {
-      return '';
+  class StateCardTiles extends window.hassMixins.EventsMixin(Polymer.Element) {
+    static get is() { return 'state-card-tiles'; }
+    static get properties() {
+      return {
+        hass: Object,
+        stateObj: Object,
+      };
     }
-  }
 
-  hasLabelSec(entity) {
-    return entity.label_sec || entity.label_sec_state || entity.label_sec_template;
-  }
-
-  computeLabelSec(hass, entity) {
-    return this.computeLabel(hass, {
-      label_template: entity.label_sec_template,
-      label_state: entity.label_sec_state,
-      label: entity.label_sec,
-      entity: entity.entity });
-  }
-
-  computeClass(hass, entity) {
-    const domain = entity.entity.split('.')[0];
-    if (DOMAIN_NO_TOGGLE.includes(domain)) {
-      return '';
-    } else {
-      return window.hassUtil.OFF_STATES.includes(hass.states[entity.entity].state) ? 'off' : 'on';
+    ready() {
+      super.ready();
+      const config = this.stateObj.attributes.config;
+      const style = {};
+      if ('columns' in config) style['--tiles-columns'] = config.columns;
+      if ('column_width' in config) style['--tiles-column-width'] = config.column_width;
+      if ('row_height' in config) style['--tiles-row-height'] = config.row_height;
+      if ('gap' in config) style['--tiles-gap'] = config.gap;
+      if ('color' in config) style['--tiles-color'] = config.color;
+      if ('color_on' in config) style['--tiles-color-on'] = config.color_on;
+      if ('color_off' in config) style['--tiles-color-off'] = config.color_off;
+      if ('text_color' in config) style['--tiles-text-color'] = config.text_color;
+      if ('text_color_on' in config) style['--tiles-text-color-on'] = config.text_color_on;
+      if ('text_color_off' in config) style['--tiles-text-color-off'] = config.text_color_off;
+      if ('text_size' in config) style['--tiles-text-size'] = config.text_size;
+      if ('text_uppercase' in config) style['--tiles-text-transform'] = config.text_uppercase ? 'uppercase' : 'none';
+      if ('text_sec_color' in config) style['--tiles-text-sec-color'] = config.text_sec_color;
+      if ('text_sec_color_on' in config) style['--tiles-text-sec-color-on'] = config.text_sec_color_on;
+      if ('text_sec_color_off' in config) style['--tiles-text-sec-color-off'] = config.text_sec_color_off;
+      if ('text_sec_size' in config) style['--tiles-text-sec-size'] = config.text_sec_size;
+      if ('text_align' in config) style['--tiles-text-align'] = config.text_align;
+      if ('icon_size' in config) style['--tiles-icon-size'] = config.icon_size;
+      this.updateStyles(style);
     }
-  }
 
-  computeStyle (entity) {
-    const c = entity.column ? entity.column : 'auto';
-    const cs = entity.column_span ? entity.column_span : 1;
-    const r = entity.row ? entity.row : 'auto';
-    const rs = entity.row_span ? entity.row_span : 1;
-    let style = '';
-    if ('color' in entity) style += ` --tiles-color: ${entity.color};`;
-    if ('color_on' in entity) style += ` --tiles-color-on: ${entity.color_on};`;
-    if ('color_off' in entity) style += ` --tiles-color-off: ${entity.color_off};`;
-    if ('text_color' in entity) style += ` --tiles-text-color: ${entity.text_color};`;
-    if ('text_color_on' in entity) style += ` --tiles-text-color-on: ${entity.text_color_on};`;
-    if ('text_color_off' in entity) style += ` --tiles-text-color-off: ${entity.text_color_off};`;
-    if ('text_size' in entity) style += ` --tiles-text-size: ${entity.text_size};`;
-    if ('text_uppercase' in entity) style += ' --tiles-text-transform: ' + (entity.text_uppercase ? 'uppercase' : 'none');
-    if ('text_sec_size' in entity) style += ` --tiles-text-sec-size: ${entity.text_sec_size};`;
-    if ('text_align' in entity) style += ` --tiles-text-align: ${entity.text_align};`;
-    if ('icon_size' in entity) style += ` --tiles-icon-size: ${entity.icon_size};`;
-    if ('image' in entity) style += ` background-image: url("${entity.image}");`;
-    return `grid-column: ${c} / span ${cs}; grid-row: ${r} / span ${rs}; ${style}`;
-  }
+    computeFromTemplate(hass, entity, template) {
+      const state = hass.states[entity.entity].state;
+      const attributes = hass.states[entity.entity].attributes;
+      const entities = hass.states;
+      return Function('state', 'attributes', 'entities', entity[template])(state, attributes, entities);
+    }
 
-  computeStyleTemplate(hass, entity) {
-    return entity.style_template ? this.computeFromTemplate(hass, entity, 'style_template') : '';
-  }
-
-  buttonClicked(ev) {
-    const entity = ev.model.entity.entity;
-    const more_info = ev.model.entity.more_info;
-    const stateDomain = entity.split('.')[0];
-
-    if (DOMAIN_SENSOR.includes(stateDomain) || more_info) {
-      this.fire('hass-more-info', { entityId: more_info || entity });
-    } else {
-      let serviceDomain;
-      let service;
-      let data;
-      if (DOMAIN_SCRIPT.includes(stateDomain)) {
-        serviceDomain = stateDomain;
-        service = entity.split('.')[1];
-        data = ev.model.entity.data || {};
+    computeLabel(hass, entity) {
+      if (entity.label_template) {
+        return this.computeFromTemplate(hass, entity, 'label_template');
+      } else if (entity.label_state) {
+        const stateObj = hass.states[entity.label_state];
+        return stateObj.attributes && stateObj.attributes.unit_of_measurement ? `${stateObj.state} ${stateObj.attributes.unit_of_measurement}` : stateObj.state;
+      } else if (entity.label) {
+        return entity.label;
+      } else if (DOMAIN_SENSOR.includes(entity.entity.split('.')[0])) {
+        const stateObj = hass.states[entity.entity];
+        return stateObj.attributes && stateObj.attributes.unit_of_measurement ? `${stateObj.state} ${stateObj.attributes.unit_of_measurement}` : stateObj.state;
       } else {
-        const isOff = window.hassUtil.OFF_STATES.includes(this.hass.states[entity].state);
-        switch (stateDomain) {
-          case 'lock':
-            serviceDomain = 'lock';
-            service = isOff ? 'lock' : 'unlock';
-            break;
-          case 'cover':
-            serviceDomain = 'cover';
-            service = isOff ? 'open' : 'close';
-            break;
-          case 'scene':
-            serviceDomain = 'scene';
-            service = 'turn_on';
-            break;        
-          default:
-            serviceDomain = 'homeassistant';
-            service = isOff ? 'turn_on' : 'turn_off';
-        }
-        data = { entity_id: entity };
+        return '';
       }
-      this.hass.callService(serviceDomain, service, data);
+    }
+
+    hasLabelSec(entity) {
+      return entity.label_sec || entity.label_sec_state || entity.label_sec_template;
+    }
+
+    computeLabelSec(hass, entity) {
+      return this.computeLabel(hass, {
+        label_template: entity.label_sec_template,
+        label_state: entity.label_sec_state,
+        label: entity.label_sec,
+        entity: entity.entity });
+    }
+
+    computeClass(hass, entity) {
+      const domain = entity.entity.split('.')[0];
+      if (DOMAIN_NO_TOGGLE.includes(domain)) {
+        return '';
+      } else {
+        return window.hassUtil.OFF_STATES.includes(hass.states[entity.entity].state) ? 'off' : 'on';
+      }
+    }
+
+    computeStyle (entity) {
+      const c = entity.column ? entity.column : 'auto';
+      const cs = entity.column_span ? entity.column_span : 1;
+      const r = entity.row ? entity.row : 'auto';
+      const rs = entity.row_span ? entity.row_span : 1;
+      let style = '';
+      if ('color' in entity) style += ` --tiles-color: ${entity.color};`;
+      if ('color_on' in entity) style += ` --tiles-color-on: ${entity.color_on};`;
+      if ('color_off' in entity) style += ` --tiles-color-off: ${entity.color_off};`;
+      if ('text_color' in entity) style += ` --tiles-text-color: ${entity.text_color};`;
+      if ('text_color_on' in entity) style += ` --tiles-text-color-on: ${entity.text_color_on};`;
+      if ('text_color_off' in entity) style += ` --tiles-text-color-off: ${entity.text_color_off};`;
+      if ('text_size' in entity) style += ` --tiles-text-size: ${entity.text_size};`;
+      if ('text_uppercase' in entity) style += ' --tiles-text-transform: ' + (entity.text_uppercase ? 'uppercase' : 'none');
+      if ('text_sec_color' in entity) style += ` --tiles-text-sec-color: ${entity.text_sec_color};`;
+      if ('text_sec_color_on' in entity) style += ` --tiles-text-sec-color-on: ${entity.text_sec_color_on};`;
+      if ('text_sec_color_off' in entity) style += ` --tiles-text-sec-color-off: ${entity.text_sec_color_off};`;
+      if ('text_sec_size' in entity) style += ` --tiles-text-sec-size: ${entity.text_sec_size};`;
+      if ('text_align' in entity) style += ` --tiles-text-align: ${entity.text_align};`;
+      if ('icon_size' in entity) style += ` --tiles-icon-size: ${entity.icon_size};`;
+      if ('image' in entity) style += ` background-image: url("${entity.image}");`;
+      return `grid-column: ${c} / span ${cs}; grid-row: ${r} / span ${rs}; ${style}`;
+    }
+
+    computeStyleTemplate(hass, entity) {
+      return entity.style_template ? this.computeFromTemplate(hass, entity, 'style_template') : '';
+    }
+
+    buttonClicked(ev) {
+      const entity = ev.model.entity.entity;
+      const more_info = ev.model.entity.more_info;
+      const stateDomain = entity.split('.')[0];
+
+      if (DOMAIN_SENSOR.includes(stateDomain) || more_info) {
+        this.fire('hass-more-info', { entityId: more_info || entity });
+      } else {
+        let serviceDomain;
+        let service;
+        let data;
+        if (DOMAIN_SCRIPT.includes(stateDomain)) {
+          serviceDomain = stateDomain;
+          service = entity.split('.')[1];
+          data = ev.model.entity.data || {};
+        } else {
+          const isOff = window.hassUtil.OFF_STATES.includes(this.hass.states[entity].state);
+          switch (stateDomain) {
+            case 'lock':
+              serviceDomain = 'lock';
+              service = isOff ? 'lock' : 'unlock';
+              break;
+            case 'cover':
+              serviceDomain = 'cover';
+              service = isOff ? 'open' : 'close';
+              break;
+            case 'scene':
+              serviceDomain = 'scene';
+              service = 'turn_on';
+              break;        
+            default:
+              serviceDomain = 'homeassistant';
+              service = isOff ? 'turn_on' : 'turn_off';
+          }
+          data = { entity_id: entity };
+        }
+        this.hass.callService(serviceDomain, service, data);
+      }
+    }
+
+    stopPropagation(ev) {
+      ev.stopPropagation();
     }
   }
-
-  stopPropagation(ev) {
-    ev.stopPropagation();
-  }
+  customElements.define(StateCardTiles.is, StateCardTiles);
 }
-customElements.define(StateCardTiles.is, StateCardTiles);
 </script>

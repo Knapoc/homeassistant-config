@@ -279,12 +279,12 @@
       scene_name: Nightlight
     service: hue.hue_activate_scene
 
-- alias: SC Tiles update info
-  trigger:
-    platform: state
-    entity_id: sensor.sc_tiles_latest_version
-  action:
-    service: persistent_notification.create
-    data:
-      title: Update available
-      message: A new version for [Tiles custom state card](https://github.com/c727/home-assistant-tiles#changelog) is available.
+#- alias: SC Tiles update info
+#  trigger:
+#    platform: state
+#    entity_id: sensor.sc_tiles_latest_version
+#  action:
+#    service: persistent_notification.create
+#    data:
+#      title: Update available
+#      message: A new version for [Tiles custom state card](https://github.com/c727/home-assistant-tiles#changelog) is available.

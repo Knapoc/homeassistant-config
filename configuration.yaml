@@ -28,7 +28,7 @@ frontend:
   extra_html_url_es5:
     - /local/custom_ui/state-card-custom-light.html
     - /local/custom_ui/state-card-custom-toggle-url.html
-    - /local/custom_ui/state-card-tiles_es5.html
+    #- /local/custom_ui/state-card-tiles_es5.html
 
 panel_custom:
   - name: floorplan
@@ -36,6 +36,14 @@ panel_custom:
     sidebar_icon: mdi:home
     url_path: floorplan
     config: !include floorplan.yaml
+  #- name: tiles
+  #  sidebar_title: Tiles
+  #  sidebar_icon: mdi:view-dashboard
+  #  url_path: tiles
+  #  config:
+  #    entities:
+  #      - entity: input_boolean.switch1
+  #        label: Switch 1
 
 # Enables configuration UI
 config:

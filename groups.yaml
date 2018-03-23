@@ -70,7 +70,7 @@ settings_view:
 devices_bed_room:
   entities:
     - media_player.braviatv_1
-    - media_player.mopidy
+    - media_player.mpd
     - media_player.playstation_4
     - media_player.kdl43w756c
 
@@ -87,7 +87,8 @@ devices_dev_bed_room:
   name: !secret bed_room1
   entities:
     - switch.braviatv_1
-    - switch.mopidy
+    - switch.playstation_4
+    - switch.mpd
     - light.zimmer
 
 #devices_dev_living_room:

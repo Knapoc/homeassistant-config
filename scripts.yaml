@@ -98,12 +98,12 @@ weather_presentation:
   sequence:
     - service: media_player.volume_set
       data:
-        entity_id: media_player.mopidy
+        entity_id: media_player.mpd
         volume_level: 0.75
     - delay:
         seconds: 3
     - service: tts.google_say
-      entity_id: media_player.mopidy
+      entity_id: media_player.mpd
       data_template:
         cache: false
         message: >
@@ -118,7 +118,7 @@ weather_presentation:
           {% elif is_state("sensor.dark_sky_icon", "sleet") %}
           Es ist Schneeregen zu erwarten.
           {% elif is_state("sensor.dark_sky_icon", "snow") %}
-          Heute ist mir Neuschnee zu rechnen.
+          Heute ist mit Neuschnee zu rechnen.
           {% elif is_state("sensor.dark_sky_icon", "wind") %}
           Heute ist ein stürmischer Tag.
           {% elif is_state("sensor.dark_sky_icon", "fog") %}
@@ -138,10 +138,15 @@ weather_presentation:
           Die erwartete Niederschlagsmenge liegt bei {{states('sensor.dark_sky_daily_max_precip_intensity') | round(0)}} Milimeter im Mittel.
           {% endif %}
     - delay:
+        seconds: 30
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.mpd
+    - delay:
         minutes: 1
     - service: media_player.volume_set
       data:
-        entity_id: media_player.mopidy
+        entity_id: media_player.mpd
         volume_level: 0.4
 #          {% if states('sensor.aarhus_daily_max_precip_intensity') | float > 1 %}
 #          Highest expected rain intensity for today is {{states('sensor.aarhus_daily_max_precip_intensity') | round(0)}} millimeters per hour.
