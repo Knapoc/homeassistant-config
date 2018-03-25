@@ -4,7 +4,7 @@ default_view:
   entities:
     - group.device_tracker
     - group.devices_dev_bed_room
-#    - group.devices_dev_living_room
+    - group.devices_dev_living_room
     - group.devices_dev_buero
     - group.room_climate
     - group.weather
@@ -21,11 +21,11 @@ bed_room:
     - group.wakeuplight
     - group.bed_room_other
 
-#living_room:
-#  name: Wohnzimmer
-#  view: yes
-#  entities:
-#    - group.devices_living_room
+living_room:
+  name: Wohnzimmer
+  view: yes
+  entities:
+    - group.devices_living_room
 
 office:
   name: Büro
@@ -74,9 +74,9 @@ devices_bed_room:
     - media_player.playstation_4
     - media_player.kdl43w756c
 
-#devices_living_room:
-#  entities:
-#    - media_player.braviatv_2
+devices_living_room:
+  entities:
+    - media_player.braviatv_2
 
 office_lights:
   name: Bürobeleuchtung
@@ -91,10 +91,10 @@ devices_dev_bed_room:
     - switch.mpd
     - light.zimmer
 
-#devices_dev_living_room:
-#  name: Wohnzimmer
-#  entities:
-#    - switch.braviatv_2
+devices_dev_living_room:
+  name: Wohnzimmer
+  entities:
+    - switch.braviatv_2
 
 devices_dev_buero:
   name: Büro
@@ -166,7 +166,7 @@ links:
   entities:
     - weblink.router
     - weblink.powerline
-    - weblink.moped
+    - weblink.ympd
     - !secret wlrst_name
     - !secret wlmst_name
     - weblink.home_assistant

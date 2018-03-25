@@ -68,6 +68,16 @@
   options:
     mode: driving
 
+- platform: google_geocode
+  name: geocode_dev1
+  origin: !secret device1
+  api_key: !secret google_api
+
+- platform: google_geocode
+  name: geocode_dev2
+  origin: !secret device2
+  api_key: !secret google_api
+
 - platform: uber
   server_token: !secret uber_st
   end_latitude: !secret uber_endlat

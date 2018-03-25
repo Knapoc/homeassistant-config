@@ -3,17 +3,17 @@ media_player.braviatv_1:
   friendly_name: !secret tv_tv1_name
   homebridge_name: Fernseher
   homebridge_media_player_switch: on_off
-media_player.mopidy:
-  homebridge_name: Lautsprecher
-  homebridge_media_player_switch: on_off
+#media_player.mopidy:
+#  homebridge_name: Lautsprecher
+#  homebridge_media_player_switch: on_off
 media_player.mpd:
   friendly_name: MPD
   homebridge_name: Lautsprecher
   homebridge_media_player_switch: on_off
-#media_player.braviatv_2:
-#  friendly_name: !secret tv_tv2_name
-#  homebridge_name: !secret tv_tv2_hbname
-#  homebridge_media_player_switch: on_off
+media_player.braviatv_2:
+  friendly_name: !secret tv_tv2_name
+  homebridge_name: !secret tv_tv2_hbname
+  homebridge_media_player_switch: on_off
 media_player.playstation_4:
   #homebridge_name: Spielkonsole
   homebridge_media_player_switch: on_off
@@ -142,12 +142,14 @@ sensor.fail2ban_sshd:
 switch.mpd:
   homebridge_hidden: true
   icon: mdi:music-box
+  #custom_ui_state_card: state-card-custom-toggle-url
+  #url: !secret ympd_url
   friendly_name: MPD
-switch.mopidy:
-  homebridge_hidden: true
-  icon: mdi:music-box
-  custom_ui_state_card: state-card-custom-toggle-url
-  url: !secret moped_url
+#switch.mopidy:
+#  homebridge_hidden: true
+#  icon: mdi:music-box
+#  custom_ui_state_card: state-card-custom-toggle-url
+#  url: !secret moped_url
 switch.wind_machine:
   icon: mdi:fan
   friendly_name: Ventilator
@@ -158,8 +160,9 @@ switch.playstation_4:
   homebridge_hidden: true
   icon: mdi:playstation
   friendly_name: Playstation 4
-#switch.braviatv_2:
-#  friendly_name: !secret tv_tv2_name
+switch.braviatv_2:
+  friendly_name: !secret tv_tv2_name
+  homebridge_hidden: true
 
 ###Input booleans
 input_boolean.fan_living_room:

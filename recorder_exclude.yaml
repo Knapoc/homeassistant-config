@@ -1,3 +1,5 @@
+domains:
+  - frontend
 entities:
   - sensor.time
   - sensor.date

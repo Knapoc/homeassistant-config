@@ -16,6 +16,16 @@
 #  mac: !secret tv_tv2_mac
 #  amp: false
 #  android: false
+- platform: bravia_nue
+  name: braviatv_2
+  host: !secret tv_tv2_ip
+  psk: !secret tv_tv2_psk
+  mac: !secret tv_tv2_mac
+  android: false
+  wol_rest: true
+  flask_host: !secret flask_host
+  flask_port: !secret flask_port
+  wol_machine: bravia_W705C
 - platform: ps4
   host: !secret ps4waker_host
   ps4_ip: !secret ps4_ip
