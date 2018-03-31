@@ -1,8 +1,8 @@
 entities:
   - name: Router
     url: !secret router_url
-  - name: Powerline
-    url: !secret powerline_url
+  #- name: Powerline
+  #  url: !secret powerline_url
   - name: ympd
     url: !secret ympd_url
   - name: !secret rpist_nm
@@ -11,3 +11,5 @@ entities:
     url: !secret mbpst_url
   - name: Home Assistant
     url: https://home-assistant.io
+  - name: Pixelserv
+    url: !secret pixelserv_url

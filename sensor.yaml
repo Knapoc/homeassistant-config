@@ -215,6 +215,11 @@
     - nextcloud
     - sshd
 
+#- platform: scrape
+#  resource: !secret pixelserv_url
+#  name: pixelserv_requests_total
+#  select: 'tr:nth-of-type(8) > td:nth-of-type(2)'
+#  unit_of_measurement: 'Requests'
 #- platform: rest
 #  name: SC Tiles latest version
 #  resource: https://raw.githubusercontent.com/c727/home-assistant-tiles/master/LATEST_VERSION

@@ -6,9 +6,9 @@
   name: mpd
   host: !secret mpd_ip
   port: !secret mpd_port
-- platform: braviatv
-  name: braviatv_1
-  host: !secret tv_tv1_ip
+#- platform: braviatv
+#  name: braviatv_1
+#  host: !secret tv_tv1_ip
 #- platform: braviatv_psk
 #  name: braviatv_2
 #  host: !secret tv_tv2_ip
@@ -16,6 +16,13 @@
 #  mac: !secret tv_tv2_mac
 #  amp: false
 #  android: false
+- platform: bravia_nue
+  name: braviatv_1
+  host: !secret tv_tv1_ip
+  psk: !secret tv_tv1_psk
+  mac: !secret tv_tv1_mac
+  android: true
+  wol_rest: false
 - platform: bravia_nue
   name: braviatv_2
   host: !secret tv_tv2_ip

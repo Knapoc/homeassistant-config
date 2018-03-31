@@ -165,7 +165,7 @@ links:
   control: hidden
   entities:
     - weblink.router
-    - weblink.powerline
+    - weblink.pixelserv
     - weblink.ympd
     - !secret wlrst_name
     - !secret wlmst_name
