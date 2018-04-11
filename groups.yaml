@@ -72,7 +72,8 @@ devices_bed_room:
     - media_player.braviatv_1
     - media_player.mpd
     - media_player.playstation_4
-    - media_player.kdl43w756c
+#    - media_player.kdl43w756c
+#    - media_player.kodi
 
 devices_living_room:
   entities:
