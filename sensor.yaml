@@ -7,14 +7,14 @@
   options:
     mode: driving
 
-- platform: google_travel_time
-  name: google_travel_time_dev1_bicycling
-  api_key: !secret google_api
-  #origin: !secret google_orig
-  origin: !secret device1
-  destination: !secret zone1_fullname
-  options:
-    mode: bicycling
+#- platform: google_travel_time
+#  name: google_travel_time_dev1_bicycling
+#  api_key: !secret google_api
+#  #origin: !secret google_orig
+#  origin: !secret device1
+#  destination: !secret zone1_fullname
+#  options:
+#    mode: bicycling
 
 - platform: google_travel_time
   name: google_travel_time_dev1_transit
@@ -42,14 +42,14 @@
   options:
     mode: driving
 
-- platform: google_travel_time
-  name: google_travel_time_dev2_bicycling
-  api_key: !secret google_api
-  #origin: !secret google_orig
-  origin: !secret device2
-  destination: !secret zone2_fullname
-  options:
-    mode: bicycling
+#- platform: google_travel_time
+#  name: google_travel_time_dev2_bicycling
+#  api_key: !secret google_api
+#  #origin: !secret google_orig
+#  origin: !secret device2
+#  destination: !secret zone2_fullname
+#  options:
+#    mode: bicycling
 
 - platform: google_travel_time
   name: google_travel_time_dev2_transit
@@ -68,15 +68,15 @@
   options:
     mode: driving
 
-- platform: google_geocode
-  name: geocode_dev1
-  origin: !secret device1
-  api_key: !secret google_api
+#- platform: google_geocode
+#  name: geocode_dev1
+#  origin: !secret device1
+#  api_key: !secret google_api
 
-- platform: google_geocode
-  name: geocode_dev2
-  origin: !secret device2
-  api_key: !secret google_api
+#- platform: google_geocode
+#  name: geocode_dev2
+#  origin: !secret device2
+#  api_key: !secret google_api
 
 - platform: uber
   server_token: !secret uber_st
