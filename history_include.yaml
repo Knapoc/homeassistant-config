@@ -25,8 +25,10 @@ entities:
   - sensor.luftdaten_particle_sensor_pm25
 #  - sensor.mail
   - sensor.received_eth0
-  - sensor.sonoff_room_temperature
-  - sensor.sonoff_room_humidty
+  - sensor.sonoff_office_temperature
+  - sensor.sonoff_office_humidty
+  - sensor.wemosd1_room_temperature
+  - sensor.wemosd1_room_humidty
   - sensor.sonoff_rssi
   - sensor.sonoff_uptime
   - sensor.sonoff_vcc

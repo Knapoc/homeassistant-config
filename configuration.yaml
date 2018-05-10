@@ -25,10 +25,12 @@ frontend:
   #extra_html_url:
   #  - /local/custom_ui/state-card-custom-light.html
   #  - /local/custom_ui/state-card-custom-toggle-url.html
+  #  - /local/custom_ui/custom-weather-card.html
   extra_html_url_es5:
     - /local/custom_ui/state-card-custom-light.html
     - /local/custom_ui/state-card-custom-toggle-url.html
-    #- /local/custom_ui/state-card-tiles_es5.html
+  #  - /local/custom_ui/custom-weather-card.html
+  #  - /local/custom_ui/state-card-tiles_es5.html
 
 panel_custom:
   - name: floorplan
@@ -95,6 +97,11 @@ logger:
 
 # Track the sun
 sun:
+
+#weather:
+ # - platform: yweather
+  #- platform: darksky
+  #  api_key: !secret darksky_ak
 
 # Text to speech
 tts:

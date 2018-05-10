@@ -4,3 +4,5 @@ fan_living_room:
 loop_livingcolors:
   name: Loop LivingColors
   initial: off
+#weather:
+  

@@ -59,11 +59,18 @@ sensor.uberx_time:
 sensor.uberx_price:
   friendly_name: uberX - Preis
   icon: mdi:uber
-sensor.sonoff_room_temperature:
-  friendly_name: Temperatur
+sensor.sonoff_office_temperature:
+  friendly_name: Temperatur - Büro
   homebridge_hidden: false
-sensor.sonoff_room_humidty:
-  friendly_name: Luftfeuchtigkeit
+sensor.sonoff_office_humidty:
+  friendly_name: Luftfeuchtigkeit - Büro
+  icon: mdi:water-percent
+  homebridge_hidden: false
+sensor.wemosd1_room_temperature:
+  friendly_name: Temperatur - Zimmer
+  homebridge_hidden: false
+sensor.wemosd1_room_humidty:
+  friendly_name: Luftfeuchtigkeit - Zimmer
   icon: mdi:water-percent
   homebridge_hidden: false
 sensor.sonoff_uptime:
@@ -170,6 +177,13 @@ input_boolean.fan_living_room:
 input_boolean.loop_livingcolors:
   friendly_name: Loop-Effekt
   icon: mdi:spotlight
+#input_boolean.weather:
+#  friendly_name: Wetter
+#  custom_ui_state_card: custom-weather-card
+#  config:
+    #weather: weather.dark_sky
+#    weather: weather.yweather
+#    sun: sun.sun
 
 ###Sonoff Upgrade Scripts
 script.1515151540311:

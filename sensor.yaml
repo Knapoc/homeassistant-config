@@ -103,15 +103,27 @@
   value_template: "{{ value_json['StatusFWR'].Version }}"
 
 - platform: mqtt
-  name: sonoff_room_temperature
+  name: sonoff_office_temperature
   state_topic: "tele/sonoff/SENSOR"
   value_template: "{{ value_json['AM2301'].Temperature }}"
   unit_of_measurement: "°C"
 
 - platform: mqtt
-  name: sonoff_room_humidty
+  name: sonoff_office_humidty
   state_topic: "tele/sonoff/SENSOR"
   value_template: "{{ value_json['AM2301'].Humidity }}"
+  unit_of_measurement: "%"
+
+- platform: mqtt
+  name: wemosd1_room_temperature
+  state_topic: "tele/wemosd1_1/SENSOR"
+  value_template: "{{ value_json['SHT3X'].Temperature }}"
+  unit_of_measurement: "°C"
+
+- platform: mqtt
+  name: wemosd1_room_humidty
+  state_topic: "tele/wemosd1_1/SENSOR"
+  value_template: "{{ value_json['SHT3X'].Humidity }}"
   unit_of_measurement: "%"
 
 - platform: mqtt
@@ -140,7 +152,7 @@
 
 - platform: cert_expiry
   name: ssl_certificate_expiry
-  host: !secret host_domain
+  host: !secret ssl_domain
 
 - platform: systemmonitor
   resources:

@@ -7,6 +7,7 @@ default_view:
     - group.devices_dev_living_room
     - group.devices_dev_buero
     - group.room_climate
+#    - input_boolean.weather
     - group.weather
     - group.transport_travel_1
     - group.transport_travel_2
@@ -33,6 +34,7 @@ office:
   entities:
     - group.office_lights
     - switch.wind_machine
+#    - input_boolean.weather
 
 weater_view:
   name: Wetter
@@ -143,8 +145,10 @@ weather:
 room_climate:
   name: Raumklima
   entities:
-    - sensor.sonoff_room_temperature
-    - sensor.sonoff_room_humidty
+    - sensor.wemosd1_room_temperature
+    - sensor.wemosd1_room_humidty
+    - sensor.sonoff_office_temperature
+    - sensor.sonoff_office_humidty
 
 server_info:
   name: Server Info
