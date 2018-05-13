@@ -227,6 +227,27 @@
     - nextcloud
     - sshd
 
+- platform: template
+  sensors:
+    wakeup_start_time_lights:
+      friendly_name: 'Fade-in Startzeit'
+      value_template: >
+        {% if states.input_datetime.wakeup_alarm_time and states.input_number.wakeup_duration %}
+        {% set alarmtime = states.input_datetime.wakeup_alarm_time.state %}
+        {% set alarm_hour = alarmtime.split(":")[0] | int %}
+        {% set alarm_min = alarmtime.split(":")[1] | int %}
+        {% set light_dur = states.input_number.wakeup_duration.state | int %}
+        {% set alarm_min_light = alarm_min - light_dur %}
+        {% if alarm_min_light  < 0 %}
+        {% set alarm_min_light = alarm_min_light + 60 %}
+        {% set alarm_hour_light = alarm_hour - 1 %}
+        {% if alarm_hour_light < 0 %}{% set alarm_hour_light = 23 %}{% endif %}
+        {% if alarm_hour_light < 10 %}0{% endif %}{{ alarm_hour_light}}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% else %}
+        {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+        {% endif %}
+        {% endif %}
+
 #- platform: scrape
 #  resource: !secret pixelserv_url
 #  name: pixelserv_requests_total

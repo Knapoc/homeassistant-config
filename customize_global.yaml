@@ -30,3 +30,5 @@
 "input_boolean.loop_livingcolors_*":
   friendly_name: Loop-Effekt
   icon: mdi:spotlight
+"sensor.wakeup_*":
+      homebridge_hidden: true

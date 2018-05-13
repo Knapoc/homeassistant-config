@@ -1,12 +1,7 @@
-#btc_slider_low:
-#  initial: 8500
-#  min: 0
-#  max: 20000
-#  step: 1
-#  mode: box
-#btc_slider_high:
-#  initial: 10000
-#  min: 0
-#  max: 20000
-#  step: 1
-#  mode: box
+wakeup_duration:
+  name: Fade-in
+  icon: mdi:clock-in
+  initial: 10
+  min: 5
+  max: 60
+  step: 5

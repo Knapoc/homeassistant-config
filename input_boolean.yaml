@@ -7,5 +7,12 @@ loop_livingcolors_1:
 loop_livingcolors_2:
   name: Loop LivingColors Stehlampe
   initial: off
-#weather:
+wakeup:
+  name: 'Aufwachbeleuchtung'
+  icon: mdi:power
+  initial: on
+wakeup_weekends:
+  name: 'Wochenenden'
+  icon: mdi:power
+  initial: off
   

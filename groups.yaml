@@ -304,3 +304,13 @@ fail2ban_jails:
     - sensor.fail2ban_homeassistant
     - sensor.fail2ban_nextcloud
     - sensor.fail2ban_sshd
+
+wakeuplight:
+    name: Aufwachbeleuchtung
+    control: hidden
+    entities:
+      - input_datetime.wakeup_alarm_time
+      - sensor.wakeup_start_time_lights
+      - input_number.wakeup_duration
+      - input_boolean.wakeup
+      - input_boolean.wakeup_weekends
