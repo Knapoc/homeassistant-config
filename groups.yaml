@@ -18,7 +18,10 @@ bed_room:
   view: yes
   entities:
     - group.devices_bed_room
-    - group.bedroom_lights
+#    - group.bedroom_lights
+    - group.bedroom_lights_part_1
+    - group.bedroom_lights_part_2
+    - group.bedroom_lights_part_3
     - group.wakeuplight
     - group.bed_room_other
 
@@ -92,7 +95,9 @@ devices_dev_bed_room:
     - switch.braviatv_1
     - switch.playstation_4
     - switch.mpd
-    - light.zimmer
+#    - light.zimmer
+    - light.deckenspots
+    - light.stehlampe
 
 devices_dev_living_room:
   name: Wohnzimmer
@@ -241,19 +246,50 @@ bed_room_other:
 
 ###Lights
 
-bedroom_lights:
-  name: Beleuchtung
+#bedroom_lights:
+#  name: Beleuchtung
+#  control: hidden
+#  entities:
+#    - light.zimmer
+#    - light.deckenspots
+#    - light.hue_color_spot_1
+#    - light.hue_color_spot_2
+#    - light.hue_color_spot_3
+#    - light.stehlampe
+#    - script.scene_bright
+#    - script.scene_nightlight
+#    - script.scene_tropical_twilight
+#    - input_select.hue_scenes
+#    - input_boolean.loop_livingcolors
+
+bedroom_lights_part_1:
+  name: Deckenspots
   control: hidden
   entities:
-    - light.zimmer
+    - light.deckenspots
     - light.hue_color_spot_1
     - light.hue_color_spot_2
     - light.hue_color_spot_3
     - script.scene_bright
     - script.scene_nightlight
+    - input_boolean.loop_livingcolors_1
+
+bedroom_lights_part_2:
+  name: Stehlampe
+  control: hidden
+  entities:
+    - light.stehlampe
+    - input_boolean.loop_livingcolors_2
+
+bedroom_lights_part_3:
+  name: Beleuchtungsszenen
+  control: hidden
+  entities:
     - script.scene_tropical_twilight
+    - script.scene_arctic_aurora
+    - script.scene_spring_blossom
     - input_select.hue_scenes
-    - input_boolean.loop_livingcolors
+
 light_automations:
   name: Lichtautomatisierung
   control: hidden

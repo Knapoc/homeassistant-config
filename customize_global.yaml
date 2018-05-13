@@ -27,3 +27,6 @@
 "script.scene_*":
   homebridge_hidden: true
   icon: mdi:spotlight
+"input_boolean.loop_livingcolors_*":
+  friendly_name: Loop-Effekt
+  icon: mdi:spotlight

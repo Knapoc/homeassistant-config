@@ -174,9 +174,9 @@ switch.braviatv_2:
 ###Input booleans
 input_boolean.fan_living_room:
   homebridge_hidden: true
-input_boolean.loop_livingcolors:
-  friendly_name: Loop-Effekt
-  icon: mdi:spotlight
+#input_boolean.loop_livingcolors:
+#  friendly_name: Loop-Effekt
+#  icon: mdi:spotlight
 #input_boolean.weather:
 #  friendly_name: Wetter
 #  custom_ui_state_card: custom-weather-card
@@ -209,6 +209,12 @@ input_select.hue_scenes:
 ####Lights
 light.zimmer:
   friendly_name: Zimmerlicht
+  custom_ui_state_card: state-card-custom-light
+light.stehlampe:
+  friendly_name: Stehlampe
+  custom_ui_state_card: state-card-custom-light
+light.deckenspots:
+  friendly_name: Deckenspots
   custom_ui_state_card: state-card-custom-light
 light.buro:
   friendly_name: Bürolicht

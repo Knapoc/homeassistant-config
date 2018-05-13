@@ -75,7 +75,7 @@ scene_bright:
     - alias: 'scene_bright'
       service: hue.hue_activate_scene
       data_template:
-        group_name: "Zimmer"
+        group_name: "Deckenspots"
         scene_name: "Bright"
 scene_tropical_twilight:
   alias: 'Tropical twilight'
@@ -91,8 +91,24 @@ scene_nightlight:
     - alias: 'scene_nightlight'
       service: hue.hue_activate_scene
       data_template:
-        group_name: "Zimmer"
+        group_name: "Deckenspots"
         scene_name: "Nightlight"
+scene_arctic_aurora:
+  alias: 'Arctic aurora'
+  sequence:
+    - alias: 'scene_nightlight'
+      service: hue.hue_activate_scene
+      data_template:
+        group_name: "Zimmer"
+        scene_name: "Arctic aurora"
+scene_spring_blossom:
+  alias: 'Spring blossom'
+  sequence:
+    - alias: 'scene_nightlight'
+      service: hue.hue_activate_scene
+      data_template:
+        group_name: "Zimmer"
+        scene_name: "Spring blossom"
 weather_presentation:
   alias: weather 1
   sequence:
