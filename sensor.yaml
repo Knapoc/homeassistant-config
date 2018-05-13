@@ -117,13 +117,13 @@
 - platform: mqtt
   name: wemosd1_room_temperature
   state_topic: "tele/wemosd1_1/SENSOR"
-  value_template: "{{ value_json['SHT3X'].Temperature }}"
+  value_template: "{{ value_json['SHT3X-0x45'].Temperature }}"
   unit_of_measurement: "°C"
 
 - platform: mqtt
   name: wemosd1_room_humidty
   state_topic: "tele/wemosd1_1/SENSOR"
-  value_template: "{{ value_json['SHT3X'].Humidity }}"
+  value_template: "{{ value_json['SHT3X-0x45'].Humidity }}"
   unit_of_measurement: "%"
 
 - platform: mqtt
