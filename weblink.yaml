@@ -1,8 +1,6 @@
 entities:
   - name: Router
     url: !secret router_url
-  #- name: Powerline
-  #  url: !secret powerline_url
   - name: ympd
     url: !secret ympd_url
   - name: !secret rpist_nm

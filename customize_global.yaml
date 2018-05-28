@@ -1,3 +1,19 @@
+"group.sonoff_*":
+  control: hidden
+"input_boolean.loop_livingcolors_*":
+  friendly_name: Loop-Effekt
+  icon: mdi:spotlight
+"input_boolean.wake*":
+  homebridge_hidden: true
+"light.hue_*":
+  custom_ui_state_card: state-card-custom-ui
+  state_card_mode: hide-slider
+  homebridge_hidden: true
+  slider_theme:
+    return_when_not_changed: false
+"script.scene_*":
+  homebridge_hidden: true
+  icon: mdi:spotlight
 "sensor.uberx_*":
   homebridge_hidden: true
 "sensor.google_travel_time*":
@@ -13,22 +29,7 @@
   homebridge_hidden: true
 "sensor.speedtest_*":
   homebridge_hidden: true
-"zone.*home":
-  friendly_name: home
-#"input_number*":
-#  state_card_mode: single-line
-"light.hue_*":
-  custom_ui_state_card: state-card-custom-ui
-  state_card_mode: hide-slider
-  slider_theme:
-    return_when_not_changed: false
-"group.sonoff_*":
-  control: hidden
-"script.scene_*":
-  homebridge_hidden: true
-  icon: mdi:spotlight
-"input_boolean.loop_livingcolors_*":
-  friendly_name: Loop-Effekt
-  icon: mdi:spotlight
 "sensor.wakeup_*":
       homebridge_hidden: true
+"zone.*home":
+  friendly_name: home

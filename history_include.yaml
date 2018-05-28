@@ -14,8 +14,6 @@ entities:
   - sensor.memory_use_percent
   - sensor.database_size
   - sensor.exchange_rate_1_btc
-#  - sensor.geizh_gu10
-#  - sensor.geizh_huee27
   - sensor.google_travel_time__bicycling
   - sensor.google_travel_time__driving
   - sensor.google_travel_time__transit
@@ -23,7 +21,6 @@ entities:
   - sensor.luftdaten_climate_sensor_temperature
   - sensor.luftdaten_particle_sensor_pm10
   - sensor.luftdaten_particle_sensor_pm25
-#  - sensor.mail
   - sensor.received_eth0
   - sensor.sonoff_office_temperature
   - sensor.sonoff_office_humidty

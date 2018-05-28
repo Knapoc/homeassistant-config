@@ -98,11 +98,6 @@ logger:
 # Track the sun
 sun:
 
-#weather:
- # - platform: yweather
-  #- platform: darksky
-  #  api_key: !secret darksky_ak
-
 # Text to speech
 tts:
   - platform: google
@@ -127,32 +122,17 @@ mqtt:
     topic: 'hass/status'
     payload: 'offline'
 
-#calendar:
-#  - platform: caldav
-#    url: !secret caldav_url
-#    username: !secret caldav_user
-#    password: !secret caldav_pw
-#    calendars:
-#      - !secret caldav_cal
-
-
 hue:
   bridges:
     - host: !secret hue_ip
       allow_unreachable: true
-
-#history_graph: !include history_graph.yaml
-#  graph_room_climate:
-#    entities:
-#      - sensor.sonoff_room_temperature
-#      - sensor.sonoff_room_humidty
 
 #apiai:
 binary_sensor: !include binary_sensor.yaml
 device_tracker: !include device_tracker.yaml
 input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
-#input_number: !include input_number.yaml
+input_number: !include input_number.yaml
 input_select: !include input_select.yaml
 #intent_script: !include intent_script.yaml
 ios: !include ios.yaml

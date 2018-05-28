@@ -10,20 +10,20 @@ entities:
   - sensor.wakeup_fadein_duration
   - sensor.wakeup_start_time_lights
   - automation.automatic_theme_change
-  - sensor.dark_sky_daily_high_temperature_1
-  - sensor.dark_sky_daily_high_temperature_2
-  - sensor.dark_sky_daily_high_temperature_3
-  - sensor.dark_sky_daily_high_temperature_4
-  - sensor.dark_sky_daily_high_temperature_5
-  - sensor.dark_sky_daily_high_temperature_6
-  - sensor.dark_sky_daily_high_temperature_7
-  - sensor.dark_sky_daily_low_temperature_1
-  - sensor.dark_sky_daily_low_temperature_2
-  - sensor.dark_sky_daily_low_temperature_3
-  - sensor.dark_sky_daily_low_temperature_4
-  - sensor.dark_sky_daily_low_temperature_5
-  - sensor.dark_sky_daily_low_temperature_6
-  - sensor.dark_sky_daily_low_temperature_7
+  - sensor.dark_sky_daytime_high_temperature_1
+  - sensor.dark_sky_daytime_high_temperature_2
+  - sensor.dark_sky_daytime_high_temperature_3
+  - sensor.dark_sky_daytime_high_temperature_4
+  - sensor.dark_sky_daytime_high_temperature_5
+  - sensor.dark_sky_daytime_high_temperature_6
+  - sensor.dark_sky_daytime_high_temperature_7
+  - sensor.dark_sky_overnight_low_temperature_1
+  - sensor.dark_sky_overnight_low_temperature_2
+  - sensor.dark_sky_overnight_low_temperature_3
+  - sensor.dark_sky_overnight_low_temperature_4
+  - sensor.dark_sky_overnight_low_temperature_5
+  - sensor.dark_sky_overnight_low_temperature_6
+  - sensor.dark_sky_overnight_low_temperature_7
   - sensor.dark_sky_daily_max_precip_intensity_1
   - sensor.dark_sky_daily_max_precip_intensity_2
   - sensor.dark_sky_daily_max_precip_intensity_3
@@ -89,8 +89,9 @@ entities:
   - sensor.forecast_6
   - sensor.forecast_7
   - sensor.forecast_today
-  #- sensor.ssl_cert_expiry
-  #- sensor.dark_sky_summary
-  #- sensor.wakeup_start_time_lights
-  #- sensor.wakeup_alarm_time
-  #- sensor.wakeup_fadein_duration
+  - sensor.uptime
+#  - sensor.memory_free
+  - sensor.uberx_time
+  - sensor.uberx_price
+  - sensor.network_in_eth0
+  - sensor.network_out_eth0

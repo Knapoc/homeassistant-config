@@ -7,18 +7,15 @@ default_view:
     - group.devices_dev_living_room
     - group.devices_dev_buero
     - group.room_climate
-#    - input_boolean.weather
     - group.weather
     - group.transport_travel_1
     - group.transport_travel_2
-#    - group.BTC
 
 bed_room:
   name: !secret bed_room1
   view: yes
   entities:
     - group.devices_bed_room
-#    - group.bedroom_lights
     - group.bedroom_lights_part_1
     - group.bedroom_lights_part_2
     - group.bedroom_lights_part_3
@@ -30,6 +27,7 @@ living_room:
   view: yes
   entities:
     - group.devices_living_room
+    - group.living_room_lights_part_1
 
 office:
   name: Büro
@@ -37,7 +35,6 @@ office:
   entities:
     - group.office_lights
     - switch.wind_machine
-#    - input_boolean.weather
 
 weater_view:
   name: Wetter
@@ -95,7 +92,6 @@ devices_dev_bed_room:
     - switch.braviatv_1
     - switch.playstation_4
     - switch.mpd
-#    - light.zimmer
     - light.deckenspots
     - light.stehlampe
 
@@ -103,6 +99,7 @@ devices_dev_living_room:
   name: Wohnzimmer
   entities:
     - switch.braviatv_2
+    - light.wohnzimmer
 
 devices_dev_buero:
   name: Büro
@@ -138,14 +135,6 @@ weather:
     - sensor.zamg_dewpoint
     - sensor.luftdaten_particle_sensor_pm10
     - sensor.luftdaten_particle_sensor_pm25
-
-#weather2:
-#  name: Luftdaten - Wetter
-#  entities:
-#    - sensor.luftdaten_climate_sensor_temperature
-#    - sensor.luftdaten_climate_sensor_humidity
-#    - sensor.luftdaten_particle_sensor_pm10
-#    - sensor.luftdaten_particle_sensor_pm25
 
 room_climate:
   name: Raumklima
@@ -236,14 +225,6 @@ bed_room_other:
   entities:
     - input_datetime.time_turnoff_devices
 
-#BTC:
-#  entities:
-#    - sensor.exchange_rate_1_btc
-#    - sensor.trade_volume
-#    - input_number.btc_slider_low
-#    - input_number.btc_slider_high
-#  name: Bitcoins
-
 ###Lights
 
 #bedroom_lights:
@@ -290,6 +271,17 @@ bedroom_lights_part_3:
     - script.scene_spring_blossom
     - input_select.hue_scenes
 
+living_room_lights_part_1:
+  name: Wohnzimmerspots
+  control: hidden
+  entities:
+    - light.wohnzimmer
+    - light.color_temperature_light_1
+    - light.color_temperature_light_2
+    - light.color_temperature_light_3
+    - light.color_temperature_light_4
+    - light.color_temperature_light_5
+
 light_automations:
   name: Lichtautomatisierung
   control: hidden
@@ -310,7 +302,6 @@ wakeuplight:
     control: hidden
     entities:
       - input_datetime.wakeup_alarm_time
-      - sensor.wakeup_start_time_lights
       - input_number.wakeup_duration
       - input_boolean.wakeup
       - input_boolean.wakeup_weekends

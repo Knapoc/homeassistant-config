@@ -55,15 +55,14 @@ wakeup_zimmer:
   sequence:
     - service: light.turn_on
       data_template:
-        entity_id: light.zimmer
+        entity_id: light.deckenspots
         brightness: 1
         xy_color: [0.5609, 0.4042]
-#        color_temp: 443
     - delay:
         seconds: 1
     - service: light.turn_on
       data_template:
-        entity_id: light.zimmer
+        entity_id: light.deckenspots
         brightness: 146
         transition: '{{ states.input_number.wakeup_duration.state | multiply(60) | int }}'
     - delay:
@@ -164,8 +163,3 @@ weather_presentation:
       data:
         entity_id: media_player.mpd
         volume_level: 0.4
-#          {% if states('sensor.aarhus_daily_max_precip_intensity') | float > 1 %}
-#          Highest expected rain intensity for today is {{states('sensor.aarhus_daily_max_precip_intensity') | round(0)}} millimeters per hour.
-#          {% else %}
-#          No rain expected today.
-#          {% endif %}

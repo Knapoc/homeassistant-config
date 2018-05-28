@@ -81,6 +81,7 @@ ip_bans.yaml
 favicon*
 *.crt
 certificates/
+floorplan_old.svg
 floorplan.svg
 floorplan.yaml
 .ps4-wake.credentials.json

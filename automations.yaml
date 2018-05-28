@@ -1,19 +1,29 @@
-- alias: Automatic Theme Change
-  id: '84938322222'
+#- alias: Automatic Theme Change
+#  id: '84938322222'
+#  trigger:
+#    - platform: homeassistant
+#      event: start
+#    - platform: state
+#      entity_id: sun.sun
+#  action:
+#    - service_template: frontend.set_theme
+#      data_template:
+#        name: >
+#          {% if states.sun.sun.state == "above_horizon" %}
+#            basics
+#          {% else %}
+#            darkblue
+#          {% endif %}
+
+- alias: Startup Theme
+  id: '20180524211900'
   trigger:
     - platform: homeassistant
       event: start
-    - platform: state
-      entity_id: sun.sun
   action:
-    - service_template: frontend.set_theme
-      data_template:
-        name: >
-          {% if states.sun.sun.state == "above_horizon" %}
-            basics
-          {% else %}
-            darkblue
-          {% endif %}
+    - service: frontend.set_theme
+      data:
+        name: darkblue
 
 - alias: SSL expiry notification
   id: '1500779870955'
@@ -130,20 +140,26 @@
   - data:
       entity_id: light.buro
     service: light.turn_off
+  - data:
+      entity_id: input_boolean.loop_livingcolors_2
+    service: input_boolean.turn_off
+  - data:
+      entity_id: input_boolean.loop_livingcolors_1
+    service: input_boolean.turn_off
 
-#- action:
-#  - data:
-#      entity_id: media_player.braviatv_2
-#    service: media_player.turn_off
-#  alias: left home device2
-#  id: '9915583360531'
-#  trigger:
-#  - entity_id: !secret device2
-#    for:
-#      minutes: 5
-#    from: home
-#    platform: state
-#    to: not_home
+- action:
+  - data:
+      entity_id: media_player.braviatv_2
+    service: media_player.turn_off
+  alias: left home device2
+  id: '9915583360531'
+  trigger:
+  - entity_id: !secret device2
+    for:
+      minutes: 5
+    from: home
+    platform: state
+    to: not_home
 
 - alias: Log Level
   id: '1500589870955'
@@ -212,12 +228,13 @@
     seconds: 0
   condition:
     condition: state
-    entity_id: input_boolean.loop_livingcolors
+    entity_id: input_boolean.loop_livingcolors_1
     state: 'on'
   action:
     service: light.turn_on
     entity_id: light.deckenspots
     data:
+      entity_id: light.deckenspots
       effect: random
       transition: 5
       brightness: 255
@@ -239,7 +256,7 @@
     state: home
   action:
   - data:
-      group_name: Zimmer
+      group_name: Deckenspots
       scene_name: Arctic aurora
     service: hue.hue_activate_scene
 
@@ -260,7 +277,7 @@
     state: home
   action:
   - data:
-      group_name: Zimmer
+      group_name: Deckenspots
       scene_name: Nightlight
     service: hue.hue_activate_scene
 
@@ -303,12 +320,13 @@
     seconds: 0
   condition:
     condition: state
-    entity_id: input_boolean.loop_livingcolors_stehlampe
+    entity_id: input_boolean.loop_livingcolors_2
     state: 'on'
   action:
     service: light.turn_on
-    entity_id: light.zimmer
+    #entity_id: light.zimmer
     data:
+      entity_id: light.stehlampe
       effect: random
       transition: 5
       brightness: 132
