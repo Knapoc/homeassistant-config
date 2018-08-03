@@ -1,10 +1,10 @@
-- platform: google_travel_time
-  name: google_travel_time_dev1_driving
-  api_key: !secret google_api
-  origin: !secret device1
-  destination: !secret zone1_fullname
-  options:
-    mode: driving
+#- platform: google_travel_time
+#  name: google_travel_time_dev1_driving
+#  api_key: !secret google_api
+#  origin: !secret device1
+#  destination: !secret zone1_fullname
+#  options:
+#    mode: driving
 
 - platform: google_travel_time
   name: google_travel_time_dev1_transit
@@ -22,29 +22,29 @@
   options:
     mode: transit
 
-- platform: google_travel_time
-  name: google_travel_time_dev2_driving
-  api_key: !secret google_api
-  origin: !secret device2
-  destination: !secret zone2_fullname
-  options:
-    mode: driving
+#- platform: google_travel_time
+#  name: google_travel_time_dev2_driving
+#  api_key: !secret google_api
+#  origin: !secret device2
+#  destination: !secret zone2_fullname
+#  options:
+#    mode: driving
 
-- platform: google_travel_time
-  name: google_travel_time_dev2_transit
-  api_key: !secret google_api
-  origin: !secret device2
-  destination: !secret zone2_fullname
-  options:
-    mode: transit
+#- platform: google_travel_time
+#  name: google_travel_time_dev2_transit
+#  api_key: !secret google_api
+#  origin: !secret device2
+#  destination: !secret zone2_fullname
+#  options:
+#    mode: transit
 
-- platform: google_travel_time
-  name: google_travel_time_dev2_dynamic_home
-  api_key: !secret google_api
-  origin: !secret device2
-  destination: zone.home
-  options:
-    mode: driving
+#- platform: google_travel_time
+#  name: google_travel_time_dev2_dynamic_home
+#  api_key: !secret google_api
+#  origin: !secret device2
+#  destination: zone.home
+#  options:
+#    mode: driving
 
 - platform: uber
   server_token: !secret uber_st

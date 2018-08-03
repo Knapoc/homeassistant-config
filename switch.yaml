@@ -56,3 +56,22 @@
         service: media_player.turn_off
         data:
           entity_id: media_player.playstation_4
+    developer_mode:
+      friendly_name: Developer Mode
+      value_template: "{{states.group.developer.attributes.view == True}}"
+      turn_on:
+        - service: python_script.populate_catchall_group
+        - service: group.set
+          data:
+            object_id: developer
+            view: true
+            visible: true
+      turn_off:
+        - service: group.set
+          data:
+            object_id: developer
+            view: false
+            visible: false
+        - service: group.remove
+          data:
+            object_id: catchall

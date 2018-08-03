@@ -20,15 +20,17 @@ homeassistant:
 
 # Enables the frontend
 frontend:
-  javascript_version: es5
+  javascript_version: latest
   themes: !include_dir_merge_named themes
-  #extra_html_url:
-  #  - /local/custom_ui/state-card-custom-light.html
-  #  - /local/custom_ui/state-card-custom-toggle-url.html
+  extra_html_url:
+    - /local/custom_ui/state-card-custom-light.html
+    - /local/custom_ui/state-card-custom-toggle-url.html
+  #  - /local/custom_ui/state-card-custom-scene.html
   #  - /local/custom_ui/custom-weather-card.html
   extra_html_url_es5:
     - /local/custom_ui/state-card-custom-light.html
     - /local/custom_ui/state-card-custom-toggle-url.html
+  #  - /local/custom_ui/state-card-custom-scene.html
   #  - /local/custom_ui/custom-weather-card.html
   #  - /local/custom_ui/state-card-tiles_es5.html
 
@@ -53,6 +55,8 @@ config:
 http:
   api_password: !secret http_password
   use_x_forwarded_for: true
+  trusted_proxies:
+    - !secret proxy_ip
   base_url: !secret hass_baseurl
   #ssl_certificate: !secret hass_sslcert
   #ssl_key: !secret hass_sslkey
@@ -98,6 +102,10 @@ logger:
 # Track the sun
 sun:
 
+# Weather
+weather:
+  - platform: yweather
+
 # Text to speech
 tts:
   - platform: google
@@ -108,6 +116,8 @@ map:
 group: !include groups.yaml
 
 automation: !include automations.yaml
+
+python_script:
 
 mqtt:
   broker: !secret host_ip

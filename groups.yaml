@@ -8,6 +8,8 @@ default_view:
     - group.devices_dev_buero
     - group.room_climate
     - group.weather
+    #- input_boolean.weather
+    #- weather.yweather
     - group.transport_travel_1
     - group.transport_travel_2
 
@@ -54,6 +56,7 @@ automation_view:
     - group.light_automations
     - group.hass_automations
     - group.hass_automations2
+    - group.hass_automations3
 
 settings_view:
   view: yes
@@ -66,6 +69,7 @@ settings_view:
     - input_select.log_level
     - group.links
     - group.sonoff_3028
+    - switch.developer_mode
 
 ### Groups not as views
 
@@ -179,14 +183,25 @@ hass_automations:
     - automation.log_level
     - automation.disk_use_alarm
     - automation.lights_and_tv_off
+    - automation.gaming_ps4
+    - automation.stop_playing_ps4
+    - automation.ready_for_bed
+    - automation.get_sonoff_3028_version
+    - automation.sonofftasmota_update_availability
+    - automation.update_sonofftasmota
 
 hass_automations2:
   name: Theme Automatisierung
   control: hidden
   entities:
     - automation.startup_theme
-    - automation.day_theme
-    - automation.night_theme
+
+hass_automations3:
+  name: Anwesenheit
+  control: hidden
+  entities:
+    - automation.left_home_device1
+    - automation.left_home_device2
 
 device_tracker:
   name: Familie
@@ -288,6 +303,7 @@ light_automations:
   entities:
     - automation.hue_scene_activation
     - automation.random_light
+    - automation.random_light__stehlampe
     - automation.wakeup_light_bedroom
 
 fail2ban_jails:
@@ -305,3 +321,10 @@ wakeuplight:
       - input_number.wakeup_duration
       - input_boolean.wakeup
       - input_boolean.wakeup_weekends
+
+developer:
+    name: Developer
+    view: false
+    icon: mdi:developer-board
+    entities:
+      - group.catchall
