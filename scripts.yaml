@@ -74,8 +74,8 @@ scene_bright:
     - alias: 'scene_bright'
       service: hue.hue_activate_scene
       data_template:
-        group_name: "Deckenspots"
-        scene_name: "Bright"
+        group_name: "Zimmer"
+        scene_name: "bright_spots"
 scene_tropical_twilight:
   alias: 'Tropical twilight'
   sequence:
@@ -90,8 +90,8 @@ scene_nightlight:
     - alias: 'scene_nightlight'
       service: hue.hue_activate_scene
       data_template:
-        group_name: "Deckenspots"
-        scene_name: "Nightlight"
+        group_name: "Zimmer"
+        scene_name: "nightlight_spots"
 scene_arctic_aurora:
   alias: 'Arctic aurora'
   sequence:
@@ -145,7 +145,7 @@ weather_presentation:
           {% else %}
           error
           {% endif %}
-          Die aktuelle Temperatur beträgt {{states('sensor.dark_sky_temperature') | round(0)}} Grad. Der Tageshöchstwert liegt bei {{states('sensor.dark_sky_daily_high_temperature') | round(0)}} Grad. Die Niederschlagswahrscheinlichkeit liegt bei {{states('sensor.dark_sky_precip_probability') | round(0)}} Prozent, die Luftfeuchtigkeit bei {{states('sensor.dark_sky_humidity') | round(0)}} Prozent.
+          Die aktuelle Temperatur beträgt {{states('sensor.dark_sky_temperature') | round(0)}} Grad. Der Tageshöchstwert liegt bei {{states('sensor.dark_sky_daytime_high_temperature') | round(0)}} Grad. Die Niederschlagswahrscheinlichkeit liegt bei {{states('sensor.dark_sky_precip_probability') | round(0)}} Prozent, die Luftfeuchtigkeit bei {{states('sensor.dark_sky_humidity') | round(0)}} Prozent.
           {% if states('sensor.dark_sky_wind_speed') | float > 5 %}
           Die aktuelle Windgeschwindigkeit beträgt {{states('sensor.dark_sky_wind_speed') | round(0)}} Meter pro Sekunde.
           {% endif %}

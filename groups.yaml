@@ -153,7 +153,9 @@ server_info:
   entities:
     - sensor.uptime
     - sensor.processor_use
+    - sensor.cpu_speed
     - sensor.memory_use_percent
+    - sensor.swap_use_percent
     - sensor.disk_use_percent_
     - sensor.disk_free_
     - sensor.database_size_hass

@@ -141,6 +141,8 @@
     - download
     - upload
 
+- platform: cpuspeed
+
 - platform: uptime
   name: Uptime
   unit_of_measurement: hours

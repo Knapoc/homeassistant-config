@@ -171,6 +171,7 @@ sensor:
   - platform: template
     sensors:
       forecast_today:
+        entity_id: sensor.forecast_today
         friendly_name: "Vorhersage"
         value_template: >
           {{states.sensor.dark_sky_daytime_high_temperature.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability.state|round(0)}}%
@@ -178,6 +179,7 @@ sensor:
             {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon.state ~ '.svg'}}
 
       forecast_1:
+        entity_id: sensor.forecast_1
         friendly_name: 'Tomorrow'
         value_template: >
           {{states.sensor.dark_sky_daytime_high_temperature_1.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_1.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_1.state|round(0)}}%
@@ -185,6 +187,7 @@ sensor:
             {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_1.state ~ '.svg'}}
 
       forecast_2:
+        entity_id: sensor.forecast_2
         friendly_name_template: >
             {%- set date = as_timestamp(now()) + (2 * 86400 ) -%}
             {{ date | timestamp_custom("%A (%-m/%-d)") }}
@@ -194,6 +197,7 @@ sensor:
             {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_2.state ~ '.svg'}}
 
       forecast_3:
+        entity_id: sensor.forecast_3
         friendly_name_template: >
             {%- set date = as_timestamp(now()) + (3 * 86400 ) -%}
             {{ date | timestamp_custom("%A (%-m/%-d)") }}
@@ -203,6 +207,7 @@ sensor:
             {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_3.state ~ '.svg'}}
 
       forecast_4:
+        entity_id: sensor.forecast_4
         friendly_name_template: >
             {%- set date = as_timestamp(now()) + (4 * 86400 ) -%}
             {{ date | timestamp_custom("%A (%-m/%-d)") }}
@@ -212,6 +217,7 @@ sensor:
             {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_4.state ~ '.svg'}}
 
       forecast_5:
+        entity_id: sensor.forecast_5
         friendly_name_template: >
             {%- set date = as_timestamp(now()) + (5 * 86400 ) -%}
             {{ date | timestamp_custom("%A (%-m/%-d)") }}
@@ -221,6 +227,7 @@ sensor:
             {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_5.state ~ '.svg'}}
 
       forecast_6:
+        entity_id: sensor.forecast_6
         friendly_name_template: >
             {%- set date = as_timestamp(now()) + (6 * 86400 ) -%}
             {{ date | timestamp_custom("%A (%-m/%-d)") }}
@@ -230,6 +237,7 @@ sensor:
             {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_6.state ~ '.svg'}}
 
       forecast_7:
+        entity_id: sensor.forecast_7
         friendly_name_template: >
             {%- set date = as_timestamp(now()) + (7 * 86400 ) -%}
             {{ date | timestamp_custom("%A (%-m/%-d)") }}

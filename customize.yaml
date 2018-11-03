@@ -24,7 +24,7 @@ light.buro:
 light.deckenspots:
   friendly_name: Deckenspots
   custom_ui_state_card: state-card-custom-light
-  homebridge_hidden: true
+  homebridge_hidden: false
 light.stehlampe:
   friendly_name: Stehlampe
   custom_ui_state_card: state-card-custom-light
@@ -61,6 +61,9 @@ script.1515151540311:
 ###System Sensors
 sensor.cpu_temperature:
   friendly_name: CPU Temperatur
+  homebridge_hidden: true
+sensor.cpu_speed:
+  friendly_name: CPU Frequenz
   homebridge_hidden: true
 sensor.database_size_hass:
   friendly_name: Datenbankgröße HA
@@ -101,6 +104,9 @@ sensor.speedtest_upload:
 sensor.speedtest_ping:
   friendly_name: Ping
   icon: mdi:webpack
+sensor.swap_use_percent:
+  friendly_name: Swap
+  homebridge_hidden: true
 sensor.uptime:
   friendly_name: HA Betriebszeit
   icon: mdi:arrow-up-thick

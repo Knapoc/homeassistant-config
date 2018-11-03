@@ -1,0 +1,4 @@
+auto_start: false
+name: Home Assistant Bridge
+ip_address:
+port: 

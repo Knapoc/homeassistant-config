@@ -95,3 +95,9 @@ weather_animated
 ui-lovelace.yaml
 core.config_entries
 hacp.html
+.storage
+auth
+auth_module.totp
+auth_provider.homeassistant
+core.entity_registry
+onboarding

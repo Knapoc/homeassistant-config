@@ -83,6 +83,15 @@ recorder:
   include: !include recorder_include.yaml
   exclude: !include recorder_exclude.yaml
 
+#influxdb:
+#  host: !secret host_ip
+#  port: !secret influxdb_port
+#  username: !secret influxdb_user
+#  password: !secret influxdb_userpw
+#  max_retries: 5
+#  include: !include recorder_include.yaml
+#  exclude: !include recorder_exclude.yaml
+
 # Enables support for tracking state changes over time.
 history:
   #exclude: !include history_exclude.yaml

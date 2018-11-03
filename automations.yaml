@@ -18,12 +18,12 @@
 - alias: Startup Theme
   id: '20180524211900'
   trigger:
-    - platform: homeassistant
-      event: start
+  - platform: homeassistant
+    event: start
   action:
-    - service: frontend.set_theme
-      data:
-        name: darkblue
+  - service: frontend.set_theme
+    data:
+      name: darkblue
 
 - alias: SSL expiry notification
   id: '1500779870955'
@@ -108,10 +108,10 @@
 - alias: get sonoff 3028 version
   id: '1500581870914'
   trigger:
-    - platform: homeassistant
-      event: start
-    - platform: time
-      at: 09:00:00
+  - platform: homeassistant
+    event: start
+  - platform: time
+    at: 09:00:00
   action:
   - service: script.2215152489107
 
@@ -146,7 +146,7 @@
   - data:
       entity_id: input_boolean.loop_livingcolors_1
     service: input_boolean.turn_off
-
+    
 - action:
   - data:
       entity_id: media_player.braviatv_2
@@ -173,7 +173,7 @@
     service: logger.set_level
     data_template:
       homeassistant.components: '{{ trigger.to_state.state }}'
-
+      
 - alias: WakeUp Light Bedroom
   id: '1500581870955'
   trigger:
@@ -199,7 +199,6 @@
         state: 'on'
   action:
     service: script.wakeup_zimmer
-
 - alias: Hue Scene Activation
   id: '1500589870955'
   trigger:
@@ -218,7 +217,7 @@
   - service: input_select.select_option
     data:
       entity_id: input_select.hue_scenes
-      option: "none"
+      option: none
 
 - alias: Random light
   id: '33223'
@@ -259,7 +258,7 @@
       group_name: Deckenspots
       scene_name: Arctic aurora
     service: hue.hue_activate_scene
-
+    
 - alias: Stop playing PS4
   id: '1519077187087'
   trigger:
@@ -330,3 +329,23 @@
       effect: random
       transition: 5
       brightness: 132
+- id: '1534393836262'
+  alias: location update dev2
+  trigger:
+  - platform: time
+    minutes: /30
+    seconds: 0
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: !secret device2
+        state: 'not_home'
+      - condition: state
+        entity_id: !secret device2
+        state: 'away'
+  action:
+  - service: mqtt.publish
+    data:
+      topic: !secret dev2_ot_topic
+      payload: '{"_type":"cmd","action":"reportLocation"}'
