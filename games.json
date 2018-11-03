@@ -1,10 +1,8 @@
 {
     "CUSA00127": "https://d2ygrtdi28m8fp.cloudfront.net/corporateAssets/Netflix_Logo_DigitalVideo_0701.jpg",
     "CUSA00219": "http://assets.vg247.com/current//2016/06/destiny_rise_of_iron_5.jpg",
-    "CUSA00411": "http://officialrtv.com/wp-content/uploads/2013/09/GTA-V-Wallpaper-Full-HD-Background-Pictures.jpg",
     "CUSA01116": "https://i.ytimg.com/vi/s5y-4EpmfRQ/maxresdefault.jpg",
     "CUSA01262": "https://media.playstation.com/is/image/SCEA/tom-clancys-the-division-listing-thumb-01-ps4-us-02aug16?$Icon$",
-    "CUSA01433": "http://cdn3.dualshockers.com/wp-content/uploads/2017/02/Rocket-League-1.jpg",
     "CUSA01692": "http://static.commentcamarche.net/www.commentcamarche.net/actualites/images/vevo-301.png",
     "CUSA01703": "http://cdn1.expertreviews.co.uk/sites/expertreviews/files/2016/12/plex.jpg",
     "CUSA01780": "https://cdn3.tnwcdn.com/wp-content/blogs.dir/1/files/2015/07/Screen-Shot-2015-07-20-at-7.48.32-PM.png",
@@ -21,7 +19,6 @@
     "CUSA06118": "https://inthegame.nl/wp-content/uploads/maxresdefault-6-7.jpg",
     "CUSA01163": "https://rocketleague.media.zestyio.com/boxart_comp1.f1cb27a519bdb5b6ed34049a5b86e317.jpg",
     "CUSA02429": "http://www.amd.com/PublishingImages/graphics/illustrations/770px/battlefield-1-key-art-game-detail-9646.jpg",
-    "CUSA01021": "http://cdn.images.dailystar.co.uk/dynamic/184/photos/509000/620x/Horizon-Zero-Dawn-Platinum-Avatar-PS4-Gift-611828.jpg",
     "CUSA01842": "http://www.hdwallpaper.nu/wp-content/uploads/2016/05/overwatch-logo-hd-wallpaper-660x330.jpg",
     "CUSA02557": "https://vignette3.wikia.nocookie.net/fallout/images/e/e9/Fallout_4_box_cover.jpg/revision/latest?cb=20170220211249",
     "CUSA00473": "http://071bc3d04e2671665c74-5a267f839fbe60d0845a37698418bb02.r26.cf5.rackcdn.com/wp-content/uploads/2014/06/littlebigplanet-3-logo-characters-banner-.jpg",
@@ -134,5 +131,8 @@
     "CUSA00824": "https://store.playstation.com/store/api/chihiro/00_09_000/container/AT/de/19/EP4064-CUSA00824_00-WORMSBGS00000000/1519117437000/image?w=1024&h=1024&bg_color=000000&opacity=100&_version=00_09_000",
     "CUSA0619": "https://store.playstation.com/store/api/chihiro/00_09_000/container/AT/de/19/EP9000-CUSA06190_00-DRAWNTODEATH0001/1519113457000/image?w=1024&h=1024&bg_color=000000&opacity=100&_version=00_09_000",
     "CUSA01836": "https://store.playstation.com/store/api/chihiro/00_09_000/container/AT/de/19/EP0082-CUSA01836_00-DXMANKINDIVIDED0/1519114038000/image?w=1024&h=1024&bg_color=000000&opacity=100&_version=00_09_000",
-    "CUSA01067": "https://store.playstation.com/store/api/chihiro/00_09_000/container/AT/de/19/EP0102-CUSA01067_00-BHRHDPS400000001/1519120563000/image?w=1024&h=1024&bg_color=000000&opacity=100&_version=00_09_000"
+    "CUSA01067": "https://store.playstation.com/store/api/chihiro/00_09_000/container/AT/de/19/EP0102-CUSA01067_00-BHRHDPS400000001/1519120563000/image?w=1024&h=1024&bg_color=000000&opacity=100&_version=00_09_000",
+    "CUSA11608": "https://store.playstation.com/store/api/chihiro/00_09_000/container/AT/de/19/EP0006-CUSA11608_00-FIFAFOOTBALL2019/1540568639000/image?w=1024&h=1024&bg_color=000000&opacity=100&_version=00_09_000",
+    "CUSA07410": "https://store.playstation.com/store/api/chihiro/00_09_000/container/AT/de/19/EP9000-CUSA07410_00-00000000GODOFWAR/1539820799000/image?w=1024&h=1024&bg_color=000000&opacity=100&_version=00_09_000",
+    "CUSA08519": "https://store.playstation.com/store/api/chihiro/00_09_000/container/AT/de/19/EP1004-CUSA08519_00-REDEMPTION000002/1541149010000/image?w=1024&h=1024&bg_color=000000&opacity=100&_version=00_09_000""
 }
