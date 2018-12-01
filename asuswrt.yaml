@@ -1,0 +1,3 @@
+host: !secret router_ip
+username: !secret router_login
+ssh_key: !secret router_ssh

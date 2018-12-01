@@ -101,3 +101,4 @@ auth_module.totp
 auth_provider.homeassistant
 core.entity_registry
 onboarding
+.homekit.state
