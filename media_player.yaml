@@ -1,7 +1,7 @@
-- platform: mpd
-  name: mpd
-  host: !secret mpd_ip
-  port: !secret mpd_port
+#- platform: mpd
+#  name: mpd
+#  host: !secret mpd_ip
+#  port: !secret mpd_port
 - platform: bravia_nue
   name: braviatv_1
   host: !secret tv_tv1_ip
