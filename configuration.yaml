@@ -14,6 +14,9 @@ homeassistant:
   customize_domain: !include customize_domain.yaml
   customize_glob: !include customize_global.yaml
   packages: !include_dir_named packages
+  #auth_providers:
+  # - type: homeassistant
+  # - type: legacy_api_password
 
 # Show links to resources in log and frontend
 # introduction:
@@ -147,8 +150,10 @@ hue:
       allow_unreachable: true
 
 #apiai:
+#asuswrt: !include asuswrt.yaml
 binary_sensor: !include binary_sensor.yaml
 device_tracker: !include device_tracker.yaml
+#homekit: !include homekit.yaml
 input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
 input_number: !include input_number.yaml
@@ -157,6 +162,7 @@ input_select: !include input_select.yaml
 ios: !include ios.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
+#owntracks: !include owntracks.yaml
 sensor: !include sensor.yaml
 script: !include scripts.yaml
 switch: !include switch.yaml

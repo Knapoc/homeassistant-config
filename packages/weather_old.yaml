@@ -1,0 +1,247 @@
+homeassistant:
+  customize_glob:
+    "sensor.dark_sky_*":
+      homebridge_hidden: true
+    "sensor.zamg_*":
+      homebridge_hidden: true
+    "sensor.luftdaten_*":
+      homebridge_hidden: true
+
+  customize:
+    sensor.zamg_humidity:
+      friendly_name: Luftfeuchtigkeit
+      icon: mdi:water-percent
+    sensor.zamg_temperature:
+      friendly_name: Temperatur
+    sensor.zamg_wind_speed:
+      friendly_name: Windgeschwindigkeit
+      icon: mdi:weather-windy
+    sensor.zamg_precipitation:
+      friendly_name: Niederschlag
+      icon: mdi:weather-rainy
+    sensor.zamg_dewpoint:
+      friendly_name: Taupunkt
+      icon: mdi:image-filter-center-focus-weak
+    sensor.luftdaten_particle_sensor_pm10:
+      friendly_name: Feinstaub (PM10)
+      icon: mdi:cloud
+    sensor.luftdaten_particle_sensor_pm25:
+      friendly_name: Feinstaub (PM2,5)
+      icon: mdi:cloud
+    sensor.luftdaten_climate_sensor_temperature:
+      friendly_name: Temperatur
+    sensor.luftdaten_climate_sensor_humidity:
+      friendly_name: Luftfeuchtigkeit
+      icon: mdi:water-percent
+    sensor.dark_sky_temperature:
+      friendly_name: Temperatur
+    sensor.dark_sky_temperature_low:
+      friendly_name: Temperatur - min
+    sensor.dark_sky_temperature_high:
+      friendly_name: Temperatur - max
+    sensor.dark_sky_precip_type:
+      friendly_name: Niederschlagsart
+    sensor.dark_sky_precip_intensity:
+      friendly_name: Niederschlag
+    sensor.dark_sky_precip_probability:
+      friendly_name: Niederschlag - %
+    sensor.dark_sky_precip_intensity_max:
+      friendly_name: Niederschlag - max
+    sensor.dark_sky_humidity:
+      friendly_name: Luftfeuchtigkeit
+    sensor.dark_sky_dew_point:
+      friendly_name: Taupunkt
+      icon: mdi:image-filter-center-focus-weak
+    sensor.dark_sky_pressure:
+      friendly_name: Luftdruck
+    sensor.dark_sky_wind_speed:
+      friendly_name: Windgeschwindigkeit
+    sensor.dark_sky_wind_bearing:
+      friendly_name: Windrichtung
+    sensor.dark_sky_apparent_temperature:
+      friendly_name: Temperatur gef.
+    sensor.dark_sky_apparent_temperature_min:
+      friendly_name: Temperatur - min gef.
+    sensor.dark_sky_apparent_temperature_max:
+      friendly_name: Temperatur - max gef.
+    sensor.dark_sky_ozone:
+      friendly_name: Ozon
+    sensor.dark_sky_uv_index:
+      friendly_name: UV-Index
+    sensor.dark_sky_visibility:
+      friendly_name: Sichtweite
+    sensor.dark_sky_cloud_cover:
+      friendly_name: Wolkendichte
+
+group:
+  zamg_weather:
+    name: ZAMG - Wetter
+    entities:
+      - sensor.zamg_temperature
+      - sensor.zamg_humidity
+      - sensor.zamg_wind_speed
+      - sensor.zamg_precipitation
+      - sensor.zamg_dewpoint
+
+  luftdaten_weather:
+    name: Luftdaten - Wetter
+    entities:
+      - sensor.luftdaten_climate_sensor_temperature
+      - sensor.luftdaten_climate_sensor_humidity
+      - sensor.luftdaten_particle_sensor_pm10
+      - sensor.luftdaten_particle_sensor_pm25
+
+  weather_card_today:
+    name: Heute
+    view: no
+    entities:
+      - sensor.forecast_today
+      - sensor.dark_sky_temperature
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_precip_probability
+      - sensor.dark_sky_precip_intensity
+      - sensor.dark_sky_wind_speed
+      - sensor.dark_sky_uv_index
+      - sensor.dark_sky_dew_point
+
+  weather_card_forecast:
+    name: Vorhersage
+    view: no
+    entities:
+      - sensor.forecast_1
+      - sensor.forecast_2
+      - sensor.forecast_3
+      - sensor.forecast_4
+      - sensor.forecast_5
+      - sensor.forecast_6
+      - sensor.forecast_7
+
+
+sensor:
+  - platform: zamg
+    station_id: !secret zamg_station
+    monitored_conditions:
+      - temperature
+      - humidity
+      - precipitation
+      - wind_speed
+      - dewpoint
+
+  - platform: luftdaten
+    sensorid: !secret luftdaten_sensor1
+    name: luftdaten_particle_sensor
+    verify_ssl: true
+    monitored_conditions:
+        - P1
+        - P2
+
+  - platform: luftdaten
+    name: luftdaten_climate_sensor
+    sensorid: !secret luftdaten_sensor2
+    verify_ssl: true
+    monitored_conditions:
+      - temperature
+      - humidity
+
+  - platform: darksky
+    api_key: !secret darksky_ak
+    forecast:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+    monitored_conditions:
+      - icon
+      - precip_intensity
+      - precip_probability
+      - temperature
+      - dew_point
+      - uv_index
+      - wind_speed
+      - humidity
+      - temperature_low
+      - temperature_high
+      - precip_intensity_max
+
+  - platform: season
+
+  - platform: template
+    sensors:
+      forecast_today:
+        entity_id: sensor.forecast_today
+        friendly_name: "Vorhersage"
+        value_template: >
+          {{states.sensor.dark_sky_daytime_high_temperature.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability.state|round(0)}}%
+        entity_picture_template: >-
+            {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon.state ~ '.svg'}}
+
+      forecast_1:
+        entity_id: sensor.forecast_1
+        friendly_name: 'Tomorrow'
+        value_template: >
+          {{states.sensor.dark_sky_daytime_high_temperature_1.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_1.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_1.state|round(0)}}%
+        entity_picture_template: >-
+            {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_1.state ~ '.svg'}}
+
+      forecast_2:
+        entity_id: sensor.forecast_2
+        friendly_name_template: >
+            {%- set date = as_timestamp(now()) + (2 * 86400 ) -%}
+            {{ date | timestamp_custom("%A (%-m/%-d)") }}
+        value_template: >
+          {{states.sensor.dark_sky_daytime_high_temperature_2.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_2.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_2.state|round(0)}}%
+        entity_picture_template: >-
+            {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_2.state ~ '.svg'}}
+
+      forecast_3:
+        entity_id: sensor.forecast_3
+        friendly_name_template: >
+            {%- set date = as_timestamp(now()) + (3 * 86400 ) -%}
+            {{ date | timestamp_custom("%A (%-m/%-d)") }}
+        value_template: >
+          {{states.sensor.dark_sky_daytime_high_temperature_3.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_3.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_3.state|round(0)}}%
+        entity_picture_template: >-
+            {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_3.state ~ '.svg'}}
+
+      forecast_4:
+        entity_id: sensor.forecast_4
+        friendly_name_template: >
+            {%- set date = as_timestamp(now()) + (4 * 86400 ) -%}
+            {{ date | timestamp_custom("%A (%-m/%-d)") }}
+        value_template: >
+          {{states.sensor.dark_sky_daytime_high_temperature_4.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_4.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_4.state|round(0)}}%
+        entity_picture_template: >-
+            {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_4.state ~ '.svg'}}
+
+      forecast_5:
+        entity_id: sensor.forecast_5
+        friendly_name_template: >
+            {%- set date = as_timestamp(now()) + (5 * 86400 ) -%}
+            {{ date | timestamp_custom("%A (%-m/%-d)") }}
+        value_template: >
+          {{states.sensor.dark_sky_daytime_high_temperature_5.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_5.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_5.state|round(0)}}%
+        entity_picture_template: >-
+            {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_5.state ~ '.svg'}}
+
+      forecast_6:
+        entity_id: sensor.forecast_6
+        friendly_name_template: >
+            {%- set date = as_timestamp(now()) + (6 * 86400 ) -%}
+            {{ date | timestamp_custom("%A (%-m/%-d)") }}
+        value_template: >
+            {{states.sensor.dark_sky_daytime_high_temperature_6.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_6.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_6.state|round(0)}}%
+        entity_picture_template: >-
+            {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_6.state ~ '.svg'}}
+
+      forecast_7:
+        entity_id: sensor.forecast_7
+        friendly_name_template: >
+            {%- set date = as_timestamp(now()) + (7 * 86400 ) -%}
+            {{ date | timestamp_custom("%A (%-m/%-d)") }}
+        value_template: >
+            {{states.sensor.dark_sky_daytime_high_temperature_7.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_7.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_7.state|round(0)}}%
+        entity_picture_template: >-
+            {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon_7.state ~ '.svg'}}

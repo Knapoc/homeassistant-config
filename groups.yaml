@@ -137,8 +137,8 @@ weather:
     - sensor.zamg_wind_speed
     - sensor.zamg_precipitation
     - sensor.zamg_dewpoint
-    - sensor.luftdaten_particle_sensor_pm10
-    - sensor.luftdaten_particle_sensor_pm25
+    - !secret luftdaten_s1id
+    - !secret luftdaten_s2id
 
 room_climate:
   name: Raumklima

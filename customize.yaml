@@ -1,13 +1,14 @@
+
 ### CUSTOMIZE ENTITIES ###
 
 ###Binary sensors
 binary_sensor.workday_sensor:
   homebridge_hidden: true
-
 ###Input booleans
 input_boolean.fan_living_room:
   homebridge_hidden: true
-
+#input_boolean.loop_livingcolors_2
+#  homebridge_name: Zufallslicht
 ###Input number
 
 ###Input select
@@ -72,10 +73,10 @@ sensor.database_size_nc:
   friendly_name: Datenbankgröße NC
   icon: mdi:database
 sensor.disk_free_:
-  friendly_name: HDD
+  friendly_name: SSD
   homebridge_hidden: true
 sensor.disk_use_percent_:
-  friendly_name: HDD
+  friendly_name: SSD
   homebridge_hidden: true
 sensor.hass_version:
   friendly_name: HA-Version

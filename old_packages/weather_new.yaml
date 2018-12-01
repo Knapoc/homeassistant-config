@@ -22,15 +22,15 @@ homeassistant:
     sensor.zamg_dewpoint:
       friendly_name: Taupunkt
       icon: mdi:image-filter-center-focus-weak
-    sensor.luftdaten_particle_sensor_pm10:
+    !secret luftdaten_s1id:
       friendly_name: Feinstaub (PM10)
       icon: mdi:cloud
-    sensor.luftdaten_particle_sensor_pm25:
+    !secret luftdaten_s2id:
       friendly_name: Feinstaub (PM2,5)
       icon: mdi:cloud
-    sensor.luftdaten_climate_sensor_temperature:
+    !secret luftdaten_s3id:
       friendly_name: Temperatur
-    sensor.luftdaten_climate_sensor_humidity:
+    !secret luftdaten_s4id:
       friendly_name: Luftfeuchtigkeit
       icon: mdi:water-percent
     sensor.dark_sky_temperature:
@@ -86,10 +86,10 @@ group:
   luftdaten_weather:
     name: Luftdaten - Wetter
     entities:
-      - sensor.luftdaten_climate_sensor_temperature
-      - sensor.luftdaten_climate_sensor_humidity
-      - sensor.luftdaten_particle_sensor_pm10
-      - sensor.luftdaten_particle_sensor_pm25
+      - !secret luftdaten_s3id
+      - !secret luftdaten_s4id
+      - !secret luftdaten_s1id
+      - !secret luftdaten_s2id
 
   weather_card_today:
     name: Heute
@@ -127,25 +127,26 @@ sensor:
       - wind_speed
       - dewpoint
 
-  - platform: luftdaten
-    sensorid: !secret luftdaten_sensor1
-    name: luftdaten_particle_sensor
-    verify_ssl: true
-    monitored_conditions:
-        - P1
-        - P2
+ #- platform: luftdaten
+ #   sensorid: !secret luftdaten_sensor1
+ #   name: luftdaten_particle_sensor
+ #   verify_ssl: true
+ #   monitored_conditions:
+ #       - P1
+ #       - P2
 
-  - platform: luftdaten
-    name: luftdaten_climate_sensor
-    sensorid: !secret luftdaten_sensor2
-    verify_ssl: true
-    monitored_conditions:
-      - temperature
-      - humidity
+ # - platform: luftdaten
+ #   name: luftdaten_climate_sensor
+ #   sensorid: !secret luftdaten_sensor2
+ #   verify_ssl: true
+ #   monitored_conditions:
+ #     - temperature
+ #     - humidity
 
   - platform: darksky
     api_key: !secret darksky_ak
     forecast:
+        - 0
         - 1
         - 2
         - 3
@@ -174,7 +175,7 @@ sensor:
         entity_id: sensor.forecast_today
         friendly_name: "Vorhersage"
         value_template: >
-          {{states.sensor.dark_sky_daytime_high_temperature.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability.state|round(0)}}%
+          {{states.sensor.dark_sky_daytime_high_temperature_0.state|round(0)}}°/{{states.sensor.dark_sky_overnight_low_temperature_0.state|round(0)}}°/{{states.sensor.dark_sky_precip_probability_0.state|round(0)}}%
         entity_picture_template: >-
             {{ '/local/icons/weather/' ~ states.sensor.dark_sky_icon.state ~ '.svg'}}
 
