@@ -14,9 +14,9 @@ homeassistant:
   customize_domain: !include customize_domain.yaml
   customize_glob: !include customize_global.yaml
   packages: !include_dir_named packages
-  #auth_providers:
-  # - type: homeassistant
-  # - type: legacy_api_password
+  auth_providers:
+    - type: homeassistant
+    - type: legacy_api_password
 
 # Show links to resources in log and frontend
 # introduction:
@@ -36,6 +36,9 @@ frontend:
   #  - /local/custom_ui/state-card-custom-scene.html
   #  - /local/custom_ui/custom-weather-card.html
   #  - /local/custom_ui/state-card-tiles_es5.html
+
+lovelace:
+  mode: yaml
 
 panel_custom:
   - name: floorplan
@@ -82,7 +85,7 @@ conversation:
 recorder:
   db_url: !secret mysql_db
   purge_interval: 1
-  purge_keep_days: 30
+  purge_keep_days: 14
   include: !include recorder_include.yaml
   exclude: !include recorder_exclude.yaml
 
@@ -150,9 +153,9 @@ hue:
       allow_unreachable: true
 
 #apiai:
-#asuswrt: !include asuswrt.yaml
+asuswrt: !include asuswrt.yaml
 binary_sensor: !include binary_sensor.yaml
-device_tracker: !include device_tracker.yaml
+#device_tracker: !include device_tracker.yaml
 #homekit: !include homekit.yaml
 input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
@@ -162,7 +165,7 @@ input_select: !include input_select.yaml
 ios: !include ios.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
-#owntracks: !include owntracks.yaml
+owntracks: !include owntracks.yaml
 sensor: !include sensor.yaml
 script: !include scripts.yaml
 switch: !include switch.yaml

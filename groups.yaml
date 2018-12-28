@@ -35,7 +35,7 @@ office:
   name: Büro
   view: yes
   entities:
-    - group.office_lights
+    - light.hue_white_lamp_1
     - switch.wind_machine
 
 weater_view:

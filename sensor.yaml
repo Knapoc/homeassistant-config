@@ -60,48 +60,48 @@
 
 - platform: mqtt
   name: sonoff_3028_version
-  state_topic: "stat/sonoff/STATUS2"
-  value_template: "{{ value_json['StatusFWR'].Version }}"
+  state_topic: "sonoff/stat/STATUS2"
+  value_template: "{{ value_json['StatusFWR'].Version[:5] }}"
 
 - platform: mqtt
   name: sonoff_office_temperature
-  state_topic: "tele/sonoff/SENSOR"
+  state_topic: "sonoff/tele/SENSOR"
   value_template: "{{ value_json['AM2301'].Temperature }}"
   unit_of_measurement: "°C"
 
 - platform: mqtt
   name: sonoff_office_humidty
-  state_topic: "tele/sonoff/SENSOR"
+  state_topic: "sonoff/tele/SENSOR"
   value_template: "{{ value_json['AM2301'].Humidity }}"
   unit_of_measurement: "%"
 
 - platform: mqtt
   name: wemosd1_room_temperature
-  state_topic: "tele/wemosd1_1/SENSOR"
+  state_topic: "wemosd1_1/tele/SENSOR"
   value_template: "{{ value_json['SHT3X-0x45'].Temperature }}"
   unit_of_measurement: "°C"
 
 - platform: mqtt
   name: wemosd1_room_humidty
-  state_topic: "tele/wemosd1_1/SENSOR"
+  state_topic: "wemosd1_1/tele/SENSOR"
   value_template: "{{ value_json['SHT3X-0x45'].Humidity }}"
   unit_of_measurement: "%"
 
 - platform: mqtt
   name: sonoff_uptime
-  state_topic: "tele/sonoff/STATE"
+  state_topic: "sonoff/tele/STATE"
   value_template: "{{ value_json.Uptime }}"
   unit_of_measurement: "h"
 
 - platform: mqtt
   name: sonoff_rssi
-  state_topic: "tele/sonoff/STATE"
+  state_topic: "sonoff/tele/STATE"
   value_template: "{{ value_json['Wifi'].RSSI }}"
   unit_of_measurement: "dBm"
 
 - platform: mqtt
   name: sonoff_vcc
-  state_topic: "tele/sonoff/STATE"
+  state_topic: "sonoff/tele/STATE"
   value_template: "{{ value_json.Vcc }}"
   unit_of_measurement: "V"
 
@@ -127,6 +127,7 @@
     - type: network_out
       arg: eth0
     - type: swap_use_percent
+    - type: last_boot
 
 - platform: command_line
   name: CPU Temperature

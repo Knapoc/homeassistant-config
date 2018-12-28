@@ -1,7 +1,7 @@
 - platform: mqtt
   name: wind machine
-  command_topic: "cmnd/sonoff/POWER"
-  state_topic: "stat/sonoff/POWER1"
+  command_topic: "sonoff/cmnd/POWER"
+  state_topic: "sonoff/stat/POWER1"
   qos: 1
   payload_on: "ON"
   payload_off: "OFF"

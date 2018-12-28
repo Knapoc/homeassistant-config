@@ -3,22 +3,22 @@
   sequence:
   - data:
       payload: http://sonoff.maddox.co.uk/tasmota/sonoff-minimal.bin
-      topic: cmnd/sonoff/OtaUrl
+      topic: sonoff/cmnd/OtaUrl
     service: mqtt.publish
   - delay: 00:00:05
   - data:
       payload: '1'
-      topic: cmnd/sonoff/Upgrade
+      topic: sonoff/cmnd/Upgrade
     service: mqtt.publish
   - delay: 00:03:00
   - data:
       payload: http://sonoff.maddox.co.uk/tasmota/sonoff.bin
-      topic: cmnd/sonoff/OtaUrl
+      topic: sonoff/cmnd/OtaUrl
     service: mqtt.publish
   - delay: 00:00:05
   - data:
       payload: '1'
-      topic: cmnd/sonoff/Upgrade
+      topic: sonoff/cmnd/Upgrade
     service: mqtt.publish
   - delay: 00:03:00
   - service: script.2215152489107
@@ -27,28 +27,28 @@
   sequence:
   - data:
       payload: '1'
-      topic: cmnd/sonoff/Restart
+      topic: sonoff/cmnd/Restart
     service: mqtt.publish
 '1515152489107':
   alias: Status
   sequence:
   - data:
       payload: '0'
-      topic: cmnd/sonoff/Status
+      topic: sonoff/cmnd/Status
     service: mqtt.publish
 '1515152636091':
   alias: reset
   sequence:
   - data:
       payload: '1'
-      topic: cmnd/sonoff/Reset
+      topic: sonoff/cmnd/Reset
     service: mqtt.publish
 '2215152489107':
   alias: FW-Status
   sequence:
   - data:
       payload: '2'
-      topic: cmnd/sonoff/Status
+      topic: sonoff/cmnd/Status
     service: mqtt.publish
 wakeup_zimmer:
   alias: 'Wakeup routine: lights and weather'

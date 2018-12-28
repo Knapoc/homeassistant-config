@@ -83,14 +83,17 @@
     at: 09:15:00
   condition:
     condition: template
+#    value_template: '{{ states.sensor.sonoff_maddox_version.state | replace("v", "")
+#      | replace(".","") != states.sensor.sonoff_3028_version.state[:5] | replace(".","")
+#      }}'
     value_template: '{{ states.sensor.sonoff_maddox_version.state | replace("v", "")
-      | replace(".","") != states.sensor.sonoff_3028_version.state | replace(".","")
+       != states.sensor.sonoff_3028_version.state[:5]
       }}'
   action:
   - service: !secret notify_ios
     data_template:
       message: 'Sonoff-Tasmota version {{ states.sensor.sonoff_maddox_version.state
-        | replace("v", "") }} is available. Do you wish to upgrade? Changelog: https://is.gd/I8U8dS'
+        | replace("v", "") }} is available. Do you wish to upgrade? Changelog: https://is.gd/tasmota'
       data:
         push:
           category: sonoffupdate
