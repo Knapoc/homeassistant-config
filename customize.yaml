@@ -60,6 +60,10 @@ script.1515151540311:
   can_cancel: false
 
 ###System Sensors
+sensor.asuswrt_download:
+  unit_of_measurement: GB
+sensor.asuswrt_upload:
+  unit_of_measurement: GB
 sensor.cpu_temperature:
   friendly_name: CPU Temperatur
   homebridge_hidden: true
@@ -72,10 +76,10 @@ sensor.database_size_hass:
 sensor.database_size_nc:
   friendly_name: Datenbankgröße NC
   icon: mdi:database
-sensor.disk_free_:
+sensor.disk_free:
   friendly_name: SSD
   homebridge_hidden: true
-sensor.disk_use_percent_:
+sensor.disk_use_percent:
   friendly_name: SSD
   homebridge_hidden: true
 sensor.hass_version:
@@ -129,6 +133,19 @@ sensor.sonoff_uptime:
   friendly_name: Betriebszeit
   icon: mdi:arrow-up-thick
 sensor.sonoff_vcc:
+  friendly_name: Versorgungsspannung
+  icon: mdi:flash
+
+###Wemos sensors
+sensor.wemosd1_1_version:
+  friendly_name: Tasmota Version
+sensor.wemosd1_rssi:
+  friendly_name: Signalstärke
+  icon: mdi:signal-variant
+sensor.wemosd1_uptime:
+  friendly_name: Betriebszeit
+  icon: mdi:arrow-up-thick
+sensor.wemosd1_vcc:
   friendly_name: Versorgungsspannung
   icon: mdi:flash
 

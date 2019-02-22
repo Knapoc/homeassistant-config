@@ -1,0 +1,2 @@
+clear_to_dark_wp: "sed -i 's/clear-wp.jpg/dark-wp.jpg/g' /config/ui-lovelace.yaml"
+dark_to_clear_wp: "sed -i 's/dark-wp.jpg/clear-wp.jpg/g' /config/ui-lovelace.yaml"

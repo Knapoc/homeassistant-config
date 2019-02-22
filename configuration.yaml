@@ -13,7 +13,7 @@ homeassistant:
   customize: !include customize.yaml
   customize_domain: !include customize_domain.yaml
   customize_glob: !include customize_global.yaml
-  packages: !include_dir_named packages
+  #packages: !include_dir_named packages
   auth_providers:
     - type: homeassistant
     - type: legacy_api_password
@@ -25,14 +25,14 @@ homeassistant:
 frontend:
   javascript_version: latest
   themes: !include_dir_merge_named themes
-  extra_html_url:
-    - /local/custom_ui/state-card-custom-light.html
-    - /local/custom_ui/state-card-custom-toggle-url.html
+  #extra_html_url:
+  #  - /local/custom_ui/state-card-custom-light.html
+  #  - /local/custom_ui/state-card-custom-toggle-url.html
   #  - /local/custom_ui/state-card-custom-scene.html
   #  - /local/custom_ui/custom-weather-card.html
-  extra_html_url_es5:
-    - /local/custom_ui/state-card-custom-light.html
-    - /local/custom_ui/state-card-custom-toggle-url.html
+  #extra_html_url_es5:
+  #  - /local/custom_ui/state-card-custom-light.html
+  #  - /local/custom_ui/state-card-custom-toggle-url.html
   #  - /local/custom_ui/state-card-custom-scene.html
   #  - /local/custom_ui/custom-weather-card.html
   #  - /local/custom_ui/state-card-tiles_es5.html
@@ -40,12 +40,12 @@ frontend:
 lovelace:
   mode: yaml
 
-panel_custom:
-  - name: floorplan
-    sidebar_title: Floorplan
-    sidebar_icon: mdi:home
-    url_path: floorplan
-    config: !include floorplan.yaml
+#panel_custom:
+ # - name: floorplan
+  #  sidebar_title: Floorplan
+   # sidebar_icon: mdi:home
+    #url_path: floorplan
+    #config: !include floorplan.yaml
   #- name: tiles
   #  sidebar_title: Tiles
   #  sidebar_icon: mdi:view-dashboard
@@ -103,8 +103,8 @@ history:
   #exclude: !include history_exclude.yaml
   include: !include history_include.yaml
 
-customizer:
-  custom_ui: local
+#customizer:
+#  custom_ui: local
 
 # View all events in a logbook
 logbook:
@@ -119,7 +119,10 @@ sun:
 
 # Weather
 weather:
-  - platform: yweather
+  #- platform: yweather
+  - platform: darksky
+    api_key: !secret darksky_ak
+    mode: daily
 
 # Text to speech
 tts:
@@ -132,7 +135,7 @@ group: !include groups.yaml
 
 automation: !include automations.yaml
 
-python_script:
+#python_script:
 
 mqtt:
   broker: !secret host_ip
@@ -152,6 +155,18 @@ hue:
     - host: !secret hue_ip
       allow_unreachable: true
 
+speedtestdotnet:
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+  scan_interval:
+     minutes: 15
+
+system_health:
+
+custom_updater:
+
 #apiai:
 asuswrt: !include asuswrt.yaml
 binary_sensor: !include binary_sensor.yaml
@@ -166,8 +181,10 @@ ios: !include ios.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
 owntracks: !include owntracks.yaml
+person: !include person.yaml
 sensor: !include sensor.yaml
 script: !include scripts.yaml
+shell_command: !include shell_command.yaml
 switch: !include switch.yaml
-weblink: !include weblink.yaml
+#weblink: !include weblink.yaml
 zone: !include zone.yaml

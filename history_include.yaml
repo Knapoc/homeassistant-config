@@ -8,19 +8,14 @@ entities:
   - switch.wind_machine
   - sensor.cpu_temperature
   - sensor.processor_use
-  - sensor.disk_free_
-  - sensor.disk_use_percent_
+  - sensor.disk_free
+  - sensor.disk_use_percent
   - sensor.memory_free
   - sensor.memory_use_percent
   - sensor.database_size
   - sensor.exchange_rate_1_btc
-  - sensor.google_travel_time__bicycling
-  - sensor.google_travel_time__driving
-  - sensor.google_travel_time__transit
-  - sensor.luftdaten_climate_sensor_humidity
-  - sensor.luftdaten_climate_sensor_temperature
-  - sensor.luftdaten_particle_sensor_pm10
-  - sensor.luftdaten_particle_sensor_pm25
+  - sensor.google_travel_time_dev1_dynamic_home
+  - sensor.google_travel_time_dev1_transit
   - sensor.received_eth0
   - sensor.sonoff_office_temperature
   - sensor.sonoff_office_humidty
@@ -36,8 +31,5 @@ entities:
   - sensor.trade_volume
   - sensor.uberx_price
   - sensor.uberx_time
-  - sensor.zamg_dewpoint
-  - sensor.zamg_humidity
-  - sensor.zamg_precipitation
-  - sensor.zamg_temperature
-  - sensor.zamg_wind_speed
+  - sensor.asuswrt_download
+  - sensor.asuswrt_upload

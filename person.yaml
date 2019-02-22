@@ -1,0 +1,5 @@
+- name: !secret person_1_name
+  id: !secret person_1_id
+  user_id: !secret person_1_uid
+  device_trackers:
+    - !secret device1

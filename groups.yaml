@@ -7,9 +7,7 @@ default_view:
     - group.devices_dev_living_room
     - group.devices_dev_buero
     - group.room_climate
-    - group.weather
-    #- input_boolean.weather
-    #- weather.yweather
+    - weather.dark_sky
     - group.transport_travel_1
     - group.transport_travel_2
 
@@ -37,16 +35,6 @@ office:
   entities:
     - light.hue_white_lamp_1
     - switch.wind_machine
-
-weater_view:
-  name: Wetter
-  view: yes
-  icon: mdi:weather-partlycloudy
-  entities:
-    - group.weather_card_today
-    - group.weather_card_forecast
-    - group.zamg_weather
-    - group.luftdaten_weather
 
 automation_view:
   view: yes
@@ -78,8 +66,6 @@ devices_bed_room:
     - media_player.braviatv_1
     - media_player.mpd
     - media_player.playstation_4
-#    - media_player.kdl43w756c
-#    - media_player.kodi
 
 devices_living_room:
   entities:
@@ -156,8 +142,8 @@ server_info:
     - sensor.cpu_speed
     - sensor.memory_use_percent
     - sensor.swap_use_percent
-    - sensor.disk_use_percent_
-    - sensor.disk_free_
+    - sensor.disk_use_percent
+    - sensor.disk_free
     - sensor.database_size_hass
     - sensor.database_size_nc
     - sensor.cpu_temperature
@@ -242,24 +228,6 @@ bed_room_other:
   entities:
     - input_datetime.time_turnoff_devices
 
-###Lights
-
-#bedroom_lights:
-#  name: Beleuchtung
-#  control: hidden
-#  entities:
-#    - light.zimmer
-#    - light.deckenspots
-#    - light.hue_color_spot_1
-#    - light.hue_color_spot_2
-#    - light.hue_color_spot_3
-#    - light.stehlampe
-#    - script.scene_bright
-#    - script.scene_nightlight
-#    - script.scene_tropical_twilight
-#    - input_select.hue_scenes
-#    - input_boolean.loop_livingcolors
-
 bedroom_lights_part_1:
   name: Deckenspots
   control: hidden
@@ -305,7 +273,7 @@ light_automations:
   entities:
     - automation.hue_scene_activation
     - automation.random_light
-    - automation.random_light__stehlampe
+    - automation.random_light_stehlampe
     - automation.wakeup_light_bedroom
 
 fail2ban_jails:

@@ -29,6 +29,13 @@
       payload: '1'
       topic: sonoff/cmnd/Restart
     service: mqtt.publish
+'0101010101010':
+  alias: restart
+  sequence:
+  - data:
+      payload: '0'
+      topic: wemosd1_1/cmnd/Status
+    service: mqtt.publish
 '1515152489107':
   alias: Status
   sequence:

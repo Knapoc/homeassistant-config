@@ -2,9 +2,9 @@ time_turnoff_devices:
   name: Turn-off time devices
   has_date: false
   has_time: true
-  initial: '01:00'
+#  initial: '01:00'
 wakeup_alarm_time:
   name: Alarm
   has_date: false
   has_time: true
-  initial: '06:30'
+#  initial: '06:30'

@@ -18,12 +18,32 @@
 - alias: Startup Theme
   id: '20180524211900'
   trigger:
-  - platform: homeassistant
-    event: start
+    - platform: homeassistant
+      event: start
+    - platform: state
+      entity_id: sun.sun
+      to: above_horizon
+    - platform: state
+      entity_id: sun.sun
+      to: below_horizon
   action:
-  - service: frontend.set_theme
-    data:
-      name: darkblue
+    - service_template: frontend.set_theme
+      data_template:
+        name: >
+          {% if states.sun.sun.state == "above_horizon" %}
+            clear
+          {% else %}
+            dark_clear
+          {% endif %}
+    - service_template: >
+        {% if states.sun.sun.state == "above_horizon" %}
+          shell_command.dark_to_clear_wp
+        {% else %}
+          shell_command.clear_to_dark_wp
+        {% endif %}
+  #- service: frontend.set_theme
+  #  data:
+  #    name: clear
 
 - alias: SSL expiry notification
   id: '1500779870955'
@@ -51,7 +71,7 @@
   id: '7592974'
   trigger:
     platform: numeric_state
-    entity_id: sensor.disk_use_
+    entity_id: sensor.disk_use
     above: 90
   action:
     service: !secret notify_ios
@@ -117,6 +137,7 @@
     at: 09:00:00
   action:
   - service: script.2215152489107
+  - service: script.0101010101010
 
 - alias: left home device1
   id: '1515583360531'
@@ -225,7 +246,7 @@
 - alias: Random light
   id: '33223'
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: /2
     seconds: 0
   condition:
@@ -317,7 +338,7 @@
 - alias: Random light - Stehlampe
   id: '20180513163100'
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: /2
     seconds: 0
   condition:
@@ -335,7 +356,7 @@
 - id: '1534393836262'
   alias: location update dev2
   trigger:
-  - platform: time
+  - platform: time_pattern
     minutes: /30
     seconds: 0
   condition:
