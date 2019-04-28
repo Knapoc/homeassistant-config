@@ -2,41 +2,27 @@
 Support for interface with a Sony Bravia TV.
 
 For more details about this platform, please refer to the documentation at
-https://home-assistant.io/components/media_player.braviatv_psk/
+https://github.com/custom-components/media_player.braviatv_psk
 """
 import logging
 import voluptuous as vol
 
 from homeassistant.components.media_player import (
-    DOMAIN,
-    MediaPlayerDevice,
-    PLATFORM_SCHEMA
-)
-
-from homeassistant.components.media_player.const import (
-    SUPPORT_NEXT_TRACK,
-    SUPPORT_PAUSE,
-    SUPPORT_PREVIOUS_TRACK,
-    SUPPORT_TURN_ON,
-    SUPPORT_TURN_OFF,
-    SUPPORT_VOLUME_MUTE,
-    SUPPORT_VOLUME_STEP,
-    SUPPORT_PLAY,
-    SUPPORT_PLAY_MEDIA,
-    SUPPORT_VOLUME_SET,
-    SUPPORT_SELECT_SOURCE,
-    MEDIA_TYPE_TVSHOW,
-    SUPPORT_STOP
-)
-
+    MediaPlayerDevice, PLATFORM_SCHEMA)
+try:
+    from homeassistant.components.media_player.const import (
+        SUPPORT_NEXT_TRACK, SUPPORT_PAUSE, SUPPORT_PREVIOUS_TRACK, SUPPORT_TURN_ON,
+        SUPPORT_TURN_OFF, SUPPORT_VOLUME_MUTE, SUPPORT_VOLUME_STEP, SUPPORT_PLAY,
+        SUPPORT_PLAY_MEDIA, SUPPORT_VOLUME_SET, SUPPORT_SELECT_SOURCE,
+        MEDIA_TYPE_TVSHOW, SUPPORT_STOP)
+except ImportError:
+    from homeassistant.components.media_player import (
+    SUPPORT_NEXT_TRACK, SUPPORT_PAUSE, SUPPORT_PREVIOUS_TRACK, SUPPORT_TURN_ON,
+    SUPPORT_TURN_OFF, SUPPORT_VOLUME_MUTE, SUPPORT_VOLUME_STEP, SUPPORT_PLAY,
+    SUPPORT_PLAY_MEDIA, SUPPORT_VOLUME_SET, SUPPORT_SELECT_SOURCE,
+    MEDIA_TYPE_TVSHOW, SUPPORT_STOP)
 from homeassistant.const import (
-    CONF_HOST,
-    CONF_NAME,
-    CONF_MAC,
-    STATE_OFF,
-    STATE_ON
-    )
-
+    CONF_HOST, CONF_NAME, CONF_MAC, STATE_OFF, STATE_ON)
 import homeassistant.helpers.config_validation as cv
 
 __version__ = '0.2.5'
@@ -52,18 +38,11 @@ SUPPORT_BRAVIA = SUPPORT_PAUSE | SUPPORT_VOLUME_STEP | \
                  SUPPORT_SELECT_SOURCE | SUPPORT_PLAY | SUPPORT_STOP
 
 DEFAULT_NAME = 'Sony Bravia TV'
-DEFAULT_FLASK_HOST = ''
-DEFAULT_FLASK_PORT = 5555
-DEFAULT_WOL_MACHINE = ''
 
 # Config file
 CONF_PSK = 'psk'
 CONF_AMP = 'amp'
 CONF_ANDROID = 'android'
-CONF_WOL_REST = 'wol_rest'
-CONF_WOL_MACHINE = 'wol_machine'
-CONF_FLASK_HOST = 'flask_host'
-CONF_FLASK_PORT = 'flask_port'
 CONF_SOURCE_FILTER = 'sourcefilter'
 
 # Some additional info to show specific for Sony Bravia TV
@@ -75,7 +54,7 @@ PLAY_MEDIA_OPTIONS = [
     'Num0', 'Num11', 'Num12', 'Netflix', 'Red', 'Green', 'Yellow', 'Blue',
     'ChannelUp', 'ChannelDown', 'Up', 'Down', 'Left', 'Right', 'Display', 'Tv',
     'Confirm', 'Home', 'EPG', 'Return', 'Options', 'Exit', 'Teletext', 'Input',
-    'TvPause', 'Play', 'Pause', 'Stop', 'Hdmi1', 'Hdmi2', 'Hdmi3', 'Hdmi4'
+    'TvPause', 'Play', 'Pause', 'Stop', 'HDMI 1', 'HDMI 2', 'HDMI 3', 'HDMI 4'
 ]
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
@@ -84,10 +63,6 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_MAC): cv.string,
     vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
     vol.Optional(CONF_AMP, default=False): cv.boolean,
-    vol.Optional(CONF_WOL_REST, default=False): cv.boolean,
-    vol.Optional(CONF_WOL_MACHINE, default=DEFAULT_WOL_MACHINE): cv.string,
-    vol.Optional(CONF_FLASK_HOST, default=DEFAULT_FLASK_HOST): cv.string,
-    vol.Optional(CONF_FLASK_PORT, default=DEFAULT_FLASK_PORT): cv.port,
     vol.Optional(CONF_ANDROID, default=False): cv.boolean,
     vol.Optional(CONF_SOURCE_FILTER, default=[]): vol.All(
         cv.ensure_list, [cv.string])})
@@ -103,10 +78,6 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     name = config.get(CONF_NAME)
     amp = config.get(CONF_AMP)
     android = config.get(CONF_ANDROID)
-    wol_rest = config.get(CONF_WOL_REST)
-    wol_machine = config.get(CONF_WOL_MACHINE)
-    flask_host = config.get(CONF_FLASK_HOST)
-    flask_port = config.get(CONF_FLASK_PORT)
     source_filter = config.get(CONF_SOURCE_FILTER)
 
     if host is None or psk is None:
@@ -115,13 +86,13 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
         return
 
     add_devices(
-        [BraviaTVDevice(host, psk, mac, name, amp, android, wol_rest, wol_machine, flask_host, flask_port, source_filter)])
+        [BraviaTVDevice(host, psk, mac, name, amp, android, source_filter)])
 
 
 class BraviaTVDevice(MediaPlayerDevice):
     """Representation of a Sony Bravia TV."""
 
-    def __init__(self, host, psk, mac, name, amp, android, wol_rest, wol_machine, flask_host, flask_port, source_filter):
+    def __init__(self, host, psk, mac, name, amp, android, source_filter):
         """Initialize the Sony Bravia device."""
         _LOGGER.info("Setting up Sony Bravia TV")
         from braviapsk import sony_bravia_psk
@@ -130,10 +101,6 @@ class BraviaTVDevice(MediaPlayerDevice):
         self._name = name
         self._amp = amp
         self._android = android
-        self._wol_rest = wol_rest
-        self._wol_machine = wol_machine
-        self._flask_host = flask_host
-        self._flask_port = flask_port
         self._source_filter = source_filter
         self._state = STATE_OFF
         self._muted = False
@@ -342,10 +309,7 @@ class BraviaTVDevice(MediaPlayerDevice):
 
         Use a different command for Android as WOL is not working.
         """
-        if self._wol_rest:
-            rest_url = self._flask_host + ':' + str(self._flask_port) + '/api/machines/' + self._wol_machine
-            r = requests.post(rest_url, data='')
-        elif self._android:
+        if self._android:
             self._braviarc.turn_on_command()
         else:
             self._braviarc.turn_on()
