@@ -40,6 +40,7 @@ clear:
   paper-toggle-button-checked-bar-color: '#0077FF'                                # Background On
   paper-toggle-button-unchecked-button-color: '#FFF'                              # Knob Off
   paper-toggle-button-unchecked-bar-color: 'var(--disabled-text-color)'           # Background Off
+  #paper-toggle-button-checked-bar-color: '#636B75'
   
   # Shadows
   shadow-elevation-2dp_-_box-shadow: 'inset 0px 0px 0px 1px var(--border-color)'
@@ -50,3 +51,13 @@ clear:
   shadow-elevation-12dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
   shadow-elevation-14dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
   shadow-elevation-16dp_-_box-shadow: '0px 0px 0px 3px var(--light-color)'
+
+ #Changes to fix history/logbook menus
+  lumo-primary-text-color: 'var(--text-color)'
+  lumo-secondary-text-color: 'var(--text-medium-color)'
+  lumo-primary-color: 'var(--primary-color)'
+  #Calendar day numbers
+  #lumo-body-text-color: 'var(--text-color)'
+  #Calendar/Date-Picker Background
+  #lumo-base-color: 'var(--background-card-color)'
+  lumo-contrast-10pct: 'rgba(0, 0, 0, 0)'
