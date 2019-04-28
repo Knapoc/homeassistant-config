@@ -93,7 +93,7 @@ entity_registry.yaml
 .zamg-stations.json.gz
 weather_animated
 .config_entries.json
-ui-lovelace.yaml
+#ui-lovelace.yaml
 core.config_entries
 hacp.html
 .storage
