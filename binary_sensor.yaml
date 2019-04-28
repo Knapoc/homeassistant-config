@@ -1,3 +1,8 @@
 - platform: workday
   country: !secret workday_country
   province: !secret workday_province
+- platform: ping
+  host: !secret rpi_ip
+  name: Raspberry Pi
+  count: 2
+  scan_interval: 60

@@ -1,16 +1,4 @@
 - platform: asuswrt
-  host: !secret router_ip
-  username: !secret router_login
-  ssh_key: !secret router_ssh
   new_device_defaults:
     track_new_devices: false
-  interval_seconds: 15
   consider_home: 300
-- platform: owntracks
-  max_gps_accuracy: 200
-  waypoints: True
-  waypoint_whitelist:
-    - !secret name_1
-    - !secret name_2
-  new_device_defaults:
-    track_new_devices: false

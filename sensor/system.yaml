@@ -1,0 +1,54 @@
+- platform: cert_expiry
+  name: ssl_certificate_expiry
+  host: !secret ssl_domain
+
+- platform: systemmonitor
+  resources:
+    - type: disk_free
+      arg: /
+    - type: disk_use_percent
+      arg: /
+    - type: memory_free
+    - type: memory_use_percent
+    - type: processor_use
+    - type: network_in
+      arg: eth0
+    - type: network_out
+      arg: eth0
+    - type: swap_use_percent
+    - type: last_boot
+
+- platform: command_line
+  name: CPU Temperature
+  command: cat /sys/class/thermal/thermal_zone1/temp
+  unit_of_measurement: '°C'
+  value_template: '{{ (value|int / 1000)|round(1) }}'
+
+- platform: cpuspeed
+
+- platform: uptime
+  name: Uptime
+  unit_of_measurement: hours
+
+- platform: version
+  name: hass_version
+
+- platform: sql
+  db_url: !secret mysql_db
+  queries:
+    - name: database size hass
+      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="hassdb" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: MB
+    - name: database size nc
+      query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="nextcloud" GROUP BY table_schema;'
+      column: 'value'
+      unit_of_measurement: MB
+
+- platform: fail2ban
+  file_path: /fail2ban/fail2ban.log
+  scan_interval: 180
+  jails:
+    - homeassistant
+    - nextcloud
+    - sshd

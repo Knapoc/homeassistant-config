@@ -68,6 +68,7 @@ deps
 tts
 phue.conf
 bravia.conf
+old.bravia.conf
 icloud
 dlib_faces
 dlib_nofaces
@@ -102,3 +103,5 @@ auth_provider.homeassistant
 core.entity_registry
 onboarding
 .homekit.state
+ui-pics
+.vscode

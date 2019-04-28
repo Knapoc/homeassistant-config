@@ -1,77 +1,37 @@
+#- platform: mqtt
+#  name: wind machine
+#  command_topic: "sonoff_3082/cmnd/POWER"
+#  state_topic: "sonoff_3082/stat/POWER1"
+#  qos: 1
+#  payload_on: "ON"
+#  payload_off: "OFF"
+#  payload_available: "Online"
+#  payload_not_available: "Offline"
+#  retain: true
+
 - platform: mqtt
-  name: wind machine
-  command_topic: "sonoff/cmnd/POWER"
-  state_topic: "sonoff/stat/POWER1"
+  name: magic mirror power
+  command_topic: "sonoff_3463/cmnd/POWER"
+  state_topic: "sonoff_3463/stat/POWER"
   qos: 1
   payload_on: "ON"
   payload_off: "OFF"
   payload_available: "Online"
   payload_not_available: "Offline"
-  retain: true
+  retain: false
 
 - platform: template
   switches:
-    braviatv_1:
-      value_template: "{{ is_state('media_player.braviatv_1', 'on')}}"
-      turn_on:
-        service: media_player.turn_on
-        data:
-          entity_id: media_player.braviatv_1
-      turn_off:
-        service: media_player.turn_off
-        data:
-          entity_id: media_player.braviatv_1
-    braviatv_2:
-      value_template: "{{ is_state('media_player.braviatv_2', 'on')}}"
-      turn_on:
-        service: media_player.turn_on
-        data:
-          entity_id: media_player.braviatv_2
-      turn_off:
-        service: media_player.turn_off
-        data:
-          entity_id: media_player.braviatv_2
-    #mpd:
-    #  value_template: "{{ is_state('media_player.mpd', 'playing')}}"
-    #  turn_on:
-    #    service: media_player.turn_on
-    #    data:
-    #      entity_id: media_player.mpd
-    #  turn_off:
-    #    service: media_player.turn_off
-    #    data:
-    #      entity_id: media_player.mpd
-    playstation_4:
+    magic_mirror:
       value_template: >
-        {% if is_state('media_player.playstation_4', 'off') %}
+        {% if is_state('binary_sensor.raspberry_pi', 'off') %}
          False
         {% else %}
          True
         {% endif %}
       turn_on:
-        service: media_player.turn_on
+        service: switch.turn_on
         data:
-          entity_id: media_player.playstation_4
+          entity_id: switch.magic_mirror_power
       turn_off:
-        service: media_player.turn_off
-        data:
-          entity_id: media_player.playstation_4
-    developer_mode:
-      friendly_name: Developer Mode
-      value_template: "{{states.group.developer.attributes.view == True}}"
-      turn_on:
-        - service: python_script.populate_catchall_group
-        - service: group.set
-          data:
-            object_id: developer
-            view: true
-            visible: true
-      turn_off:
-        - service: group.set
-          data:
-            object_id: developer
-            view: false
-            visible: false
-        - service: group.remove
-          data:
-            object_id: catchall
+        service: script.magic_mirror_shutdown

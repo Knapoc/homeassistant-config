@@ -3,5 +3,6 @@ domains:
   - sensor
   - light
   - device_tracker
+  - person
   - switch
   - automation

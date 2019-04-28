@@ -7,3 +7,6 @@ entities:
   - sensor.wakeup_start_time_lights
   - sensor.wakeup_alarm_time
   - sensor.wakeup_fadein_duration
+  - sensor.robovac_battery
+  - sensor.robovac_status
+  - sensor.robovac_fanspeed

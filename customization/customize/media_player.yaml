@@ -1,0 +1,7 @@
+media_player.braviatv_1:
+  friendly_name: Sony Bravia TV
+  icon: mdi:television
+  homebridge_name: Fernseher
+  homebridge_media_player_switch: on_off
+media_player.playstation_4:
+  homebridge_media_player_switch: on_off

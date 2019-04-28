@@ -1,0 +1,116 @@
+sensor.asuswrt_download:
+  unit_of_measurement: GB
+sensor.asuswrt_upload:
+  unit_of_measurement: GB
+sensor.cpu_speed:
+  friendly_name: CPU Frequenz
+  homebridge_hidden: true
+sensor.cpu_temperature:
+  friendly_name: CPU Temperatur
+  homebridge_hidden: true
+sensor.database_size_hass:
+  friendly_name: Datenbankgröße HA
+  icon: mdi:database
+sensor.database_size_nc:
+  friendly_name: Datenbankgröße NC
+  icon: mdi:database
+sensor.disk_free:
+  friendly_name: SSD
+  homebridge_hidden: true
+sensor.disk_use_percent:
+  friendly_name: SSD
+  homebridge_hidden: true
+sensor.fail2ban_homeassistant:
+  friendly_name: homeassistant
+  icon: mdi:shield
+sensor.fail2ban_nextcloud:
+  friendly_name: nextcloud
+  icon: mdi:shield
+sensor.fail2ban_sshd:
+  friendly_name: sshd
+  icon: mdi:shield
+sensor.google_travel_time_dev1_dynamic_home:
+  friendly_name: Heimweg - dynamisch
+  icon: mdi:google-circles-extended
+sensor.google_travel_time_dev1_transit:
+  friendly_name: Arbeitsweg - Öffis
+  icon: mdi:train
+sensor.hass_version:
+  friendly_name: HA-Version
+sensor.memory_use_percent:
+  friendly_name: RAM
+  icon: mdi:memory
+  homebridge_hidden: true
+sensor.network_in_eth0:
+  friendly_name: Download
+  icon: mdi:download-network
+  homebridge_hidden: true
+sensor.network_out_eth0:
+  friendly_name: Upload
+  icon: mdi:upload-network
+  homebridge_hidden: true
+sensor.processor_use:
+  friendly_name: CPU
+  icon: mdi:desktop-classic
+  homebridge_hidden: true
+#sensor.sonoff_3028_version:
+#  friendly_name: Tasmota Version
+#sensor.sonoff_office_humidty:
+#  friendly_name: Luftfeuchtigkeit - Büro
+#  icon: mdi:water-percent
+#  homebridge_hidden: false
+#sensor.sonoff_office_temperature:
+#  friendly_name: Temperatur - Büro
+#  homebridge_hidden: false
+#sensor.sonoff_rssi:
+#  friendly_name: Signalstärke
+#  icon: mdi:signal-variant
+#sensor.sonoff_uptime:
+#  friendly_name: Betriebszeit
+#  icon: mdi:arrow-up-thick
+#sensor.sonoff_vcc:
+#  friendly_name: Versorgungsspannung
+#  icon: mdi:flash
+sensor.speedtest_download:
+  friendly_name: Download
+  icon: mdi:download
+sensor.speedtest_ping:
+  friendly_name: Ping
+  icon: mdi:webpack
+sensor.speedtest_upload:
+  friendly_name: Upload
+  icon: mdi:upload
+sensor.ssl_cert_expiry:
+  homebridge_hidden: true
+sensor.swap_use_percent:
+  friendly_name: Swap
+  homebridge_hidden: true
+sensor.time:
+  homebridge_hidden: true
+sensor.uberx_time:
+  friendly_name: uberX - Fahrtzeit
+  icon: mdi:uber
+sensor.uberx_price:
+  friendly_name: uberX - Preis
+  icon: mdi:uber
+sensor.uptime:
+  friendly_name: HA Betriebszeit
+  icon: mdi:arrow-up-thick
+sensor.wemosd1_room_humidty:
+  friendly_name: Luftfeuchtigkeit - Zimmer
+  icon: mdi:water-percent
+  homebridge_hidden: false
+sensor.wemosd1_room_temperature:
+  friendly_name: Temperatur - Zimmer
+  homebridge_hidden: false
+sensor.wemosd1_rssi:
+  friendly_name: Signalstärke
+  icon: mdi:signal-variant
+sensor.wemosd1_uptime:
+  friendly_name: Betriebszeit
+  icon: mdi:arrow-up-thick
+sensor.wemosd1_vcc:
+  friendly_name: Versorgungsspannung
+  icon: mdi:flash
+sensor.wemosd1_version:
+  friendly_name: Tasmota Version

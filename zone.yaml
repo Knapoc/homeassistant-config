@@ -9,19 +9,8 @@
   radius: 100
   icon: mdi:home
   passive: true
-- name: !secret zone01_name
-  latitude: !secret hass_config_lat
-  longitude: !secret hass_config_long
-  radius: 100
-  icon: mdi:home
-  passive: true
 - name: !secret zone1_name
   latitude: !secret work1_lat
   longitude: !secret work1_long
-  radius: 260
-  icon: mdi:domain
-- name: !secret zone2_name
-  latitude: !secret work2_lat
-  longitude: !secret work2_long
   radius: 100
   icon: mdi:domain

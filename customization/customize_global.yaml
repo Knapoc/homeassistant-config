@@ -6,11 +6,7 @@
 "input_boolean.wake*":
   homebridge_hidden: true
 "light.hue_*":
-  custom_ui_state_card: state-card-custom-ui
-  state_card_mode: hide-slider
   homebridge_hidden: true
-  slider_theme:
-    return_when_not_changed: false
 "script.scene_*":
   homebridge_hidden: true
   icon: mdi:spotlight
@@ -20,16 +16,13 @@
   homebridge_hidden: true
 "sensor.*_iphone_battery_*":
   homebridge_hidden: true
-"switch.braviatv_*":
-  homebridge_hidden: true
-  icon: mdi:television
-"sensor.geizh_*":
-  homebridge_hidden: true
 "sensor.sonoff_*":
   homebridge_hidden: true
 "sensor.speedtest_*":
   homebridge_hidden: true
 "sensor.wakeup_*":
-      homebridge_hidden: true
+  homebridge_hidden: true
+"sensor.robovac_*":
+  homebridge_hidden: true
 "zone.*home":
   friendly_name: home

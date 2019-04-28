@@ -1,6 +1,7 @@
 domains:
   - media_player
   - device_tracker
+  - person
 entities:
   - light.zimmer
   - light.buro

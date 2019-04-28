@@ -6,7 +6,7 @@ push:
         - identifier: 'DISMISS'
           title: 'Dismiss'
           activationMode: 'background'
-          authenticationRequired: no
+          authenticationRequired: yes
           destructive: no
           behavior: 'default'
         - identifier: 'UPDATE_SONOFF'
@@ -14,4 +14,19 @@ push:
           activationMode: 'background'
           authenticationRequired: yes
           destructive: yes
+          behavior: 'default'
+    - name: Staubsauger entleeren
+      identifier: 'emptyrobovac'
+      actions:
+        - identifier: 'EMPTY_ROBOVAC_LATER'
+          title: 'später'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
+          behavior: 'default'
+        - identifier: 'EMPTY_ROBOVAC_NOW'
+          title: 'jetzt'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
           behavior: 'default'

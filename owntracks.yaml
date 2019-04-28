@@ -1,7 +1,0 @@
-max_gps_accuracy: 200
-waypoints: True
-waypoint_whitelist:
-  - !secret name_1
-  - !secret name_2
-new_device_defaults:
-  track_new_devices: false

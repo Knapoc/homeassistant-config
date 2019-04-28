@@ -1,141 +1,101 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Home
-  # Location required to calculate the time the sun rises and sets
   latitude: !secret hass_config_lat
   longitude: !secret hass_config_long
-  # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 158
-  # metric for Metric, imperial for Imperial
   unit_system: metric
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: !secret hass_tz
-  customize: !include customize.yaml
-  customize_domain: !include customize_domain.yaml
-  customize_glob: !include customize_global.yaml
-  #packages: !include_dir_named packages
+  customize: !include_dir_merge_named customization/customize/
+  customize_domain: !include customization/customize_domain.yaml
+  customize_glob: !include customization/customize_global.yaml
   auth_providers:
     - type: homeassistant
     - type: legacy_api_password
-
-# Show links to resources in log and frontend
-# introduction:
-
-# Enables the frontend
-frontend:
-  javascript_version: latest
-  themes: !include_dir_merge_named themes
-  #extra_html_url:
-  #  - /local/custom_ui/state-card-custom-light.html
-  #  - /local/custom_ui/state-card-custom-toggle-url.html
-  #  - /local/custom_ui/state-card-custom-scene.html
-  #  - /local/custom_ui/custom-weather-card.html
-  #extra_html_url_es5:
-  #  - /local/custom_ui/state-card-custom-light.html
-  #  - /local/custom_ui/state-card-custom-toggle-url.html
-  #  - /local/custom_ui/state-card-custom-scene.html
-  #  - /local/custom_ui/custom-weather-card.html
-  #  - /local/custom_ui/state-card-tiles_es5.html
-
-lovelace:
-  mode: yaml
-
-#panel_custom:
- # - name: floorplan
-  #  sidebar_title: Floorplan
-   # sidebar_icon: mdi:home
-    #url_path: floorplan
-    #config: !include floorplan.yaml
-  #- name: tiles
-  #  sidebar_title: Tiles
-  #  sidebar_icon: mdi:view-dashboard
-  #  url_path: tiles
-  #  config:
-  #    entities:
-  #      - entity: input_boolean.switch1
-  #        label: Switch 1
-
-# Enables configuration UI
-config:
+      api_password: !secret http_password
 
 http:
-  api_password: !secret http_password
   use_x_forwarded_for: true
   trusted_proxies:
     - !secret proxy_ip
   base_url: !secret hass_baseurl
-  #ssl_certificate: !secret hass_sslcert
-  #ssl_key: !secret hass_sslkey
-  #ip_ban_enabled: true
-  #login_attempts_threshold: 10
 
-#cloud:
-
-# Checks for available updates
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
-
-# Discover some devices automatically
-discovery:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
+### default config
+automation: !include automations.yaml
+config:
 conversation:
-
+discovery:
+frontend:
+  javascript_version: latest
+  themes: !include_dir_merge_named themes
+history:
+  include: !include history_include.yaml
+logbook:
+logger:
+  default: error
+  logs:
+    homeassistant.components.http.ban: warning
+lovelace:
+  mode: yaml
+map:
+mobile_app:
+person: !include person.yaml
 recorder:
   db_url: !secret mysql_db
   purge_interval: 1
   purge_keep_days: 14
   include: !include recorder_include.yaml
   exclude: !include recorder_exclude.yaml
-
-#influxdb:
-#  host: !secret host_ip
-#  port: !secret influxdb_port
-#  username: !secret influxdb_user
-#  password: !secret influxdb_userpw
-#  max_retries: 5
-#  include: !include recorder_include.yaml
-#  exclude: !include recorder_exclude.yaml
-
-# Enables support for tracking state changes over time.
-history:
-  #exclude: !include history_exclude.yaml
-  include: !include history_include.yaml
-
-#customizer:
-#  custom_ui: local
-
-# View all events in a logbook
-logbook:
-
-logger:
-  default: error
-  logs:
-    homeassistant.components.http.ban: warning
-
-# Track the sun
+script: !include scripts.yaml
 sun:
+system_health:
+updater:
 
-# Weather
-weather:
-  #- platform: yweather
-  - platform: darksky
-    api_key: !secret darksky_ak
-    mode: daily
-
-# Text to speech
-tts:
-  - platform: google
-    language: 'de'
-
-map:
-
+### one liners
+binary_sensor: !include binary_sensor.yaml
+breaking_changes:
+counter: !include counter.yaml
+device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
+input_boolean: !include input_boolean.yaml
+input_datetime: !include input_datetime.yaml
+input_number: !include input_number.yaml
+input_select: !include input_select.yaml
+ios: !include ios.yaml
+media_player: !include media_player.yaml
+notify: !include notify.yaml
+plant: !include plant.yaml
+sensor: !include_dir_merge_list sensor/
+shell_command: !include shell_command.yaml
+switch: !include switch.yaml
+zone: !include zone.yaml
 
-automation: !include automations.yaml
+### other components
+asuswrt:
+  host: !secret router_ip
+  username: !secret router_login
+  ssh_key: !secret router_ssh
+  sensors:
+    - upload
+    - download
+    - upload_speed
+    - download_speed
 
-#python_script:
+custom_updater:
+  card_urls:
+    - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
+
+eufy_vacuum:
+  devices:
+  - name: Robovac
+    address: !secret robovac_ip
+    access_token: !secret robovac_localkey
+    id: !secret robovac_devid
+    type: T2118
+
+hue:
+  bridges:
+    - host: !secret hue_ip
+      allow_unreachable: true
 
 mqtt:
   broker: !secret host_ip
@@ -150,10 +110,14 @@ mqtt:
     topic: 'hass/status'
     payload: 'offline'
 
-hue:
-  bridges:
-    - host: !secret hue_ip
-      allow_unreachable: true
+owntracks:
+  max_gps_accuracy: 200
+  waypoints: True
+  waypoint_whitelist:
+    - !secret name_1
+    - !secret name_2
+  new_device_defaults:
+    track_new_devices: false
 
 speedtestdotnet:
   monitored_conditions:
@@ -163,28 +127,7 @@ speedtestdotnet:
   scan_interval:
      minutes: 15
 
-system_health:
-
-custom_updater:
-
-#apiai:
-asuswrt: !include asuswrt.yaml
-binary_sensor: !include binary_sensor.yaml
-#device_tracker: !include device_tracker.yaml
-#homekit: !include homekit.yaml
-input_boolean: !include input_boolean.yaml
-input_datetime: !include input_datetime.yaml
-input_number: !include input_number.yaml
-input_select: !include input_select.yaml
-#intent_script: !include intent_script.yaml
-ios: !include ios.yaml
-media_player: !include media_player.yaml
-notify: !include notify.yaml
-owntracks: !include owntracks.yaml
-person: !include person.yaml
-sensor: !include sensor.yaml
-script: !include scripts.yaml
-shell_command: !include shell_command.yaml
-switch: !include switch.yaml
-#weblink: !include weblink.yaml
-zone: !include zone.yaml
+weather:
+  - platform: darksky
+    api_key: !secret darksky_ak
+    mode: daily

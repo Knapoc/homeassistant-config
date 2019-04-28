@@ -3,22 +3,22 @@
   sequence:
   - data:
       payload: http://sonoff.maddox.co.uk/tasmota/sonoff-minimal.bin
-      topic: sonoff/cmnd/OtaUrl
+      topic: sonoff_3082/cmnd/OtaUrl
     service: mqtt.publish
   - delay: 00:00:05
   - data:
       payload: '1'
-      topic: sonoff/cmnd/Upgrade
+      topic: sonoff_3082/cmnd/Upgrade
     service: mqtt.publish
   - delay: 00:03:00
   - data:
       payload: http://sonoff.maddox.co.uk/tasmota/sonoff.bin
-      topic: sonoff/cmnd/OtaUrl
+      topic: sonoff_3082/cmnd/OtaUrl
     service: mqtt.publish
   - delay: 00:00:05
   - data:
       payload: '1'
-      topic: sonoff/cmnd/Upgrade
+      topic: sonoff_3082/cmnd/Upgrade
     service: mqtt.publish
   - delay: 00:03:00
   - service: script.2215152489107
@@ -27,7 +27,7 @@
   sequence:
   - data:
       payload: '1'
-      topic: sonoff/cmnd/Restart
+      topic: sonoff_3082/cmnd/Restart
     service: mqtt.publish
 '0101010101010':
   alias: restart
@@ -41,23 +41,23 @@
   sequence:
   - data:
       payload: '0'
-      topic: sonoff/cmnd/Status
+      topic: sonoff_3082/cmnd/Status
     service: mqtt.publish
 '1515152636091':
   alias: reset
   sequence:
   - data:
       payload: '1'
-      topic: sonoff/cmnd/Reset
+      topic: sonoff_3082/cmnd/Reset
     service: mqtt.publish
 '2215152489107':
   alias: FW-Status
   sequence:
   - data:
       payload: '2'
-      topic: sonoff/cmnd/Status
+      topic: sonoff_3082/cmnd/Status
     service: mqtt.publish
-wakeup_zimmer:
+wakeup_schlafzimmer:
   alias: 'Wakeup routine: lights and weather'
   sequence:
     - service: light.turn_on
@@ -72,9 +72,6 @@ wakeup_zimmer:
         entity_id: light.deckenspots
         brightness: 146
         transition: '{{ states.input_number.wakeup_duration.state | multiply(60) | int }}'
-    - delay:
-        minutes: 2
-    - service: script.weather_presentation
 scene_bright:
   alias: 'Bright'
   sequence:
@@ -115,58 +112,21 @@ scene_spring_blossom:
       data_template:
         group_name: "Zimmer"
         scene_name: "Spring blossom"
-weather_presentation:
-  alias: weather 1
+find_browser_commander_ids:
+  alias: browser command debug
   sequence:
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.mpd
-        volume_level: 0.75
-    - delay:
-        seconds: 3
-    - service: tts.google_say
-      entity_id: media_player.mpd
-      data_template:
-        cache: false
-        message: >
-          {% if is_state("sensor.dark_sky_icon", "clear-day") %}
-          Es sind keine Wolken am Himmel zu sehen. Rechne mit Sonnenschein.
-          {% elif is_state("sensor.dark_sky_icon", "clear-night") %}
-          Es sind keine Wolken am Himmel zu sehen. Rechne mit einer klaren Nacht.
-          {% elif is_state("sensor.dark_sky_icon", "cloudy") %}
-          Das Wetter wird heute bewölkt sein.
-          {% elif is_state("sensor.dark_sky_icon", "rain") %}
-          Ein regnerischer Tag steht bevor.
-          {% elif is_state("sensor.dark_sky_icon", "sleet") %}
-          Es ist Schneeregen zu erwarten.
-          {% elif is_state("sensor.dark_sky_icon", "snow") %}
-          Heute ist mit Neuschnee zu rechnen.
-          {% elif is_state("sensor.dark_sky_icon", "wind") %}
-          Heute ist ein stürmischer Tag.
-          {% elif is_state("sensor.dark_sky_icon", "fog") %}
-          Aktuell ist es nebelig.
-          {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-day") %}
-          Das Wetter ist teilweise bewölkt.
-          {% elif is_state("sensor.dark_sky_icon", "partly-cloudy-night") %}
-          Das Wetter ist teilweise bewölkt.
-          {% else %}
-          error
-          {% endif %}
-          Die aktuelle Temperatur beträgt {{states('sensor.dark_sky_temperature') | round(0)}} Grad. Der Tageshöchstwert liegt bei {{states('sensor.dark_sky_daytime_high_temperature') | round(0)}} Grad. Die Niederschlagswahrscheinlichkeit liegt bei {{states('sensor.dark_sky_precip_probability') | round(0)}} Prozent, die Luftfeuchtigkeit bei {{states('sensor.dark_sky_humidity') | round(0)}} Prozent.
-          {% if states('sensor.dark_sky_wind_speed') | float > 5 %}
-          Die aktuelle Windgeschwindigkeit beträgt {{states('sensor.dark_sky_wind_speed') | round(0)}} Meter pro Sekunde.
-          {% endif %}
-          {% if states('sensor.dark_sky_daily_max_precip_intensity') | float > 1 %}
-          Die erwartete Niederschlagsmenge liegt bei {{states('sensor.dark_sky_daily_max_precip_intensity') | round(0)}} Milimeter im Mittel.
-          {% endif %}
-    - delay:
-        seconds: 30
-    - service: media_player.turn_off
-      data:
-        entity_id: media_player.mpd
-    - delay:
-        minutes: 1
-    - service: media_player.volume_set
-      data:
-        entity_id: media_player.mpd
-        volume_level: 0.4
+      - event: browser_command
+        event_data:
+          command: debug
+lovelace_reload:
+  sequence:
+      - event: browser_command
+        event_data:
+          command: lovelace-reload
+magic_mirror_shutdown:
+  sequence:
+      - service: shell_command.shutdown_rpi
+      - delay: 00:01:30
+      - service: switch.turn_off
+        data:
+          entity_id: switch.magic_mirror_power

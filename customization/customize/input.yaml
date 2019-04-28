@@ -1,0 +1,9 @@
+input_boolean.loop_livingcolors_1:
+  homebridge_name: Loop 1
+input_boolean.loop_livingcolors_2:
+  homebridge_name: Loop 2
+input_select.log_level:
+  icon: mdi:note-text
+input_select.hue_scenes:
+  friendly_name: hue Szene
+  icon: mdi:spotlight
