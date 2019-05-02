@@ -1,0 +1,100 @@
+- id: '1555971390000'
+  alias: robovac auto turn on
+  trigger:
+  - platform: time_pattern
+    minutes: '/30'
+  condition:
+    condition: and
+    conditions:
+      - condition: numeric_state
+        entity_id: counter.vacuum_counter
+        below: 2
+      - condition: state
+        entity_id: sensor.is_home
+        state: 'false'
+        for:
+          minutes: 20
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+      - condition: or
+        conditions:
+          - condition: and
+            conditions:
+              - condition: state
+                entity_id: sensor.robovac_battery
+                state: '100'
+              - condition: numeric_state
+                entity_id: counter.vacuum_counter
+                below: 2
+              - condition: time
+                after: '07:00:00'
+                before: '15:00:00'
+          - condition: and
+            conditions:
+              - condition: numeric_state
+                entity_id: sensor.robovac_battery
+                above: 85
+              - condition: state
+                entity_id: counter.vacuum_counter
+                state: '1'
+              - condition: time
+                after: '13:00:00'
+                before: '15:30:00'
+  action:
+  - service: vacuum.turn_on
+    data:
+      entity_id: vacuum.robovac
+  
+- id: '15559713900111'
+  alias: robovac clean counter
+  trigger:
+  - platform: template
+    value_template: "{{ is_state_attr('vacuum.robovac', 'status', 'cleaning') }}"
+  action:
+  - service: counter.increment
+    data:
+      entity_id: counter.vacuum_counter
+
+- id: '15559754790000'
+  alias: robovac clean notification
+  trigger:
+  - platform: time_pattern
+    hours: '/2'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: !secret person_1
+        state: 'home'
+        for:
+          minutes: 20
+      - condition: time
+        after: '07:00:00'
+        before: '22:00:00'
+      - condition: numeric_state
+        entity_id: counter.vacuum_counter
+        above: 0
+  action:
+  - service: !secret notify_ios
+    data_template:
+      message: 'Schurli ist zu entleeren. Anzahl der Saugvorgänge: {{ states.counter.vacuum_counter.state }}'
+      data:
+        push:
+          category: emptyrobovac
+
+- alias: robovac cleaned
+  id: '15559754790001'
+  trigger:
+    platform: event
+    event_type: mobile_app.notification_action_fired
+    event_data:
+      actionName: EMPTY_ROBOVAC_NOW
+  condition:
+    condition: state
+    entity_id: !secret person_1
+    state: 'home'
+  action:
+  - service: counter.reset
+    data:
+      entity_id: counter.vacuum_counter

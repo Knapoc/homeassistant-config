@@ -1,0 +1,169 @@
+- alias: WakeUp Light Bedroom
+  id: '1500581870955'
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.time.state == states.sensor.wakeup_start_time_lights.state
+      }}'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.wakeup
+      state: 'on'
+    - condition: state
+      entity_id: !secret person_1
+      state: home
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_boolean.wakeup_weekends
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+  action:
+    service: script.wakeup_schlafzimmer
+
+- alias: Random light - Deckenspots
+  id: '33223'
+  trigger:
+    platform: time_pattern
+    minutes: /2
+    seconds: 0
+  condition:
+    condition: state
+    entity_id: input_boolean.loop_livingcolors_1
+    state: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.deckenspots
+    data:
+      entity_id: light.deckenspots
+      effect: random
+      transition: 5
+      brightness: 255
+
+- alias: Random light - Stehlampe
+  id: '20180513163100'
+  trigger:
+    platform: time_pattern
+    minutes: /2
+    seconds: 0
+  condition:
+    condition: state
+    entity_id: input_boolean.loop_livingcolors_2
+    state: 'on'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.stehlampe
+      effect: random
+      transition: 5
+      brightness: 132
+
+- id: '1555301143838'
+  alias: turn off loop-effect Stehlampe
+  trigger:
+  - entity_id: light.stehlampe
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.loop_livingcolors_2
+    service: input_boolean.turn_off
+
+- id: '1555301210835'
+  alias: turn off loop-effekt Deckenspots
+  trigger:
+  - entity_id: light.deckenspots
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      entity_id: input_boolean.loop_livingcolors_1
+    service: input_boolean.turn_off
+
+- id: '1519076898412'
+  alias: Gaming PS4
+  trigger:
+  - entity_id: media_player.playstation_4
+    platform: state
+    to: playing
+  condition:
+  - after: '19:00:00'
+    condition: time
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: state
+    entity_id: !secret person_1
+    state: home
+  action:
+  - data:
+      group_name: Deckenleuchte
+      scene_name: Arctic aurora
+    service: hue.hue_activate_scene
+
+- id: '1519077187087'
+  alias: Stop playing PS4
+  trigger:
+  - entity_id: media_player.playstation_4
+    from: playing
+    platform: state
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - after: '21:00:00'
+    condition: time
+  - condition: state
+    entity_id: !secret person_1
+    state: home
+  action:
+  - data:
+      group_name: Deckenleuchte
+      scene_name: Nightlight
+    service: hue.hue_activate_scene
+
+- alias: Hue Scene Activation
+  id: '1500589870955'
+  trigger:
+    platform: state
+    entity_id: input_select.hue_scenes
+  condition:
+    condition: template
+    value_template: '{{ states.input_select.hue_scenes.state != "none" }}'
+  action:
+  - service: hue.hue_activate_scene
+    data_template:
+      group_name: Zimmer
+      scene_name: '{{ trigger.to_state.state }}'
+  - delay:
+      seconds: 3
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.hue_scenes
+      option: none
+
+- id: '1519077406569'
+  alias: Ready for bed
+  trigger:
+  - at: '21:30:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  - condition: state
+    entity_id: !secret person_1
+    state: home
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      group_name: Wohnzimmer
+      scene_name: Nightlight
+    service: hue.hue_activate_scene

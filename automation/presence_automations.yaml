@@ -1,0 +1,71 @@
+- alias: left home device1
+  id: '1515583360531'
+  trigger:
+  - entity_id: !secret person_1
+    for:
+      minutes: 5
+    from: home
+    platform: state
+    to: not_home
+  action:
+  - service: homeassistant.turn_off
+    data:
+      entity_id:
+      - media_player.braviatv_1
+      - media_player.playstation_4
+      - light.schlafzimmer
+      - light.badezimmer
+      - light.kuche
+      - light.vorzimmer
+      - light.toilette
+      - light.wohnzimmer
+      - input_boolean.loop_livingcolors_1
+      - input_boolean.loop_livingcolors_2
+
+- id: '1553547958805'
+  alias: Turn off magic mirror
+  trigger:
+  - entity_id: sensor.is_home
+    for:
+      minutes: 15
+    from: 'true'
+    platform: state
+    to: 'false'
+  action:
+  - data:
+      entity_id: switch.magic_mirror
+    service: switch.turn_off
+
+- id: '1553548399232'
+  alias: Turn on magic mirror
+  trigger:
+  - entity_id: !secret person_1
+    platform: state
+    to: home
+  action:
+  - data:
+      entity_id: switch.magic_mirror
+    service: switch.turn_on
+
+- alias: Lights and TV off
+  id: '756390032'
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.time.state == (states.input_datetime.time_turnoff_devices.attributes.timestamp
+      | int | timestamp_custom("%H:%M", False)) }}'
+  condition:
+    condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - service: homeassistant.turn_off
+    data:
+      entity_id:
+      - media_player.braviatv_1
+      - media_player.playstation_4
+      - light.schlafzimmer
+      - light.badezimmer
+      - light.kuche
+      - light.vorzimmer
+      - light.toilette
+      - light.wohnzimmer

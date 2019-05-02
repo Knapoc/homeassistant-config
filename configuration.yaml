@@ -20,7 +20,7 @@ http:
   base_url: !secret hass_baseurl
 
 ### default config
-automation: !include automations.yaml
+automation: !include_dir_merge_list automation/
 config:
 conversation:
 discovery:
