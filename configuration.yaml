@@ -77,8 +77,6 @@ asuswrt:
   sensors:
     - upload
     - download
-    - upload_speed
-    - download_speed
 
 custom_updater:
   card_urls:
