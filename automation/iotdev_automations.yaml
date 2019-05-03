@@ -20,7 +20,7 @@
   id: '999111999'
   trigger:
     platform: event
-    event_type: mobile_app.notification_action_fired
+    event_type: ios.notification_action_fired
     event_data:
       actionName: UPDATE_SONOFF
   action:

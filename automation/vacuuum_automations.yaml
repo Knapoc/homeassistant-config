@@ -87,7 +87,7 @@
   id: '15559754790001'
   trigger:
     platform: event
-    event_type: mobile_app.notification_action_fired
+    event_type: ios.notification_action_fired
     event_data:
       actionName: EMPTY_ROBOVAC_NOW
   condition:
