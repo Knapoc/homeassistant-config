@@ -21,18 +21,21 @@ resources:
     type: module
   - url: /customcards/custom-lovelace/fold-entity-row.js
     type: js
+  - url: /local/custom-lovelace/invisible-card.js
+    type: module
 
 x-vacuum-buttons: &vacuum-buttons
   color: auto
-  color_off: rgb(68, 115, 158)
   entity: vacuum.robovac
   size: 25%
 
-background: center / cover repeat-y url("/local/background/dark-wp.jpg") fixed
+background: center / cover repeat-y url("/local/background/clear-wp.jpg") fixed
+
+excluded_entities: !include /config/ui-lovelace/excluded-entities.yaml
 
 views:
-  - icon: mdi:home
-    title: Home
+  - title: Home
+    icon: mdi:home
     cards:
       - type: custom:compact-custom-header
         main_config: true
@@ -176,10 +179,11 @@ views:
                     head:
                       type: section
                       label: Automatisierung
-                    items:
+                    entities:
                       - automation.robovac_auto_turn_on
                       - automation.robovac_clean_notification
                       - automation.robovac_cleaned
+                      - automation.robovac_clean_counter
       - type: vertical-stack
         cards:
           - type: custom:weather-card
@@ -248,6 +252,7 @@ views:
     cards:
       - type: custom:compact-custom-header
         background_image: true
+
       - type: entities
         title: Deckenspots
         show_header_toggle: false
@@ -259,7 +264,7 @@ views:
           - script.scene_bright
           - script.scene_nightlight
           - input_boolean.loop_livingcolors_1
-      
+
       - type: entities
         title: Beleuchtungsszenen
         entities:
@@ -267,12 +272,14 @@ views:
           - script.scene_arctic_aurora
           - script.scene_spring_blossom
           - input_select.hue_scenes
+
       - type: custom:vertical-stack-in-card
         title: Aufwachbeleuchtung
         cards:
           - type: entities
             entities:
               - input_boolean.wakeup
+              
           - type: conditional
             conditions:
               - entity: input_boolean.wakeup
@@ -284,100 +291,256 @@ views:
                 - input_number.wakeup_duration
                 - input_boolean.wakeup_weekends
 
-  - icon: mdi:arrow-right-drop-circle
-    title: Automatisierung
+  - icon: mdi:lightbulb
+    title: Beleuchtung
     cards:
       - type: custom:compact-custom-header
         background_image: true
-      - type: glance
-        title: Presence
+
+      - type: entities
+        title: Wohnzimmer
         entities:
-          - entity: automation.left_home_device1
-            tap_action:
-              action: toggle
-          - entity: automation.turn_on_magic_mirror
-            tap_action:
-              action: toggle
-          - entity: automation.turn_off_magic_mirror
-            tap_action:
-              action: toggle
-      - type: glance
-        title: Light & scenes
-        columns: 3
+          - type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: true
+            entity: light.deckenleuchte
+          - type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: true
+            entity: light.stehlampe
+      - type: entities
+        title: Schlafzimmer
         entities:
-          - entity: automation.gaming_ps4
-            tap_action:
-              action: toggle
-          - entity: automation.hue_scene_activation
-            tap_action:
-              action: toggle
-          - entity: automation.lights_and_tv_off
-            tap_action:
-              action: toggle
-          - entity: automation.random_light
-            tap_action:
-              action: toggle
-          - entity: automation.random_light_stehlampe
-            tap_action:
-              action: toggle
-          - entity: automation.ready_for_bed
-            tap_action:
-              action: toggle
-          - entity: automation.stop_playing_ps4
-            tap_action:
-              action: toggle
-          - entity: automation.wakeup_light_bedroom
-            tap_action:
-              action: toggle
-      - type: glance
-        title: Server
-        columns: 3
+          - type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: true
+            name: Schlafzimmer-Spot 1
+            entity: light.hue_color_spot_1
+          - type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: true
+            name: Schlafzimmer-Spot 2
+            entity: light.hue_color_spot_2
+          - type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: true
+            name: Schlafzimmer-Spot 3
+            entity: light.hue_color_spot_3
+          - type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: true
+            entity: light.schreibtischlampe
+      - type: entities
+        title: Küche
         entities:
-          - entity: automation.disk_use_alarm
-            tap_action:
-              action: toggle
-          - entity: automation.log_level
-            tap_action:
-              action: toggle
-          - entity: automation.ssl_expiry_notification
-            tap_action:
-              action: toggle
-          - entity: automation.startup_theme
-            tap_action:
-              action: toggle
-          - entity: automation.update_notifications
-            tap_action:
-              action: toggle
+          - type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: true
+            entity: light.dimmable_light_3
+            name: Küchen-LED 1
+          - type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: true
+            entity: light.dimmable_light_4
+            name: Küchen-LED 2
+      - type: entities
+        title: andere
+        entities:
+          - type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: true
+            entity: light.dimmable_light_5
+            name: Vorzimmer-LED
+          - type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: true
+            entity: light.dimmable_light_2
+            name: Badezimmer-LED
+          - type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: true  
+            entity: light.dimmable_light_1
+            name: Toiletten-LED
+
+      - type: entities
+        title: Steuerung
+        show_header_toggle: false
+        entities:
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Automatisierungen
+            entities:
+              - automation.lights_and_tv_off
+              - entity: automation.random_light_deckenspots
+                name: Loop-Effekt Deckenspots
+              - entity: automation.turn_off_loop_effect_deckenspots
+                name: Loop-Effekt Deckenspots auto-aus
+              - entity: automation.random_light_stehlampe
+                name: Loop-Effekt Stehlampe
+              - entity: automation.turn_off_loop_effect_stehlampe
+                name: Loop-Effekt Stehlampe auto-aus
+              - automation.hue_scene_activation
+              - automation.ready_for_bed
+              - entity: automation.gaming_ps4
+                name: Gaming-Beleuchtung
+              - entity: automation.stop_playing_ps4
+                name: Gaming-Beleuchtung aus
+              - automation.wakeup_light_bedroom
+              
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Scripts
+            entities:
+              - script.wakeup_schlafzimmer
+              - script.scene_arctic_aurora
+              - script.scene_bright
+              - script.scene_nightlight
+              - script.scene_spring_blossom
+              - script.scene_tropical_twilight
+
   - title: IoT
     icon: mdi:chip
     cards:
       - type: custom:compact-custom-header
         background_image: true
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: switch.magic_mirror
-            name: Magic Mirror
-          - entity: switch.magic_mirror_power
-            name: S20 - Magic Mirror
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.sonoff_maddox_version
+                name: Tasmota Version
+          - type: entities
+            show_header_toggle: false
+            title: Automatisierungen
+            entities:
+              - entity: automation.get_tasmota_device_info
+                name: Tasmota Statusabfrage
       - type: vertical-stack
         cards:
-          - type: glance
-            title: S20 - MM
+          - type: entities
+            show_header_toggle: false
             entities:
-              - entity: sensor.s20_mm_version
-              - entity: sensor.s20_mm_uptime
-              - entity: sensor.s20_mm_vcc
-              - entity: sensor.s20_mm_rssi
-      - type: vertical-stack
+              - entity: switch.magic_mirror
+                name: Magic Mirror
+              - entity: switch.magic_mirror_power
+                name: S20 - Magic Mirror
+          - type: custom:vertical-stack-in-card
+            cards:
+              - type: glance
+                title: S20 - MM
+                entities:
+                  - entity: sensor.s20_mm_version
+                    name: Version
+                    icon: mdi:alpha-v-box
+                  - entity: sensor.s20_mm_ip
+                    name: IP
+                    icon: mdi:map-marker
+                  - entity: sensor.s20_mm_uptime
+                    name: Betriebszeit
+                    icon: mdi:arrow-up-thick
+              - type: horizontal-stack
+                cards:
+                  - type: custom:mini-graph-card
+                    name: Spannung
+                    icon: mdi:flash
+                    line_color: "#4169E1"
+                    font_size: 65
+                    entities:
+                      - sensor.s20_mm_vcc
+                  - type: custom:mini-graph-card
+                    name: Signalstärke
+                    icon: mdi:signal-variant
+                    line_color: orange
+                    font_size: 65
+                    entities:
+                      - sensor.s20_mm_rssi
+              - type: entities
+                show_header_toggle: false
+                entities:
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Automatisierungen
+                    entities:
+                      - entity: automation.update_available_tasmota_sonoff_3463
+                        name: Updatebenachrichtigung
+                      - entity: automation.upgrade_tasmota_sonoff_3463
+                        name: Upgrade
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Scripts
+                    entities:
+                      - entity: script.tasmota_status_sonoff_3463
+                        name: Status
+                      - entity: script.tasmota_fwstatus_sonoff_3463
+                        name: FW-Status
+                      - entity: script.tasmota_restart_sonoff_3463
+                        name: Neustart
+                      - entity: script.tasmota_reset_sonoff_3463
+                        name: Reset
+                      - entity: script.tasmota_upgrade_sonoff_3463
+                        name: Upgrade
+      - type: custom:vertical-stack-in-card
         cards:
           - type: glance
             title: wemosd1 - 1
             entities:
               - entity: sensor.wemosd1_version
+                name: Version
+                icon: mdi:alpha-v-box
+              - entity: sensor.wemosd1_ip
+                name: IP
+                icon: mdi:map-marker
               - entity: sensor.wemosd1_uptime
-              - entity: sensor.wemosd1_vcc
-              - entity: sensor.wemosd1_rssi
+                name: Betriebszeit
+                icon: mdi:arrow-up-thick
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                name: Spannung
+                icon: mdi:flash
+                line_color: "#4169E1"
+                font_size: 65
+                entities:
+                  - sensor.wemosd1_vcc
+              - type: custom:mini-graph-card
+                name: Signalstärke
+                icon: mdi:signal-variant
+                line_color: orange
+                font_size: 65
+                entities:
+                  - sensor.wemosd1_rssi
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Automatisierungen
+                entities:
+                  - entity: automation.update_available_tasmota_wemosd1_1
+                    name: Updatebenachrichtigung
+                  - entity: automation.upgrade_tasmota_wemosd1_1
+                    name: Upgrade
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Scripts
+                entities:
+                  - entity: script.tasmota_status_wemosd1_1
+                    name: Status
+                  - entity: script.tasmota_fwstatus_wemosd1_1
+                    name: FW-Status
+                  - entity: script.tasmota_restart_wemosd1_1
+                    name: Neustart
+                  - entity: script.tasmota_reset_wemosd1_1
+                    name: Reset
+                  - entity: script.tasmota_upgrade_wemosd1_1
+                    name: Upgrade
+
   - icon: mdi:server
     title: Server
     cards:
@@ -490,17 +653,46 @@ views:
               - entity: sensor.network_out_eth0
                 name: eth0 - out
                 icon: mdi:download
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.disk_useperc_sda1
+                name: sda1
+                min: 0
+                max: 100
+                severity:
+                  green: 0
+                  yellow: 60
+                  red: 80
+              - type: gauge
+                entity: sensor.disk_useperc_sda2
+                name: sda2
+                min: 0
+                max: 100
+                severity:
+                  green: 0
+                  yellow: 60
+                  red: 80
+          # - type: glance
+          #   title: SSL
+          #   entities:
+          #     - entity: sensor.ssl_certificate_expiry
+          #       name: SSL-Zertifikatsgültigkeit
+          #       icon: mdi:certificate 
       - type: vertical-stack
         cards:
           - type: entities
-            title: Uptime
+            title: Informationen
             show_header_toggle: false          
             entities:
               - entity: sensor.last_boot
-                name: Server
+                name: Server Uptime
                 format: relative
               - entity: sensor.uptime
-                name: Home-Assistant
+                name: Home-Assistant Uptime
+              - entity: sensor.ssl_certificate_expiry
+                name: SSL-Zertifikatsgültigkeit
+                icon: mdi:certificate 
           - type: entities
             title: other
             show_header_toggle: false
@@ -526,14 +718,33 @@ views:
                 name: Home Assistant
                 url: https://www.home-assistant.io
                 icon: mdi:home-assistant
+
   - icon: mdi:settings
     title: Administration
     cards:
-      - type: custom:compact-custom-header
-        background_image: true
-      - type: custom:tracker-card
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: sensor.potential_breaking_changes
-            name: Breaking changes
+      - type: vertical-stack
+        cards:
+          - type: custom:compact-custom-header
+            background_image: true
+          - type: custom:tracker-card
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: sensor.potential_breaking_changes
+                name: Breaking changes
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Automatisierungen
+            show_header_toggle: false
+            entities:
+              - automation.left_home_device1
+              - automation.turn_on_magic_mirror
+              - automation.turn_off_magic_mirror
+              - automation.disk_use_alarm
+              - automation.disk_use_alarm_sda1
+              - automation.disk_use_alarm_sda2
+              - automation.ssl_expiry_notification
+              - automation.log_level
+              - automation.startup_theme
+              - automation.update_notifications

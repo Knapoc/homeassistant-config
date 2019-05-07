@@ -1,0 +1,108 @@
+icon: mdi:lightbulb
+title: Beleuchtung
+cards:
+  - type: custom:compact-custom-header
+    background_image: true
+
+  - type: entities
+    title: Wohnzimmer
+    entities:
+      - type: custom:slider-entity-row
+        toggle: true
+        hide_when_off: true
+        entity: light.deckenleuchte
+      - type: custom:slider-entity-row
+        toggle: true
+        hide_when_off: true
+        entity: light.stehlampe
+  - type: entities
+    title: Schlafzimmer
+    entities:
+      - type: custom:slider-entity-row
+        toggle: true
+        hide_when_off: true
+        name: Schlafzimmer-Spot 1
+        entity: light.hue_color_spot_1
+      - type: custom:slider-entity-row
+        toggle: true
+        hide_when_off: true
+        name: Schlafzimmer-Spot 2
+        entity: light.hue_color_spot_2
+      - type: custom:slider-entity-row
+        toggle: true
+        hide_when_off: true
+        name: Schlafzimmer-Spot 3
+        entity: light.hue_color_spot_3
+      - type: custom:slider-entity-row
+        toggle: true
+        hide_when_off: true
+        entity: light.schreibtischlampe
+  - type: entities
+    title: Küche
+    entities:
+      - type: custom:slider-entity-row
+        toggle: true
+        hide_when_off: true
+        entity: light.dimmable_light_3
+        name: Küchen-LED 1
+      - type: custom:slider-entity-row
+        toggle: true
+        hide_when_off: true
+        entity: light.dimmable_light_4
+        name: Küchen-LED 2
+  - type: entities
+    title: andere
+    entities:
+      - type: custom:slider-entity-row
+        toggle: true
+        hide_when_off: true
+        entity: light.dimmable_light_5
+        name: Vorzimmer-LED
+      - type: custom:slider-entity-row
+        toggle: true
+        hide_when_off: true
+        entity: light.dimmable_light_2
+        name: Badezimmer-LED
+      - type: custom:slider-entity-row
+        toggle: true
+        hide_when_off: true  
+        entity: light.dimmable_light_1
+        name: Toiletten-LED
+
+  - type: entities
+    title: Steuerung
+    show_header_toggle: false
+    entities:
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: Automatisierungen
+        entities:
+          - automation.lights_and_tv_off
+          - entity: automation.random_light_deckenspots
+            name: Loop-Effekt Deckenspots
+          - entity: automation.turn_off_loop_effect_deckenspots
+            name: Loop-Effekt Deckenspots auto-aus
+          - entity: automation.random_light_stehlampe
+            name: Loop-Effekt Stehlampe
+          - entity: automation.turn_off_loop_effect_stehlampe
+            name: Loop-Effekt Stehlampe auto-aus
+          - automation.hue_scene_activation
+          - automation.ready_for_bed
+          - entity: automation.gaming_ps4
+            name: Gaming-Beleuchtung
+          - entity: automation.stop_playing_ps4
+            name: Gaming-Beleuchtung aus
+          - automation.wakeup_light_bedroom
+          
+      - type: custom:fold-entity-row
+        head:
+          type: section
+          label: Scripts
+        entities:
+          - script.wakeup_schlafzimmer
+          - script.scene_arctic_aurora
+          - script.scene_bright
+          - script.scene_nightlight
+          - script.scene_spring_blossom
+          - script.scene_tropical_twilight

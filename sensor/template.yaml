@@ -33,3 +33,9 @@
     robovac_fanspeed:
       friendly_name: "Saugkraft"
       value_template: '{{ states.vacuum.robovac.attributes.fan_speed }}'
+    disk_useperc_sda2:
+      value_template: '{{ ((states.sensor.disk_used_sda2.state | int) / (states.sensor.disk_size_sda2.state | int) * 100) | round(1) }}'
+      unit_of_measurement: '%'
+    disk_useperc_sda1:
+      value_template: '{{ ((states.sensor.disk_used_sda1.state | int) / (states.sensor.disk_size_sda1.state | int) * 100) | round(1) }}'
+      unit_of_measurement: '%'

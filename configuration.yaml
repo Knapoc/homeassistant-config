@@ -12,6 +12,8 @@ homeassistant:
     - type: homeassistant
     - type: legacy_api_password
       api_password: !secret http_password
+  whitelist_external_dirs:
+    - /tmp/diskinfo
 
 http:
   use_x_forwarded_for: true
@@ -45,7 +47,7 @@ recorder:
   purge_keep_days: 14
   include: !include recorder_include.yaml
   exclude: !include recorder_exclude.yaml
-script: !include scripts.yaml
+script: !include_dir_merge_named script/
 sun:
 system_health:
 updater:
@@ -60,7 +62,7 @@ input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
 input_number: !include input_number.yaml
 input_select: !include input_select.yaml
-#ios: !include ios.yaml
+ios: !include ios.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
 plant: !include plant.yaml

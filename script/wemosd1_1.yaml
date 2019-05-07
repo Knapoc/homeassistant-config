@@ -1,0 +1,47 @@
+'tasmota_upgrade_wemosd1_1':
+  sequence:
+  - data:
+      payload: http://sonoff.maddox.co.uk/tasmota/sonoff-minimal.bin
+      topic: wemosd1_1/cmnd/OtaUrl
+    service: mqtt.publish
+  - delay: 00:00:05
+  - data:
+      payload: '1'
+      topic: wemosd1_1/cmnd/Upgrade
+    service: mqtt.publish
+  - delay: 00:03:00
+  - data:
+      payload: http://sonoff.maddox.co.uk/tasmota/sonoff.bin
+      topic: wemosd1_1/cmnd/OtaUrl
+    service: mqtt.publish
+  - delay: 00:00:05
+  - data:
+      payload: '1'
+      topic: wemosd1_1/cmnd/Upgrade
+    service: mqtt.publish
+  - delay: 00:03:00
+  - service: script.tasmota_fwstatus_wemosd1_1
+'tasmota_restart_wemosd1_1':
+  sequence:
+  - data:
+      payload: '1'
+      topic: wemosd1_1/cmnd/Restart
+    service: mqtt.publish
+'tasmota_status_wemosd1_1':
+  sequence:
+  - data:
+      payload: '0'
+      topic: wemosd1_1/cmnd/Status
+    service: mqtt.publish
+'tasmota_reset_wemosd1_1':
+  sequence:
+  - data:
+      payload: '1'
+      topic: wemosd1_1/cmnd/Reset
+    service: mqtt.publish
+'tasmota_fwstatus_wemosd1_1':
+  sequence:
+  - data:
+      payload: '2'
+      topic: wemosd1_1/cmnd/Status
+    service: mqtt.publish

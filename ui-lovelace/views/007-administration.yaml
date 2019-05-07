@@ -1,0 +1,27 @@
+icon: mdi:settings
+title: Administration
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:compact-custom-header
+        background_image: true
+      - type: custom:tracker-card
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.potential_breaking_changes
+            name: Breaking changes
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Automatisierungen
+        show_header_toggle: false
+        entities:
+          - automation.left_home_device1
+          - automation.turn_on_magic_mirror
+          - automation.turn_off_magic_mirror
+          - automation.disk_use_alarm
+          - automation.ssl_expiry_notification
+          - automation.log_level
+          - automation.startup_theme
+          - automation.update_notifications

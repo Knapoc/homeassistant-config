@@ -1,0 +1,24 @@
+title: Wohnzimmer
+icon: mdi:sofa
+cards:
+  - type: custom:compact-custom-header
+    background_image: true
+  - type: media-control
+    entity: media_player.braviatv_1
+  - type: media-control
+    entity: media_player.playstation_4
+  - type: entities
+    title: Deckenleuchte
+    show_header_toggle: false
+    entities:
+      - light.deckenleuchte
+  - type: entities
+    title: Stehlampe
+    entities:
+      - light.stehlampe
+      - input_boolean.loop_livingcolors_2
+  - type: entities
+    title: Anderes
+    show_header_toggle: false
+    entities:
+      - input_datetime.time_turnoff_devices

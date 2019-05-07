@@ -1,7 +1,7 @@
 push:
   categories:
-    - name: Sonoff update
-      identifier: 'sonoffupdate'
+    - name: Sonoff 3082 update
+      identifier: 'sonoff_a_update'
       actions:
         - identifier: 'DISMISS'
           title: 'Dismiss'
@@ -9,8 +9,38 @@ push:
           authenticationRequired: yes
           destructive: no
           behavior: 'default'
-        - identifier: 'UPDATE_SONOFF'
-          title: 'Update Sonoff'
+        - identifier: 'SONOFF_A_UPGRADE'
+          title: 'Upgrade Sonoff 3082'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+    - name: Sonoff 3463 update
+      identifier: 'sonoff_b_update'
+      actions:
+        - identifier: 'DISMISS'
+          title: 'Dismiss'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+        - identifier: 'SONOFF_B_UPGRADE'
+          title: 'Upgrade Sonoff 3463'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+    - name: Wemos D1 1 update
+      identifier: 'wemos_a_update'
+      actions:
+        - identifier: 'DISMISS'
+          title: 'Dismiss'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+        - identifier: 'WEMOS_A_UPGRADE'
+          title: 'Upgrade Wemos D1 1'
           activationMode: 'background'
           authenticationRequired: yes
           destructive: yes

@@ -1,0 +1,27 @@
+- automation.robovac_auto_turn_on
+- automation.robovac_clean_counter
+- automation.robovac_clean_notification
+- automation.robovac_cleaned
+- automation.lights_and_tv_off
+- automation.random_light_deckenspots
+- automation.turn_off_loop_effect_deckenspots
+- automation.random_light_stehlampe
+- automation.turn_off_loop_effect_stehlampe
+- automation.hue_scene_activation
+- automation.ready_for_bed
+- automation.gaming_ps4
+- automation.stop_playing_ps4
+- automation.wakeup_light_bedroom
+- automation.get_tasmota_device_info
+- automation.update_available_tasmota_sonoff_3463
+- automation.upgrade_tasmota_sonoff_3463
+- automation.update_available_tasmota_wemosd1_1
+- automation.upgrade_tasmota_wemosd1_1
+# - automation.left_home_device1
+# - automation.turn_on_magic_mirror
+# - automation.turn_off_magic_mirror
+# - automation.disk_use_alarm
+# - automation.ssl_expiry_notification
+# - automation.log_level
+# - automation.startup_theme
+# - automation.update_notifications

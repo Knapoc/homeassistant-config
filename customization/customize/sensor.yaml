@@ -103,14 +103,3 @@ sensor.wemosd1_room_humidty:
 sensor.wemosd1_room_temperature:
   friendly_name: Temperatur - Zimmer
   homebridge_hidden: false
-sensor.wemosd1_rssi:
-  friendly_name: Signalstärke
-  icon: mdi:signal-variant
-sensor.wemosd1_uptime:
-  friendly_name: Betriebszeit
-  icon: mdi:arrow-up-thick
-sensor.wemosd1_vcc:
-  friendly_name: Versorgungsspannung
-  icon: mdi:flash
-sensor.wemosd1_version:
-  friendly_name: Tasmota Version

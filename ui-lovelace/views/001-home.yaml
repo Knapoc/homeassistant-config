@@ -1,0 +1,199 @@
+title: Home
+icon: mdi:home
+cards:
+  - type: custom:compact-custom-header
+    main_config: true
+    background_image: true
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Familie
+        show_header_toggle: false
+        entities:
+          - !secret person_1
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Temperatur
+            points_per_hour: 2
+            font_size: 65
+            entities:
+              - sensor.wemosd1_room_temperature
+          - type: custom:mini-graph-card
+            name: Luftfeuchtigkeit
+            points_per_hour: 2
+            font_size: 65
+            entities:
+              - sensor.wemosd1_room_humidty
+      - type: plant-status
+        entity: plant.howea_forsteriana
+      # - type: plant-status
+      #   entity: plant.yucca_elephantipes
+      - type: glance
+        title: Verkehr
+        entities:
+          - entity: sensor.google_travel_time_dev1_transit
+            name: Arbeitsweg
+          - entity: sensor.google_travel_time_dev1_dynamic_home
+            name: Heimweg
+          - entity: sensor.uberx_time
+            name: UberX
+          - entity: sensor.uberx_price
+            name: UberX
+  - type: vertical-stack
+    cards:
+      - type: picture-glance
+        title: Wohnzimmer
+        entities:
+          - media_player.braviatv_1
+          - media_player.playstation_4
+          - light.deckenleuchte
+          - light.stehlampe
+        state_image:
+          "on": /local/ui-pics/wohnzimmer.png
+          "off": /local/ui-pics/wohnzimmer_bw.png
+        entity: group.wohnzimmer
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: glance
+            title: Staubsauger
+            entities:
+              - entity: sensor.robovac_status
+                icon: mdi:robot-vacuum
+              - sensor.robovac_battery
+              - sensor.robovac_fanspeed
+              - entity: counter.vacuum_counter
+                name: '#'
+          #- type: entities
+          #  show_header_toggle: false
+          #  entities:
+          #    - type: divider
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                color: auto
+                entity: vacuum.robovac
+                size: 25%
+                icon: mdi:play
+                show_name: false
+                tap_action:
+                  action: call-service
+                  service: vacuum.turn_on
+                  service_data:
+                    entity_id: vacuum.robovac
+              - type: custom:button-card
+                color: auto
+                entity: vacuum.robovac
+                size: 25%
+                icon: mdi:stop
+                show_name: false
+                tap_action:
+                  action: call-service
+                  service: vacuum.turn_off
+                  service_data:
+                    entity_id: vacuum.robovac
+              - type: custom:button-card
+                color: auto
+                entity: vacuum.robovac
+                size: 25%
+                icon: mdi:pause
+                show_name: false
+                tap_action:
+                  action: call-service
+                  service: vacuum.pause
+                  service_data:
+                    entity_id: vacuum.robovac
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                color: auto
+                entity: vacuum.robovac
+                size: 25%
+                icon: mdi:vector-circle
+                show_name: false
+                tap_action:
+                  action: call-service
+                  service: vacuum.clean_spot
+                  service_data:
+                    entity_id: vacuum.robovac
+              - type: custom:button-card
+                color: auto
+                entity: vacuum.robovac
+                size: 25%
+                icon: mdi:bell-ring
+                show_name: false
+                tap_action:
+                  action: call-service
+                  service: vacuum.locate
+                  service_data:
+                    entity_id: vacuum.robovac
+              - type: custom:button-card
+                color: auto
+                entity: vacuum.robovac
+                size: 25%
+                icon: mdi:delete-empty
+                show_name: false
+                tap_action:
+                  action: call-service
+                  service: counter.reset
+                  service_data:
+                    entity_id: counter.vacuum_counter
+              #- type: custom:button-card
+              #  <<: *vacuum-buttons
+              #  icon: mdi:delete-empty
+              #  show_name: false
+              #  tap_action:
+              #    action: call-service
+              #    service: vacuum.return_to_base
+              #    service_data:
+              #      entity_id: vacuum.robovac
+          - type: entities
+            show_header_toggle: false
+            entities:
+              #- type: divider
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: Automatisierung
+                entities:
+                  - automation.robovac_auto_turn_on
+                  - automation.robovac_clean_notification
+                  - automation.robovac_cleaned
+                  - automation.robovac_clean_counter
+  - type: vertical-stack
+    cards:
+      - type: custom:weather-card
+        entity: weather.dark_sky
+        icons: "/local/custom-lovelace/weather-card/icons/"
+      - type: entities
+        title: Beleuchtung
+        show_header_toggle: false
+        entities:
+          - type: custom:slider-entity-row
+            entity: light.deckenleuchte
+            toggle: true
+            hide_when_off: true
+          - type: custom:slider-entity-row
+            entity: light.stehlampe
+            toggle: true
+            hide_when_off: true
+          - type: custom:slider-entity-row
+            entity: light.deckenspots
+            toggle: true
+            hide_when_off: true
+          - type: custom:slider-entity-row
+            entity: light.kuche
+            toggle: true
+            hide_when_off: true
+          - type: custom:slider-entity-row
+            entity: light.vorzimmer
+            toggle: true
+            hide_when_off: true
+          - type: custom:slider-entity-row
+            entity: light.badezimmer
+            toggle: true
+            hide_when_off: true
+          - type: custom:slider-entity-row
+            entity: light.toilette
+            toggle: true
+            hide_when_off: true

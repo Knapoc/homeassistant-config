@@ -1,0 +1,47 @@
+# 'tasmota_upgrade_sonoff_3082':
+#   sequence:
+#   - data:
+#       payload: http://sonoff.maddox.co.uk/tasmota/sonoff-minimal.bin
+#       topic: sonoff_3082/cmnd/OtaUrl
+#     service: mqtt.publish
+#   - delay: 00:00:05
+#   - data:
+#       payload: '1'
+#       topic: sonoff_3082/cmnd/Upgrade
+#     service: mqtt.publish
+#   - delay: 00:03:00
+#   - data:
+#       payload: http://sonoff.maddox.co.uk/tasmota/sonoff.bin
+#       topic: sonoff_3082/cmnd/OtaUrl
+#     service: mqtt.publish
+#   - delay: 00:00:05
+#   - data:
+#       payload: '1'
+#       topic: sonoff_3082/cmnd/Upgrade
+#     service: mqtt.publish
+#   - delay: 00:03:00
+#   - service: script.tasmota_fwstatus_sonoff_3082
+# 'tasmota_restart_sonoff_3082':
+#   sequence:
+#   - data:
+#       payload: '1'
+#       topic: sonoff_3082/cmnd/Restart
+#     service: mqtt.publish
+# 'tasmota_status_sonoff_3082':
+#   sequence:
+#   - data:
+#       payload: '0'
+#       topic: sonoff_3082/cmnd/Status
+#     service: mqtt.publish
+# 'tasmota_reset_sonoff_3082':
+#   sequence:
+#   - data:
+#       payload: '1'
+#       topic: sonoff_3082/cmnd/Reset
+#     service: mqtt.publish
+# 'tasmota_fwstatus_sonoff_3082':
+#   sequence:
+#   - data:
+#       payload: '2'
+#       topic: sonoff_3082/cmnd/Status
+#     service: mqtt.publish

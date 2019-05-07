@@ -74,7 +74,7 @@
     service: input_boolean.turn_off
 
 - id: '1555301210835'
-  alias: turn off loop-effekt Deckenspots
+  alias: turn off loop-effect Deckenspots
   trigger:
   - entity_id: light.deckenspots
     platform: state

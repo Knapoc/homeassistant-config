@@ -25,3 +25,27 @@
   display_options:
     - 'time'
     - 'date'
+
+- platform: file
+  file_path: /tmp/diskinfo/diskinfo.txt
+  name: disk_size_sda2
+  unit_of_measurement: kB
+  value_template: '{{ value_json.spacetotal }}'
+
+- platform: file
+  file_path: /tmp/diskinfo/diskinfo.txt
+  name: disk_used_sda2
+  unit_of_measurement: kB
+  value_template: '{{ value_json.spaceused }}'
+
+- platform: file
+  file_path: /tmp/diskinfo/diskinfo1.txt
+  name: disk_size_sda1
+  unit_of_measurement: kB
+  value_template: '{{ value_json.spacetotal }}'
+
+- platform: file
+  file_path: /tmp/diskinfo/diskinfo1.txt
+  name: disk_used_sda1
+  unit_of_measurement: kB
+  value_template: '{{ value_json.spaceused }}'

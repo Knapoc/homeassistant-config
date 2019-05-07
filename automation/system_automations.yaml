@@ -52,6 +52,30 @@
       message: 'Your harddrive is running out of space: /dev/root: {{ states.sensor.disk_use_percent.state
         }}%'
 
+- alias: Disk Use Alarm sda1
+  id: '7592979'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.disk_useperc_sda1
+    above: 90
+  action:
+    service: !secret notify_ios
+    data_template:
+      message: 'Your harddrive is running out of space: /dev/sda1: {{ states.sensor.disk_useperc_sda1.state
+        }}%'
+
+- alias: Disk Use Alarm sda2
+  id: '7592978'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.disk_useperc_sda2
+    above: 90
+  action:
+    service: !secret notify_ios
+    data_template:
+      message: 'Your harddrive is running out of space: /dev/sda2: {{ states.disk_useperc_sda2.state
+        }}%'
+
 - alias: Log Level
   id: '1500589870955'
   trigger:
@@ -64,3 +88,24 @@
     service: logger.set_level
     data_template:
       homeassistant.components: '{{ trigger.to_state.state }}'
+
+- alias: get tasmota device info
+  id: '1500581870914'
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: time
+    at: 09:00:00
+  action:
+  - service: mqtt.publish
+    data:
+      topic: wemosd1_1/cmnd/Status
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: sonoff_3082/cmnd/Status
+      payload: '0'
+  - service: mqtt.publish
+    data:
+      topic: sonoff_3463/cmnd/Status
+      payload: '0'
