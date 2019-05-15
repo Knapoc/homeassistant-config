@@ -17,6 +17,11 @@
       arg: eth0
     - type: swap_use_percent
     - type: last_boot
+    - type: load_1m
+    - type: load_5m
+    - type: load_15m
+    - type: process
+      arg: homeassistant
 
 - platform: command_line
   name: CPU Temperature
