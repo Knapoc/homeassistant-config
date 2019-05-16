@@ -41,7 +41,7 @@ views:
     cards:
       - type: custom:compact-custom-header
         main_config: true
-        background_image: true
+        background: true
       - type: vertical-stack
         cards:
           - type: entities
@@ -230,7 +230,7 @@ views:
     icon: mdi:sofa
     cards:
       - type: custom:compact-custom-header
-        background_image: true
+        background: true
       - type: media-control
         entity: media_player.braviatv_1
       - type: media-control
@@ -255,7 +255,7 @@ views:
     icon: mdi:bed-empty
     cards:
       - type: custom:compact-custom-header
-        background_image: true
+        background: true
 
       - type: entities
         title: Deckenspots
@@ -299,7 +299,7 @@ views:
     title: Beleuchtung
     cards:
       - type: custom:compact-custom-header
-        background_image: true
+        background: true
 
       - type: entities
         title: Wohnzimmer
@@ -408,7 +408,7 @@ views:
     icon: mdi:chip
     cards:
       - type: custom:compact-custom-header
-        background_image: true
+        background: true
       - type: custom:vertical-stack-in-card
         cards:
           - type: entities
@@ -547,145 +547,143 @@ views:
 
   - icon: mdi:server
     title: Server
-    cards:
+    cards: 
       - type: custom:compact-custom-header
-        background_image: true
-      - type: custom:vertical-stack-in-card
-        cards:
-      # - type: vertical-stack
-      #   cards:
-          - type: entities
-            title: Informationen
-            show_header_toggle: false          
-            entities:
-              - entity: sensor.last_boot
-                name: Server Uptime
-                format: relative
-              - entity: sensor.uptime
-                name: Home-Assistant Uptime
-              - entity: sensor.ssl_certificate_expiry
-                name: SSL-Zertifikatsgültigkeit
-                icon: mdi:certificate
-              - entity: sensor.potential_breaking_changes
-                name: Breaking changes
-                icon: mdi:alert-circle
-          - type: horizontal-stack
-            cards:
-              - type: custom:mini-graph-card
-                name: Frequenz
-                points_per_hour: 2
-                line_color: red
-                font_size: 65
-                entities:
-                  - sensor.cpu_speed
-              - type: custom:mini-graph-card
-                name: Load
-                points_per_hour: 6
-                font_size: 65
-                show:
-                  fill: false
-                hours_to_show: 12
-                line_color:
-                  - red
-                  - blue
-                  - green
-                entities:
-                  - entity: sensor.load_1m
-                    name: 1m
-                  - entity: sensor.load_5m
-                    name: 5m
-                  - entity: sensor.load_15m
-                    name: 15m
-              # - type: custom:mini-graph-card
-              #   name: CPU Temperatur
-              #   points_per_hour: 2
-              #   color_thresholds:
-              #     - value: 0
-              #       color: green
-              #     - value: 45
-              #       color: yellow
-              #     - value: 60
-              #       color: red
-              #   font_size: 65
-              #   entities:
-              #     - sensor.cpu_temperature
-              # - type: gauge
-              #   entity: sensor.cpu_temperature
-              #   min: 0
-              #   max: 100
-              #   severity:
-              #     green: 0
-              #     yellow: 45
-              #     red: 60
-          - type: horizontal-stack
-            cards:
-              - type: gauge
-                entity: sensor.cpu_temperature
-                min: 0
-                max: 100
-                severity:
-                  green: 0
-                  yellow: 45
-                  red: 60
-              - type: gauge
-                entity: sensor.processor_use
-                min: 0
-                max: 100
-                severity:
-                  green: 0
-                  yellow: 45
-                  red: 80
-          # - type: horizontal-stack
-          #   cards:
-              - type: gauge
-                entity: sensor.memory_use_percent
-                min: 0
-                max: 100
-                severity:
-                  green: 0
-                  yellow: 45
-                  red: 80
-              - type: gauge
-                entity: sensor.swap_use_percent
-                min: 0
-                max: 100
-                severity:
-                  green: 0
-                  yellow: 50
-                  red: 80
-              
-          - type: horizontal-stack
-            cards:
-              - type: gauge
-                entity: sensor.disk_use_percent
-                min: 0
-                max: 100
-                severity:
-                  green: 0
-                  yellow: 60
-                  red: 80
-              - type: gauge
-                entity: sensor.disk_useperc_sda1
-                name: sda1
-                min: 0
-                max: 100
-                severity:
-                  green: 0
-                  yellow: 60
-                  red: 80
-              - type: gauge
-                entity: sensor.disk_useperc_sda2
-                name: sda2
-                min: 0
-                max: 100
-                severity:
-                  green: 0
-                  yellow: 60
-                  red: 80
-          
-          
+        background: true
       - type: vertical-stack
         cards:
+          - type: custom:vertical-stack-in-card
+            cards:
+          # - type: vertical-stack
+          #   cards:
+              - type: entities
+                title: Informationen
+                show_header_toggle: false          
+                entities:
+                  - entity: sensor.last_boot
+                    name: Server Uptime
+                    format: relative
+                  - entity: sensor.uptime
+                    name: Home-Assistant Uptime
+                  - entity: sensor.ssl_certificate_expiry
+                    name: SSL-Zertifikatsgültigkeit
+                    icon: mdi:certificate
+                  - entity: sensor.potential_breaking_changes
+                    name: Breaking changes
+                    icon: mdi:alert-circle
+              - type: horizontal-stack
+                cards:
+                  - type: custom:mini-graph-card
+                    name: Frequenz
+                    points_per_hour: 2
+                    line_color: red
+                    font_size: 65
+                    entities:
+                      - sensor.cpu_speed
+                  - type: custom:mini-graph-card
+                    name: Load
+                    points_per_hour: 2
+                    font_size: 65
+    #                show:
+    #                  fill: false
+                    hours_to_show: 12
+                    line_color:
+                      - red
+                      - blue
+                      - green
+                    entities:
+                      - entity: sensor.load_1m
+                        name: 1m
+                      - entity: sensor.load_5m
+                        name: 5m
+                      - entity: sensor.load_15m
+                        name: 15m
+                  # - type: custom:mini-graph-card
+                  #   name: CPU Temperatur
+                  #   points_per_hour: 2
+                  #   color_thresholds:
+                  #     - value: 0
+                  #       color: green
+                  #     - value: 45
+                  #       color: yellow
+                  #     - value: 60
+                  #       color: red
+                  #   font_size: 65
+                  #   entities:
+                  #     - sensor.cpu_temperature
+                  # - type: gauge
+                  #   entity: sensor.cpu_temperature
+                  #   min: 0
+                  #   max: 100
+                  #   severity:
+                  #     green: 0
+                  #     yellow: 45
+                  #     red: 60
+              - type: horizontal-stack
+                cards:
+                  - type: gauge
+                    entity: sensor.cpu_temperature
+                    min: 0
+                    max: 100
+                    severity:
+                      green: 0
+                      yellow: 45
+                      red: 60
+                  - type: gauge
+                    entity: sensor.processor_use
+                    min: 0
+                    max: 100
+                    severity:
+                      green: 0
+                      yellow: 45
+                      red: 80
+              # - type: horizontal-stack
+              #   cards:
+                  - type: gauge
+                    entity: sensor.memory_use_percent
+                    min: 0
+                    max: 100
+                    severity:
+                      green: 0
+                      yellow: 45
+                      red: 80
+                  - type: gauge
+                    entity: sensor.swap_use_percent
+                    min: 0
+                    max: 100
+                    severity:
+                      green: 0
+                      yellow: 50
+                      red: 80
+                  
+              - type: horizontal-stack
+                cards:
+                  - type: gauge
+                    entity: sensor.disk_use_percent
+                    min: 0
+                    max: 100
+                    severity:
+                      green: 0
+                      yellow: 60
+                      red: 80
+                  - type: gauge
+                    entity: sensor.disk_useperc_sda1
+                    name: sda1
+                    min: 0
+                    max: 100
+                    severity:
+                      green: 0
+                      yellow: 60
+                      red: 80
+                  - type: gauge
+                    entity: sensor.disk_useperc_sda2
+                    name: sda2
+                    min: 0
+                    max: 100
+                    severity:
+                      green: 0
+                      yellow: 60
+                      red: 80
           - type: glance
             title: Database
             entities:
@@ -694,6 +692,19 @@ views:
                 format: relative
               - entity: sensor.database_size_nc
                 name: Nextcloud
+          
+          
+          
+      - type: vertical-stack
+        cards:
+          # - type: glance
+          #   title: Database
+          #   entities:
+          #     - entity: sensor.database_size_hass
+          #       name: Home-Assistant
+          #       format: relative
+          #     - entity: sensor.database_size_nc
+          #       name: Nextcloud
           - type: glance
             title: fail2ban
             entities:
@@ -705,42 +716,66 @@ views:
                 name: SSH
           - type: custom:vertical-stack-in-card
             cards:
-              - type: horizontal-stack
+              - type: entities
+                show_header_toggle: false
                 title: Netzwerk
-                cards:
-                  - type: custom:mini-graph-card
-                    name: Download
-                    line_color: "#4169E1"
-                    font_size: 65
-                    entities:
-                      - sensor.speedtest_download
-                  - type: custom:mini-graph-card
-                    name: Upload
-                    line_color: orange
-                    font_size: 65
-                    entities:
-                      - sensor.speedtest_upload
-                  - type: custom:mini-graph-card
-                    name: Ping
-                    line_color: green
-                    font_size: 65
-                    entities:
-                      - sensor.speedtest_ping
-              - type: glance
-                #title: Network
                 entities:
+                  - entity: sensor.mypublicip
+                    name: Public IP
+                  - entity: sensor.speedtest_ping
+                    name: Ping
                   - entity: sensor.asuswrt_download
                     name: Download
                     icon: mdi:download
                   - entity: sensor.asuswrt_upload
                     name: Upload
                     icon: mdi:upload
-                  - entity: sensor.network_in_eth0
-                    name: eth0 - in
-                    icon: mdi:download
-                  - entity: sensor.network_out_eth0
-                    name: eth0 - out
-                    icon: mdi:download
+              - type: horizontal-stack
+                title: Netzwerk
+                cards:
+                  - type: custom:mini-graph-card
+                    name: Speedtest
+ #                   line_color: "#4169E1"
+                    font_size: 55
+                    align_state: left
+                    hours_to_show: 72
+                    points_per_hour: 2
+                    entities:
+                      - entity: sensor.speedtest_download
+                        show_state: true
+                        color: "#ffd981"
+                      - entity: sensor.speedtest_upload
+                        show_state: true
+                        color: "#b381ff"
+                  #- type: custom:mini-graph-card
+                  #  name: Upload
+                   # line_color: orange
+                    #font_size: 65
+                  #  entities:
+                  #    - sensor.speedtest_upload
+                  # - type: custom:mini-graph-card
+                  #   name: Ping
+                  #   line_color: "#ff818e"
+                  #   font_size: 55
+                  #   hours_to_show: 72
+                  #   points_per_hour: 2
+                  #   entities:
+                  #     - sensor.speedtest_ping
+              # - type: glance
+              #   #title: Network
+              #   entities:
+              #     - entity: sensor.asuswrt_download
+              #       name: Download
+              #       icon: mdi:download
+              #     - entity: sensor.asuswrt_upload
+              #       name: Upload
+              #       icon: mdi:upload
+              #     - entity: sensor.network_in_eth0
+              #       name: eth0 - in
+              #       icon: mdi:download
+              #     - entity: sensor.network_out_eth0
+              #       name: eth0 - out
+              #       icon: mdi:download
           
           # - type: glance
           #   title: SSL
@@ -829,7 +864,7 @@ views:
       - type: vertical-stack
         cards:
           - type: custom:compact-custom-header
-            background_image: true
+            background: true
           - type: custom:tracker-card  
       - type: vertical-stack
         cards:
