@@ -57,3 +57,7 @@
     - homeassistant
     - nextcloud
     - sshd
+
+- platform: dnsip
+  name: !secret dnsip_1
+  hostname: !secret dnsip_2
