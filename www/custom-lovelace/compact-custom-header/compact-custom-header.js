@@ -1,4 +1,4 @@
-import "./compact-custom-header-editor.js?v=1.0.3b6";
+import "./compact-custom-header-editor.js?v=1.0.4b4";
 
 export const LitElement = Object.getPrototypeOf(
   customElements.get("ha-panel-lovelace")
@@ -143,7 +143,7 @@ if (!customElements.get("compact-custom-header")) {
       }
 
       if (this.config.main_config) {
-        let cache = Object.assign({}, this.config);
+        let cache = this.config ? Object.assign({}, this.config) : null;
         delete cache.main_config;
         localStorage.setItem("cchCache", JSON.stringify(cache));
       } else if (localStorage.getItem("cchCache")) {
@@ -194,7 +194,6 @@ if (!customElements.get("compact-custom-header")) {
     }
 
     run() {
-      const hassVersion = parseFloat(this.hass.config.version.slice(0, 4));
       const root = this.rootElement;
       const header = root.querySelector("app-header");
       const buttons = this.getButtonElements(root);
@@ -229,7 +228,7 @@ if (!customElements.get("compact-custom-header")) {
           if (this.cchConfig[button] == "clock") {
             this.insertClock(
               buttons,
-              button == "options" || (button == "menu" && hassVersion > 0.88)
+              buttons[button].querySelector("paper-icon-button")
                 ? buttons[button]
                 : buttons[button].shadowRoot
             );
@@ -243,18 +242,22 @@ if (!customElements.get("compact-custom-header")) {
           }
           return false;
         };
-        if (conditionals) {
-          this.conditionalStyling(header, buttons, tabs);
-          if (monitorNotifications) this.notifMonitor(header, buttons, tabs);
+        if (conditionals && !this.editMode) {
+          this.conditionalStyling(header, buttons, tabs, root);
+          if (monitorNotifications) {
+            this.notifMonitor(header, buttons, tabs, root);
+          }
           this.hass.connection.socket.addEventListener("message", event => {
-            this.conditionalStyling(header, buttons, tabs);
+            if (root.querySelector("app-toolbar").className != "edit-mode") {
+              this.conditionalStyling(header, buttons, tabs, root);
+            }
           });
         }
 
         if (this.cchConfig.swipe) {
           this.swipeNavigation(root, tabs, tabContainer, view);
         }
-        this.tabContainerMargin(buttons, tabContainer);
+        if (!this.editMode) this.tabContainerMargin(buttons, tabContainer);
         fireEvent(this, "iron-resize");
       }
     }
@@ -361,10 +364,8 @@ if (!customElements.get("compact-custom-header")) {
         root.querySelector('[id="cch_iron_selected"]').outerHTML = "";
       }
       if (header_colors) header_colors.parentNode.removeChild(header_colors);
-      if (Object.keys(this.cchConfig.tab_color).length) {
-        for (let i = 0; i < tabs.length; i++) {
-          tabs[i].style.color = "";
-        }
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].style.color = "";
       }
     }
 
@@ -405,21 +406,23 @@ if (!customElements.get("compact-custom-header")) {
       let indicator = this.cchConfig.tab_indicator_color;
       let all_tabs_color =
         this.cchConfig.all_tabs_color || "var(--cch-all-tabs-color)";
-      if (indicator) {
-        if (!root.querySelector('[id="cch_header_colors"]') && !this.editMode) {
-          let style = document.createElement("style");
-          style.setAttribute("id", "cch_header_colors");
-          style.innerHTML = `
-            paper-tabs {
-              ${
-                indicator
-                  ? `--paper-tabs-selection-bar-color: ${indicator} !important`
-                  : "var(--cch-tab-indicator-color) !important"
-              }
+      if (
+        indicator &&
+        !root.querySelector('[id="cch_header_colors"]') &&
+        !this.editMode
+      ) {
+        let style = document.createElement("style");
+        style.setAttribute("id", "cch_header_colors");
+        style.innerHTML = `
+          paper-tabs {
+            ${
+              indicator
+                ? `--paper-tabs-selection-bar-color: ${indicator} !important`
+                : "var(--cch-tab-indicator-color) !important"
             }
-          `;
-          root.appendChild(style);
-        }
+          }
+        `;
+        root.appendChild(style);
       }
 
       // Style active tab icon color.
@@ -447,10 +450,12 @@ if (!customElements.get("compact-custom-header")) {
       }
 
       // Style tab icon color.
-      if (Object.keys(this.cchConfig.tab_color).length) {
-        let tab_color = this.cchConfig.tab_color;
+      if (
+        this.cchConfig.tab_color &&
+        Object.keys(this.cchConfig.tab_color).length
+      ) {
         for (let i = 0; i < tabs.length; i++) {
-          tabs[i].style.color = tab_color[i] || all_tabs_color;
+          tabs[i].style.color = this.cchConfig.tab_color[i] || all_tabs_color;
         }
       }
 
@@ -495,9 +500,11 @@ if (!customElements.get("compact-custom-header")) {
               ${button == "options" ? "margin-right:-5px; padding:0;" : ""}
             `;
         } else if (this.cchConfig[button] == "overflow") {
-          const paperIconButton = buttons[button].shadowRoot
-            ? buttons[button].shadowRoot.querySelector("paper-icon-button")
-            : buttons[button].querySelector("paper-icon-button");
+          const paperIconButton = buttons[button].querySelector(
+            "paper-icon-button"
+          )
+            ? buttons[button].querySelector("paper-icon-button")
+            : buttons[button].shadowRoot.querySelector("paper-icon-button");
           if (paperIconButton.hasAttribute("hidden")) {
             continue;
           }
@@ -613,11 +620,11 @@ if (!customElements.get("compact-custom-header")) {
     }
 
     hideTabs(tabContainer, tabs) {
-      let hidden_tabs = this.cchConfig.hide_tabs.length
-        ? this.cchConfig.hide_tabs.replace(/\s+/g, "").split(",")
+      let hidden_tabs = String(this.cchConfig.hide_tabs).length
+        ? String(this.cchConfig.hide_tabs).replace(/\s+/g, "").split(",")
         : null;
-      let shown_tabs = this.cchConfig.show_tabs.length
-        ? this.cchConfig.show_tabs.replace(/\s+/g, "").split(",")
+      let shown_tabs = String(this.cchConfig.show_tabs).length
+        ? String(this.cchConfig.show_tabs).replace(/\s+/g, "").split(",")
         : null;
 
       // Set the tab config source.
@@ -646,7 +653,7 @@ if (!customElements.get("compact-custom-header")) {
           hidden_tabs.length != tabs.length
         ) {
           let i = 0;
-          // Find the next visible tab and navigate.
+          // Find the first visible tab and navigate.
           while (hidden_tabs.includes(i)) {
             i++;
           }
@@ -770,24 +777,17 @@ if (!customElements.get("compact-custom-header")) {
       window.setTimeout(() => this.updateClock(clock, clockFormat), 60000);
     }
 
-    conditionalStyling(header, buttons, tabs) {
+    conditionalStyling(header, buttons, tabs, root) {
       if (window.cchState == undefined) window.cchState = [];
       if (this.prevColor == undefined) this.prevColor = {};
       if (this.prevState == undefined) this.prevState = [];
       const conditional_styles = this.cchConfig.conditional_styles;
       let tabContainer = tabs[0] ? tabs[0].parentNode : "";
-      let element, color, background, hide, onIcon, offIcon, iconElement;
+      let elem, color, bg, hide, onIcon, offIcon, iconElem;
 
-      const styleElements = (
-        elem,
-        color,
-        hide,
-        background,
-        onIcon,
-        iconElem
-      ) => {
-        if (background && elem == "background") {
-          header.style.background = background;
+      const styleElements = (elem, color, hide, bg, onIcon, iconElem) => {
+        if (bg && elem == "background") {
+          header.style.background = bg;
         } else if (color) {
           elem.style.color = color;
         }
@@ -798,30 +798,31 @@ if (!customElements.get("compact-custom-header")) {
       };
 
       const getElements = (key, elemArray, i, obj, styling) => {
-        element = elemArray[key];
+        elem = elemArray[key];
         color = styling[i][obj][key].color;
         onIcon = styling[i][obj][key].on_icon;
         offIcon = styling[i][obj][key].off_icon;
         hide = styling[i][obj][key].hide;
         if (!this.prevColor[key]) {
           this.prevColor[key] = window
-            .getComputedStyle(element, null)
+            .getComputedStyle(elem, null)
             .getPropertyValue("color");
         }
       };
 
       let styling = [];
-      for (let i = 0; i < conditional_styles.length; i++) {
-        styling.push(Object.assign({}, conditional_styles[i]));
+      if (Array.isArray(conditional_styles)) {
+        for (let i = 0; i < conditional_styles.length; i++) {
+          styling.push(Object.assign({}, conditional_styles[i]));
+        }
+      } else {
+        styling.push(Object.assign({}, conditional_styles));
       }
 
       for (let i = 0; i < styling.length; i++) {
         let template = styling[i].template;
         if (template) {
-          if (!template.length) {
-            template = [];
-            template.push(styling[i].template)
-          }
+          if (!template.length) template = [template];
           for (let x = 0; x < template.length; x++) {
             this.templateConditional(template[x], header, buttons, tabs);
           }
@@ -829,7 +830,6 @@ if (!customElements.get("compact-custom-header")) {
         }
         let entity = styling[i].entity;
         if (
-          !this.editMode &&
           this.hass.states[entity] == undefined &&
           entity !== "notifications"
         ) {
@@ -846,7 +846,9 @@ if (!customElements.get("compact-custom-header")) {
         }
         if (window.cchState[i] == undefined) {
           window.setTimeout(() => {
-            this.conditionalStyling(header, buttons, tabs);
+            if (root.querySelector("app-toolbar").className != "edit-mode") {
+              this.conditionalStyling(header, buttons, tabs, root);
+            }
           }, 100);
           return;
         }
@@ -858,17 +860,17 @@ if (!customElements.get("compact-custom-header")) {
           this.prevState[i] = window.cchState[i];
           let above = styling[i].condition.above;
           let below = styling[i].condition.below;
-          let great = above !== undefined && below == undefined;
-          let less = above == undefined && below !== undefined;
-          let greatless = above !== undefined && below !== undefined;
 
           for (const obj in styling[i]) {
-            let key = Object.keys(styling[i][obj])[0];
+            let key;
+            if (styling[i][obj]) {
+              key = Object.keys(styling[i][obj])[0];
+            }
             if (obj == "background") {
-              element = "background";
+              elem = "background";
               color = styling[i][obj].color;
-              background = styling[i][obj];
-              iconElement = false;
+              bg = styling[i][obj];
+              iconElem = false;
               if (!this.prevColor[obj]) {
                 this.prevColor[obj] = window
                   .getComputedStyle(header, null)
@@ -877,78 +879,59 @@ if (!customElements.get("compact-custom-header")) {
             } else if (obj == "button") {
               getElements(key, buttons, i, obj, styling);
               if (key == "menu") {
-                iconElement = element
+                iconElem = elem
                   .querySelector("paper-icon-button")
                   .shadowRoot.querySelector("iron-icon");
               } else {
-                iconElement = element.shadowRoot
+                iconElem = elem.shadowRoot
                   .querySelector("paper-icon-button")
                   .shadowRoot.querySelector("iron-icon");
               }
             } else if (obj == "tab") {
               getElements(key, tabs, i, obj, styling);
-              iconElement = element.querySelector("ha-icon");
+              iconElem = elem.querySelector("ha-icon");
             }
 
             if (window.cchState[i] == styling[i].condition.state) {
-              styleElements(
-                element,
-                color,
-                hide,
-                background,
-                onIcon,
-                iconElement
-              );
+              styleElements(elem, color, hide, bg, onIcon, iconElem);
             } else if (
-              greatless &&
+              above !== undefined &&
+              below !== undefined &&
               window.cchState[i] > above &&
               window.cchState[i] < below
             ) {
-              styleElements(
-                element,
-                color,
-                hide,
-                background,
-                onIcon,
-                iconElement
-              );
-            } else if (great && window.cchState[i] > above) {
-              styleElements(
-                element,
-                color,
-                hide,
-                background,
-                onIcon,
-                iconElement
-              );
-            } else if (less && window.cchState[i] < below) {
-              styleElements(
-                element,
-                color,
-                hide,
-                background,
-                onIcon,
-                iconElement
-              );
+              styleElements(elem, color, hide, bg, onIcon, iconElem);
+            } else if (
+              above !== undefined &&
+              below == undefined &&
+              window.cchState[i] > above
+            ) {
+              styleElements(elem, color, hide, bg, onIcon, iconElem);
+            } else if (
+              above == undefined &&
+              below !== undefined &&
+              window.cchState[i] < below
+            ) {
+              styleElements(elem, color, hide, bg, onIcon, iconElem);
             } else {
               if (
-                element !== "background" &&
+                elem !== "background" &&
                 hide &&
-                element.style.display == "none"
+                elem.style.display == "none"
               ) {
-                element.style.display = "";
+                elem.style.display = "";
               }
-              if (background && element == "background") {
+              if (bg && elem == "background") {
                 header.style.background = this.prevColor[obj];
               } else if (
                 obj !== "background" &&
                 obj !== "entity" &&
                 obj !== "condition"
               ) {
-                element.style.color = this.prevColor[key];
+                elem.style.color = this.prevColor[key];
               }
               if (onIcon && offIcon) {
-                iconElement.setAttribute("icon", offIcon);
+                iconElem.setAttribute("icon", offIcon);
               }
             }
           }
@@ -959,86 +942,104 @@ if (!customElements.get("compact-custom-header")) {
     }
 
     templateConditional(template, header, buttons, tabs) {
+      // Get entity states.
       window.hassConnection.then(function(result) {
         window.cchEntity = result.conn._ent.state;
       });
-      let entity = window.cchEntity
-      if (!entity) {
+      if (!window.cchEntity) {
         window.setTimeout(() => {
           this.templateConditional(template, header, buttons, tabs);
         }, 100);
         return;
       }
+      // Variables for templates.
+      let states = window.cchEntity;
+      let entity = window.cchEntity;
+
+      const templateEval = (template, entity) => {
+        try {
+          if (template.includes("return")) {
+            return eval(`(function() {${template}}())`);
+          } else {
+            return eval(template);
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      };
+
       for (const condition in template) {
         if (condition == "tab") {
           for (const tab in template[condition]) {
+            if (!template[condition][tab].length) {
+              template[condition][tab] = [template[condition][tab]];
+            }
             for (let i = 0; i < template[condition][tab].length; i++) {
               let tabIndex = parseInt(Object.keys(template[condition]));
               let styleTarget = Object.keys(template[condition][tab][i]);
+              let tempCond = template[condition][tab][i][styleTarget];
               if (styleTarget == "icon") {
                 tabs[tabIndex]
                   .querySelector("ha-icon")
-                  .setAttribute(
-                    "icon",
-                    eval(template[condition][tab][i][styleTarget])
-                  );
+                  .setAttribute("icon", templateEval(tempCond, entity));
               } else if (styleTarget == "color") {
-                tabs[tabIndex].style.color = eval(
-                  template[condition][tab][i][styleTarget]
-                );
+                tabs[tabIndex].style.color = templateEval(tempCond, entity);
               } else if (styleTarget == "display") {
-                eval(template[condition][tab][i][styleTarget]) == "show"
-                  ? tabs[tabIndex].style.display = ""
-                  : tabs[tabIndex].style.display = "none"
+                templateEval(tempCond, entity) == "show"
+                  ? (tabs[tabIndex].style.display = "")
+                  : (tabs[tabIndex].style.display = "none");
               }
             }
           }
         } else if (condition == "button") {
           for (const button in template[condition]) {
+            if (!template[condition][button].length) {
+              template[condition][button] = [template[condition][button]];
+            }
             for (let i = 0; i < template[condition][button].length; i++) {
               let buttonName = Object.keys(template[condition]);
               let styleTarget = Object.keys(template[condition][button][i]);
-              let buttonElem = buttons[buttonName]
+              let buttonElem = buttons[buttonName];
               let iconTarget = buttonElem.shadowRoot
                 ? buttonElem.shadowRoot.querySelector("paper-icon-button")
-                : buttonElem.querySelector("paper-icon-button")
-              let target = iconTarget.shadowRoot.querySelector("iron-icon")
+                : buttonElem.querySelector("paper-icon-button");
+              let target = iconTarget.shadowRoot.querySelector("iron-icon");
+              let tempCond = template[condition][button][i][styleTarget];
               if (styleTarget == "icon") {
-                iconTarget
-                  .setAttribute(
-                    "icon",
-                    eval(template[condition][button][i][styleTarget])
-                  );
+                iconTarget.setAttribute("icon", templateEval(tempCond, entity));
               } else if (styleTarget == "color") {
-                target.style.color = eval(
-                  template[condition][button][i][styleTarget]
-                );
+                target.style.color = templateEval(tempCond, entity);
               } else if (styleTarget == "display") {
-                eval(template[condition][button][i][styleTarget]) == "show"
-                  ? buttons[buttonName].style.display = ""
-                  : buttons[buttonName].style.display = "none"
+                templateEval(tempCond, entity) == "show"
+                  ? (buttons[buttonName].style.display = "")
+                  : (buttons[buttonName].style.display = "none");
               }
             }
           }
         } else if (condition == "background") {
-          header.style.background = eval(template[condition]);
+          header.style.background = templateEval(template[condition], entity);
         }
       }
       entity = null;
     }
 
     // Use notification indicator element to monitor notification status.
-    notifMonitor(header, buttons, tabs) {
+    notifMonitor(header, buttons, tabs, root) {
       let notification = !!buttons.notifications.shadowRoot.querySelector(
         ".indicator"
       );
       if (window.cchNotification == undefined) {
         window.cchNotification = notification;
       } else if (notification !== window.cchNotification) {
-        this.conditionalStyling(header, buttons, tabs);
+        if (root.querySelector("app-toolbar").className != "edit-mode") {
+          this.conditionalStyling(header, buttons, tabs, root);
+        }
         window.cchNotification = notification;
       }
-      window.setTimeout(() => this.notifMonitor(header, buttons, tabs), 1000);
+      window.setTimeout(
+        () => this.notifMonitor(header, buttons, tabs, root),
+        1000
+      );
     }
 
     // Walk the DOM to find element.
@@ -1073,7 +1074,7 @@ if (!customElements.get("compact-custom-header")) {
       }
       for (let i = 0; i < array.length; i++) array[i] = parseInt(array[i]);
       return array.sort(sortNumber);
-    };
+    }
 
     swipeNavigation(root, tabs, tabContainer, view) {
       let swipe_amount = this.cchConfig.swipe_amount || 15;
@@ -1108,6 +1109,7 @@ if (!customElements.get("compact-custom-header")) {
         if (typeof event.path == "object") {
           for (let element of event.path) {
             if (element.nodeName == "SWIPE-CARD") return;
+            else if (element.nodeName == "APP-HEADER") return;
             else if (element.nodeName == "HUI-VIEW") break;
           }
         }
