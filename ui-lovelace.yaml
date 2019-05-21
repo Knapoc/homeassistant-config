@@ -33,7 +33,7 @@ x-vacuum-buttons: &vacuum-buttons
 
 background: center / cover repeat-y url("/local/background/clear-wp.jpg") fixed
 
-excluded_entities: !include /config/ui-lovelace/excluded-entities.yaml
+excluded_entities: !include /config/lovelace/excluded-entities.yaml
 
 views:
   - title: Home
@@ -568,9 +568,7 @@ views:
                   - entity: sensor.ssl_certificate_expiry
                     name: SSL-Zertifikatsgültigkeit
                     icon: mdi:certificate
-                  - entity: sensor.potential_breaking_changes
-                    name: Breaking changes
-                    icon: mdi:alert-circle
+
               - type: horizontal-stack
                 cards:
                   - type: custom:mini-graph-card
@@ -586,7 +584,7 @@ views:
                     font_size: 65
     #                show:
     #                  fill: false
-                    hours_to_show: 12
+                    hours_to_show: 6
                     line_color:
                       - red
                       - blue
@@ -705,15 +703,7 @@ views:
           #       format: relative
           #     - entity: sensor.database_size_nc
           #       name: Nextcloud
-          - type: glance
-            title: fail2ban
-            entities:
-              - entity: sensor.fail2ban_homeassistant
-                name: Homeassistant
-              - entity: sensor.fail2ban_nextcloud
-                name: Nextcloud
-              - entity: sensor.fail2ban_sshd
-                name: SSH
+          
           - type: custom:vertical-stack-in-card
             cards:
               - type: entities
@@ -730,6 +720,12 @@ views:
                   - entity: sensor.asuswrt_upload
                     name: Upload
                     icon: mdi:upload
+                  # - entity: sensor.network_in_eth0
+                  #   name: eth0 - in
+                  #   icon: mdi:download
+                  # - entity: sensor.network_out_eth0
+                  #   name: eth0 - out
+                  #   icon: mdi:download
               - type: horizontal-stack
                 title: Netzwerk
                 cards:
@@ -738,15 +734,31 @@ views:
  #                   line_color: "#4169E1"
                     font_size: 55
                     align_state: left
-                    hours_to_show: 72
+                    hours_to_show: 24
                     points_per_hour: 2
                     entities:
                       - entity: sensor.speedtest_download
                         show_state: true
                         color: "#ffd981"
+                        # color_thresholds:
+                        #   - value: 0
+                        #     color: red
+                        #   - value: 239
+                        #     color: orange"
+                        #   - value: 240
+                        #     color: "#ffd981"
                       - entity: sensor.speedtest_upload
                         show_state: true
                         color: "#b381ff"
+          - type: glance
+            title: fail2ban
+            entities:
+              - entity: sensor.fail2ban_homeassistant
+                name: Homeassistant
+              - entity: sensor.fail2ban_nextcloud
+                name: Nextcloud
+              - entity: sensor.fail2ban_sshd
+                name: SSH
                   #- type: custom:mini-graph-card
                   #  name: Upload
                    # line_color: orange
@@ -815,7 +827,9 @@ views:
               - type: entities
                 show_header_toggle: false
                 entities:
-                  
+                  - entity: sensor.potential_breaking_changes
+                    name: Breaking changes
+                    icon: mdi:alert-circle
                   - type: custom:auto-entities
                     card:
                       type: custom:fold-entity-row
@@ -857,28 +871,5 @@ views:
                 name: Home Assistant
                 url: https://www.home-assistant.io
                 icon: mdi:home-assistant
-
-  - icon: mdi:settings
-    title: Administration
-    cards:
-      - type: vertical-stack
-        cards:
-          - type: custom:compact-custom-header
-            background: true
           - type: custom:tracker-card  
-      - type: vertical-stack
-        cards:
-          - type: entities
-            title: Automatisierungen
-            show_header_toggle: false
-            entities:
-              - automation.left_home_device1
-              - automation.turn_on_magic_mirror
-              - automation.turn_off_magic_mirror
-              - automation.disk_use_alarm
-              - automation.disk_use_alarm_sda1
-              - automation.disk_use_alarm_sda2
-              - automation.ssl_expiry_notification
-              - automation.log_level
-              - automation.startup_theme
-              - automation.update_notifications
+
