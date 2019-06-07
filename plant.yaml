@@ -15,19 +15,19 @@ Howea Forsteriana:
   min_brightness: 1500
   max_brightness: 25000
 
-# Yucca Elephantipes:
-#   sensors:
-#     moisture: sensor.yuccaelephantipes_moisture
-#     battery:  sensor.yuccaelephantipes_battery
-#     temperature: sensor.yuccaelephantipes_temperature
-#     conductivity: sensor.yuccaelephantipes_conductivity
-#     brightness: sensor.yuccaelephantipes_light
-#   min_moisture: 15
-#   max_moisture: 60
-#   min_battery: 20
-#   min_conductivity: 350
-#   max_conductivity: 2000
-#   min_temperature: 8
-#   max_temperature: 32
-#   min_brightness: 1500
-#   max_brightness: 20000
+Yucca Elephantipes:
+  sensors:
+    moisture: sensor.yuccaelephantipes_moisture
+    battery:  sensor.yuccaelephantipes_battery
+    temperature: sensor.yuccaelephantipes_temperature
+    conductivity: sensor.yuccaelephantipes_conductivity
+    brightness: sensor.yuccaelephantipes_light
+  min_moisture: 15
+  max_moisture: 60
+  min_battery: 20
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_temperature: 8
+  max_temperature: 32
+  min_brightness: 1500
+  max_brightness: 20000
