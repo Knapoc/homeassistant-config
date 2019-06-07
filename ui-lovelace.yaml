@@ -67,8 +67,8 @@ views:
                   - sensor.wemosd1_room_humidty
           - type: plant-status
             entity: plant.howea_forsteriana
-          # - type: plant-status
-          #   entity: plant.yucca_elephantipes
+          - type: plant-status
+            entity: plant.yucca_elephantipes
           - type: glance
             title: Verkehr
             entities:

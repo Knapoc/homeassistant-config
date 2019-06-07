@@ -3,3 +3,4 @@
   user_id: !secret person_1_uid
   device_trackers:
     - !secret device1
+    - !secret device2
