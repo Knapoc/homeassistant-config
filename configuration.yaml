@@ -25,7 +25,7 @@ http:
 automation: !include_dir_merge_list automation/
 config:
 conversation:
-discovery:
+#discovery:
 frontend:
   javascript_version: latest
   themes: !include_dir_merge_named themes
@@ -48,9 +48,11 @@ recorder:
   include: !include recorder_include.yaml
   exclude: !include recorder_exclude.yaml
 script: !include_dir_merge_named script/
+#ssdp:
 sun:
 system_health:
 updater:
+#zeroconf:
 
 ### one liners
 binary_sensor: !include binary_sensor.yaml
@@ -80,9 +82,8 @@ asuswrt:
     - upload
     - download
 
-custom_updater:
-  card_urls:
-    - https://raw.githubusercontent.com/kalkih/mini-graph-card/master/tracker.json
+hacs:
+  token: !secret github_at
 
 eufy_vacuum:
   devices:

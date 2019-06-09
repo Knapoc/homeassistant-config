@@ -9,8 +9,6 @@ resources:
     type: module
   - url: /customcards/custom-lovelace/mini-graph-card-bundle.js
     type: module
-  - url: /customcards/custom-lovelace/tracker-card.js?track=true
-    type: module
   - url: /customcards/custom-lovelace/browser-commander.js
     type: js
   - url: /customcards/custom-lovelace/slider-entity-row.js
@@ -871,5 +869,4 @@ views:
                 name: Home Assistant
                 url: https://www.home-assistant.io
                 icon: mdi:home-assistant
-          - type: custom:tracker-card  
 
