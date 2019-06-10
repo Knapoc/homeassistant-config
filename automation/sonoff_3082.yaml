@@ -25,4 +25,3 @@
 #       actionName: SONOFF_A_UPGRADE
 #   action:
 #   - service: script.tasmota_upgrade_sonoff_3082
-
