@@ -1,27 +1,25 @@
 title: Home
 
 resources:
-  - url: /customcards/custom-lovelace/card-tools.js?track=true
+  - url: /community_plugin/lovelace-card-tools/card-tools.js
     type: js
-  - url: /customcards/custom-lovelace/weather-card/weather-card.js
+  - url: /local/custom-lovelace/weather-card/weather-card.js
     type: module
-  - url: /customcards/custom-lovelace/compact-custom-header/compact-custom-header.js?track=true
+  - url: /community_plugin/compact-custom-header/compact-custom-header.js
     type: module
-  - url: /customcards/custom-lovelace/mini-graph-card-bundle.js
+  - url: /community_plugin/mini-graph-card/mini-graph-card.js
     type: module
-  - url: /customcards/custom-lovelace/browser-commander.js
+  - url: /community_plugin/lovelace-browser-commander/browser-commander.js
     type: js
-  - url: /customcards/custom-lovelace/slider-entity-row.js
+  - url: /community_plugin/lovelace-slider-entity-row/slider-entity-row.js
     type: js
-  - url: /customcards/custom-lovelace/vertical-stack-in-card.js
+  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
     type: js
-  - url: /customcards/custom-lovelace/button-card.js
+  - url: /community_plugin/button-card/button-card.js
     type: module
-  - url: /customcards/custom-lovelace/fold-entity-row.js
+  - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
     type: js
-  - url: /local/custom-lovelace/invisible-card.js
-    type: module
-  - url: /customcards/custom-lovelace/auto-entities.js
+  - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: js
 
 x-vacuum-buttons: &vacuum-buttons
@@ -29,7 +27,7 @@ x-vacuum-buttons: &vacuum-buttons
   entity: vacuum.robovac
   size: 25%
 
-background: center / cover repeat-y url("/local/background/clear-wp.jpg") fixed
+background: center / cover repeat-y url("/local/background/dark-wp.jpg") fixed
 
 excluded_entities: !include /config/lovelace/excluded-entities.yaml
 
@@ -869,4 +867,3 @@ views:
                 name: Home Assistant
                 url: https://www.home-assistant.io
                 icon: mdi:home-assistant
-

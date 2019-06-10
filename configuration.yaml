@@ -82,6 +82,7 @@ asuswrt:
     - upload
     - download
 
+# custom_updater:
 hacs:
   token: !secret github_at
 
