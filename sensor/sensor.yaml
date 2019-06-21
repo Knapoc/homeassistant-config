@@ -14,12 +14,12 @@
   options:
     mode: transit
 
-- platform: uber
-  server_token: !secret uber_st
-  end_latitude: !secret uber_endlat
-  end_longitude: !secret uber_endlong
-  product_ids:
-    - '0af354f1-e12e-4253-abae-3df48506c658'
+# - platform: uber
+#   server_token: !secret uber_st
+#   end_latitude: !secret uber_endlat
+#   end_longitude: !secret uber_endlong
+#   product_ids:
+#     - '0af354f1-e12e-4253-abae-3df48506c658'
 
 - platform: time_date
   display_options:

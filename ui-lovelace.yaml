@@ -72,10 +72,10 @@ views:
                 name: Arbeitsweg
               - entity: sensor.google_travel_time_dev1_dynamic_home
                 name: Heimweg
-              - entity: sensor.uberx_time
-                name: UberX
-              - entity: sensor.uberx_price
-                name: UberX
+              # - entity: sensor.uberx_time
+              #   name: UberX
+              # - entity: sensor.uberx_price
+              #   name: UberX
       - type: vertical-stack
         cards:
           - type: picture-glance
