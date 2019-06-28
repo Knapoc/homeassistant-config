@@ -27,17 +27,16 @@ x-vacuum-buttons: &vacuum-buttons
   entity: vacuum.robovac
   size: 25%
 
-background: center / cover repeat-y url("/local/background/dark-wp.jpg") fixed
+background: center / cover repeat-y url("/local/background/clear-wp.jpg") fixed
 
 excluded_entities: !include /config/lovelace/excluded-entities.yaml
+
+cch:
 
 views:
   - title: Home
     icon: mdi:home
     cards:
-      - type: custom:compact-custom-header
-        main_config: true
-        background: true
       - type: vertical-stack
         cards:
           - type: entities
@@ -225,8 +224,6 @@ views:
   - title: Wohnzimmer
     icon: mdi:sofa
     cards:
-      - type: custom:compact-custom-header
-        background: true
       - type: media-control
         entity: media_player.braviatv_1
       - type: media-control
@@ -250,9 +247,6 @@ views:
   - title: Schlafzimmer
     icon: mdi:bed-empty
     cards:
-      - type: custom:compact-custom-header
-        background: true
-
       - type: entities
         title: Deckenspots
         show_header_toggle: false
@@ -294,9 +288,6 @@ views:
   - icon: mdi:lightbulb
     title: Beleuchtung
     cards:
-      - type: custom:compact-custom-header
-        background: true
-
       - type: entities
         title: Wohnzimmer
         entities:
@@ -403,8 +394,6 @@ views:
   - title: IoT
     icon: mdi:chip
     cards:
-      - type: custom:compact-custom-header
-        background: true
       - type: custom:vertical-stack-in-card
         cards:
           - type: entities
@@ -544,8 +533,6 @@ views:
   - icon: mdi:server
     title: Server
     cards: 
-      - type: custom:compact-custom-header
-        background: true
       - type: vertical-stack
         cards:
           - type: custom:vertical-stack-in-card
