@@ -57,6 +57,7 @@ updater:
 ### one liners
 binary_sensor: !include binary_sensor.yaml
 breaking_changes:
+camera: !include camera.yaml
 counter: !include counter.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
@@ -64,7 +65,7 @@ input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
 input_number: !include input_number.yaml
 input_select: !include input_select.yaml
-#ios: !include ios.yaml
+ios: !include ios.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
 plant: !include plant.yaml
