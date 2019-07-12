@@ -27,7 +27,7 @@ x-vacuum-buttons: &vacuum-buttons
   entity: vacuum.robovac
   size: 25%
 
-background: center / cover repeat-y url("/local/background/clear-wp.jpg") fixed
+background: center / cover repeat-y url("/local/background/dark-wp.jpg") fixed
 
 excluded_entities: !include /config/lovelace/excluded-entities.yaml
 
@@ -429,22 +429,13 @@ views:
                   - entity: sensor.s20_mm_uptime
                     name: Betriebszeit
                     icon: mdi:arrow-up-thick
-              - type: horizontal-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    name: Spannung
-                    icon: mdi:flash
-                    line_color: "#4169E1"
-                    font_size: 65
-                    entities:
-                      - sensor.s20_mm_vcc
-                  - type: custom:mini-graph-card
-                    name: Signalstärke
-                    icon: mdi:signal-variant
-                    line_color: orange
-                    font_size: 65
-                    entities:
-                      - sensor.s20_mm_rssi
+              - type: custom:mini-graph-card
+                name: Signalstärke
+                icon: mdi:signal-variant
+                line_color: orange
+                font_size: 65
+                entities:
+                  - sensor.s20_mm_rssi
               - type: entities
                 show_header_toggle: false
                 entities:
@@ -486,22 +477,13 @@ views:
               - entity: sensor.wemosd1_uptime
                 name: Betriebszeit
                 icon: mdi:arrow-up-thick
-          - type: horizontal-stack
-            cards:
-              - type: custom:mini-graph-card
-                name: Spannung
-                icon: mdi:flash
-                line_color: "#4169E1"
-                font_size: 65
-                entities:
-                  - sensor.wemosd1_vcc
-              - type: custom:mini-graph-card
-                name: Signalstärke
-                icon: mdi:signal-variant
-                line_color: orange
-                font_size: 65
-                entities:
-                  - sensor.wemosd1_rssi
+          - type: custom:mini-graph-card
+            name: Signalstärke
+            icon: mdi:signal-variant
+            line_color: orange
+            font_size: 65
+            entities:
+              - sensor.wemosd1_rssi
           - type: entities
             show_header_toggle: false
             entities:

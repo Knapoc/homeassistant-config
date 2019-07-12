@@ -58,11 +58,11 @@
   value_template: "{{ value_json['Wifi'].RSSI }}"
   unit_of_measurement: "dBm"
 
-- platform: mqtt
-  name: s20_mm_vcc
-  state_topic: "sonoff_3463/tele/STATE"
-  value_template: "{{ value_json.Vcc }}"
-  unit_of_measurement: "V"
+# - platform: mqtt
+#   name: s20_mm_vcc
+#   state_topic: "sonoff_3463/tele/STATE"
+#   value_template: "{{ value_json.Vcc }}"
+#   unit_of_measurement: "V"
 
 - platform: mqtt
   name: s20_mm_ip
@@ -97,11 +97,11 @@
   value_template: "{{ value_json['Wifi'].RSSI }}"
   unit_of_measurement: "dBm"
 
-- platform: mqtt
-  name: wemosd1_vcc
-  state_topic: "wemosd1_1/tele/STATE"
-  value_template: "{{ value_json.Vcc }}"
-  unit_of_measurement: "V"
+# - platform: mqtt
+#   name: wemosd1_vcc
+#   state_topic: "wemosd1_1/tele/STATE"
+#   value_template: "{{ value_json.Vcc }}"
+#   unit_of_measurement: "V"
 
 - platform: mqtt
   name: sonoff_maddox_version
