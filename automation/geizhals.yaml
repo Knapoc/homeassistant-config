@@ -1,0 +1,20 @@
+- alias: ILCE-7M3K alarm
+  id: '01010101111'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.ilce_7m3k
+    below: 1900
+  action:
+    service: !secret notify_ios
+    data_template:
+      message: 'Sony Alpha 7 iii inkl. Objektiv - Preisalarm: {{ states.sensor.ilce_7m3k.state}}€.'
+- alias: ILCE-7M3 alarm
+  id: '01010101112'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.ilce_7m3
+    below: 1500
+  action:
+    service: !secret notify_ios
+    data_template:
+      message: 'Sony Alpha 7 iii Gehäuse - Preisalarm: {{ states.sensor.ilce_7m3.state}}€.'
