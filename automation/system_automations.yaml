@@ -73,7 +73,7 @@
   action:
     service: !secret notify_ios
     data_template:
-      message: 'Your harddrive is running out of space: /dev/sda2: {{ states.disk_useperc_sda2.state
+      message: 'Your harddrive is running out of space: /dev/sda2: {{ states.sensor.disk_useperc_sda2.state
         }}%'
 
 - alias: Log Level
