@@ -429,13 +429,9 @@ views:
                   - entity: sensor.s20_mm_uptime
                     name: Betriebszeit
                     icon: mdi:arrow-up-thick
-              - type: custom:mini-graph-card
-                name: Signalstärke
-                icon: mdi:signal-variant
-                line_color: orange
-                font_size: 65
-                entities:
-                  - sensor.s20_mm_rssi
+                  - entity: sensor.s20_mm_rssi
+                    name: Signalstärke
+                    icon: mdi:signal-variant
               - type: entities
                 show_header_toggle: false
                 entities:
@@ -477,13 +473,9 @@ views:
               - entity: sensor.wemosd1_uptime
                 name: Betriebszeit
                 icon: mdi:arrow-up-thick
-          - type: custom:mini-graph-card
-            name: Signalstärke
-            icon: mdi:signal-variant
-            line_color: orange
-            font_size: 65
-            entities:
-              - sensor.wemosd1_rssi
+              - entity: sensor.wemosd1_rssi
+                name: Signalstärke
+                icon: mdi:signal-variant
           - type: entities
             show_header_toggle: false
             entities:
@@ -539,7 +531,7 @@ views:
                   - type: custom:mini-graph-card
                     name: Frequenz
                     points_per_hour: 2
-                    line_color: red
+                    line_color: '#1c6bba'
                     font_size: 65
                     entities:
                       - sensor.cpu_speed
@@ -704,7 +696,7 @@ views:
                     entities:
                       - entity: sensor.speedtest_download
                         show_state: true
-                        color: "#ffd981"
+                        color: "#88e615"
                         # color_thresholds:
                         #   - value: 0
                         #     color: red
@@ -714,7 +706,7 @@ views:
                         #     color: "#ffd981"
                       - entity: sensor.speedtest_upload
                         show_state: true
-                        color: "#b381ff"
+                        color: "#ffd981"
           - type: glance
             title: fail2ban
             entities:
