@@ -1,15 +1,11 @@
 loop_livingcolors_1:
   name: Loop LivingColors
-  initial: off
 loop_livingcolors_2:
   name: Loop LivingColors Stehlampe
-  initial: off
 wakeup:
   name: 'Aufwachbeleuchtung'
   icon: mdi:power
-  initial: on
 wakeup_weekends:
   name: 'Wochenenden'
   icon: mdi:power
-  initial: off
   
