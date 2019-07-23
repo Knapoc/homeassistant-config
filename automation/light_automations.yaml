@@ -167,3 +167,27 @@
       group_name: Wohnzimmer
       scene_name: Nightlight
     service: hue.hue_activate_scene
+- id: "1563723839"
+  alias: turn bathroom lights off
+  trigger:
+  - platform: state
+    entity_id: light.badezimmer
+    to: 'on'
+    for:
+      minutes: 45
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.badezimmer
+- id: "1563724325"
+  alias: turn toilet lights off
+  trigger:
+  - platform: state
+    entity_id: light.toilette
+    to: 'on'
+    for:
+      minutes: 25
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.toilette
