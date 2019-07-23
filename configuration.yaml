@@ -57,7 +57,7 @@ updater:
 ### one liners
 binary_sensor: !include binary_sensor.yaml
 breaking_changes:
-camera: !include camera.yaml
+#camera: !include camera.yaml
 counter: !include counter.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
