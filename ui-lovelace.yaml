@@ -180,6 +180,14 @@ views:
                       label: Automatisierung
                     entities:
                       - automation.robovac_auto_turn_on
+                      # - type: conditional
+                      #   conditions:
+                      #     - entity: automation.robovac_auto_turn_on
+                      #       state: 'on'
+                      #   card:
+                      #     type: entities
+                      #     entities:
+                      - input_boolean.vacuum_weekends
                       - automation.robovac_clean_notification
                       - automation.robovac_cleaned
                       - automation.robovac_clean_counter
@@ -188,6 +196,7 @@ views:
           - type: custom:weather-card
             entity: weather.dark_sky
             icons: "/community_plugin/weather-card/icons/"
+            hide_precipitation: true
           - type: entities
             title: Beleuchtung
             show_header_toggle: false
