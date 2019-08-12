@@ -14,9 +14,14 @@
         state: 'false'
         for:
           minutes: 20
-      - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'on'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: input_boolean.vacuum_weekends
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.workday_sensor
+            state: 'on'
       - condition: or
         conditions:
           - condition: and

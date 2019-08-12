@@ -6,6 +6,6 @@ wakeup:
   name: 'Aufwachbeleuchtung'
   icon: mdi:power
 wakeup_weekends:
-  name: 'Wochenenden'
-  icon: mdi:power
-  
+  icon: mdi:calendar
+vacuum_weekends:
+  icon: mdi:calendar
