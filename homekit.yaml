@@ -1,0 +1,10 @@
+auto_start: false
+port: 51827
+# safe_mode: true
+filter:
+  include_domains:
+    - media_player
+    - light
+    - switch
+  include_entities:
+    - media_player.braviatv_1

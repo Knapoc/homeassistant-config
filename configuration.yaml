@@ -61,6 +61,7 @@ breaking_changes:
 counter: !include counter.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
+#homekit: !include homekit.yaml
 input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
 input_number: !include input_number.yaml

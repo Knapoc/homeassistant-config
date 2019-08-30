@@ -38,9 +38,11 @@ sensor.google_travel_time_dev1_transit:
 sensor.hass_version:
   friendly_name: HA-Version
 sensor.howeaforsteriana_moisture:
-  friendly_name: Feuchtigkeit - Kentia
+  friendly_name: Kentia - Feuchtigkeit
 sensor.howeaforsteriana_conductivity:
-  friendly_name: Leitfähigkeit - Kentia
+  friendly_name: Kentia - Leitfähigkeit
+sensor.howeaforsteriana_battery:
+  friendly_name: Kentia - Batterie
 sensor.memory_use_percent:
   friendly_name: RAM
   icon: mdi:memory
@@ -108,6 +110,8 @@ sensor.wemosd1_room_temperature:
   friendly_name: Temperatur - Zimmer
   homebridge_hidden: false
 sensor.yuccaelephantipes_moisture:
-  friendly_name: Feuchtigkeit - Yucca
+  friendly_name: Yucca - Feuchtigkeit
 sensor.yuccaelephantipes_conductivity:
-  friendly_name: Leitfähigkeit - Yucca
+  friendly_name: Yucca - Leitfähigkeit
+sensor.yuccaelephantipes_battery:
+  friendly_name: Yucca - Batterie
