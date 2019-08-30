@@ -5,7 +5,13 @@
   icon: mdi:spotlight
 "input_boolean.wake*":
   homebridge_hidden: true
-"light.hue_*":
+# "light.hue_*":
+#   homebridge_hidden: true
+"light.rwl021*":
+  homebridge_hidden: true
+"light.tradfri_remote_control*":
+  homebridge_hidden: true
+"light.tradfri_wireless_dimmer*":
   homebridge_hidden: true
 "script.scene_*":
   homebridge_hidden: true

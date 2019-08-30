@@ -2,17 +2,14 @@ light.badezimmer:
   friendly_name: Badezimmerlicht
   custom_ui_state_card: state-card-custom-light
   homebridge_hidden: true
-light.buro:
-  friendly_name: Bürolicht
-  homebridge_hidden: true
 light.deckenleuchte:
   friendly_name: Deckenleuchte
-  homebridge_hidden: true
+  # homebridge_hidden: true
 light.deckenspots:
   friendly_name: Deckenspots
   custom_ui_state_card: state-card-custom-light
-light.dl_wz:
-  homebridge_hidden: true
+# light.dl_wz:
+#   homebridge_hidden: true
 light.kuche:
   friendly_name: Küchenlicht
   custom_ui_state_card: state-card-custom-light
@@ -21,8 +18,10 @@ light.schlafzimmer:
   friendly_name: Zimmerlicht
   custom_ui_state_card: state-card-custom-light
   homebridge_hidden: true
-light.stehlampe:
-  homebridge_hidden: true
+# light.schreibtischlampe:
+#   # homebridge_hidden: true
+# light.stehlampe:
+#   # homebridge_hidden: true
 light.toilette:
   friendly_name: Toilettenlicht
   custom_ui_state_card: state-card-custom-light

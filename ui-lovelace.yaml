@@ -261,9 +261,9 @@ views:
         show_header_toggle: false
         entities:
           - light.deckenspots
-          - light.hue_color_spot_1
-          - light.hue_color_spot_2
-          - light.hue_color_spot_3
+          - light.hue_spot_1
+          - light.hue_spot_2
+          - light.hue_spot_3
           - script.scene_bright
           - script.scene_nightlight
           - input_boolean.loop_livingcolors_1
@@ -315,17 +315,17 @@ views:
             toggle: true
             hide_when_off: true
             name: Schlafzimmer-Spot 1
-            entity: light.hue_color_spot_1
+            entity: light.hue_spot_1
           - type: custom:slider-entity-row
             toggle: true
             hide_when_off: true
             name: Schlafzimmer-Spot 2
-            entity: light.hue_color_spot_2
+            entity: light.hue_spot_2
           - type: custom:slider-entity-row
             toggle: true
             hide_when_off: true
             name: Schlafzimmer-Spot 3
-            entity: light.hue_color_spot_3
+            entity: light.hue_spot_3
           - type: custom:slider-entity-row
             toggle: true
             hide_when_off: true
@@ -336,12 +336,12 @@ views:
           - type: custom:slider-entity-row
             toggle: true
             hide_when_off: true
-            entity: light.dimmable_light_3
+            entity: light.light_10
             name: Küchen-LED 1
           - type: custom:slider-entity-row
             toggle: true
             hide_when_off: true
-            entity: light.dimmable_light_4
+            entity: light.light_11
             name: Küchen-LED 2
       - type: entities
         title: andere
@@ -349,17 +349,17 @@ views:
           - type: custom:slider-entity-row
             toggle: true
             hide_when_off: true
-            entity: light.dimmable_light_5
+            entity: light.light_9
             name: Vorzimmer-LED
           - type: custom:slider-entity-row
             toggle: true
             hide_when_off: true
-            entity: light.dimmable_light_2
+            entity: light.light_7
             name: Badezimmer-LED
           - type: custom:slider-entity-row
             toggle: true
             hide_when_off: true  
-            entity: light.dimmable_light_1
+            entity: light.light_8
             name: Toiletten-LED
 
       - type: entities
