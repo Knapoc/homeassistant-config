@@ -16,40 +16,35 @@ wakeup_schlafzimmer:
 scene_bright:
   alias: 'Bright'
   sequence:
-    - alias: 'scene_bright'
-      service: hue.hue_activate_scene
+    - service: hue.hue_activate_scene
       data_template:
         group_name: "Zimmer"
         scene_name: "bright_spots"
 scene_tropical_twilight:
   alias: 'Tropical twilight'
   sequence:
-    - alias: 'scene_tropical_twilight'
-      service: hue.hue_activate_scene
+    - service: hue.hue_activate_scene
       data_template:
         group_name: "Zimmer"
         scene_name: "Tropical twilight"
 scene_nightlight:
   alias: 'Nightlight'
   sequence:
-    - alias: 'scene_nightlight'
-      service: hue.hue_activate_scene
+    - service: hue.hue_activate_scene
       data_template:
         group_name: "Zimmer"
         scene_name: "nightlight_spots"
 scene_arctic_aurora:
   alias: 'Arctic aurora'
   sequence:
-    - alias: 'scene_nightlight'
-      service: hue.hue_activate_scene
+    - service: hue.hue_activate_scene
       data_template:
         group_name: "Zimmer"
         scene_name: "Arctic aurora"
 scene_spring_blossom:
   alias: 'Spring blossom'
   sequence:
-    - alias: 'scene_nightlight'
-      service: hue.hue_activate_scene
+    - service: hue.hue_activate_scene
       data_template:
         group_name: "Zimmer"
         scene_name: "Spring blossom"

@@ -27,7 +27,7 @@ x-vacuum-buttons: &vacuum-buttons
   entity: vacuum.robovac
   size: 25%
 
-background: center / cover repeat-y url("/local/background/dark-wp.jpg") fixed
+background: center / cover repeat-y url("/local/background/clear-wp.jpg") fixed
 
 excluded_entities: !include /config/lovelace/excluded-entities.yaml
 
@@ -64,13 +64,13 @@ views:
             entity: plant.howea_forsteriana
           - type: plant-status
             entity: plant.yucca_elephantipes
-          - type: glance
-            title: Verkehr
-            entities:
-              - entity: sensor.google_travel_time_dev1_transit
-                name: Arbeitsweg
-              - entity: sensor.google_travel_time_dev1_dynamic_home
-                name: Heimweg
+          # - type: glance
+          #   title: Verkehr
+          #   entities:
+          #     - entity: sensor.google_travel_time_dev1_transit
+          #       name: Arbeitsweg
+          #     - entity: sensor.google_travel_time_dev1_dynamic_home
+          #       name: Heimweg
               # - entity: sensor.uberx_time
               #   name: UberX
               # - entity: sensor.uberx_price
@@ -264,8 +264,10 @@ views:
           - light.hue_spot_1
           - light.hue_spot_2
           - light.hue_spot_3
-          - script.scene_bright
-          - script.scene_nightlight
+          - entity: scene.deckenspots_bright
+            name: Bright
+          - entity: scene.deckenspots_nightlight
+            name: Nightlight
           - input_boolean.loop_livingcolors_1
 
       - type: entities

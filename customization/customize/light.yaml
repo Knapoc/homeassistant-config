@@ -5,6 +5,8 @@ light.badezimmer:
 light.deckenleuchte:
   friendly_name: Deckenleuchte
   # homebridge_hidden: true
+light.deckenleuchte_grp:
+  homebridge_hidden: true
 light.deckenspots:
   friendly_name: Deckenspots
   custom_ui_state_card: state-card-custom-light

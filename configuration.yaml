@@ -36,6 +36,10 @@ logger:
   default: error
   logs:
     homeassistant.components.http.ban: warning
+    # homeassistant.components.homekit: debug
+    # # pyhap: debug
+    pydeconz: debug
+    homeassistant.components.deconz: debug
 lovelace:
   mode: yaml
 map:
@@ -61,7 +65,7 @@ breaking_changes:
 counter: !include counter.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
-#homekit: !include homekit.yaml
+# homekit: !include homekit.yaml
 input_boolean: !include input_boolean.yaml
 input_datetime: !include input_datetime.yaml
 input_number: !include input_number.yaml
@@ -96,10 +100,10 @@ eufy_vacuum:
     id: !secret robovac_devid
     type: T2118
 
-hue:
-  bridges:
-    - host: !secret hue_ip
-      allow_unreachable: true
+# hue:
+#   bridges:
+#     - host: !secret hue_ip
+#       allow_unreachable: true
 
 mqtt:
   broker: !secret host_ip
