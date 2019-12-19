@@ -6,3 +6,11 @@ wakeup_alarm_time:
   name: Alarm
   has_date: false
   has_time: true
+robovac_cleaning_from:
+  name: von
+  has_date: false
+  has_time: true
+robovac_cleaning_to:
+  name: bis
+  has_date: false
+  has_time: true

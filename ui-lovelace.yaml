@@ -5,7 +5,7 @@ resources:
     type: js
   - url: /community_plugin/weather-card/weather-card.js
     type: module
-  - url: /community_plugin/compact-custom-header/compact-custom-header.js
+  - url: /community_plugin/custom-header/custom-header.js
     type: module
   - url: /community_plugin/mini-graph-card/mini-graph-card.js
     type: module
@@ -21,17 +21,21 @@ resources:
     type: js
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: js
+  - url: /community_plugin/nintendo-wishlist-card/nintendo-wishlist-card.js
+    type: js
 
+custom_header:
+  compact_mode: true
+  voice_hide: true
+  
 x-vacuum-buttons: &vacuum-buttons
   color: auto
   entity: vacuum.robovac
   size: 25%
 
-background: center / cover repeat-y url("/local/background/clear-wp.jpg") fixed
+background: center / cover repeat-y url("/local/background/dark-wp.jpg") fixed
 
 excluded_entities: !include /config/lovelace/excluded-entities.yaml
-
-cch:
 
 views:
   - title: Home
@@ -191,6 +195,8 @@ views:
                       - automation.robovac_clean_notification
                       - automation.robovac_cleaned
                       - automation.robovac_clean_counter
+                      - input_datetime.robovac_cleaning_from
+                      - input_datetime.robovac_cleaning_to
       - type: vertical-stack
         cards:
           - type: custom:weather-card
@@ -252,6 +258,10 @@ views:
         show_header_toggle: false
         entities:
           - input_datetime.time_turnoff_devices
+      - type: custom:nintendo-wishlist-card
+        entity: sensor.nintendo_wishlist
+        title: Switch Wishlist
+        image_style: boxart
 
   - title: Schlafzimmer
     icon: mdi:bed-empty
@@ -270,13 +280,13 @@ views:
             name: Nightlight
           - input_boolean.loop_livingcolors_1
 
-      - type: entities
-        title: Beleuchtungsszenen
-        entities:
-          - script.scene_tropical_twilight
-          - script.scene_arctic_aurora
-          - script.scene_spring_blossom
-          - input_select.hue_scenes
+      # - type: entities
+#         title: Beleuchtungsszenen
+#         entities:
+#           - script.scene_tropical_twilight
+#           - script.scene_arctic_aurora
+#           - script.scene_spring_blossom
+#           - input_select.hue_scenes
 
       - type: custom:vertical-stack-in-card
         title: Aufwachbeleuchtung
@@ -839,3 +849,5 @@ views:
                 name: Home Assistant
                 url: https://www.home-assistant.io
                 icon: mdi:home-assistant
+      
+    

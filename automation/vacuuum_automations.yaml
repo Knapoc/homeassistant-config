@@ -32,9 +32,13 @@
               - condition: numeric_state
                 entity_id: counter.vacuum_counter
                 below: 2
-              - condition: time
-                after: '07:00:00'
-                before: '15:00:00'
+              # - condition: time
+              #   after: '07:00:00'
+              #   before: '15:00:00'
+              - condition: template
+                value_template: '{{ states.sensor.time.state >= states.input_datetime.robovac_cleaning_from.state }}'
+              - condition: template
+                value_template: '{{ states.sensor.time.state <= states.input_datetime.robovac_cleaning_to.state }}'
           - condition: and
             conditions:
               - condition: numeric_state

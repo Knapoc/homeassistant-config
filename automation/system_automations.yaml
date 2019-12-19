@@ -120,3 +120,11 @@
     service: !secret notify_ios
     data_template:
       message: 'Custom component updates available: {{ states.sensor.hacs.state }}.'
+- alias: 'Start HomeKit'
+  id: '1576691942000' 
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - delay: 00:03
+    - service: homekit.start

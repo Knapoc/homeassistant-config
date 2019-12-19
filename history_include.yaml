@@ -3,6 +3,7 @@ domains:
   - device_tracker
   - person
 entities:
+  - binary_sensor.presence_10
   - light.zimmer
   - light.buro
   - light.wohnzimmer
