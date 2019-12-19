@@ -3,36 +3,9 @@
 "input_boolean.loop_livingcolors_*":
   friendly_name: Loop-Effekt
   icon: mdi:spotlight
-"input_boolean.wake*":
-  homebridge_hidden: true
-# "light.hue_*":
-#   homebridge_hidden: true
-"light.rwl021*":
-  homebridge_hidden: true
-"light.tradfri_remote_control*":
-  homebridge_hidden: true
-"light.tradfri_wireless_dimmer*":
-  homebridge_hidden: true
 "script.scene_*":
-  homebridge_hidden: true
   icon: mdi:spotlight
-"sensor.uberx_*":
-  homebridge_hidden: true
-"sensor.google_travel_time*":
-  homebridge_hidden: true
-"sensor.*_iphone_battery_*":
-  homebridge_hidden: true
-"sensor.sonoff_*":
-  homebridge_hidden: true
-"sensor.speedtest_*":
-  homebridge_hidden: true
-"sensor.wakeup_*":
-  homebridge_hidden: true
-"sensor.robovac_*":
-  homebridge_hidden: true
 "zone.*home":
   friendly_name: home
 "zone.*":
   track_ios: false
-"scene.*":
-  homebridge_hidden: true

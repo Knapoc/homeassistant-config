@@ -4,10 +4,8 @@ sensor.asuswrt_upload:
   unit_of_measurement: GB
 sensor.cpu_speed:
   friendly_name: CPU Frequenz
-  homebridge_hidden: true
 sensor.cpu_temperature:
   friendly_name: CPU Temperatur
-  homebridge_hidden: true
 sensor.database_size_hass:
   friendly_name: Datenbankgröße HA
   icon: mdi:database
@@ -16,10 +14,8 @@ sensor.database_size_nc:
   icon: mdi:database
 sensor.disk_free:
   friendly_name: SSD
-  homebridge_hidden: true
 sensor.disk_use_percent:
   friendly_name: SSD
-  homebridge_hidden: true
 sensor.fail2ban_homeassistant:
   friendly_name: homeassistant
   icon: mdi:shield
@@ -46,19 +42,15 @@ sensor.howeaforsteriana_battery:
 sensor.memory_use_percent:
   friendly_name: RAM
   icon: mdi:memory
-  homebridge_hidden: true
 sensor.network_in_eth0:
   friendly_name: Download
   icon: mdi:download-network
-  homebridge_hidden: true
 sensor.network_out_eth0:
   friendly_name: Upload
   icon: mdi:upload-network
-  homebridge_hidden: true
 sensor.processor_use:
   friendly_name: CPU
   icon: mdi:desktop-classic
-  homebridge_hidden: true
 #sensor.sonoff_3028_version:
 #  friendly_name: Tasmota Version
 #sensor.sonoff_office_humidty:
@@ -86,13 +78,8 @@ sensor.speedtest_ping:
 sensor.speedtest_upload:
   friendly_name: Upload
   icon: mdi:upload
-sensor.ssl_cert_expiry:
-  homebridge_hidden: true
 sensor.swap_use_percent:
   friendly_name: Swap
-  homebridge_hidden: true
-sensor.time:
-  homebridge_hidden: true
 sensor.uberx_time:
   friendly_name: uberX - Fahrtzeit
   icon: mdi:uber
@@ -105,10 +92,8 @@ sensor.uptime:
 sensor.wemosd1_room_humidty:
   friendly_name: Luftfeuchtigkeit - Zimmer
   icon: mdi:water-percent
-  homebridge_hidden: false
 sensor.wemosd1_room_temperature:
   friendly_name: Temperatur - Zimmer
-  homebridge_hidden: false
 sensor.yuccaelephantipes_moisture:
   friendly_name: Yucca - Feuchtigkeit
 sensor.yuccaelephantipes_conductivity:

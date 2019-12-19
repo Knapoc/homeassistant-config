@@ -1,5 +1,3 @@
-binary_sensor.workday_sensor:
-  homebridge_hidden: true
 !secret person_1:
   entity_picture: /local/favicon1.png
 script.tasmota_upgrade_sonoff_3082:
