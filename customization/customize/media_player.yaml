@@ -4,5 +4,7 @@ media_player.braviatv_1:
   homebridge_hidden: true
   # homebridge_name: Fernseher
   # homebridge_media_player_switch: on_off
+media_player.kd_55xf8505:
+  homebridge_hidden: true
 media_player.playstation_4:
   homebridge_media_player_switch: on_off
