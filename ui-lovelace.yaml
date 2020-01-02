@@ -224,11 +224,16 @@ views:
                 toggle: true
                 hide_when_off: true
               - type: custom:slider-entity-row
-                entity: light.vorzimmer
+                entity: light.deckenleuchte_kuche
+                name: Küchenlicht
                 toggle: true
                 hide_when_off: true
               - type: custom:slider-entity-row
                 entity: light.badezimmer
+                toggle: true
+                hide_when_off: true
+              - type: custom:slider-entity-row
+                entity: light.vorzimmer
                 toggle: true
                 hide_when_off: true
               - type: custom:slider-entity-row

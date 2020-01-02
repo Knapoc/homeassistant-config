@@ -110,16 +110,16 @@
       topic: sonoff_3463/cmnd/Status
       payload: '0'
 
-- alias: HACS update notifications
-  id: '1561215168000'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.hacs
-    above: 5
-  action:
-    service: !secret notify_ios
-    data_template:
-      message: 'Custom component updates available: {{ states.sensor.hacs.state }}.'
+# - alias: HACS update notifications
+#   id: '1561215168000'
+#   trigger:
+#     platform: numeric_state
+#     entity_id: sensor.hacs
+#     above: 5
+#   action:
+#     service: !secret notify_ios
+#     data_template:
+#       message: 'Custom component updates available: {{ states.sensor.hacs.state }}.'
 - alias: 'Start HomeKit'
   id: '1576691942000' 
   trigger:
@@ -128,3 +128,21 @@
   action:
     - delay: 00:03
     - service: homekit.start
+- alias: HACS pending update notification
+  id: '1577405128'
+  trigger:
+    platform: state
+    entity_id: sensor.hacs
+  condition:
+    - condition: template
+      value_template: "{{ states(trigger.entity_id) != 'unknown'}}"
+    - condition: template
+      value_template: "{{ (states(trigger.entity_id) | float) != 0}}"
+  action:
+    service: persistent_notification.create
+    data_template:
+      title: Updates pending in HACS
+      message: >-
+        {% for repo in state_attr(trigger.entity_id, 'repositories') %}
+          **{{ repo.display_name }}** _{{ repo["installed version"] }}_ -> _{{ repo["available version"] }}_
+        {% endfor %}

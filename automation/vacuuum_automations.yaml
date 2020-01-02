@@ -95,10 +95,16 @@
 - alias: robovac cleaned
   id: '15559754790001'
   trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: EMPTY_ROBOVAC_NOW
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: EMPTY_ROBOVAC_NOW
+    - platform: event
+      event_type: deconz_event
+      event_data:
+        id: smart_switch_robovac
+        unique_id: 00:15:8d:00:04:23:f2:45
+        event: 1002
   condition:
     condition: state
     entity_id: !secret person_1

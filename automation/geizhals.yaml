@@ -1,20 +1,40 @@
-- alias: ILCE-7M3K alarm
-  id: '01010101111'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.ilce_7m3k
-    below: 1900
-  action:
-    service: !secret notify_ios
-    data_template:
-      message: 'Sony Alpha 7 iii inkl. Objektiv - Preisalarm: {{ states.sensor.ilce_7m3k.state}}€.'
-- alias: ILCE-7M3 alarm
-  id: '01010101112'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.ilce_7m3
-    below: 1500
-  action:
-    service: !secret notify_ios
-    data_template:
-      message: 'Sony Alpha 7 iii Gehäuse - Preisalarm: {{ states.sensor.ilce_7m3.state}}€.'
+# - alias: ILCE-7M3K alarm
+#   id: '01010101111'
+#   trigger:
+#     platform: numeric_state
+#     entity_id: sensor.ilce_7m3k
+#     below: 1900
+#   action:
+#     service: !secret notify_ios
+#     data_template:
+#       message: 'Sony Alpha 7 iii inkl. Objektiv - Preisalarm: {{ states.sensor.ilce_7m3k.state}}€.'
+# - alias: ILCE-7M3 alarm
+#   id: '01010101112'
+#   trigger:
+#     platform: numeric_state
+#     entity_id: sensor.ilce_7m3
+#     below: 1500
+#   action:
+#     service: !secret notify_ios
+#     data_template:
+#       message: 'Sony Alpha 7 iii Gehäuse - Preisalarm: {{ states.sensor.ilce_7m3.state}}€.'
+# - alias: Roborock S6 schwarz Alarm
+#   id: '1577087329'
+#   trigger:
+#     platform: numeric_state
+#     entity_id: sensor.roborocks6_black
+#     below: 450
+#   action:
+#     service: !secret notify_ios
+#     data_template:
+#       message: 'Roborock S6 schwarz - Preisalarm: {{ states.sensor.roborocks6_black.state}}€.'
+# - alias: Roborock S6 weiß Alarm
+#   id: '1577087330'
+#   trigger:
+#     platform: numeric_state
+#     entity_id: sensor.roborocks6_white
+#     below: 450
+#   action:
+#     service: !secret notify_ios
+#     data_template:
+#       message: 'Roborock S6 weiß - Preisalarm: {{ states.sensor.roborocks6_white.state}}€.'
