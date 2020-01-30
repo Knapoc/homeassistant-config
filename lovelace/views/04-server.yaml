@@ -1,0 +1,813 @@
+- icon: mdi:server
+  title: Server
+  cards:
+    - type: vertical-stack # left column
+      cards:
+        - type: markdown ### column
+          content: |
+            # Server
+          style: |
+            ha-card {
+               height: 20px;
+               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+               box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: >
+            # Basic server information
+          style: |
+            ha-card {
+             height: 50px;
+             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+             box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: entities
+              # title: Informationen
+              show_header_toggle: false          
+              entities:
+                - entity: sensor.last_boot
+                  name: Server Uptime
+                  format: relative
+                - entity: sensor.uptime
+                  name: Home-Assistant Uptime
+                - entity: sensor.ssl_certificate_expiry
+                  name: SSL-Zertifikatsgültigkeit
+                  icon: mdi:certificate
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: 'custom:button-card'
+          show_icon: false
+          show_name: false
+          style: |
+            ha-card {
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+          styles:
+            card:
+              - width: 5px
+              - height: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: custom:mini-graph-card
+              name: Frequenz
+              points_per_hour: 2
+              line_color: '#1c6bba'
+              font_size: 65
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+              entities:
+                - sensor.cpu_speed
+            - type: custom:mini-graph-card
+              name: Load
+              points_per_hour: 2
+              font_size: 65
+#                show:
+#                  fill: false
+              hours_to_show: 6
+              line_color:
+                - red
+                - blue
+                - green
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+              entities:
+                - entity: sensor.load_1m
+                  name: 1m
+                - entity: sensor.load_5m
+                  name: 5m
+                - entity: sensor.load_15m
+                  name: 15m
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: 'custom:button-card'
+          show_icon: false
+          show_name: false
+          style: |
+            ha-card {
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+          styles:
+            card:
+              - width: 5px
+              - height: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: custom:gauge-card
+              entity: sensor.cpu_temperature
+              title: CPU Temp
+              min: 0
+              max: 100
+              scale: 27px
+              severity:
+                red: 60
+                green: 0
+                amber: 45
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+                .gauge-a {
+                  background-color: var(--paper-card-background-color);
+                }
+                .gauge-b {
+                  background-color: var(--primary-background-color);
+                }
+            - type: custom:gauge-card
+              entity: sensor.processor_use
+              title: CPU
+              min: 0
+              max: 100
+              scale: 27px
+              severity:
+                red: 80
+                green: 0
+                amber: 45
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+                .gauge-a {
+                  background-color: var(--paper-card-background-color);
+                }
+                .gauge-b {
+                  background-color: var(--primary-background-color);
+                }
+            - type: custom:gauge-card
+              entity: sensor.memory_use_percent
+              title: RAM
+              min: 0
+              max: 100
+              scale: 27px
+              severity:
+                red: 80
+                green: 0
+                amber: 45
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+                .gauge-a {
+                  background-color: var(--paper-card-background-color);
+                }
+                .gauge-b {
+                  background-color: var(--primary-background-color);
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: custom:gauge-card
+              entity: sensor.disk_use_percent
+              title: SSD
+              min: 0
+              max: 100
+              scale: 27px
+              severity:
+                red: 80
+                green: 0
+                amber: 60
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+                .gauge-a {
+                  background-color: var(--paper-card-background-color);
+                }
+                .gauge-b {
+                  background-color: var(--primary-background-color);
+                }
+            - type: custom:gauge-card
+              entity: sensor.disk_useperc_sda1
+              title: sda1
+              min: 0
+              max: 100
+              scale: 27px
+              severity:
+                red: 80
+                green: 0
+                amber: 60
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+                .gauge-a {
+                  background-color: var(--paper-card-background-color);
+                }
+                .gauge-b {
+                  background-color: var(--primary-background-color);
+                }
+            - type: custom:gauge-card
+              entity: sensor.disk_useperc_sda2
+              title: RAM
+              min: 0
+              max: 100
+              scale: 27px
+              severity:
+                red: 80
+                green: 0
+                amber: 60
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+                .gauge-a {
+                  background-color: var(--paper-card-background-color);
+                }
+                .gauge-b {
+                  background-color: var(--primary-background-color);
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+    - type: vertical-stack # left column
+      cards:
+        - type: markdown ### column
+          content: |
+            # Database
+          style: |
+            ha-card {
+               height: 20px;
+               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+               box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: >
+            # Sizes of the database server
+          style: |
+            ha-card {
+             height: 50px;
+             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+             box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: glance
+              entities:
+                - entity: sensor.database_size_hass
+                  name: Home-Assistant
+                  format: relative
+                - entity: sensor.database_size_nc
+                  name: Nextcloud
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: markdown ### column
+          content: |
+            # Network
+          style: |
+            ha-card {
+               height: 20px;
+               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+               box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: >
+            # Information and statistics
+          style: |
+            ha-card {
+             height: 50px;
+             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+             box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: entities
+              show_header_toggle: false
+              entities:
+                - entity: sensor.mypublicip
+                  name: Public IP
+                - entity: sensor.speedtest_ping
+                  name: Ping
+                - entity: sensor.asuswrt_download
+                  name: Download
+                  icon: mdi:download
+                - entity: sensor.asuswrt_upload
+                  name: Upload
+                  icon: mdi:upload
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: 'custom:button-card'
+          show_icon: false
+          show_name: false
+          style: |
+            ha-card {
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+          styles:
+            card:
+              - width: 5px
+              - height: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: custom:mini-graph-card
+              name: Speedtest
+#                   line_color: "#4169E1"
+              font_size: 55
+              align_state: left
+              hours_to_show: 24
+              points_per_hour: 2
+              entities:
+                - entity: sensor.speedtest_download
+                  show_state: true
+                  color: "#88e615"
+                  # color_thresholds:
+                  #   - value: 0
+                  #     color: red
+                  #   - value: 239
+                  #     color: orange"
+                  #   - value: 240
+                  #     color: "#ffd981"
+                - entity: sensor.speedtest_upload
+                  show_state: true
+                  color: "#ffd981"
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+    - type: vertical-stack # left column
+      cards:
+        - type: markdown ### column
+          content: |
+            # Fail2Ban
+          style: |
+            ha-card {
+               height: 20px;
+               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+               box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: >
+            # IP bans
+          style: |
+            ha-card {
+             height: 50px;
+             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+             box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: glance
+              entities:
+                - entity: sensor.fail2ban_homeassistant
+                  name: Homeassistant
+                - entity: sensor.fail2ban_nextcloud
+                  name: Nextcloud
+                - entity: sensor.fail2ban_sshd
+                  name: SSH
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: markdown ### column
+          content: |
+            # Home-Assistant
+          style: |
+            ha-card {
+               height: 20px;
+               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+               box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: >
+            # Statistics and information
+          style: |
+            ha-card {
+             height: 50px;
+             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+             box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: custom:mod-card
+              style: |
+                ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}
+                }
+              card:
+                type: custom:vertical-stack-in-card
+                cards:
+                  - type: glance
+                    title: Home Assistant
+                    columns: 7
+                    show_name: false
+                    entities:
+                      - entity: sensor.count_automations
+                        name: Automations
+                        icon: mdi:play-circle
+                      - entity: sensor.count_binary_sensors
+                        name: Binary Sensors
+                        icon: mdi:transition-masked
+                      - entity: sensor.count_lights
+                        name: Lights
+                        icon: mdi:lightbulb
+                      - entity: sensor.count_scripts
+                        name: Scripts
+                        icon: mdi:script-text
+                      - entity: sensor.count_sensors
+                        name: Sensors
+                        icon: mdi:counter
+                      - entity: sensor.count_switches
+                        name: Switches
+                        icon: mdi:toggle-switch
+                      - entity: sensor.count_zones
+                        name: Zones
+                  - type: entities
+                    show_header_toggle: false
+                    entities:
+                      - entity: sensor.potential_breaking_changes
+                        name: Breaking changes
+                        icon: mdi:alert-circle
+                      - entity: input_select.log_level
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: 'custom:button-card'
+          show_icon: false
+          show_name: false
+          style: |
+            ha-card {
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+          styles:
+            card:
+              - width: 5px
+              - height: 10px

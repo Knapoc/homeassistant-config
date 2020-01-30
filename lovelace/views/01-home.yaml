@@ -1,0 +1,1230 @@
+- title: Home
+  icon: mdi:home
+  cards:
+    - type: vertical-stack # left column
+      cards:
+        - type: markdown ### HOME column
+          content: |
+            # Home
+          style: |
+            ha-card {
+               height: 20px;
+               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+               box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: |
+            # The temperature is {{states('sensor.wemosd1_room_temperature')}}°C with a humidity of {{states('sensor.wemosd1_room_humidity')}}%
+          style: |
+            ha-card {
+             height: 50px;
+             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+             box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack # Users
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: entities
+              show_header_toggle: false
+              entities:
+                - !secret person_1
+              style: |
+                 ha-card {
+                   background-color: var(--primary-background-color);
+                   border-radius: 15px;
+                   box-shadow: 
+                     {% if is_state('sun.sun', 'above_horizon') %}
+                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                     {% else %}
+                       -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                     {% endif %}   
+                 }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: 'custom:button-card'
+          show_icon: false
+          show_name: false
+          style: |
+            ha-card {
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+          styles:
+            card:
+              - width: 5px
+              - height: 10px
+        - type: horizontal-stack # weather
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: custom:simple-weather-card
+              entity: weather.dark_sky
+              style: |
+                ha-card {
+                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  border-radius: 15px;
+                  box-shadow: 
+                   {% if is_state('sun.sun', 'above_horizon') %}
+                     -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                   {% else %}
+                     -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                   {% endif %}
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: 'custom:button-card'
+          show_icon: false
+          show_name: false
+          style: |
+            ha-card {
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+          styles:
+            card:
+              - width: 5px
+              - height: 10px
+        - type: horizontal-stack # search
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: custom:search-card
+              max_results: 10
+              style: |
+                 ha-card {
+                   background-color: var(--primary-background-color);
+                   border-radius: 15px;
+                   box-shadow: 
+                     {% if is_state('sun.sun', 'above_horizon') %}
+                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                     {% else %}
+                       -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                     {% endif %}   
+                 }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: markdown ### Scenes
+          content: |
+            # Scenes
+          style: |
+            ha-card {
+               height: 20px;
+               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+               box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: |
+            # Most used scenes
+          style: |
+            ha-card {
+             height: 50px;
+             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+             box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: vertical-stack
+          cards:
+            - type: horizontal-stack # Netflix Scene
+              cards:
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                      --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                      box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 5px
+                      - height: 80px
+      # This is first button with the light bulb icon
+      # Change this to an icon you want
+                - type: 'custom:button-card'
+                  icon: 'mdi:movie-open'
+                  show_icon: true
+                  show_name: false
+                  style: |
+                    ha-card {
+                      box-shadow: 
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}                 
+                    }
+                  styles:
+                    card:
+                      - width: 80px
+                      - height: 80px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: var(--primary-text-color)
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    service_data:
+                      entity_id: scene.tv_at_night
+                    haptic: medium
+                - type: vertical-stack
+                  cards:
+      # This is the text beside the first button
+      # Change this to what you want it to say          
+                    - type: markdown
+                      content: |
+                        # TV
+                      style: |
+                        ha-card {
+                          height: 20px;                  
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
+                        }
+                        h1 {
+                          font-size: 20px;
+                          font-weight: bold;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }
+      # This is the smaller text beside the first button
+      # Change this to what you want it to say                
+                    - type: markdown
+                      content: |
+                        # Netflix and living colors loop
+                      style: |
+                        ha-card {
+                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                        box-shadow: 2px 2px rgba(0,0,0,0.0);
+                           }
+                        h1 {
+                          font-size: 15px;
+                          font-weight: thin;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 10px
+            - type: horizontal-stack # Gaming Scene
+              cards:
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                      --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                      box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 5px
+                      - height: 80px
+      # This is second button with the light bulb icon
+      # Change this to an icon you want
+                - type: 'custom:button-card'
+                  icon: 'mdi:gamepad-square'
+                  show_icon: true
+                  show_name: false
+                  style: |
+                    ha-card {
+                      box-shadow: 
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}                 
+                    }
+                  styles:
+                    card:
+                      - width: 80px
+                      - height: 80px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: var(--primary-text-color)
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    service_data:
+                      entity_id: scene.gaming
+                    haptic: medium
+                - type: vertical-stack
+                  cards:
+      # This is the text beside the second button
+      # Change this to what you want it to say          
+                    - type: markdown
+                      content: |
+                        # Gaming
+                      style: |
+                        ha-card {
+                          height: 20px;                  
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
+                        }
+                        h1 {
+                          font-size: 20px;
+                          font-weight: bold;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }
+      # This is the smaller text beside the second button
+      # Change this to what you want it to say                
+                    - type: markdown
+                      content: |
+                        # PS4 gaming with lights
+                      style: |
+                        ha-card {
+                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                        box-shadow: 2px 2px rgba(0,0,0,0.0);
+                           }
+                        h1 {
+                          font-size: 15px;
+                          font-weight: thin;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 10px
+            - type: horizontal-stack # Bright Scene
+              cards:
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                      --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                      box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 5px
+                      - height: 80px
+      # This is third button with the light bulb icon
+      # Change this to an icon you want
+                - type: 'custom:button-card'
+                  icon: 'mdi:brightness-5'
+                  show_icon: true
+                  show_name: false
+                  style: |
+                    ha-card {
+                      box-shadow: 
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}                 
+                    }
+                  styles:
+                    card:
+                      - width: 80px
+                      - height: 80px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: var(--primary-text-color)
+                  tap_action:
+                    action: call-service
+                    service: scene.turn_on
+                    service_data:
+                      entity_id: scene.deckenleuchte_grp_bright
+                    haptic: medium
+                - type: vertical-stack
+                  cards:
+      # This is the text beside the third button
+      # Change this to what you want it to say          
+                    - type: markdown
+                      content: |
+                        # Bright
+                      style: |
+                        ha-card {
+                          height: 20px;                  
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
+                        }
+                        h1 {
+                          font-size: 20px;
+                          font-weight: bold;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }
+      # This is the smaller text beside the third button
+      # Change this to what you want it to say                
+                    - type: markdown
+                      content: |
+                        # Ceiling light bright scene
+                      style: |
+                        ha-card {
+                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                        box-shadow: 2px 2px rgba(0,0,0,0.0);
+                           }
+                        h1 {
+                          font-size: 15px;
+                          font-weight: thin;
+                          font-family: Helvetica;
+                          letter-spacing: '-0.01em';
+                        }                    
+    - type: vertical-stack # right column
+      cards:
+        - type: markdown ### Lights
+          content: |
+            # Lights
+          style: |
+            ha-card {
+               height: 20px;
+               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+               box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: |
+            # There {% if is_state('sensor.lights_on', '0') %} are currently no lights {% elif is_state('sensor.lights_on', '1') %} is {{states('sensor.lights_on')}} light {% else %} are {{states('sensor.lights_on')}} lights {% endif %} on
+          style: |
+            ha-card {
+             height: 50px;
+             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+             box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: vertical-stack ### Light Buttons
+          cards:
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 5px
+                      - height: 60px
+                  
+  # You can change the entity_id and icon of the first button here   
+                - type: 'custom:button-card' # button
+                  entity: light.deckenleuchte
+                  icon: 'mdi:wall-sconce-flat'
+                  show_icon: true
+                  show_name: false
+                  state:
+                    - styles:
+                        icon:
+                          - color: 'var(--paper-item-icon-active-color)  '
+                      value: 'on'
+  # You also have to change the entity_ids in the following template
+                  style: |
+                    ha-card {
+                      box-shadow: 
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte', 'on') %}
+                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte', 'off') %}                      
+                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'on') %}                      
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'off') %}   
+                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}                        
+                    }
+                  styles:
+                    card:
+                      - width: 55px
+                      - height: 55px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: var(--primary-text-color)
+                  tap_action:
+                    action: toggle
+                  hold_action:
+                    action: more-info
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 2px
+                      - height: 60px
+  # You can change the entity_id and icon of the second button here   
+                - type: 'custom:button-card' # button
+                  entity: light.stehlampe
+                  icon: 'mdi:floor-lamp'
+                  show_icon: true
+                  show_name: false
+                  state:
+                    - styles:
+                        icon:
+                          - color: 'var(--paper-item-icon-active-color)  '
+                      value: 'on'
+  # You also have to change the entity_ids in the following template
+                  style: |
+                    ha-card {
+                      box-shadow: 
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.stehlampe', 'on') %}
+                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.stehlampe', 'off') %}                      
+                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'on') %}                      
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'off') %}   
+                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}                         
+                    }
+                  styles:
+                    card:
+                      - width: 55px
+                      - height: 55px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: var(--primary-text-color)
+                  tap_action:
+                    action: toggle
+                  hold_action:
+                    action: more-info
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 2px
+                      - height: 60px
+  # You can change the entity_id and icon of the third button here   
+                - type: 'custom:button-card' # button
+                  entity: light.deckenspots
+                  icon: 'mdi:track-light'
+                  show_icon: true
+                  show_name: false
+                  state:
+                    - styles:
+                        icon:
+                          - color: 'var(--paper-item-icon-active-color)  '
+                      value: 'on'
+  # You also have to change the entity_ids in the following template
+                  style: |
+                    ha-card {
+                      box-shadow: 
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenspots', 'on') %}
+                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenspots', 'off') %}                      
+                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'on') %}                      
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'off') %}   
+                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}                           
+                    }
+                  styles:
+                    card:
+                      - width: 55px
+                      - height: 55px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: var(--primary-text-color)
+                  tap_action:
+                    action: toggle
+                  hold_action:
+                    action: more-info
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 2px
+                      - height: 60px
+  # You can change the entity_id and icon of the fourth button here   
+                - type: 'custom:button-card' # button
+                  entity: light.deckenleuchte_kuche
+                  icon: 'mdi:silverware-fork-knife'
+                  show_icon: true
+                  show_name: false
+                  state:
+                    - styles:
+                        icon:
+                          - color: 'var(--paper-item-icon-active-color)  '
+                      value: 'on'
+  # You also have to change the entity_ids in the following template
+                  style: |
+                    ha-card {
+                      box-shadow: 
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte_kuche', 'on') %}
+                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte_kuche', 'off') %}                      
+                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte_kuche', 'on') %}                      
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte_kuche', 'off') %}   
+                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}     
+                    }
+                  styles:
+                    card:
+                      - width: 55px
+                      - height: 55px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: var(--primary-text-color)
+                  tap_action:
+                    action: toggle
+                  hold_action:
+                    action: more-info
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 2px
+                      - height: 60px
+  # You can change the entity_id and icon of the fifth button here 
+                - type: 'custom:button-card' # button
+                  entity: light.badezimmer
+                  icon: 'mdi:shower'
+                  show_icon: true
+                  show_name: false
+                  state:
+                    - styles:
+                        icon:
+                          - color: 'var(--paper-item-icon-active-color)  '
+                      value: 'on'
+  # You also have to change the entity_ids in the following template
+                  style: |
+                    ha-card {
+                      box-shadow: 
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.badezimmer', 'on') %}
+                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.badezimmer', 'off') %}                      
+                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.badezimmer', 'on') %}                      
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.badezimmer', 'off') %}   
+                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}     
+                    }
+                  styles:
+                    card:
+                      - width: 55px
+                      - height: 55px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: var(--primary-text-color)
+                  tap_action:
+                    action: toggle
+                  hold_action:
+                    action: more-info
+              # type: vertical-stack
+            # - type: 'custom:button-card'
+            #   show_icon: false
+            #   show_name: false
+            #   style: |
+            #     ha-card {
+            #       --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+            #       box-shadow: 2px 2px rgba(0,0,0,0.0);
+            #     }
+            #   styles:
+            #     card:
+            #       - width: 5px
+            #       - height: 10px
+        - type: markdown ### Devices
+          content: |
+            # Devices
+          style: |
+            ha-card {
+               height: 20px;
+               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+               box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: |
+            # Most used devices
+          style: |
+            ha-card {
+             height: 50px;
+             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+             box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: custom:mini-media-player # tv 
+              entity: media_player.braviatv_1
+              hide:
+                info: true
+              style: |
+                ha-card {
+                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  border-radius: 15px;
+                  box-shadow: 
+                   {% if is_state('sun.sun', 'above_horizon') %}
+                     -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                   {% else %}
+                     -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                   {% endif %}
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: 'custom:button-card'
+          show_icon: false
+          show_name: false
+          style: |
+            ha-card {
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+          styles:
+            card:
+              - width: 5px
+              - height: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: custom:mini-media-player # ps4
+              entity: media_player.playstation_4
+              source: icon
+              hide:
+                volume: true
+                play_pause: true
+                play_stop: false
+                controls: true
+              style: |
+                ha-card {
+                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  border-radius: 15px;
+                  box-shadow: 
+                   {% if is_state('sun.sun', 'above_horizon') %}
+                     -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                   {% else %}
+                     -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                   {% endif %}
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: 'custom:button-card'
+          show_icon: false
+          show_name: false
+          style: |
+            ha-card {
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+          styles:
+            card:
+              - width: 5px
+              - height: 10px
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: custom:mod-card # robovac
+              style: |
+                ha-card {
+                  height: 115px;
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                    {% else %}
+                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                    {% endif %}   
+                }
+              card:
+                type: custom:vertical-stack-in-card
+                cards:
+                  - type: entities
+                    entities:
+                      - entity: vacuum.robovac
+                        type: custom:multiple-entity-row
+                        name: Robovac
+                        hide_state: true
+                        primary:
+                          attribute: status
+                          name: Status
+                        secondary:
+                          attribute: battery_level
+                          name: Battery
+                          unit: '%'
+                        tertiary:
+                          entity: counter.vacuum_counter
+                          name: Count
+                    style: |
+                      ha-card {
+                        height: 70px;
+                      }
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:button-card
+                        color: auto
+                        entity: vacuum.robovac
+                        size: 25%
+                        icon: mdi:play
+                        show_name: false
+                        tap_action:
+                          action: call-service
+                          service: vacuum.turn_on
+                          service_data:
+                            entity_id: vacuum.robovac
+                      - type: custom:button-card
+                        color: auto
+                        entity: vacuum.robovac
+                        size: 25%
+                        icon: mdi:pause
+                        show_name: false
+                        tap_action:
+                          action: call-service
+                          service: vacuum.pause
+                          service_data:
+                            entity_id: vacuum.robovac
+                      - type: custom:button-card
+                        color: auto
+                        entity: vacuum.robovac
+                        size: 25%
+                        icon: mdi:broom
+                        show_name: false
+                        tap_action:
+                          action: call-service
+                          service: vacuum.clean_spot
+                          service_data:
+                            entity_id: vacuum.robovac
+                      - type: custom:button-card
+                        color: auto
+                        entity: vacuum.robovac
+                        size: 25%
+                        icon: mdi:map-marker
+                        show_name: false
+                        tap_action:
+                          action: call-service
+                          service: vacuum.locate
+                          service_data:
+                            entity_id: vacuum.robovac
+                      - type: custom:button-card
+                        color: auto
+                        entity: vacuum.robovac
+                        size: 25%
+                        icon: mdi:home-map-marker
+                        show_name: false
+                        tap_action:
+                          action: call-service
+                          service: vacuum.return_to_base
+                          service_data:
+                            entity_id: vacuum.robovac
+                  # - type: custom:button-card
+                  #   show_icon: false
+                  #   show_name: false
+                  #   style: |
+                  #     ha-card {
+                  #     --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  #     box-shadow: 2px 2px rgba(0,0,0,0.0);
+                  #     }
+                  #   styles:
+                  #     card:
+                  #       - width: 5px
+                  #       - height: 2px
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: markdown # Miscellaneous
+          content: |
+            # Miscellaneous
+          style: |
+            ha-card {
+               height: 20px;
+               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+               box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown # Lights, plants and settings
+          content: |
+            # Lights, plants and settings
+          style: |
+            ha-card {
+             height: 50px;
+             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+             box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+            h1 {
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card' # Spacer
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 80px
+  # This is first button with the light bulb icon
+  # Change this to an icon you want
+            - type: 'custom:button-card' # Lights
+              icon: 'mdi:lightbulb'
+              show_icon: true
+              show_name: false
+              style: |
+                ha-card {
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
+                    {% endif %}                 
+                }
+              styles:
+                card:
+                  - width: 55px
+                  - height: 55px
+                  - border-radius: 15px
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/lights
+  # This is the text beside the first button
+  # Change this to what you want it to say          
+            - type: 'custom:button-card' # Spacer
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 80px
+            - type: 'custom:button-card' # Plants
+              icon: 'mdi:sprout'
+              show_icon: true
+              show_name: false
+              style: |
+                ha-card {
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
+                    {% endif %}                 
+                }
+              styles:
+                card:
+                  - width: 55px
+                  - height: 55px
+                  - border-radius: 15px
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/plants
+  # This is the text beside the first button
+  # Change this to what you want it to say          
+            - type: 'custom:button-card' # Spacer
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 80px
+            - type: 'custom:button-card' # Settings
+              icon: 'mdi:settings'
+              show_icon: true
+              show_name: false
+              style: |
+                ha-card {
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
+                    {% endif %}                 
+                }
+              styles:
+                card:
+                  - width: 55px
+                  - height: 55px
+                  - border-radius: 15px
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/settings
+            - type: 'custom:button-card' # Spacer
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 80px
+            - type: 'custom:button-card' # price
+              icon: 'mdi:percent'
+              show_icon: true
+              show_name: false
+              style: |
+                ha-card {
+                  box-shadow: 
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
+                    {% endif %}                 
+                }
+              styles:
+                card:
+                  - width: 55px
+                  - height: 55px
+                  - border-radius: 15px
+                  - background-color: var(--primary-background-color)
+                icon:
+                  - color: var(--primary-text-color)
+              tap_action:
+                action: navigate
+                navigation_path: /lovelace/price
+        - type: 'custom:button-card' # Spacer
+          show_icon: false
+          show_name: false
+          style: |
+            ha-card {
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+          styles:
+            card:
+              - width: 5px
+              - height: 10px
+        
+        
