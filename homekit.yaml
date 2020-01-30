@@ -24,7 +24,7 @@ filter:
     - light.light_11
     - media_player.braviatv_1
     - media_player.playstation_4
-    - sensor.wemosd1_room_humidty
+    - sensor.wemosd1_room_humidity
     - sensor.wemosd1_room_temperature
 entity_config:
   input_boolean.loop_livingcolors_1:
@@ -37,7 +37,7 @@ entity_config:
     name: "Playstation 4"
     feature_list:
       - feature: on_off
-  sensor.wemosd1_room_humidty:
+  sensor.wemosd1_room_humidity:
     name: "Luftfeuchtigkeit"
   sensor.wemosd1_room_temperature:
     name: "Temparatur"

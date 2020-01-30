@@ -10,12 +10,16 @@
     entity_id: sun.sun
     to: below_horizon
   action:
-  - service_template: "{% if states.sun.sun.state == \"above_horizon\" %}\n  shell_command.dark_to_clear_wp\n\
-      {% else %}\n  shell_command.clear_to_dark_wp\n{% endif %}\n"
+  # - service_template: "{% if states.sun.sun.state == \"above_horizon\" %}\n  shell_command.dark_to_clear_wp\n\
+  #     {% else %}\n  shell_command.clear_to_dark_wp\n{% endif %}\n"
   - service_template: frontend.set_theme
     data_template:
-      name: "{% if states.sun.sun.state == \"above_horizon\" %}\n  clear\n{% else\
-        \ %}\n  dark_clear\n{% endif %}\n"
+      name: >
+        {% if states.sun.sun.state == "above_horizon" %}
+          home_light
+        {% else %}
+          grey_night
+        {% endif %}
   - service: script.lovelace_reload
 
 - alias: Update notifications
@@ -121,7 +125,7 @@
 #     data_template:
 #       message: 'Custom component updates available: {{ states.sensor.hacs.state }}.'
 - alias: 'Start HomeKit'
-  id: '1576691942000' 
+  id: '1576691942' 
   trigger:
     - platform: homeassistant
       event: start

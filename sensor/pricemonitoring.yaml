@@ -25,7 +25,13 @@
 - platform: nintendo_wishlist
   country: AT
   wishlist:
-    - 'The Binding of Isaac: Afterbirth+'
     - '80 DAYS'
     - 'Untitled Goose Game'
     - 'Return of the Obra Dinn'
+    - 'Bad North'
+    - 'UNDERTALE'
+    - 'Dead Cells'
+    - 'Wargroove'
+    - 'The Touryst'
+    - 'Return of the Obra Dinn'
+    # - 'Northgard'

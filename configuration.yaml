@@ -21,6 +21,15 @@ http:
     - !secret proxy_ip
   base_url: !secret hass_baseurl
 
+# panel_iframe:
+#   # portainer:
+#   #   title: 'Portainer'
+#   #   url: !secret portainer_url
+#   kibana:
+#     title: 'Kibana'
+#     url: !secret kibana_url
+#     icon: mdi:alpha-k-box
+
 ### default config
 automation: !include_dir_merge_list automation/
 config:
@@ -53,11 +62,13 @@ recorder:
   purge_keep_days: 30
   include: !include recorder_include.yaml
   exclude: !include recorder_exclude.yaml
+scene: !include scenes.yaml
 script: !include_dir_merge_named script/
 #ssdp:
 sun:
 system_health:
 updater:
+  reporting: false
 zeroconf:
 
 ### one liners
@@ -92,9 +103,10 @@ asuswrt:
     - upload
     - download
 
-# custom_updater:
 hacs:
   token: !secret github_at
+  options:
+    release_limit: 10
 
 eufy_vacuum:
   devices:

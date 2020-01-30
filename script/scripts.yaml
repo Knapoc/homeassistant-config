@@ -14,7 +14,8 @@ wakeup_schlafzimmer:
     - service: light.turn_on
       data_template:
         entity_id: light.deckenspots
-        brightness: 146
+        brightness: 40
+        #brightness: 146
         transition: '{{ states.input_number.wakeup_duration.state | multiply(60) | int }}'
 # scene_bright:
 #   alias: 'Bright'

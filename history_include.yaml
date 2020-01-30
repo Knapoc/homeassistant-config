@@ -20,9 +20,9 @@ entities:
   - sensor.google_travel_time_dev1_transit
   - sensor.received_eth0
   - sensor.sonoff_office_temperature
-  - sensor.sonoff_office_humidty
+  - sensor.sonoff_office_humidity
   - sensor.wemosd1_room_temperature
-  - sensor.wemosd1_room_humidty
+  - sensor.wemosd1_room_humidity
   - sensor.sonoff_rssi
   - sensor.sonoff_uptime
   - sensor.sonoff_vcc

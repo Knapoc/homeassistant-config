@@ -10,7 +10,7 @@
 #  unit_of_measurement: "°C"
 
 #- platform: mqtt
-#  name: sonoff_office_humidty
+#  name: sonoff_office_humidity
 #  state_topic: "sonoff_3082/tele/SENSOR"
 #  value_template: "{{ value_json['AM2301'].Humidity }}"
 #  unit_of_measurement: "%"
@@ -22,7 +22,7 @@
   unit_of_measurement: "°C"
 
 - platform: mqtt
-  name: wemosd1_room_humidty
+  name: wemosd1_room_humidity
   state_topic: "wemosd1_1/tele/SENSOR"
   value_template: "{{ value_json['SHT3X-0x45'].Humidity }}"
   unit_of_measurement: "%"
@@ -138,32 +138,32 @@
   value_template: "{{ value_json.battery }}"
   unit_of_measurement: "%"
 
-- platform: mqtt
-  name: HoweaForsteriana_moisture
-  state_topic: "miflora/HoweaForsteriana"
-  value_template: "{{ value_json.moisture }}"
-  unit_of_measurement: "%"
-
-- platform: mqtt
-  name: HoweaForsteriana_light
-  state_topic: "miflora/HoweaForsteriana"
-  value_template: "{{ value_json.light }}"
-  unit_of_measurement: "lux"
-
-- platform: mqtt
-  name: HoweaForsteriana_temperature
-  state_topic: "miflora/HoweaForsteriana"
-  value_template: "{{ value_json.temperature }}"
-  unit_of_measurement: "°C"
-
-- platform: mqtt
-  name: HoweaForsteriana_conductivity
-  state_topic: "miflora/HoweaForsteriana"
-  value_template: "{{ value_json.conductivity }}"
-  unit_of_measurement: "µS/cm"
-
-- platform: mqtt
-  name: HoweaForsteriana_battery
-  state_topic: "miflora/HoweaForsteriana"
-  value_template: "{{ value_json.battery }}"
-  unit_of_measurement: "%"
+# - platform: mqtt
+#   name: HoweaForsteriana_moisture
+#   state_topic: "miflora/HoweaForsteriana"
+#   value_template: "{{ value_json.moisture }}"
+#   unit_of_measurement: "%"
+#
+# - platform: mqtt
+#   name: HoweaForsteriana_light
+#   state_topic: "miflora/HoweaForsteriana"
+#   value_template: "{{ value_json.light }}"
+#   unit_of_measurement: "lux"
+#
+# - platform: mqtt
+#   name: HoweaForsteriana_temperature
+#   state_topic: "miflora/HoweaForsteriana"
+#   value_template: "{{ value_json.temperature }}"
+#   unit_of_measurement: "°C"
+#
+# - platform: mqtt
+#   name: HoweaForsteriana_conductivity
+#   state_topic: "miflora/HoweaForsteriana"
+#   value_template: "{{ value_json.conductivity }}"
+#   unit_of_measurement: "µS/cm"
+#
+# - platform: mqtt
+#   name: HoweaForsteriana_battery
+#   state_topic: "miflora/HoweaForsteriana"
+#   value_template: "{{ value_json.battery }}"
+#   unit_of_measurement: "%"

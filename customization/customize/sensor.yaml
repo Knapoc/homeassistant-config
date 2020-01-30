@@ -2,6 +2,12 @@ sensor.asuswrt_download:
   unit_of_measurement: GB
 sensor.asuswrt_upload:
   unit_of_measurement: GB
+sensor.count_automations:
+  friendly_name: Automations
+  icon: mdi:play-circle
+sensor.count_scripts:
+  friendly_name: Scripts
+  icon: mdi:file-document
 sensor.cpu_speed:
   friendly_name: CPU Frequenz
 sensor.cpu_temperature:
@@ -53,7 +59,7 @@ sensor.processor_use:
   icon: mdi:desktop-classic
 #sensor.sonoff_3028_version:
 #  friendly_name: Tasmota Version
-#sensor.sonoff_office_humidty:
+#sensor.sonoff_office_humidity:
 #  friendly_name: Luftfeuchtigkeit - Büro
 #  icon: mdi:water-percent
 #  homebridge_hidden: false
@@ -89,7 +95,7 @@ sensor.uberx_price:
 sensor.uptime:
   friendly_name: HA Betriebszeit
   icon: mdi:arrow-up-thick
-sensor.wemosd1_room_humidty:
+sensor.wemosd1_room_humidity:
   friendly_name: Luftfeuchtigkeit - Zimmer
   icon: mdi:water-percent
 sensor.wemosd1_room_temperature:

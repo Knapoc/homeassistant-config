@@ -78,3 +78,6 @@
     count_lights:
       entity_id: sensor.date
       value_template: "{{ states.light | list | length }}"
+    lights_on:
+      entity_id: sensor.time
+      value_template: '{{ states.light | selectattr("state", "equalto", "on") | rejectattr("attributes.is_deconz_group") | list | length }}'

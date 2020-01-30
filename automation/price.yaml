@@ -38,3 +38,19 @@
 #     service: !secret notify_ios
 #     data_template:
 #       message: 'Roborock S6 weiß - Preisalarm: {{ states.sensor.roborocks6_white.state}}€.'
+- alias: 'Switch Sale Notification'
+  id: '1580278752'
+  trigger:
+    platform: event
+    event_type: state_changed
+    event_data:
+      domain: sensor
+  condition:
+    condition: template
+    value_template: "{{ trigger.event.data.entity_id.startswith('sensor.nintendo_wishlist_') and trigger.event.data.old_state.state == '0' }}"
+  action:
+    service: !secret notify_ios
+    data_template:
+      message: '{{ trigger.event.data.old_state.attributes.friendly_name }} is on sale.'
+
+      
