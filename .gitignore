@@ -107,3 +107,4 @@ ui-pics
 .vscode
 www/community
 ui-lovelace-old.yaml
+custom_components/hacs
