@@ -356,7 +356,7 @@
                 }
             - type: custom:gauge-card
               entity: sensor.disk_useperc_sda2
-              title: RAM
+              title: sda2
               min: 0
               max: 100
               scale: 27px
