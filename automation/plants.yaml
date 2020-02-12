@@ -1,12 +1,12 @@
-- id: '1566533531000'
+- id: '1566533531'
   alias: Plant care water
   trigger:
     - platform: numeric_state
       entity_id: sensor.yuccaelephantipes_moisture
       below: 15
-    - platform: numeric_state
-      entity_id: sensor.howeaforsteriana_moisture
-      below: 15
+    # - platform: numeric_state
+    #   entity_id: sensor.howeaforsteriana_moisture
+    #   below: 15
   condition:
     condition: and
     conditions:
@@ -22,15 +22,15 @@
     - service: !secret notify_ios
       data_template:
         message: '{{ trigger.to_state.name }}: {{ trigger.to_state.state }}. Bitte gießen.'
-- id: '1566533531001'
+- id: '1566533532'
   alias: Plant Care fertilizer
   trigger:
     - platform: numeric_state
       entity_id: sensor.yuccaelephantipes_conductivity
       below: 350
-    - platform: numeric_state
-      entity_id: sensor.howeaforsteriana_conductivity
-      below: 350
+    # - platform: numeric_state
+    #   entity_id: sensor.howeaforsteriana_conductivity
+    #   below: 350
   condition:
     condition: and
     conditions:
@@ -44,15 +44,15 @@
     - service: !secret notify_ios
       data_template:
         message: '{{ trigger.to_state.name }}: {{ trigger.to_state.state }}. Bitte düngen.'
-- id: '1566533531002'
+- id: '1566533533'
   alias: Plant Care battery
   trigger:
     - platform: numeric_state
       entity_id: sensor.yuccaelephantipes_battery
       below: 10
-    - platform: numeric_state
-      entity_id: sensor.howeaforsteriana_battery
-      below: 10
+    # - platform: numeric_state
+    #   entity_id: sensor.howeaforsteriana_battery
+    #   below: 10
   condition:
     condition: and
     conditions:

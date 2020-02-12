@@ -1,4 +1,4 @@
-- id: '1555971390000'
+- id: '1555971390'
   alias: robovac auto turn on
   trigger:
   - platform: time_pattern
@@ -55,7 +55,7 @@
     data:
       entity_id: vacuum.robovac
   
-- id: '15559713900111'
+- id: '1555971391'
   alias: robovac clean counter
   trigger:
   - platform: template
@@ -65,7 +65,7 @@
     data:
       entity_id: counter.vacuum_counter
 
-- id: '15559754790000'
+- id: '1555975479'
   alias: robovac clean notification
   trigger:
   - platform: time_pattern
@@ -93,7 +93,7 @@
           category: emptyrobovac
 
 - alias: robovac cleaned
-  id: '15559754790001'
+  id: '1555975480'
   trigger:
     - platform: event
       event_type: ios.notification_action_fired

@@ -1,5 +1,5 @@
 - alias: left home device1
-  id: '1515583360531'
+  id: '1515583360'
   trigger:
   - entity_id: !secret person_1
     for:
@@ -22,7 +22,7 @@
       - input_boolean.loop_livingcolors_1
       - input_boolean.loop_livingcolors_2
 
-- id: '1553547958805'
+- id: '1553547958'
   alias: Turn off magic mirror
   trigger:
   - entity_id: sensor.is_home
@@ -36,7 +36,7 @@
       entity_id: switch.magic_mirror
     service: switch.turn_off
 
-- id: '1553548399232'
+- id: '1553548399'
   alias: Turn on magic mirror
   trigger:
   - entity_id: !secret person_1
@@ -48,7 +48,7 @@
     service: switch.turn_on
 
 - alias: Lights and TV off
-  id: '756390032'
+  id: '1553548400'
   trigger:
     platform: template
     value_template: '{{ states.sensor.time.state == (states.input_datetime.time_turnoff_devices.attributes.timestamp

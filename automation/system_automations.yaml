@@ -1,5 +1,5 @@
 - alias: Startup Theme
-  id: '20180524211900'
+  id: '1500779867'
   trigger:
   - platform: homeassistant
     event: start
@@ -23,7 +23,7 @@
   - service: script.lovelace_reload
 
 - alias: Update notifications
-  id: '49494'
+  id: '1500779868'
   trigger:
     platform: state
     entity_id: updater.updater
@@ -33,7 +33,7 @@
       message: Home Assistant {{ states.updater.updater.state }} is now available.
 
 - alias: SSL expiry notification
-  id: '1500779870955'
+  id: '1500779870'
   trigger:
     platform: numeric_state
     entity_id: sensor.ssl_certificate_expiry
@@ -45,7 +45,7 @@
         }} days and has not been automatically renewed.
 
 - alias: Disk Use Alarm
-  id: '7592974'
+  id: '1500589867'
   trigger:
     platform: numeric_state
     entity_id: sensor.disk_use
@@ -57,7 +57,7 @@
         }}%'
 
 - alias: Disk Use Alarm sda1
-  id: '7592979'
+  id: '1500589868'
   trigger:
     platform: numeric_state
     entity_id: sensor.disk_useperc_sda1
@@ -69,7 +69,7 @@
         }}%'
 
 - alias: Disk Use Alarm sda2
-  id: '7592978'
+  id: '1500589869' 
   trigger:
     platform: numeric_state
     entity_id: sensor.disk_useperc_sda2
@@ -81,7 +81,7 @@
         }}%'
 
 - alias: Log Level
-  id: '1500589870955'
+  id: '1500589870'
   trigger:
     platform: state
     entity_id: input_select.log_level
@@ -94,7 +94,7 @@
       homeassistant.components: '{{ trigger.to_state.state }}'
 
 - alias: get tasmota device info
-  id: '1500581870914'
+  id: '1500581879'
   trigger:
   - platform: homeassistant
     event: start
