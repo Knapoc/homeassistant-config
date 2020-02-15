@@ -35,3 +35,4 @@ entities:
   - sensor.uberx_time
   - sensor.asuswrt_download
   - sensor.asuswrt_upload
+  - vacuum.robovac

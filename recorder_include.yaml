@@ -6,5 +6,6 @@ domains:
   - person
   - switch
   - automation
+  - vacuum
 entities:
   - binary_sensor.presence_10
