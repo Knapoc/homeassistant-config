@@ -936,17 +936,15 @@
                       - entity: vacuum.robovac
                         type: custom:multiple-entity-row
                         name: Robovac
-                        hide_state: true
-                        primary:
-                          attribute: status
-                          name: Status
-                        secondary:
-                          attribute: battery_level
-                          name: Battery
-                          unit: '%'
-                        tertiary:
-                          entity: counter.vacuum_counter
-                          name: Count
+                        show_state: false
+                        entities:
+                          - attribute: status
+                            name: Status
+                          - attribute: battery_level
+                            name: Battery
+                            unit: '%'
+                          - entity: counter.vacuum_counter
+                            name: Count
                     style: |
                       ha-card {
                         height: 70px;
