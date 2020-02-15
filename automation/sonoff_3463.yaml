@@ -6,7 +6,7 @@
   condition:
     condition: template
     value_template: '{{ states.sensor.sonoff_maddox_version.state | replace("v", "")
-      != states.sensor.sonoff_3463_version.state[:5] }}'
+      != states.sensor.s20_mm_version.state[:5] }}'
   action:
   - service: !secret notify_ios
     data_template:
