@@ -7,7 +7,7 @@ resources:
   #   type: module
   - url: /community_plugin/custom-header/custom-header.js
     type: module
-  - url: /community_plugin/mini-graph-card/mini-graph-card.js
+  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
     type: module
   # - url: /community_plugin/lovelace-browser-commander/browser-commander.js
   #   type: js
@@ -38,7 +38,7 @@ resources:
 
 custom_header:
   compact_mode: true
-  background: var(--app-header-background-color);
+  #background: var(--app-header-background-color);
   # hide_header: true
   voice_hide: true
   hide_config: true

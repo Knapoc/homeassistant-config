@@ -2,6 +2,7 @@ domains:
   - media_player
   - device_tracker
   - person
+  - cover
 entities:
   - binary_sensor.presence_10
   - light.zimmer

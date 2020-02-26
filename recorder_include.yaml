@@ -7,5 +7,6 @@ domains:
   - switch
   - automation
   - vacuum
+  - cover
 entities:
   - binary_sensor.presence_10

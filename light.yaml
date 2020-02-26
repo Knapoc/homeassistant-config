@@ -1,5 +1,5 @@
-- platform: group
-  name: Deckenleuchte_Küche
-  entities:
-    - light.light_10
-    - light.light_11
+# - platform: group
+#   name: Deckenleuchte_Küche
+#   entities:
+#     - light.light_10
+#     - light.light_11

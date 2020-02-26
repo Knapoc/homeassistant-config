@@ -84,7 +84,7 @@ input_datetime: !include input_datetime.yaml
 input_number: !include input_number.yaml
 input_select: !include input_select.yaml
 ios: !include ios.yaml
-light: !include light.yaml
+# light: !include light.yaml
 media_player: !include media_player.yaml
 notify: !include notify.yaml
 plant: !include plant.yaml

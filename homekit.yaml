@@ -7,6 +7,7 @@ filter:
     # - media_playerh
     # - light
     - switch
+    - cover
   include_entities:
     - input_boolean.loop_livingcolors_1
     - input_boolean.loop_livingcolors_2
