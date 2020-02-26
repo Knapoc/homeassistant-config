@@ -17,52 +17,6 @@ wakeup_schlafzimmer:
         brightness: 40
         #brightness: 146
         transition: '{{ states.input_number.wakeup_duration.state | multiply(60) | int }}'
-# scene_bright:
-#   alias: 'Bright'
-#   sequence:
-#     - service: hue.hue_activate_scene
-#       data_template:
-#         group_name: "Zimmer"
-#         scene_name: "bright_spots"
-# scene_tropical_twilight:
-#   alias: 'Tropical twilight'
-#   sequence:
-#     - service: hue.hue_activate_scene
-#       data_template:
-#         group_name: "Zimmer"
-#         scene_name: "Tropical twilight"
-# scene_nightlight:
-#   alias: 'Nightlight'
-#   sequence:
-#     - service: hue.hue_activate_scene
-#       data_template:
-#         group_name: "Zimmer"
-#         scene_name: "nightlight_spots"
-# scene_arctic_aurora:
-#   alias: 'Arctic aurora'
-#   sequence:
-#     - service: hue.hue_activate_scene
-#       data_template:
-#         group_name: "Zimmer"
-#         scene_name: "Arctic aurora"
-# scene_spring_blossom:
-#   alias: 'Spring blossom'
-#   sequence:
-#     - service: hue.hue_activate_scene
-#       data_template:
-#         group_name: "Zimmer"
-#         scene_name: "Spring blossom"
-find_browser_commander_ids:
-  alias: browser command debug
-  sequence:
-      - event: browser_command
-        event_data:
-          command: debug
-lovelace_reload:
-  sequence:
-      - event: browser_command
-        event_data:
-          command: lovelace-reload
 magic_mirror_shutdown:
   sequence:
       - service: shell_command.shutdown_rpi
