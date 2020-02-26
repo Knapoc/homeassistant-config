@@ -664,7 +664,7 @@
                       - height: 60px
   # You can change the entity_id and icon of the fourth button here   
                 - type: 'custom:button-card' # button
-                  entity: light.deckenleuchte_kuche
+                  entity: light.kuche
                   icon: 'mdi:silverware-fork-knife'
                   show_icon: true
                   show_name: false
@@ -677,13 +677,13 @@
                   style: |
                     ha-card {
                       box-shadow: 
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte_kuche', 'on') %}
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.kuche', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte_kuche', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.kuche', 'off') %}                      
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte_kuche', 'on') %}                      
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'on') %}                      
                           inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte_kuche', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'off') %}   
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}     
                     }
