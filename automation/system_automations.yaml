@@ -20,7 +20,7 @@
         {% else %}
           grey_night
         {% endif %}
-  - service: script.lovelace_reload
+  # - service: script.lovelace_reload
 
 - alias: Update notifications
   id: '1500779868'
