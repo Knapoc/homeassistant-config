@@ -75,6 +75,8 @@
                         - input_number.wakeup_duration
                         - entity: input_boolean.wakeup_weekends
                           name: Weekends
+                        - input_number.wakeup_cover_open_delay
+                          name: Cover open delay
               style: |
                 ha-card {
                   background-color: var(--primary-background-color);
