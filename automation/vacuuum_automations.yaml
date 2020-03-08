@@ -102,7 +102,6 @@
     - platform: event
       event_type: deconz_event
       event_data:
-        id: smart_switch_robovac
         unique_id: 00:15:8d:00:04:23:f2:45
         event: 1002
   condition:
