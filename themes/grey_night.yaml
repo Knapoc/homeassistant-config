@@ -86,3 +86,4 @@ grey_night:
   table-row-alternative-background-color: "hsl(var(--huesat) 10%)"
   table-row-background-color: "hsl(var(--huesat) 12%)"
   text-primary-color: "hsl(var(--huesat) 90%)"
+  paper-input-container-shared-input-style_-_font-size: "var(--font-size)"

@@ -70,3 +70,4 @@ home_light:
   switch-unchecked-button-color: "var(--paper-toggle-button-unchecked-button-color)"
   switch-unchecked-color: "var(--paper-toggle-button-unchecked-bar-color)"
   switch-unchecked-track-color: "var(--paper-toggle-button-unchecked-bar-color)"
+  paper-input-container-shared-input-style_-_font-size: "var(--font-size)"
