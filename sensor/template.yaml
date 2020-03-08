@@ -22,6 +22,24 @@
         {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
         {% endif %}
         {% endif %}
+    wakeup_open_time_covers:
+      friendly_name: 'Rollo öffnen Startzeit'
+      value_template: >
+        {% if states.input_datetime.wakeup_alarm_time and states.input_number.wakeup_cover_open_delay %}
+        {% set alarmtime = states.input_datetime.wakeup_alarm_time.state %}
+        {% set alarm_hour = alarmtime.split(":")[0] | int %}
+        {% set alarm_min = alarmtime.split(":")[1] | int %}
+        {% set cover_dur = states.input_number.wakeup_cover_open_delay.state | int %}
+        {% set alarm_min_cover = alarm_min + cover_dur %}
+        {% if alarm_min_cover  > 59 %}
+        {% set alarm_min_cover = alarm_min_cover - 60 %}
+        {% set alarm_hour_cover = alarm_hour + 1 %}
+        {% if alarm_hour_cover > 23 %}{% set alarm_hour_cover = 0 %}{% endif %}
+        {% if alarm_hour_cover < 10 %}0{% endif %}{{ alarm_hour_cover}}:{% if alarm_min_cover < 10 %}0{% endif %}{{ alarm_min_cover }}
+        {% else %}
+        {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_cover < 10 %}0{% endif %}{{ alarm_min_cover }}
+        {% endif %}
+        {% endif %}
     robovac_battery:
       unit_of_measurement: '%'
       friendly_name: Batterie

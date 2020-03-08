@@ -5,3 +5,9 @@ wakeup_duration:
   min: 5
   max: 60
   step: 5
+wakeup_cover_open_delay:
+  name: 'wake-up cover delay'
+  icon: mdi:clock-in
+  min: 0
+  max: 60
+  step: 5

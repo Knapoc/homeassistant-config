@@ -1,0 +1,31 @@
+- alias: 'open covers in the morning'
+  id: '1583686217'
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.time.state == states.sensor.wakeup_start_time_lights.state }}'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.wakeup
+      state: 'on'
+    - condition: state
+      entity_id: !secret person_1
+      state: home
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_boolean.wakeup_weekends
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+  action:
+    service: cover.open_cover
+    data_template:
+      entity_id: >
+        {% set entities = 'cover.fyrtur_1', 
+                          'cover.fyrtur_2', 
+                          'cover.fyrtur_3', 
+                          'cover.fyrtur_4' %}
+        {{ states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','<',100) | map(attribute='entity_id') | join(', ') }}
