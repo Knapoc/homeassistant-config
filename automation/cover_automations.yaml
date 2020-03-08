@@ -24,17 +24,16 @@
     service: cover.open_cover
     data_template:
       entity_id: >
-        {% set entities = 'cover.fyrtur_1', 
-                          'cover.fyrtur_2', 
-                          'cover.fyrtur_3', 
+        {% set entities = 'cover.fyrtur_1',
+                          'cover.fyrtur_2',
+                          'cover.fyrtur_3',
                           'cover.fyrtur_4' %}
         {{ states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','<',100) | map(attribute='entity_id') | join(', ') }}
-
 - alias: 'close covers at night'
   id: '1583686218'
   trigger:
     platform: template
-    value_template: '{{ states('sensor.time') == (state_attr('input_datetime.time_close_covers_night', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}'
+    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.time_close_covers_night', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
   condition:
     condition: and
     conditions:
@@ -42,11 +41,11 @@
       entity_id: !secret person_1
       state: home
   action:
-    service: cover.open_cover
+    service: cover.close_cover
     data_template:
       entity_id: >
-        {% set entities = 'cover.fyrtur_1', 
-                          'cover.fyrtur_2', 
-                          'cover.fyrtur_3', 
+        {% set entities = 'cover.fyrtur_1',
+                          'cover.fyrtur_2',
+                          'cover.fyrtur_3',
                           'cover.fyrtur_4' %}
         {{ states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','>',0) | map(attribute='entity_id') | join(', ') }}
