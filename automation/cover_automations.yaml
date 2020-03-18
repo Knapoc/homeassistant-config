@@ -2,7 +2,7 @@
   id: '1583686217'
   trigger:
     platform: template
-    value_template: '{{ states.sensor.time.state == states.sensor.wakeup_start_time_lights.state }}'
+    value_template: '{{ states.sensor.time.state == states.sensor.wakeup_open_time_covers.state }}'
   condition:
     condition: and
     conditions:
