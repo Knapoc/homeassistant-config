@@ -1,5 +1,4 @@
 - platform: cert_expiry
-  name: ssl_certificate_expiry
   host: !secret ssl_domain
 
 - platform: systemmonitor
