@@ -51,8 +51,7 @@ logger:
     # pyhap: debug
     # pydeconz: debug
     # homeassistant.components.deconz: debug
-lovelace:
-  mode: yaml
+lovelace: !include lovelace/lovelace.yaml
 map:
 mobile_app:
 person: !include person.yaml
@@ -116,11 +115,6 @@ eufy_vacuum:
     access_token: !secret robovac_localkey
     id: !secret robovac_devid
     type: T2118
-
-# hue:
-#   bridges:
-#     - host: !secret hue_ip
-#       allow_unreachable: true
 
 mqtt:
   broker: !secret host_ip
