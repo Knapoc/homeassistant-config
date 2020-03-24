@@ -740,7 +740,7 @@
                 card:
                   - width: 5px
                   - height: 60px
-            - type: custom:mod-card
+            - type: custom:stack-in-card
               style: |
                 ha-card {
                   background-color: var(--primary-background-color);
@@ -752,41 +752,40 @@
                       -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
                     {% endif %}
                 }
-              card:
-                type: custom:vertical-stack-in-card
-                cards:
-                  - type: glance
-                    title: Home Assistant
-                    columns: 7
-                    show_name: false
-                    entities:
-                      - entity: sensor.count_automations
-                        name: Automations
-                        icon: mdi:play-circle
-                      - entity: sensor.count_binary_sensors
-                        name: Binary Sensors
-                        icon: mdi:transition-masked
-                      - entity: sensor.count_lights
-                        name: Lights
-                        icon: mdi:lightbulb
-                      - entity: sensor.count_scripts
-                        name: Scripts
-                        icon: mdi:script-text
-                      - entity: sensor.count_sensors
-                        name: Sensors
-                        icon: mdi:counter
-                      - entity: sensor.count_switches
-                        name: Switches
-                        icon: mdi:toggle-switch
-                      - entity: sensor.count_zones
-                        name: Zones
-                  - type: entities
-                    show_header_toggle: false
-                    entities:
-                      - entity: sensor.potential_breaking_changes
-                        name: Breaking changes
-                        icon: mdi:alert-circle
-                      - entity: input_select.log_level
+              mode: vertical
+              cards:
+                - type: glance
+                  title: Home Assistant
+                  columns: 7
+                  show_name: false
+                  entities:
+                    - entity: sensor.count_automations
+                      name: Automations
+                      icon: mdi:play-circle
+                    - entity: sensor.count_binary_sensors
+                      name: Binary Sensors
+                      icon: mdi:transition-masked
+                    - entity: sensor.count_lights
+                      name: Lights
+                      icon: mdi:lightbulb
+                    - entity: sensor.count_scripts
+                      name: Scripts
+                      icon: mdi:script-text
+                    - entity: sensor.count_sensors
+                      name: Sensors
+                      icon: mdi:counter
+                    - entity: sensor.count_switches
+                      name: Switches
+                      icon: mdi:toggle-switch
+                    - entity: sensor.count_zones
+                      name: Zones
+                - type: entities
+                  show_header_toggle: false
+                  entities:
+                    - entity: sensor.potential_breaking_changes
+                      name: Breaking changes
+                      icon: mdi:alert-circle
+                    - entity: input_select.log_level
             - type: 'custom:button-card'
               show_icon: false
               show_name: false

@@ -147,7 +147,8 @@
                 card:
                   - width: 5px
                   - height: 10px
-            - type: custom:mod-card
+            - type: custom:stack-in-card
+              mode: vertical
               style: |
                 ha-card {
                   background-color: var(--primary-background-color);
@@ -159,62 +160,60 @@
                       -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
                     {% endif %}
                 }
-              card:
-                type: custom:vertical-stack-in-card
-                cards:
-                  - type: glance
-                    # title: S20 - MM
-                    entities:
-                      - entity: sensor.s20_mm_version
-                        name: Version
-                        icon: mdi:alpha-v-box
-                      - entity: sensor.s20_mm_ip
-                        name: IP
-                        icon: mdi:map-marker
-                      - entity: sensor.s20_mm_uptime
-                        name: Betriebszeit
-                        icon: mdi:arrow-up-thick
-                      - entity: sensor.s20_mm_rssi
-                        name: Signalstärke
-                        icon: mdi:signal-variant
-                    style: |
-                      ha-card {
-                        background-color: var(--primary-background-color);
-                        border-radius: 15px;
-                        box-shadow: 
-                          {% if is_state('sun.sun', 'above_horizon') %}
-                            -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
-                          {% else %}
-                            -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
-                          {% endif %}
-                      }
-                  - type: entities
-                    show_header_toggle: false
-                    entities:
-                      - type: custom:fold-entity-row
-                        head:
-                          type: section
-                          label: Automatisierungen
-                        entities:
-                          - entity: automation.update_available_tasmota_sonoff_3463
-                            name: Updatebenachrichtigung
-                          - entity: automation.upgrade_tasmota_sonoff_3463
-                            name: Upgrade
-                      - type: custom:fold-entity-row
-                        head:
-                          type: section
-                          label: Scripts
-                        entities:
-                          - entity: script.tasmota_status_sonoff_3463
-                            name: Status
-                          - entity: script.tasmota_fwstatus_sonoff_3463
-                            name: FW-Status
-                          - entity: script.tasmota_restart_sonoff_3463
-                            name: Neustart
-                          - entity: script.tasmota_reset_sonoff_3463
-                            name: Reset
-                          - entity: script.tasmota_upgrade_sonoff_3463
-                            name: Upgrade
+              cards:
+                - type: glance
+                  # title: S20 - MM
+                  entities:
+                    - entity: sensor.s20_mm_version
+                      name: Version
+                      icon: mdi:alpha-v-box
+                    - entity: sensor.s20_mm_ip
+                      name: IP
+                      icon: mdi:map-marker
+                    - entity: sensor.s20_mm_uptime
+                      name: Betriebszeit
+                      icon: mdi:arrow-up-thick
+                    - entity: sensor.s20_mm_rssi
+                      name: Signalstärke
+                      icon: mdi:signal-variant
+                  style: |
+                    ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      box-shadow: 
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                        {% else %}
+                          -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                        {% endif %}
+                    }
+                - type: entities
+                  show_header_toggle: false
+                  entities:
+                    - type: custom:fold-entity-row
+                      head:
+                        type: section
+                        label: Automatisierungen
+                      entities:
+                        - entity: automation.update_available_tasmota_sonoff_3463
+                          name: Updatebenachrichtigung
+                        - entity: automation.upgrade_tasmota_sonoff_3463
+                          name: Upgrade
+                    - type: custom:fold-entity-row
+                      head:
+                        type: section
+                        label: Scripts
+                      entities:
+                        - entity: script.tasmota_status_sonoff_3463
+                          name: Status
+                        - entity: script.tasmota_fwstatus_sonoff_3463
+                          name: FW-Status
+                        - entity: script.tasmota_restart_sonoff_3463
+                          name: Neustart
+                        - entity: script.tasmota_reset_sonoff_3463
+                          name: Reset
+                        - entity: script.tasmota_upgrade_sonoff_3463
+                          name: Upgrade
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
@@ -258,7 +257,8 @@
                 card:
                   - width: 5px
                   - height: 10px
-            - type: custom:mod-card
+            - type: custom:stack-in-card
+              mode: vertical
               style: |
                 ha-card {
                   background-color: var(--primary-background-color);
@@ -270,62 +270,60 @@
                       -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
                     {% endif %}
                 }
-              card:
-                type: custom:vertical-stack-in-card
-                cards:
-                  - type: glance
-                    # title: wemosd1 - 1
-                    entities:
-                      - entity: sensor.wemosd1_version
-                        name: Version
-                        icon: mdi:alpha-v-box
-                      - entity: sensor.wemosd1_ip
-                        name: IP
-                        icon: mdi:map-marker
-                      - entity: sensor.wemosd1_uptime
-                        name: Betriebszeit
-                        icon: mdi:arrow-up-thick
-                      - entity: sensor.wemosd1_rssi
-                        name: Signalstärke
-                        icon: mdi:signal-variant
-                    style: |
-                      ha-card {
-                        background-color: var(--primary-background-color);
-                        border-radius: 15px;
-                        box-shadow: 
-                          {% if is_state('sun.sun', 'above_horizon') %}
-                            -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
-                          {% else %}
-                            -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
-                          {% endif %}
-                      }
-                  - type: entities
-                    show_header_toggle: false
-                    entities:
-                      - type: custom:fold-entity-row
-                        head:
-                          type: section
-                          label: Automatisierungen
-                        entities:
-                          - entity: automation.update_available_tasmota_wemosd1_1
-                            name: Updatebenachrichtigung
-                          - entity: automation.upgrade_tasmota_wemosd1_1
-                            name: Upgrade
-                      - type: custom:fold-entity-row
-                        head:
-                          type: section
-                          label: Scripts
-                        entities:
-                          - entity: script.tasmota_status_wemosd1_1
-                            name: Status
-                          - entity: script.tasmota_fwstatus_wemosd1_1
-                            name: FW-Status
-                          - entity: script.tasmota_restart_wemosd1_1
-                            name: Neustart
-                          - entity: script.tasmota_reset_wemosd1_1
-                            name: Reset
-                          - entity: script.tasmota_upgrade_wemosd1_1
-                            name: Upgrade
+              cards:
+                - type: glance
+                  # title: wemosd1 - 1
+                  entities:
+                    - entity: sensor.wemosd1_version
+                      name: Version
+                      icon: mdi:alpha-v-box
+                    - entity: sensor.wemosd1_ip
+                      name: IP
+                      icon: mdi:map-marker
+                    - entity: sensor.wemosd1_uptime
+                      name: Betriebszeit
+                      icon: mdi:arrow-up-thick
+                    - entity: sensor.wemosd1_rssi
+                      name: Signalstärke
+                      icon: mdi:signal-variant
+                  style: |
+                    ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      box-shadow: 
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
+                        {% else %}
+                          -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
+                        {% endif %}
+                    }
+                - type: entities
+                  show_header_toggle: false
+                  entities:
+                    - type: custom:fold-entity-row
+                      head:
+                        type: section
+                        label: Automatisierungen
+                      entities:
+                        - entity: automation.update_available_tasmota_wemosd1_1
+                          name: Updatebenachrichtigung
+                        - entity: automation.upgrade_tasmota_wemosd1_1
+                          name: Upgrade
+                    - type: custom:fold-entity-row
+                      head:
+                        type: section
+                        label: Scripts
+                      entities:
+                        - entity: script.tasmota_status_wemosd1_1
+                          name: Status
+                        - entity: script.tasmota_fwstatus_wemosd1_1
+                          name: FW-Status
+                        - entity: script.tasmota_restart_wemosd1_1
+                          name: Neustart
+                        - entity: script.tasmota_reset_wemosd1_1
+                          name: Reset
+                        - entity: script.tasmota_upgrade_wemosd1_1
+                          name: Upgrade
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
