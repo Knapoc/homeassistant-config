@@ -11,8 +11,7 @@ import homeassistant.util as util
 from homeassistant.components.media_player import (
     DOMAIN,
     MediaPlayerDevice,
-    PLATFORM_SCHEMA,
-    ENTITY_IMAGE_URL
+    PLATFORM_SCHEMA
 )
 
 from homeassistant.components.media_player.const import (
@@ -141,23 +140,15 @@ class PS4Device(MediaPlayerDevice):
 
     @property
     def entity_picture(self):
-        if self.state == STATE_OFF:
-            return None
-
-        if self._local_store == '':
-            image_hash = self.media_image_hash
-
-            if image_hash is None:
-                return None
-
-            return ENTITY_IMAGE_URL.format(
-                self.entity_id, self.access_token, image_hash)
-
-        if self._media_content_id is None:
-            return None
-
-        filename = "/local/%s/%s.jpg" % (self._local_store, self._media_content_id)
-        return filename
+            """Return picture."""
+            if self._state == STATE_PLAYING and self._media_content_id is not None:
+                image_hash = self.media_image_hash
+                if image_hash is not None:
+                    return (
+                        f"/api/media_player_proxy/{self.entity_id}?"
+                        f"token={self.access_token}&cache={image_hash}"
+                    )
+            return MEDIA_IMAGE_DEFAULT
 
     @property
     def name(self):
