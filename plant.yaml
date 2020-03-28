@@ -18,7 +18,7 @@
 Yucca Elephantipes:
   sensors:
     moisture: sensor.yuccaelephantipes_moisture
-    battery:  sensor.yuccaelephantipes_battery
+    battery: sensor.yuccaelephantipes_battery
     temperature: sensor.yuccaelephantipes_temperature
     conductivity: sensor.yuccaelephantipes_conductivity
     brightness: sensor.yuccaelephantipes_light

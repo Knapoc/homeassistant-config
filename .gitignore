@@ -105,6 +105,5 @@ onboarding
 .homekit.state
 ui-pics
 .vscode
-www/community
 ui-lovelace-old.yaml
-custom_components/hacs
+custom_components/hacs/services.yaml

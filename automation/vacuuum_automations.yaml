@@ -1,8 +1,8 @@
 - id: '1555971390'
   alias: robovac auto turn on
   trigger:
-  - platform: time_pattern
-    minutes: '/30'
+    - platform: time_pattern
+      minutes: '/30'
   condition:
     condition: and
     conditions:
@@ -51,25 +51,25 @@
                 after: '13:00:00'
                 before: '15:30:00'
   action:
-  - service: vacuum.turn_on
-    data:
-      entity_id: vacuum.robovac
-  
+    - service: vacuum.turn_on
+      data:
+        entity_id: vacuum.robovac
+
 - id: '1555971391'
   alias: robovac clean counter
   trigger:
-  - platform: template
-    value_template: "{{ is_state_attr('vacuum.robovac', 'status', 'cleaning') }}"
+    - platform: template
+      value_template: "{{ is_state_attr('vacuum.robovac', 'status', 'cleaning') }}"
   action:
-  - service: counter.increment
-    data:
-      entity_id: counter.vacuum_counter
+    - service: counter.increment
+      data:
+        entity_id: counter.vacuum_counter
 
 - id: '1555975479'
   alias: robovac clean notification
   trigger:
-  - platform: time_pattern
-    hours: '/2'
+    - platform: time_pattern
+      hours: '/2'
   condition:
     condition: and
     conditions:
@@ -85,12 +85,12 @@
         entity_id: counter.vacuum_counter
         above: 0
   action:
-  - service: !secret notify_ios
-    data_template:
-      message: 'Schurli ist zu entleeren. Anzahl der Saugvorgänge: {{ states.counter.vacuum_counter.state }}'
-      data:
-        push:
-          category: emptyrobovac
+    - service: !secret notify_ios
+      data_template:
+        message: 'Schurli ist zu entleeren. Anzahl der Saugvorgänge: {{ states.counter.vacuum_counter.state }}'
+        data:
+          push:
+            category: emptyrobovac
 
 - alias: robovac cleaned
   id: '1555975480'
@@ -109,6 +109,6 @@
     entity_id: !secret person_1
     state: 'home'
   action:
-  - service: counter.reset
-    data:
-      entity_id: counter.vacuum_counter
+    - service: counter.reset
+      data:
+        entity_id: counter.vacuum_counter

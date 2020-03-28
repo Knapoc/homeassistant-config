@@ -8,13 +8,12 @@
     value_template: '{{ states.sensor.sonoff_maddox_version.state | replace("v", "")
       != states.sensor.s20_mm_version.state[:5] }}'
   action:
-  - service: !secret notify_ios
-    data_template:
-      message: 'Sonoff-Tasmota version {{ states.sensor.sonoff_maddox_version.state
-        | replace("v", "") }} is available. Do you wish to upgrade? Changelog: https://is.gd/tasmota'
-      data:
-        push:
-          category: sonoff_b_update
+    - service: !secret notify_ios
+      data_template:
+        message: 'Sonoff-Tasmota version {{ states.sensor.sonoff_maddox_version.state | replace("v", "") }} is available. Do you wish to upgrade? Changelog: https://is.gd/tasmota'
+        data:
+          push:
+            category: sonoff_b_update
 
 - alias: upgrade tasmota sonoff 3463
   id: '1556957333'
@@ -24,4 +23,4 @@
     event_data:
       actionName: SONOFF_B_UPGRADE
   action:
-  - service: script.tasmota_upgrade_sonoff_3463
+    - service: script.tasmota_upgrade_sonoff_3463

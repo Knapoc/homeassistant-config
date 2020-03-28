@@ -6,20 +6,20 @@
   condition:
     condition: and
     conditions:
-    - condition: state
-      entity_id: input_boolean.wakeup
-      state: 'on'
-    - condition: state
-      entity_id: !secret person_1
-      state: home
-    - condition: or
-      conditions:
       - condition: state
-        entity_id: input_boolean.wakeup_weekends
+        entity_id: input_boolean.wakeup
         state: 'on'
       - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'on'
+        entity_id: !secret person_1
+        state: home
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: input_boolean.wakeup_weekends
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.workday_sensor
+            state: 'on'
   action:
     service: script.wakeup_schlafzimmer
 
@@ -70,67 +70,68 @@
 - id: '1555301143'
   alias: turn off loop-effect Stehlampe
   trigger:
-  - entity_id: light.stehlampe
-    platform: state
-    to: 'off'
+    - platform: state
+      entity_id: light.stehlampe
+      to: 'off'
   action:
-  - data:
-      entity_id: input_boolean.loop_livingcolors_2
-    service: input_boolean.turn_off
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.loop_livingcolors_2
 
 - id: '1555301144'
   alias: turn off loop-effect Deckenspots
   trigger:
-  - entity_id: light.deckenspots
-    platform: state
-    to: 'off'
+    - platform: state
+      entity_id: light.deckenspots
+      to: 'off'
   action:
-  - data:
-      entity_id: input_boolean.loop_livingcolors_1
-    service: input_boolean.turn_off
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.loop_livingcolors_1
 
 - id: '1555301145'
   alias: Gaming PS4
   trigger:
-  - entity_id: media_player.playstation_4
-    platform: state
-    to: playing
+    - platform: state
+      entity_id: media_player.playstation_4
+      to: playing
   condition:
-  - after: '19:00:00'
-    condition: time
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-  - condition: state
-    entity_id: !secret person_1
-    state: home
+    - condition: time
+      after: '19:00:00'
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
+    - condition: state
+      entity_id: !secret person_1
+      state: home
   action:
-  - service: input_boolean.turn_on
-    data:
-      entity_id: input_boolean.loop_livingcolors_2
-  - service: light.turn_off
-    data:
-      entity_id: light.deckenleuchte
+    - service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.loop_livingcolors_2
+    - service: light.turn_off
+      data:
+        entity_id: light.deckenleuchte
 
 - id: '1555301146'
   alias: Stop playing PS4
   trigger:
-  - entity_id: media_player.playstation_4
-    from: playing
-    platform: state
+    - platform: state
+      entity_id: media_player.playstation_4
+      from: playing
+
   condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-  - after: '21:00:00'
-    condition: time
-  - condition: state
-    entity_id: !secret person_1
-    state: home
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
+    - condition: time
+      after: '21:00:00'
+    - condition: state
+      entity_id: !secret person_1
+      state: home
   action:
-  - service: scene.turn_on
-    data:
-      entity_id: scene.deckenleuchte_grp_nightlight
+    - service: scene.turn_on
+      data:
+        entity_id: scene.deckenleuchte_grp_nightlight
 
 - id: '1519077406'
   alias: Ready for bed
@@ -138,60 +139,58 @@
     at: '21:30:00'
     platform: time
   condition:
-  - condition: state
-    entity_id: sun.sun
-    state: below_horizon
-  - condition: state
-    entity_id: !secret person_1
-    state: home
-  - condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: 'on'
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
+    - condition: state
+      entity_id: !secret person_1
+      state: home
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
   action:
-  - service: scene.turn_on
-    data:
-      entity_id: scene.deckenleuchte_grp_nightlight
-    
+    - service: scene.turn_on
+      data:
+        entity_id: scene.deckenleuchte_grp_nightlight
+
 - id: "1563723839"
   alias: turn bathroom lights off
   trigger:
-  - platform: state
-    entity_id: light.badezimmer
-    to: 'on'
-    for:
-      minutes: 45
-  action:
-  - service: light.turn_off
-    data:
+    - platform: state
       entity_id: light.badezimmer
+      to: 'on'
+      for:
+        minutes: 45
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.badezimmer
 - id: "1563724325"
   alias: turn toilet lights off 2
   trigger:
-  - platform: state
-    entity_id: light.toilette
-    to: 'on'
-    for:
-      minutes: 25
-  action:
-  - service: light.turn_off
-    data:
+    - platform: state
       entity_id: light.toilette
+      to: 'on'
+      for:
+        minutes: 25
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.toilette
 - id: "1569688815"
   alias: turn toilet lights off
   trigger:
-  - platform: state
-    entity_id: binary_sensor.motion_sensor
-    to: 'off'
-    # for:
-    #   minutes: 5
+    - platform: state
+      entity_id: binary_sensor.motion_sensor
+      to: 'off'
   condition:
     condition: state
     entity_id: light.toilette
     state: 'on'
   action:
-  - service: light.turn_off
-    data:
-      entity_id: light.toilette
+    - service: light.turn_off
+      data:
+        entity_id: light.toilette
 - id: "1569688816"
   alias: turn toilet lights on
   trigger:
@@ -203,7 +202,7 @@
     entity_id: light.toilette
     state: 'off'
   action:
-  - service: light.turn_on
-    data_template:
-      entity_id: light.toilette
-      brightness_pct: '{% if "07:00" < states.sensor.time.state < "22:00" %}100{% else %}5{% endif %}'
+    - service: light.turn_on
+      data_template:
+        entity_id: light.toilette
+        brightness_pct: '{% if "07:00" < states.sensor.time.state < "22:00" %}100{% else %}5{% endif %}'

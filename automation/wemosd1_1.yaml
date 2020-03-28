@@ -5,16 +5,14 @@
     at: 09:15:00
   condition:
     condition: template
-    value_template: '{{ states.sensor.sonoff_maddox_version.state | replace("v", "")
-      != states.sensor.wemosd1_version.state[:5] }}'
+    value_template: '{{ states.sensor.sonoff_maddox_version.state | replace("v", "") != states.sensor.wemosd1_version.state[:5] }}'
   action:
-  - service: !secret notify_ios
-    data_template:
-      message: 'Sonoff-Tasmota version {{ states.sensor.sonoff_maddox_version.state
-        | replace("v", "") }} is available. Do you wish to upgrade? Changelog: https://is.gd/tasmota'
-      data:
-        push:
-          category: wemos_a_update
+    - service: !secret notify_ios
+      data_template:
+        message: 'Sonoff-Tasmota version {{ states.sensor.sonoff_maddox_version.state | replace("v", "") }} is available. Do you wish to upgrade? Changelog: https://is.gd/tasmota'
+        data:
+          push:
+            category: wemos_a_update
 
 - alias: upgrade tasmota wemosd1 1
   id: '1556957335'
@@ -24,4 +22,4 @@
     event_data:
       actionName: WEMOS_A_UPGRADE
   action:
-  - service: script.tasmota_upgrade_wemosd1_1
+    - service: script.tasmota_upgrade_wemosd1_1

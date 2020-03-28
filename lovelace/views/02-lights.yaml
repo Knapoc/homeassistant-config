@@ -50,8 +50,8 @@
                     card:
                       - width: 5px
                       - height: 60px
-            
-  # You can change the entity_id and icon of the first button here   
+
+  # You can change the entity_id and icon of the first button here
                 - type: 'custom:button-card' # button
                   entity: light.deckenleuchte
                   icon: 'mdi:wall-sconce-flat'
@@ -65,16 +65,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                        
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -100,7 +100,7 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the second button here   
+  # You can change the entity_id and icon of the second button here
                 - type: 'custom:button-card' # button
                   entity: light.stehlampe
                   icon: 'mdi:floor-lamp'
@@ -114,16 +114,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.stehlampe', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.stehlampe', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.stehlampe', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                         
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -149,7 +149,7 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the third button here   
+  # You can change the entity_id and icon of the third button here
                 - type: 'custom:button-card' # button
                   entity: input_boolean.loop_livingcolors_2
                   icon: 'mdi:sync'
@@ -163,16 +163,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_2', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_2', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_2', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_2', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_2', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_2', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_2', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                           
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -240,12 +240,12 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') %}
                           -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') %}
                           -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                 
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -264,13 +264,13 @@
                 - type: vertical-stack
                   cards:
       # This is the text beside the first button
-      # Change this to what you want it to say          
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Bright
                       style: |
                         ha-card {
-                          height: 20px;                  
+                          height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                         }
@@ -281,7 +281,7 @@
                           letter-spacing: '-0.01em';
                         }
       # This is the smaller text beside the first button
-      # Change this to what you want it to say                
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Warm white on full brightness
@@ -330,12 +330,12 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') %}
                           -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') %}
                           -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                 
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -354,13 +354,13 @@
                 - type: vertical-stack
                   cards:
       # This is the text beside the second button
-      # Change this to what you want it to say          
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Energize
                       style: |
                         ha-card {
-                          height: 20px;                  
+                          height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                         }
@@ -371,7 +371,7 @@
                           letter-spacing: '-0.01em';
                         }
       # This is the smaller text beside the second button
-      # Change this to what you want it to say                
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Cool daylight
@@ -420,12 +420,12 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') %}
                           -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') %}
                           -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                 
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -444,13 +444,13 @@
                 - type: vertical-stack
                   cards:
       # This is the text beside the third button
-      # Change this to what you want it to say          
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Read
                       style: |
                         ha-card {
-                          height: 20px;                  
+                          height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                         }
@@ -461,7 +461,7 @@
                           letter-spacing: '-0.01em';
                         }
       # This is the smaller text beside the third button
-      # Change this to what you want it to say                
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Daylight to read
@@ -510,12 +510,12 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') %}
                           -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') %}
                           -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                 
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -534,13 +534,13 @@
                 - type: vertical-stack
                   cards:
       # This is the text beside the third button
-      # Change this to what you want it to say          
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Nightlight
                       style: |
                         ha-card {
-                          height: 20px;                  
+                          height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                         }
@@ -551,7 +551,7 @@
                           letter-spacing: '-0.01em';
                         }
       # This is the smaller text beside the third button
-      # Change this to what you want it to say                
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Warm light dimmed
@@ -614,8 +614,8 @@
                     card:
                       - width: 5px
                       - height: 60px
-            
-  # You can change the entity_id and icon of the first button here   
+
+  # You can change the entity_id and icon of the first button here
                 - type: 'custom:button-card' # button
                   entity: light.deckenspots
                   icon: 'mdi:track-light'
@@ -629,16 +629,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenspots', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenspots', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenspots', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                        
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -664,7 +664,7 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the second button here   
+  # You can change the entity_id and icon of the second button here
                 - type: 'custom:button-card' # button
                   entity: light.hue_spot_1
                   icon: 'mdi:lightbulb'
@@ -678,16 +678,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_1', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_1', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_1', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_1', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_1', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_1', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_1', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                         
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -713,7 +713,7 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the third button here   
+  # You can change the entity_id and icon of the third button here
                 - type: 'custom:button-card' # button
                   entity: light.hue_spot_2
                   icon: 'mdi:lightbulb'
@@ -727,16 +727,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_2', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_2', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_2', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_2', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_2', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_2', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_2', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                           
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -762,7 +762,7 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the fourth button here   
+  # You can change the entity_id and icon of the fourth button here
                 - type: 'custom:button-card' # button
                   entity: light.hue_spot_3
                   icon: 'mdi:lightbulb'
@@ -776,16 +776,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_3', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_3', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_3', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_3', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_3', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_3', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_3', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}     
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -811,7 +811,7 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the fifth button here 
+  # You can change the entity_id and icon of the fifth button here
                 - type: 'custom:button-card' # button
                   entity: input_boolean.loop_livingcolors_1
                   icon: 'mdi:sync'
@@ -825,16 +825,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_1r', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_1', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_1', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_1', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_1', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_1', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_1', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}     
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -915,12 +915,12 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') %}
                           -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') %}
                           -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                 
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -939,13 +939,13 @@
                 - type: vertical-stack
                   cards:
       # This is the text beside the first button
-      # Change this to what you want it to say          
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Bright
                       style: |
                         ha-card {
-                          height: 20px;                  
+                          height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                         }
@@ -956,7 +956,7 @@
                           letter-spacing: '-0.01em';
                         }
       # This is the smaller text beside the first button
-      # Change this to what you want it to say                
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Warm white on full brightness
@@ -1005,12 +1005,12 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') %}
                           -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') %}
                           -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                 
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -1029,13 +1029,13 @@
                 - type: vertical-stack
                   cards:
       # This is the text beside the second button
-      # Change this to what you want it to say          
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Energize
                       style: |
                         ha-card {
-                          height: 20px;                  
+                          height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                         }
@@ -1046,7 +1046,7 @@
                           letter-spacing: '-0.01em';
                         }
       # This is the smaller text beside the second button
-      # Change this to what you want it to say                
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Cool daylight
@@ -1095,12 +1095,12 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') %}
                           -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') %}
                           -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                 
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -1119,13 +1119,13 @@
                 - type: vertical-stack
                   cards:
       # This is the text beside the third button
-      # Change this to what you want it to say          
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Read
                       style: |
                         ha-card {
-                          height: 20px;                  
+                          height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                         }
@@ -1136,7 +1136,7 @@
                           letter-spacing: '-0.01em';
                         }
       # This is the smaller text beside the third button
-      # Change this to what you want it to say                
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Daylight to read
@@ -1185,12 +1185,12 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') %}
                           -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') %}
                           -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                 
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -1209,13 +1209,13 @@
                 - type: vertical-stack
                   cards:
       # This is the text beside the third button
-      # Change this to what you want it to say          
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Nightlight
                       style: |
                         ha-card {
-                          height: 20px;                  
+                          height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                         }
@@ -1226,7 +1226,7 @@
                           letter-spacing: '-0.01em';
                         }
       # This is the smaller text beside the third button
-      # Change this to what you want it to say                
+      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Warm light dimmed
@@ -1289,8 +1289,8 @@
                     card:
                       - width: 5px
                       - height: 60px
-      
-  # You can change the entity_id and icon of the first button here   
+
+  # You can change the entity_id and icon of the first button here
                 - type: 'custom:button-card' # button
                   entity: light.kuche
                   icon: 'mdi:silverware-fork-knife'
@@ -1304,16 +1304,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.kuche', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.kuche', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.kuche', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                        
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -1339,7 +1339,7 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the second button here   
+  # You can change the entity_id and icon of the second button here
                 - type: 'custom:button-card' # button
                   entity: light.light_10
                   icon: 'mdi:lightbulb'
@@ -1353,16 +1353,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.light_10', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_10', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_10', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_10', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_10', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_10', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_10', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                         
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -1388,7 +1388,7 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the third button here   
+  # You can change the entity_id and icon of the third button here
                 - type: 'custom:button-card' # button
                   entity: light.light_11
                   icon: 'mdi:lightbulb'
@@ -1402,16 +1402,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.light_11', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_11', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_11', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_11', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_11', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_11', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_11', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                           
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -1471,8 +1471,8 @@
                     card:
                       - width: 5px
                       - height: 60px
-      
-  # You can change the entity_id and icon of the first button here   
+
+  # You can change the entity_id and icon of the first button here
                 - type: 'custom:button-card' # button
                   entity: light.badezimmer
                   icon: 'mdi:shower'
@@ -1486,16 +1486,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.badezimmer', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.badezimmer', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.badezimmer', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.badezimmer', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.badezimmer', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.badezimmer', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.badezimmer', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                        
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -1521,7 +1521,7 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the second button here   
+  # You can change the entity_id and icon of the second button here
                 - type: 'custom:button-card' # button
                   entity: light.toilette
                   icon: 'mdi:paper-roll'
@@ -1535,16 +1535,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.toilette', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.toilette', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.toilette', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.toilette', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.toilette', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.toilette', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.toilette', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                         
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -1570,7 +1570,7 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the third button here   
+  # You can change the entity_id and icon of the third button here
                 - type: 'custom:button-card' # button
                   entity: light.vorzimmer
                   icon: 'mdi:ceiling-light'
@@ -1584,16 +1584,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.vorzimmer', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.vorzimmer', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.vorzimmer', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.vorzimmer', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.vorzimmer', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.vorzimmer', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.vorzimmer', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                           
+                        {% endif %}
                     }
                   styles:
                     card:
@@ -1619,7 +1619,7 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the fourth button here   
+  # You can change the entity_id and icon of the fourth button here
                 - type: 'custom:button-card' # button
                   entity: light.schreibtischlampe
                   icon: 'mdi:desk-lamp'
@@ -1633,16 +1633,16 @@
   # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.schreibtischlampe', 'on') %}
                           inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.schreibtischlampe', 'off') %}                      
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.schreibtischlampe', 'off') %}
                           -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.schreibtischlampe', 'on') %}                      
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3); 
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.schreibtischlampe', 'off') %}   
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.schreibtischlampe', 'on') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.schreibtischlampe', 'off') %}
                           -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}                           
+                        {% endif %}
                     }
                   styles:
                     card:

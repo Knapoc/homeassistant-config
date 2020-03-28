@@ -36,14 +36,14 @@
             - type: entities
               entities:
                 - entity: sensor.sonoff_maddox_version
-                  name: Tasmota Version 
+                  name: Tasmota Version
                 - entity: automation.get_tasmota_device_info
                   name: Tasmota Statusabfrage
               style: |
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -102,7 +102,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -153,7 +153,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -180,7 +180,7 @@
                     ha-card {
                       background-color: var(--primary-background-color);
                       border-radius: 15px;
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') %}
                           -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                         {% else %}
@@ -263,7 +263,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -290,7 +290,7 @@
                     ha-card {
                       background-color: var(--primary-background-color);
                       border-radius: 15px;
-                      box-shadow: 
+                      box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') %}
                           -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                         {% else %}

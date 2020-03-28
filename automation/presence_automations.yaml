@@ -1,51 +1,51 @@
 - alias: left home device1
   id: '1515583360'
   trigger:
-  - entity_id: !secret person_1
-    for:
-      minutes: 5
-    from: home
-    platform: state
-    to: not_home
+    - platform: state
+      entity_id: !secret person_1
+      from: home
+      to: not_home
+      for:
+        minutes: 5
   action:
-  - service: homeassistant.turn_off
-    data:
-      entity_id:
-      - media_player.braviatv_1
-      - media_player.playstation_4
-      - light.schlafzimmer
-      - light.badezimmer
-      - light.kuche
-      - light.vorzimmer
-      - light.toilette
-      - light.wohnzimmer
-      - input_boolean.loop_livingcolors_1
-      - input_boolean.loop_livingcolors_2
+    - service: homeassistant.turn_off
+      data:
+        entity_id:
+          - media_player.braviatv_1
+          - media_player.playstation_4
+          - light.schlafzimmer
+          - light.badezimmer
+          - light.kuche
+          - light.vorzimmer
+          - light.toilette
+          - light.wohnzimmer
+          - input_boolean.loop_livingcolors_1
+          - input_boolean.loop_livingcolors_2
 
 - id: '1553547958'
   alias: Turn off magic mirror
   trigger:
-  - entity_id: sensor.is_home
-    for:
-      minutes: 15
-    from: 'true'
-    platform: state
-    to: 'false'
+    - platform: state
+      entity_id: sensor.is_home
+      from: 'true'
+      to: 'false'
+      for:
+        minutes: 15
   action:
-  - data:
-      entity_id: switch.magic_mirror
-    service: switch.turn_off
+    - service: switch.turn_off
+      data:
+        entity_id: switch.magic_mirror
 
 - id: '1553548399'
   alias: Turn on magic mirror
   trigger:
-  - entity_id: !secret person_1
-    platform: state
-    to: home
+    - platform: state
+      entity_id: !secret person_1
+      to: home
   action:
-  - data:
-      entity_id: switch.magic_mirror
-    service: switch.turn_on
+    - service: switch.turn_on
+      data:
+        entity_id: switch.magic_mirror
 
 - alias: Lights and TV off
   id: '1553548400'
@@ -58,14 +58,14 @@
     entity_id: binary_sensor.workday_sensor
     state: 'on'
   action:
-  - service: homeassistant.turn_off
-    data:
-      entity_id:
-      - media_player.braviatv_1
-      - media_player.playstation_4
-      - light.schlafzimmer
-      - light.badezimmer
-      - light.kuche
-      - light.vorzimmer
-      - light.toilette
-      - light.wohnzimmer
+    - service: homeassistant.turn_off
+      data:
+        entity_id:
+          - media_player.braviatv_1
+          - media_player.playstation_4
+          - light.schlafzimmer
+          - light.badezimmer
+          - light.kuche
+          - light.vorzimmer
+          - light.toilette
+          - light.wohnzimmer

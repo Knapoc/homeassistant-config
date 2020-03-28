@@ -74,7 +74,7 @@ grey_night:
   paper-toggle-button-unchecked-button-color: "hsl(var(--huesat) 25%)"
   primary-background-color: "hsl(var(--huesat) 16%)"
   primary-color: "#575a5f"
-  #primary-color: "hsl(var(--huesat) 36%)"
+  # primary-color: "hsl(var(--huesat) 36%)"
   primary-text-color: "hsl(var(--huesat) 90%)"
   secondary-background-color: "hsl(var(--huesat) 16%)"
   secondary-text-color: "hsl(var(--huesat) 80%)"

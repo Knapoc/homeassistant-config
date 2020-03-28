@@ -104,7 +104,7 @@ Google - Dark:
   sidebar-selected-background-color: var(--primary-background-color)
   sidebar-selected-icon-color: "#4284F4"
   sidebar-selected-text-color: var(--sidebar-selected-icon-color)
-  ### States and Badges ### 
+  ### States and Badges ###
   state-icon-color: "#ffffff"
   state-icon-active-color: "#ffb750"
   state-icon-unavailable-color: var(--disabled-text-color)

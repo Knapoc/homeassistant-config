@@ -49,7 +49,7 @@
                   - height: 60px
             - type: entities
               # title: Informationen
-              show_header_toggle: false          
+              show_header_toggle: false
               entities:
                 - entity: sensor.last_boot
                   name: Server Uptime
@@ -63,7 +63,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -117,7 +117,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -141,7 +141,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -207,7 +207,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -234,7 +234,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -261,7 +261,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -314,7 +314,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -341,7 +341,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -368,7 +368,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -450,7 +450,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -530,7 +530,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -600,7 +600,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -677,7 +677,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -745,7 +745,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}

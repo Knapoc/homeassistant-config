@@ -3,11 +3,8 @@
 
 - platform: systemmonitor
   resources:
-    # - type: disk_free
-    #   arg: /
     - type: disk_use_percent
       arg: /
-    # - type: memory_free
     - type: memory_use_percent
     - type: processor_use
     - type: network_in
@@ -50,7 +47,7 @@
       unit_of_measurement: MB
 
 - platform: fail2ban
-  file_path: /fail2ban/fail2ban.log
+  file_path: !secret path_fail2ban
   scan_interval: 180
   jails:
     - homeassistant

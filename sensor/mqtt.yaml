@@ -1,19 +1,19 @@
-#- platform: mqtt
-#  name: sonoff_3028_version
-#  state_topic: "sonoff_3082/stat/STATUS2"
-#  value_template: "{{ value_json['StatusFWR'].Version[:5] }}"
+# - platform: mqtt
+#   name: sonoff_3028_version
+#   state_topic: "sonoff_3082/stat/STATUS2"
+#   value_template: "{{ value_json['StatusFWR'].Version[:5] }}"
 
-#- platform: mqtt
-#  name: sonoff_office_temperature
-#  state_topic: "sonoff_3082/tele/SENSOR"
-#  value_template: "{{ value_json['AM2301'].Temperature }}"
-#  unit_of_measurement: "°C"
+# - platform: mqtt
+#   name: sonoff_office_temperature
+#   state_topic: "sonoff_3082/tele/SENSOR"
+#   value_template: "{{ value_json['AM2301'].Temperature }}"
+#   unit_of_measurement: "°C"
 
-#- platform: mqtt
-#  name: sonoff_office_humidity
-#  state_topic: "sonoff_3082/tele/SENSOR"
-#  value_template: "{{ value_json['AM2301'].Humidity }}"
-#  unit_of_measurement: "%"
+# - platform: mqtt
+#   name: sonoff_office_humidity
+#   state_topic: "sonoff_3082/tele/SENSOR"
+#   value_template: "{{ value_json['AM2301'].Humidity }}"
+#   unit_of_measurement: "%"
 
 - platform: mqtt
   name: wemosd1_room_temperature
@@ -27,24 +27,23 @@
   value_template: "{{ value_json['SHT3X-0x45'].Humidity }}"
   unit_of_measurement: "%"
 
-#- platform: mqtt
-#  name: sonoff_uptime
-#  state_topic: "sonoff_3082/tele/STATE"
-#  #value_template: "{{ value_json.Uptime }}"
-#  value_template: "{{ ((value_json.Uptime[:1] | int * 24) + (value_json.Uptime[2:4] | int) + (value_json.Uptime[5:7] | int / 60) + (value_json.Uptime[8:10] | int / 60 / 60))|round(2) }}"
-#  unit_of_measurement: "hours"
+# - platform: mqtt
+#   name: sonoff_uptime
+#   state_topic: "sonoff_3082/tele/STATE"
+#   value_template: "{{ (value_json.UptimeSec | float / 60 / 60) | round(2) }}"
+#   unit_of_measurement: "hours"
 
-#- platform: mqtt
-#  name: sonoff_rssi
-#  state_topic: "sonoff_3082/tele/STATE"
-#  value_template: "{{ value_json['Wifi'].RSSI }}"
-#  unit_of_measurement: "dBm"
+# - platform: mqtt
+#   name: sonoff_rssi
+#   state_topic: "sonoff_3082/tele/STATE"
+#   value_template: "{{ value_json['Wifi'].RSSI }}"
+#   unit_of_measurement: "dBm"
 
-#- platform: mqtt
-#  name: sonoff_vcc
-#  state_topic: "sonoff_3082/tele/STATE"
-#  value_template: "{{ value_json.Vcc }}"
-#  unit_of_measurement: "V"
+# - platform: mqtt
+#   name: sonoff_vcc
+#   state_topic: "sonoff_3082/tele/STATE"
+#   value_template: "{{ value_json.Vcc }}"
+#   unit_of_measurement: "V"
 
 - platform: mqtt
   name: s20_mm_uptime

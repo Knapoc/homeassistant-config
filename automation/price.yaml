@@ -52,5 +52,3 @@
     service: !secret notify_ios
     data_template:
       message: '{{ trigger.event.data.old_state.attributes.friendly_name }} is on sale.'
-
-      

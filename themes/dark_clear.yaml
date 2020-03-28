@@ -14,7 +14,7 @@ dark_clear:
   # Header
   primary-color: '#636B75'                                                        # Background
   text-primary-color: 'var(--text-color)'                                         # Text
-  
+
   # Left Menu
   paper-listbox-background-color: 'var(--background-color)'                       # Background
   sidebar-icon-color: 'var(--text-medium-color)'                                  # icons
@@ -25,7 +25,7 @@ dark_clear:
   paper-card-header-color: 'var(--text-color)'                                    # Title in settings
   primary-background-color: 'var(--background-color)'                             # Background (also title background in left menu)
   mdc-theme-primary: 'var(--accent-medium-color)'                                 # Action Buttons (save, restart etc.)
-  
+
   # Card
   paper-card-background-color: 'var(--background-card-color)'                     # Background
   dark-primary-color: 'var(--text-color)'
@@ -40,15 +40,15 @@ dark_clear:
   # Icons
   paper-item-icon-color: 'var(--text-dark-color)'                                 # Off
   paper-item-icon-active-color: 'var(--accent-color)'                             # On
-  
+
   # Switches
   paper-toggle-button-checked-button-color: 'var(--text-medium-light-color)'      # Knob On
   paper-toggle-button-checked-bar-color: '#009FFF'                                # Background On
   paper-toggle-button-unchecked-button-color: 'var(--text-medium-light-color)'    # Knob Off
   paper-toggle-button-unchecked-bar-color: '#767682'                              # Background Off
-  
+
   # Sliders
-  #paper-slider-active-color: '#008bef'
+  # paper-slider-active-color: '#008bef'
 
   # Shadows
   shadow-elevation-2dp_-_box-shadow: 'inset 0px 0px 0px 1px var(--border-color)'
@@ -60,17 +60,17 @@ dark_clear:
   shadow-elevation-14dp_-_box-shadow: 'var(--shadow-elevation-2dp_-_box-shadow)'
   shadow-elevation-16dp_-_box-shadow: '0px 0px 0px 3px var(--text-dark-color)'
 
- #Changes to fix history/logbook menus
+ # Changes to fix history/logbook menus
   lumo-primary-text-color: 'var(--text-color)'
   lumo-secondary-text-color: 'var(--text-medium-color)'
   lumo-primary-color: 'var(--primary-color)'
-  #Calendar day numbers
+  # Calendar day numbers
   lumo-body-text-color: 'var(--text-color)'
-  #Calendar/Date-Picker Background
+  # Calendar/Date-Picker Background
   lumo-base-color: 'var(--background-color)'
-  #Month/Year header
+  # Month/Year header
   lumo-header-text-color: 'var(--lumo-body-text-color)'
-  #DayOfWeek Header
+  # DayOfWeek Header
   lumo-tertiary-text-color: 'var(--lumo-body-text-color)'
   lumo-shade: 'var(--background-color)'
   lumo-shade-90pct: 'rgba(34, 34, 34, .9)'
@@ -86,5 +86,5 @@ dark_clear:
   lumo-tint-5pct: 'var(--background-color)'
   lumo-contrast-10pct: 'rgba(0, 0, 0, 0)'
 
-  #paper-item-icon-color
-  #disabled-text-color
+  # paper-item-icon-color
+  # disabled-text-color

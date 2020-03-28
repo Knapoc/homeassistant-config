@@ -10,8 +10,8 @@ homeassistant:
   customize_glob: !include customization/customize_global.yaml
   auth_providers:
     - type: homeassistant
-#    - type: legacy_api_password
-#      api_password: !secret http_password
+   # - type: legacy_api_password
+   #   api_password: !secret http_password
   whitelist_external_dirs:
     - /tmp/diskinfo
 
@@ -30,7 +30,7 @@ http:
 #     url: !secret kibana_url
 #     icon: mdi:alpha-k-box
 
-### default config
+# default config
 automation: !include_dir_merge_list automation/
 config:
 conversation:
@@ -63,7 +63,7 @@ recorder:
   exclude: !include recorder_exclude.yaml
 scene: !include scenes.yaml
 script: !include_dir_merge_named script/
-#ssdp:
+# ssdp:
 sun:
 system_health:
 updater:
@@ -73,7 +73,7 @@ zeroconf:
 ### one liners
 binary_sensor: !include binary_sensor.yaml
 breaking_changes:
-#camera: !include camera.yaml
+# camera: !include camera.yaml
 counter: !include counter.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
@@ -110,11 +110,11 @@ hacs:
 
 eufy_vacuum:
   devices:
-  - name: Robovac
-    address: !secret robovac_ip
-    access_token: !secret robovac_localkey
-    id: !secret robovac_devid
-    type: T2118
+    - name: Robovac
+      address: !secret robovac_ip
+      access_token: !secret robovac_localkey
+      id: !secret robovac_devid
+      type: T2118
 
 mqtt:
   broker: !secret host_ip
@@ -144,7 +144,7 @@ speedtestdotnet:
     - download
     - upload
   scan_interval:
-     hours: 3
+    hours: 3
 
 weather:
   - platform: darksky

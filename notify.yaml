@@ -13,4 +13,3 @@
 - name: file
   platform: file
   filename: notifications.log
-

@@ -1,7 +1,7 @@
 auto_start: false
 port: 51827
 advertise_ip: !secret host_ip
-#safe_mode: true
+# safe_mode: true
 filter:
   include_domains:
     # - media_playerh

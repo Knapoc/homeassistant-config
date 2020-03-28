@@ -2,9 +2,9 @@
   path: blinds
   icon: mdi:window-closed
   cards:
-    - type: vertical-stack # left column
+    - type: vertical-stack  # left column
       cards:
-        - type: markdown ### column
+        - type: markdown  ### column
           content: |
             # Living room
           style: |
@@ -59,7 +59,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -78,7 +78,7 @@
                 card:
                   - width: 5px
                   - height: 10px
-        - type: markdown ### column
+        - type: markdown  ### column
           content: |
             # Bed room
           style: |
@@ -133,7 +133,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -152,7 +152,7 @@
                 card:
                   - width: 5px
                   - height: 10px
-        - type: markdown ### column
+        - type: markdown  ### column
           content: |
             # Settings
           style: |
@@ -209,7 +209,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow: 
+                  box-shadow:
                     {% if is_state('sun.sun', 'above_horizon') %}
                       -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
                     {% else %}
@@ -228,7 +228,7 @@
                 card:
                   - width: 5px
                   - height: 10px
-        
+
         - type: 'custom:button-card'
           show_icon: false
           show_name: false
@@ -241,6 +241,3 @@
             card:
               - width: 5px
               - height: 10px
-      
-        
-    

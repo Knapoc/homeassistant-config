@@ -8,16 +8,16 @@ custom_header:
   hide_config: true
   hidden_tab_redirect: false
   hide_tabs:
-   - plants
-   - settings
-   - price
-  
+    - plants
+    - settings
+    - price
+
 x-vacuum-buttons: &vacuum-buttons
   color: auto
   entity: vacuum.robovac
   size: 25%
 
-#background: center / cover repeat-y url("/local/background/dark-wp.jpg") fixed
+# background: center / cover repeat-y url("/local/background/dark-wp.jpg") fixed
 
 excluded_entities: !include /config/lovelace/excluded-entities.yaml
 

@@ -6,20 +6,20 @@
   condition:
     condition: and
     conditions:
-    - condition: state
-      entity_id: input_boolean.wakeup
-      state: 'on'
-    - condition: state
-      entity_id: !secret person_1
-      state: home
-    - condition: or
-      conditions:
       - condition: state
-        entity_id: input_boolean.wakeup_weekends
+        entity_id: input_boolean.wakeup
         state: 'on'
       - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'on'
+        entity_id: !secret person_1
+        state: home
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: input_boolean.wakeup_weekends
+            state: 'on'
+          - condition: state
+            entity_id: binary_sensor.workday_sensor
+            state: 'on'
   action:
     service: cover.open_cover
     data_template:
@@ -35,8 +35,6 @@
     platform: template
     value_template: "{{ states('sensor.time') == (state_attr('input_datetime.time_close_covers_night', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
   condition:
-    condition: and
-    conditions:
     - condition: state
       entity_id: !secret person_1
       state: home
