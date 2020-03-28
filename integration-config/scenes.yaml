@@ -1,0 +1,38 @@
+- id: '1579369073739'
+  name: TV at night
+  entities:
+    input_boolean.loop_livingcolors_2:
+      state: 'on'
+    light.deckenleuchte:
+      state: 'off'
+    light.stehlampe:
+      state: 'on'
+    media_player.braviatv_1:
+      device_class: tv
+      friendly_name: Sony Bravia TV
+      icon: mdi:television
+      media_content_id: Netflix
+      media_content_type: tvshow
+      state: 'on'
+      supported_features: 24509
+      volume_level: 0.11
+- id: '1579373198256'
+  name: Gaming
+  entities:
+    input_boolean.loop_livingcolors_2:
+      state: 'on'
+    light.deckenleuchte:
+      brightness: 2
+      color_temp: 451
+      friendly_name: Deckenleuchte
+      is_deconz_group: false
+      max_mireds: 500
+      min_mireds: 153
+      state: 'on'
+      supported_features: 43
+    media_player.braviatv_1:
+      source: HDMI 2
+      state: 'on'
+      volume_level: 0.17
+    media_player.playstation_4:
+      state: idle

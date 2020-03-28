@@ -1,0 +1,17 @@
+domains:
+  - frontend
+entities:
+  - sensor.time
+  - sensor.date
+  - sensor.season
+  - sensor.sonoff_maddox_version
+  - sensor.sonoff_3028_version
+  - sensor.wakeup_alarm_time
+  - sensor.wakeup_fadein_duration
+  - sensor.wakeup_start_time_lights
+  - automation.automatic_theme_change
+  - sensor.uptime
+  - sensor.uberx_time
+  - sensor.uberx_price
+  - sensor.network_in_eth0
+  - sensor.network_out_eth0

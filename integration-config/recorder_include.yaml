@@ -1,0 +1,12 @@
+domains:
+  - media_player
+  - sensor
+  - light
+  - device_tracker
+  - person
+  - switch
+  - automation
+  - vacuum
+  - cover
+entities:
+  - binary_sensor.presence_10

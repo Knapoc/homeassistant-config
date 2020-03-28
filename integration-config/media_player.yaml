@@ -1,0 +1,59 @@
+- platform: braviatv_psk
+  name: braviatv_1
+  host: !secret tv_tv1_ip
+  psk: !secret tv_tv1_psk
+  mac: !secret tv_tv1_mac
+  android: true
+  sourcefilter:
+    - 'HDMI 1'
+    - 'HDMI 2'
+    - 'HDMI 3/ARC'
+    - 'HDMI 4'
+    - 'ORF eins HD'
+    - 'ORF 2 Wien HD'
+    - 'ATV HD'
+    - 'PULS 4 HD'
+    # - 'Sixx Austria'
+    - 'Servus TV HD'
+    - 'Das Erste HD'
+    - 'ZDF HD'
+    - 'ORF III HD'
+    - 'ProSieben HD'
+    # - 'RTL'
+    - 'SAT.1 HD'
+    - 'RTL II'
+    - 'kabel eins HD'
+    - 'VOX'
+    - 'ATV II HD'
+    - 'kabel eins Doku'
+    - 'arte HD'
+    - 'N24 doku'
+    - 'ntv'
+    # - 'Phoenix HD'
+    # - 'Comedy Central/VIVA HD'
+    - 'ZDF neo HD'
+    - 'ZDF info HD'
+    # - 'SRF info HD'
+    # - 'MTV HD'
+    # - 'gotv'
+    - 'Sky 1 HD'
+    - 'PULS24 HD'
+    - 'One HD'
+    - 'Sky Sport HD 1'
+    - 'Sky Sport HD 2'
+    - 'Sky Sport Austria 1 HD'
+    - 'Sky Sport Austria 2 HD'
+    # - 'Sky Sport Austria 3 HD'
+    # - 'Sky Sport Austria 4 HD'
+    - 'ORF Sport+ HD'
+    # - 'Eurosport 1 HD'
+    # - 'Sky Sport News HD'
+    # - 'Sport 1 HD'
+- platform: ps4_node
+  host: !secret ps4waker_host
+  ps4_ip: !secret ps4_ip
+  imagemap_json: https://raw.githubusercontent.com/Knapoc/homeassistant-config/master/games.json
+# - platform: androidtv
+#   name: braviatv_android
+#   host: !secret tv_tv1_ip
+#   device_class: androidtv

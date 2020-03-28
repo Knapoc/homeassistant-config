@@ -41,7 +41,7 @@ frontend:
   javascript_version: latest
   themes: !include_dir_merge_named themes
 history:
-  include: !include history_include.yaml
+  include: !include integration-config/history_include.yaml
 logbook:
 logger:
   default: error
@@ -54,14 +54,14 @@ logger:
 lovelace: !include lovelace/lovelace.yaml
 map:
 mobile_app:
-person: !include person.yaml
+person: !include integration-config/person.yaml
 recorder:
   db_url: !secret mysql_db
   purge_interval: 1
   purge_keep_days: 30
-  include: !include recorder_include.yaml
-  exclude: !include recorder_exclude.yaml
-scene: !include scenes.yaml
+  include: !include integration-config/recorder_include.yaml
+  exclude: !include integration-config/recorder_exclude.yaml
+scene: !include integration-config/scenes.yaml
 script: !include_dir_merge_named script/
 # ssdp:
 sun:
@@ -71,27 +71,27 @@ updater:
 zeroconf:
 
 ### one liners
-binary_sensor: !include binary_sensor.yaml
+binary_sensor: !include integration-config/binary_sensor.yaml
 breaking_changes:
-# camera: !include camera.yaml
-counter: !include counter.yaml
-device_tracker: !include device_tracker.yaml
-group: !include groups.yaml
-homekit: !include homekit.yaml
-input_boolean: !include input_boolean.yaml
-input_datetime: !include input_datetime.yaml
-input_number: !include input_number.yaml
-input_select: !include input_select.yaml
-ios: !include ios.yaml
-# light: !include light.yaml
-media_player: !include media_player.yaml
-notify: !include notify.yaml
-plant: !include plant.yaml
+# camera: !include integration-config/camera.yaml
+counter: !include integration-config/counter.yaml
+device_tracker: !include integration-config/device_tracker.yaml
+group: !include integration-config/groups.yaml
+homekit: !include integration-config/homekit.yaml
+input_boolean: !include integration-config/input_boolean.yaml
+input_datetime: !include integration-config/input_datetime.yaml
+input_number: !include integration-config/input_number.yaml
+input_select: !include integration-config/input_select.yaml
+ios: !include integration-config/ios.yaml
+# light: !include integration-config/light.yaml
+media_player: !include integration-config/media_player.yaml
+notify: !include integration-config/notify.yaml
+plant: !include integration-config/plant.yaml
 sensor: !include_dir_merge_list sensor/
-shell_command: !include shell_command.yaml
-switch: !include switch.yaml
+shell_command: !include integration-config/shell_command.yaml
+switch: !include integration-config/switch.yaml
 # websocket_api:
-zone: !include zone.yaml
+zone: !include integration-config/zone.yaml
 
 ### other components
 asuswrt:

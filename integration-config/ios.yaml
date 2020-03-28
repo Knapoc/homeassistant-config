@@ -1,0 +1,62 @@
+push:
+  categories:
+    - name: Sonoff 3082 update
+      identifier: 'sonoff_a_update'
+      actions:
+        - identifier: 'DISMISS'
+          title: 'Dismiss'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+        - identifier: 'SONOFF_A_UPGRADE'
+          title: 'Upgrade Sonoff 3082'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+    - name: Sonoff 3463 update
+      identifier: 'sonoff_b_update'
+      actions:
+        - identifier: 'DISMISS'
+          title: 'Dismiss'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+        - identifier: 'SONOFF_B_UPGRADE'
+          title: 'Upgrade Sonoff 3463'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+    - name: Wemos D1 1 update
+      identifier: 'wemos_a_update'
+      actions:
+        - identifier: 'DISMISS'
+          title: 'Dismiss'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: no
+          behavior: 'default'
+        - identifier: 'WEMOS_A_UPGRADE'
+          title: 'Upgrade Wemos D1 1'
+          activationMode: 'background'
+          authenticationRequired: yes
+          destructive: yes
+          behavior: 'default'
+    - name: Staubsauger entleeren
+      identifier: 'emptyrobovac'
+      actions:
+        - identifier: 'EMPTY_ROBOVAC_LATER'
+          title: 'später'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
+          behavior: 'default'
+        - identifier: 'EMPTY_ROBOVAC_NOW'
+          title: 'jetzt'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: no
+          behavior: 'default'

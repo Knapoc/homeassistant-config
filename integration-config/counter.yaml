@@ -1,0 +1,5 @@
+vacuum_counter:
+    initial: 0
+    restore: true
+    step: 1
+    icon: mdi:history

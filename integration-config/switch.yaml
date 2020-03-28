@@ -1,0 +1,52 @@
+#- platform: mqtt
+#  name: wind machine
+#  command_topic: "sonoff_3082/cmnd/POWER"
+#  state_topic: "sonoff_3082/stat/POWER1"
+#  qos: 1
+#  payload_on: "ON"
+#  payload_off: "OFF"
+#  payload_available: "Online"
+#  payload_not_available: "Offline"
+#  retain: true
+
+- platform: mqtt
+  name: magic mirror power
+  command_topic: "sonoff_3463/cmnd/POWER"
+  state_topic: "sonoff_3463/stat/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+- platform: template
+  switches:
+    magic_mirror:
+      value_template: >
+        {% if is_state('binary_sensor.raspberry_pi', 'off') %}
+         False
+        {% else %}
+         True
+        {% endif %}
+      turn_on:
+        service: switch.turn_on
+        data:
+          entity_id: switch.magic_mirror_power
+      turn_off:
+        service: script.magic_mirror_shutdown
+    robovac:
+      value_template: >
+        {% if is_state('vacuum.robovac', 'off') %}
+         False
+        {% else %}
+         True
+        {% endif %}
+      turn_on:
+        service: vacuum.turn_on
+        data:
+          entity_id: vacuum.robovac
+      turn_off:
+        service: vacuum.turn_off
+        data:
+          entity_id: vacuum.robovac
