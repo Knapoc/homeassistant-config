@@ -57,7 +57,7 @@
                 - entity: sensor.uptime
                   name: Home-Assistant Uptime
                 - entity: sensor.ssl_certificate_expiry
-                  name: SSL-Zertifikatsgültigkeit
+                  name: Cert expiry
                   icon: mdi:certificate
               style: |
                 ha-card {
@@ -109,7 +109,7 @@
                   - width: 5px
                   - height: 60px
             - type: custom:mini-graph-card
-              name: Frequenz
+              name: Frequency
               points_per_hour: 2
               line_color: '#1c6bba'
               font_size: 65

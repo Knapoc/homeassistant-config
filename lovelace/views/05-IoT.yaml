@@ -36,9 +36,9 @@
             - type: entities
               entities:
                 - entity: sensor.sonoff_maddox_version
-                  name: Tasmota Version
+                  name: Tasmota version
                 - entity: automation.get_tasmota_device_info
-                  name: Tasmota Statusabfrage
+                  name: Tasmota status
               style: |
                 ha-card {
                   background-color: var(--primary-background-color);
@@ -171,10 +171,10 @@
                       name: IP
                       icon: mdi:map-marker
                     - entity: sensor.s20_mm_uptime
-                      name: Betriebszeit
+                      name: Uptime
                       icon: mdi:arrow-up-thick
                     - entity: sensor.s20_mm_rssi
-                      name: Signalstärke
+                      name: RSSI
                       icon: mdi:signal-variant
                   style: |
                     ha-card {
@@ -281,10 +281,10 @@
                       name: IP
                       icon: mdi:map-marker
                     - entity: sensor.wemosd1_uptime
-                      name: Betriebszeit
+                      name: Uptime
                       icon: mdi:arrow-up-thick
                     - entity: sensor.wemosd1_rssi
-                      name: Signalstärke
+                      name: RSSI
                       icon: mdi:signal-variant
                   style: |
                     ha-card {
