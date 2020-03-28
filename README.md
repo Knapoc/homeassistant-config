@@ -7,11 +7,7 @@
 [![GitHub Last Commit][last-commit-shield]][repo]
 ## Screenshots
 ![](screenshots/screenshot1.png)
-![](screenshots/screenshot5.png)
-![](screenshots/screenshot2.png)
-![](screenshots/screenshot6.png)
-![](screenshots/screenshot3.png)
-![](screenshots/screenshot4.png)
+[more Screenshots](screenshots/)
 
 [config-check-shield]: https://github.com/Knapoc/homeassistant-config/workflows/hass-config-check/badge.svg
 [last-commit-shield]: https://img.shields.io/github/last-commit/Knapoc/home-assistant-config.svg
