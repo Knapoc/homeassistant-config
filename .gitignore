@@ -106,4 +106,4 @@ onboarding
 ui-pics
 .vscode
 ui-lovelace-old.yaml
-custom_components/hacs/services.yaml
+config/custom_components/hacs/services.yaml
