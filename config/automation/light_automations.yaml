@@ -1,4 +1,5 @@
 ---
+# light automations
 
 - alias: WakeUp Light Bedroom
   id: '1500581870'

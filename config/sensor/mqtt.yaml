@@ -1,4 +1,5 @@
 ---
+# mqtt sensors
 
 - platform: mqtt
   name: wemosd1_room_temperature

@@ -1,4 +1,5 @@
 ---
+# notify config
 
 - name: smtp
   platform: smtp

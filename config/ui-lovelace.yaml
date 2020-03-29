@@ -4,7 +4,7 @@ title: Home
 
 custom_header:
   compact_mode: true
-  #background: var(--app-header-background-color);
+  # background: var(--app-header-background-color);
   # hide_header: true
   voice_hide: true
   hide_config: true

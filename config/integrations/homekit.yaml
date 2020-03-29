@@ -1,4 +1,5 @@
 ---
+# homekit config
 
 auto_start: false
 port: 51827

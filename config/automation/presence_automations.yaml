@@ -1,4 +1,5 @@
 ---
+# presence automations
 
 - alias: left home device1
   id: '1515583360'

@@ -1,4 +1,5 @@
 ---
+# sensor customization
 
 sensor.asuswrt_download:
   unit_of_measurement: GB

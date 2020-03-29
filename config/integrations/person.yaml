@@ -1,4 +1,5 @@
 ---
+# person configuration
 
 - name: !secret person_1_name
   id: !secret person_1_id

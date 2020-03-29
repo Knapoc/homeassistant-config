@@ -1,4 +1,5 @@
 ---
+# cover automations
 
 - alias: 'open covers in the morning'
   id: '1583686217'

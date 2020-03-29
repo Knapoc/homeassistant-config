@@ -1,4 +1,5 @@
 ---
+# input configuration
 
 time_turnoff_devices:
   name: Turn-off time devices

@@ -1,4 +1,5 @@
 ---
+# my home assistant configuration
 
 homeassistant:
   name: Home
@@ -12,8 +13,6 @@ homeassistant:
   customize_glob: !include customization/customize_global.yaml
   auth_providers:
     - type: homeassistant
-   # - type: legacy_api_password
-   #   api_password: !secret http_password
   whitelist_external_dirs:
     - /tmp/diskinfo
 
@@ -23,22 +22,10 @@ http:
     - !secret proxy_ip
   base_url: !secret hass_baseurl
 
-# panel_iframe:
-#   # portainer:
-#   #   title: 'Portainer'
-#   #   url: !secret portainer_url
-#   kibana:
-#     title: 'Kibana'
-#     url: !secret kibana_url
-#     icon: mdi:alpha-k-box
-
 # default config
 automation: !include_dir_merge_list automation/
 config:
 conversation:
-# discovery:
-#   ignore:
-#     - google_cast
 frontend:
   javascript_version: latest
   themes: !include_dir_merge_named themes
@@ -65,7 +52,6 @@ recorder:
   exclude: !include integrations/recorder_exclude.yaml
 scene: !include integrations/scenes.yaml
 script: !include_dir_merge_named script/
-# ssdp:
 sun:
 system_health:
 updater:
@@ -75,7 +61,6 @@ zeroconf:
 ### one liners
 binary_sensor: !include integrations/binary_sensor.yaml
 breaking_changes:
-# camera: !include integrations/camera.yaml
 counter: !include integrations/counter.yaml
 device_tracker: !include integrations/device_tracker.yaml
 group: !include integrations/groups.yaml
@@ -85,14 +70,12 @@ input_datetime: !include integrations/input_datetime.yaml
 input_number: !include integrations/input_number.yaml
 input_select: !include integrations/input_select.yaml
 ios: !include integrations/ios.yaml
-# light: !include integrations/light.yaml
 media_player: !include integrations/media_player.yaml
 notify: !include integrations/notify.yaml
 plant: !include integrations/plant.yaml
 sensor: !include_dir_merge_list sensor/
 shell_command: !include integrations/shell_command.yaml
 switch: !include integrations/switch.yaml
-# websocket_api:
 zone: !include integrations/zone.yaml
 
 ### other components
@@ -119,11 +102,11 @@ eufy_vacuum:
       type: T2118
 
 mqtt:
-  broker: !secret host_ip
+  broker: !secret mqtt_ip
   port: !secret mqtt-int_port
   client_id: homeassistant-1
-  username: !secret mqtt_uname
-  password: !secret mqtt_pw
+  username: !secret mqtt_user
+  password: !secret mqtt_password
   birth_message:
     topic: 'hass/status'
     payload: 'online'
@@ -136,7 +119,6 @@ owntracks:
   waypoints: True
   waypoint_whitelist:
     - !secret name_1
-    - !secret name_2
   new_device_defaults:
     track_new_devices: false
 

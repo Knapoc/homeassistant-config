@@ -1,4 +1,0 @@
----
-
-- platform: mjpeg
-  mjpeg_url: !secret camera_url

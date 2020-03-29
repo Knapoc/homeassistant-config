@@ -1,4 +1,5 @@
 ---
+# switch configuration
 
 - platform: mqtt
   name: magic mirror power

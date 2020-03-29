@@ -1,4 +1,5 @@
 ---
+# Lights view
 
 - title: Lights
   path: lights
@@ -52,8 +53,6 @@
                     card:
                       - width: 5px
                       - height: 60px
-
-  # You can change the entity_id and icon of the first button here
                 - type: 'custom:button-card'  # button
                   entity: light.deckenleuchte
                   icon: 'mdi:wall-sconce-flat'
@@ -64,7 +63,6 @@
                         icon:
                           - color: 'var(--paper-item-icon-active-color)  '
                       value: 'on'
-  # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
                       box-shadow:
@@ -102,7 +100,6 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the second button here
                 - type: 'custom:button-card'  # button
                   entity: light.stehlampe
                   icon: 'mdi:floor-lamp'
@@ -113,7 +110,6 @@
                         icon:
                           - color: 'var(--paper-item-icon-active-color)  '
                       value: 'on'
-  # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
                       box-shadow:
@@ -151,7 +147,6 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the third button here
                 - type: 'custom:button-card'  # button
                   entity: input_boolean.loop_livingcolors_2
                   icon: 'mdi:sync'
@@ -162,7 +157,6 @@
                         icon:
                           - color: 'var(--paper-item-icon-active-color)  '
                       value: 'on'
-  # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
                       box-shadow:
@@ -234,8 +228,6 @@
                     card:
                       - width: 5px
                       - height: 80px
-      # This is first button with the light bulb icon
-      # Change this to an icon you want
                 - type: 'custom:button-card'
                   icon: 'mdi:brightness-5'
                   show_icon: true
@@ -265,8 +257,6 @@
                     haptic: medium
                 - type: vertical-stack
                   cards:
-      # This is the text beside the first button
-      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Bright
@@ -282,8 +272,6 @@
                           font-family: Helvetica;
                           letter-spacing: '-0.01em';
                         }
-      # This is the smaller text beside the first button
-      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Warm white on full brightness
@@ -324,8 +312,6 @@
                     card:
                       - width: 5px
                       - height: 80px
-      # This is second button with the light bulb icon
-      # Change this to an icon you want
                 - type: 'custom:button-card'
                   icon: 'mdi:white-balance-sunny'
                   show_icon: true
@@ -355,8 +341,6 @@
                     haptic: medium
                 - type: vertical-stack
                   cards:
-      # This is the text beside the second button
-      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Energize
@@ -372,8 +356,6 @@
                           font-family: Helvetica;
                           letter-spacing: '-0.01em';
                         }
-      # This is the smaller text beside the second button
-      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Cool daylight
@@ -414,8 +396,6 @@
                     card:
                       - width: 5px
                       - height: 80px
-      # This is third button with the light bulb icon
-      # Change this to an icon you want
                 - type: 'custom:button-card'
                   icon: 'mdi:book-open-page-variant'
                   show_icon: true
@@ -445,8 +425,6 @@
                     haptic: medium
                 - type: vertical-stack
                   cards:
-      # This is the text beside the third button
-      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Read
@@ -462,8 +440,6 @@
                           font-family: Helvetica;
                           letter-spacing: '-0.01em';
                         }
-      # This is the smaller text beside the third button
-      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Daylight to read
@@ -504,8 +480,6 @@
                     card:
                       - width: 5px
                       - height: 80px
-      # This is third button with the light bulb icon
-      # Change this to an icon you want
                 - type: 'custom:button-card'
                   icon: 'mdi:weather-night'
                   show_icon: true
@@ -535,8 +509,6 @@
                     haptic: medium
                 - type: vertical-stack
                   cards:
-      # This is the text beside the third button
-      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Nightlight
@@ -552,8 +524,6 @@
                           font-family: Helvetica;
                           letter-spacing: '-0.01em';
                         }
-      # This is the smaller text beside the third button
-      # Change this to what you want it to say
                     - type: markdown
                       content: |
                         # Warm light dimmed
@@ -628,7 +598,6 @@
                         icon:
                           - color: 'var(--paper-item-icon-active-color)  '
                       value: 'on'
-  # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
                       box-shadow:
@@ -677,7 +646,6 @@
                         icon:
                           - color: 'var(--paper-item-icon-active-color)  '
                       value: 'on'
-  # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
                       box-shadow:
@@ -726,7 +694,6 @@
                         icon:
                           - color: 'var(--paper-item-icon-active-color)  '
                       value: 'on'
-  # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
                       box-shadow:
@@ -764,7 +731,6 @@
                     card:
                       - width: 2px
                       - height: 60px
-  # You can change the entity_id and icon of the fourth button here
                 - type: 'custom:button-card'  # button
                   entity: light.hue_spot_3
                   icon: 'mdi:lightbulb'
@@ -775,7 +741,6 @@
                         icon:
                           - color: 'var(--paper-item-icon-active-color)  '
                       value: 'on'
-  # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
                       box-shadow:
@@ -824,7 +789,6 @@
                         icon:
                           - color: 'var(--paper-item-icon-active-color)  '
                       value: 'on'
-  # You also have to change the entity_ids in the following template
                   style: |
                     ha-card {
                       box-shadow:
@@ -1166,8 +1130,6 @@
                     card:
                       - width: 5px
                       - height: 80px
-      # This is third button with the light bulb icon
-      # Change this to an icon you want
                 - type: 'custom:button-card'
                   icon: 'mdi:weather-night'
                   show_icon: true
@@ -1230,7 +1192,7 @@
                           font-family: Helvetica;
                           letter-spacing: '-0.01em';
                         }
-    - type: vertical-stack # right column
+    - type: vertical-stack  # right column
       cards:
         - type: markdown  ### column
           content: |
@@ -1262,7 +1224,7 @@
               font-family: Helvetica;
               letter-spacing: '-0.01em';
             }
-        - type: vertical-stack ### Light Buttons
+        - type: vertical-stack  ### Light Buttons
           cards:
             - type: horizontal-stack
               cards:
@@ -1461,7 +1423,6 @@
                       - width: 5px
                       - height: 60px
 
-  # You can change the entity_id and icon of the first button here
                 - type: 'custom:button-card'  # button
                   entity: light.badezimmer
                   icon: 'mdi:shower'

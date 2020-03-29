@@ -1,4 +1,5 @@
 ---
+# input configuration
 
 wakeup_duration:
   name: Fade-in

@@ -1,4 +1,5 @@
 ---
+# system sensors
 
 - platform: cert_expiry
   host: !secret ssl_domain
@@ -56,6 +57,5 @@
     - nextcloud
     - sshd
 
-- platform: dnsip
-  name: !secret dnsip_1
+- platform: dnsip_hostname
   hostname: !secret dnsip_2

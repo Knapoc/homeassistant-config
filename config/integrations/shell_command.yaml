@@ -1,3 +1,4 @@
 ---
+# shell command
 
-shutdown_rpi: !secret shellcommand_rpi_shutdown
+shutdown_rpi: !secret rpi_shutdown_command

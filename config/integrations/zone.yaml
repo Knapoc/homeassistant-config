@@ -1,4 +1,5 @@
 ---
+# zone configuration
 
 - name: home
   latitude: !secret hass_config_lat

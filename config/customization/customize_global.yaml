@@ -1,7 +1,6 @@
 ---
+# global customization
 
-"group.sonoff_*":
-  control: hidden
 "input_boolean.loop_livingcolors_*":
   friendly_name: Loop-Effekt
   icon: mdi:spotlight

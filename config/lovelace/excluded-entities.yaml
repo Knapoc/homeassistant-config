@@ -1,5 +1,5 @@
 ---
-
+# Lovelace excludes
 - automation.robovac_auto_turn_on
 - automation.robovac_clean_counter
 - automation.robovac_clean_notification

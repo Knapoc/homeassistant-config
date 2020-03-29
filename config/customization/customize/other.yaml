@@ -1,4 +1,5 @@
 ---
+# other customization
 
 !secret person_1:
   entity_picture: /local/favicon1.png
