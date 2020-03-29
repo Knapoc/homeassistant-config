@@ -2,7 +2,7 @@
 # other customization
 
 !secret person_1:
-  entity_picture: /local/favicon1.png
+  entity_picture: !secret favicon
 script.tasmota_upgrade_sonoff_3082:
   can_cancel: false
 !secret zone1_fullname:
