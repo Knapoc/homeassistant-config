@@ -3,7 +3,7 @@
   cards:
     - type: vertical-stack # left column
       cards:
-        - type: markdown ### HOME column
+        - type: markdown  ### HOME column
           content: |
             # Home
           style: |
@@ -33,7 +33,7 @@
               font-family: Helvetica;
               letter-spacing: '-0.01em';
             }
-        - type: horizontal-stack # Users
+        - type: horizontal-stack  # Users
           cards:
             - type: 'custom:button-card'
               show_icon: false
@@ -86,7 +86,7 @@
             card:
               - width: 5px
               - height: 10px
-        - type: horizontal-stack # weather
+        - type: horizontal-stack  # weather
           cards:
             - type: 'custom:button-card'
               show_icon: false
@@ -137,7 +137,7 @@
             card:
               - width: 5px
               - height: 10px
-        - type: horizontal-stack # search
+        - type: horizontal-stack  # search
           cards:
             - type: 'custom:button-card'
               show_icon: false
@@ -176,7 +176,7 @@
                 card:
                   - width: 5px
                   - height: 60px
-        - type: markdown ### Scenes
+        - type: markdown  ### Scenes
           content: |
             # Scenes
           style: |
@@ -208,7 +208,7 @@
             }
         - type: vertical-stack
           cards:
-            - type: horizontal-stack # Netflix Scene
+            - type: horizontal-stack  # Netflix Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
@@ -298,7 +298,7 @@
                 card:
                   - width: 5px
                   - height: 10px
-            - type: horizontal-stack # Gaming Scene
+            - type: horizontal-stack  # Gaming Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
@@ -388,7 +388,7 @@
                 card:
                   - width: 5px
                   - height: 10px
-            - type: horizontal-stack # Bright Scene
+            - type: horizontal-stack  # Bright Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
@@ -466,9 +466,9 @@
                           font-family: Helvetica;
                           letter-spacing: '-0.01em';
                         }
-    - type: vertical-stack # right column
+    - type: vertical-stack  # right column
       cards:
-        - type: markdown ### Lights
+        - type: markdown  ### Lights
           content: |
             # Lights
           style: |
@@ -498,7 +498,7 @@
               font-family: Helvetica;
               letter-spacing: '-0.01em';
             }
-        - type: vertical-stack ### Light Buttons
+        - type: vertical-stack  ### Light Buttons
           cards:
             - type: horizontal-stack
               cards:
@@ -516,7 +516,7 @@
                       - height: 60px
 
   # You can change the entity_id and icon of the first button here
-                - type: 'custom:button-card' # button
+                - type: 'custom:button-card'  # button
                   entity: light.deckenleuchte
                   icon: 'mdi:wall-sconce-flat'
                   show_icon: true
@@ -565,7 +565,7 @@
                       - width: 2px
                       - height: 60px
   # You can change the entity_id and icon of the second button here
-                - type: 'custom:button-card' # button
+                - type: 'custom:button-card'  # button
                   entity: light.stehlampe
                   icon: 'mdi:floor-lamp'
                   show_icon: true
@@ -614,7 +614,7 @@
                       - width: 2px
                       - height: 60px
   # You can change the entity_id and icon of the third button here
-                - type: 'custom:button-card' # button
+                - type: 'custom:button-card'  # button
                   entity: light.deckenspots
                   icon: 'mdi:track-light'
                   show_icon: true
@@ -663,7 +663,7 @@
                       - width: 2px
                       - height: 60px
   # You can change the entity_id and icon of the fourth button here
-                - type: 'custom:button-card' # button
+                - type: 'custom:button-card'  # button
                   entity: light.kuche
                   icon: 'mdi:silverware-fork-knife'
                   show_icon: true
@@ -712,7 +712,7 @@
                       - width: 2px
                       - height: 60px
   # You can change the entity_id and icon of the fifth button here
-                - type: 'custom:button-card' # button
+                - type: 'custom:button-card'  # button
                   entity: light.badezimmer
                   icon: 'mdi:shower'
                   show_icon: true
@@ -761,7 +761,7 @@
             #     card:
             #       - width: 5px
             #       - height: 10px
-        - type: markdown ### Devices
+        - type: markdown  ### Devices
           content: |
             # Devices
           style: |
@@ -805,7 +805,7 @@
                 card:
                   - width: 5px
                   - height: 60px
-            - type: custom:mini-media-player # tv
+            - type: custom:mini-media-player  # tv
               entity: media_player.braviatv_1
               hide:
                 info: true
@@ -858,7 +858,7 @@
                 card:
                   - width: 5px
                   - height: 60px
-            - type: custom:mini-media-player # ps4
+            - type: custom:mini-media-player  # ps4
               entity: media_player.playstation_4
               source: icon
               hide:
@@ -1029,7 +1029,7 @@
                 card:
                   - width: 5px
                   - height: 60px
-        - type: markdown # Miscellaneous
+        - type: markdown  # Miscellaneous
           content: |
             # Miscellaneous
           style: |
@@ -1044,7 +1044,7 @@
               font-family: Helvetica;
               letter-spacing: '-0.01em';
             }
-        - type: markdown # Lights, plants and settings
+        - type: markdown  # Lights, plants and settings
           content: |
             # Lights, plants and settings
           style: |
@@ -1061,7 +1061,7 @@
             }
         - type: horizontal-stack
           cards:
-            - type: 'custom:button-card' # Spacer
+            - type: 'custom:button-card'  # Spacer
               show_icon: false
               show_name: false
               style: |
@@ -1075,7 +1075,7 @@
                   - height: 80px
   # This is first button with the light bulb icon
   # Change this to an icon you want
-            - type: 'custom:button-card' # Lights
+            - type: 'custom:button-card'  # Lights
               icon: 'mdi:lightbulb'
               show_icon: true
               show_name: false
@@ -1101,7 +1101,7 @@
                 navigation_path: /lovelace/lights
   # This is the text beside the first button
   # Change this to what you want it to say
-            - type: 'custom:button-card' # Spacer
+            - type: 'custom:button-card'  # Spacer
               show_icon: false
               show_name: false
               style: |
@@ -1113,7 +1113,7 @@
                 card:
                   - width: 5px
                   - height: 80px
-            - type: 'custom:button-card' # Plants
+            - type: 'custom:button-card'  # Plants
               icon: 'mdi:sprout'
               show_icon: true
               show_name: false
@@ -1139,7 +1139,7 @@
                 navigation_path: /lovelace/plants
   # This is the text beside the first button
   # Change this to what you want it to say
-            - type: 'custom:button-card' # Spacer
+            - type: 'custom:button-card'  # Spacer
               show_icon: false
               show_name: false
               style: |
@@ -1151,7 +1151,7 @@
                 card:
                   - width: 5px
                   - height: 80px
-            - type: 'custom:button-card' # Settings
+            - type: 'custom:button-card'  # Settings
               icon: 'mdi:settings'
               show_icon: true
               show_name: false
@@ -1175,7 +1175,7 @@
               tap_action:
                 action: navigate
                 navigation_path: /lovelace/settings
-            - type: 'custom:button-card' # Spacer
+            - type: 'custom:button-card'  # Spacer
               show_icon: false
               show_name: false
               style: |
@@ -1187,7 +1187,7 @@
                 card:
                   - width: 5px
                   - height: 80px
-            - type: 'custom:button-card' # price
+            - type: 'custom:button-card'  # price
               icon: 'mdi:percent'
               show_icon: true
               show_name: false
@@ -1211,7 +1211,7 @@
               tap_action:
                 action: navigate
                 navigation_path: /lovelace/price
-        - type: 'custom:button-card' # Spacer
+        - type: 'custom:button-card'  # Spacer
           show_icon: false
           show_name: false
           style: |

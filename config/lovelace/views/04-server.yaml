@@ -1,9 +1,9 @@
 - icon: mdi:server
   title: Server
   cards:
-    - type: vertical-stack # left column
+    - type: vertical-stack  # left column
       cards:
-        - type: markdown ### column
+        - type: markdown  ### column
           content: |
             # Server
           style: |
@@ -393,9 +393,9 @@
                 card:
                   - width: 5px
                   - height: 60px
-    - type: vertical-stack # left column
+    - type: vertical-stack  # left column
       cards:
-        - type: markdown ### column
+        - type: markdown  ### column
           content: |
             # Database
           style: |
@@ -469,7 +469,7 @@
                 card:
                   - width: 5px
                   - height: 60px
-        - type: markdown ### column
+        - type: markdown  ### column
           content: |
             # Network
           style: |
@@ -619,9 +619,9 @@
                 card:
                   - width: 5px
                   - height: 60px
-    - type: vertical-stack # left column
+    - type: vertical-stack  # left column
       cards:
-        - type: markdown ### column
+        - type: markdown  ### column
           content: |
             # Fail2Ban
           style: |
@@ -696,7 +696,7 @@
                 card:
                   - width: 5px
                   - height: 60px
-        - type: markdown ### column
+        - type: markdown  ### column
           content: |
             # Home-Assistant
           style: |

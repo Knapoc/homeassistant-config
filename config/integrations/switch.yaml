@@ -1,4 +1,4 @@
-#- platform: mqtt
+# - platform: mqtt
 #  name: wind machine
 #  command_topic: "sonoff_3082/cmnd/POWER"
 #  state_topic: "sonoff_3082/stat/POWER1"
