@@ -57,5 +57,5 @@
     - nextcloud
     - sshd
 
-- platform: dnsip_hostname
-  hostname: !secret dnsip_2
+- platform: dnsip
+  hostname: !secret dnsip_hostname
