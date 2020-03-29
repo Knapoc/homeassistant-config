@@ -1,3 +1,5 @@
+---
+
 - title: Lights
   path: lights
   icon: mdi:lightbulb
@@ -848,7 +850,7 @@
                     action: toggle
                   hold_action:
                     action: more-info
-        - type: markdown ### Scenes
+        - type: markdown  ### Scenes
           content: |
             # Bed room
           style: |
@@ -970,7 +972,7 @@
                 card:
                   - width: 5px
                   - height: 10px
-            - type: horizontal-stack # Energize Scene
+            - type: horizontal-stack  # Energize Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
