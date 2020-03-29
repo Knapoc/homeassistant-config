@@ -1,3 +1,5 @@
+---
+
 "group.sonoff_*":
   control: hidden
 "input_boolean.loop_livingcolors_*":

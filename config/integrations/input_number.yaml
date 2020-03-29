@@ -1,3 +1,5 @@
+---
+
 wakeup_duration:
   name: Fade-in
   icon: mdi:clock-in

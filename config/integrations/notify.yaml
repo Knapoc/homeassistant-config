@@ -1,3 +1,5 @@
+---
+
 - name: smtp
   platform: smtp
   server: !secret mail_acc_2_smtp

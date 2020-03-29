@@ -1,3 +1,5 @@
+---
+
 - alias: update available tasmota wemosd1 1
   id: '1556957334'
   trigger:

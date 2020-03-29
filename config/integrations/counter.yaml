@@ -1,3 +1,5 @@
+---
+
 vacuum_counter:
     initial: 0
     restore: true

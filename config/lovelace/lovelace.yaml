@@ -1,3 +1,5 @@
+---
+
 mode: yaml
 resources:
   - url: /hacsfiles/lovelace-card-tools/card-tools.js

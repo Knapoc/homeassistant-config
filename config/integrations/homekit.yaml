@@ -1,3 +1,5 @@
+---
+
 auto_start: false
 port: 51827
 advertise_ip: !secret host_ip

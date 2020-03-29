@@ -1,3 +1,5 @@
+---
+
 - automation.robovac_auto_turn_on
 - automation.robovac_clean_counter
 - automation.robovac_clean_notification
@@ -17,11 +19,3 @@
 - automation.upgrade_tasmota_sonoff_3463
 - automation.update_available_tasmota_wemosd1_1
 - automation.upgrade_tasmota_wemosd1_1
-# - automation.left_home_device1
-# - automation.turn_on_magic_mirror
-# - automation.turn_off_magic_mirror
-# - automation.disk_use_alarm
-# - automation.ssl_expiry_notification
-# - automation.log_level
-# - automation.startup_theme
-# - automation.update_notifications

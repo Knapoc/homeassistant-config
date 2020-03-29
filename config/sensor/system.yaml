@@ -1,3 +1,5 @@
+---
+
 - platform: cert_expiry
   host: !secret ssl_domain
 

@@ -1,3 +1,5 @@
+---
+
 wakeup_schlafzimmer:
   alias: 'Wakeup routine: lights and weather'
   sequence:

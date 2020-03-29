@@ -1,3 +1,5 @@
+---
+
 input_boolean.vacuum_weekends:
   friendly_name: Wochenenden
 input_boolean.wakeup_weekends:

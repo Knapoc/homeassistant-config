@@ -1,3 +1,5 @@
+---
+
 'tasmota_upgrade_sonoff_3463':
   sequence:
     - data:

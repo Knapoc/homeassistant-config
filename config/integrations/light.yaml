@@ -1,3 +1,5 @@
+---
+
 - platform: group
   name: Deckenleuchte_Küche
   entities:

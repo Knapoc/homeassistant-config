@@ -1,3 +1,5 @@
+---
+
 - name: home
   latitude: !secret hass_config_lat
   longitude: !secret hass_config_long

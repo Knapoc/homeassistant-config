@@ -1,3 +1,5 @@
+---
+
 - platform: braviatv_psk
   name: braviatv_1
   host: !secret tv_tv1_ip

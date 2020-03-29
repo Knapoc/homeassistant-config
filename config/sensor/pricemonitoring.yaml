@@ -1,27 +1,5 @@
-# - platform: geizhals
-#   scan_interval: 21600
-#   name: ILCE-7M3K
-#   product_id: 1777813
-#   description: "Sony Alpha 7 III inkl. Objektiv AF E 28-70mm"
-#   locale: "AT"
-# - platform: geizhals
-#   scan_interval: 21600
-#   name: ILCE-7M3
-#   product_id: 1777806
-#   description: "Sony Alpha 7 III"
-#   locale: "AT"
-# - platform: geizhals
-#   scan_interval: 21600
-#   name: roborocks6 white
-#   product_id: 2050768
-#   description: "Roborock S6 weiß"
-#   locale: "AT"
-# - platform: geizhals
-#   scan_interval: 21600
-#   name: roborocks6 black
-#   product_id: 2050769
-#   description: "Roborock S6 schwarz"
-#   locale: "AT"
+---
+
 - platform: nintendo_wishlist
   country: AT
   wishlist:

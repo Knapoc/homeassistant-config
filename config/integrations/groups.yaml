@@ -1,3 +1,5 @@
+---
+
 wohnzimmer:
   entities:
     - media_player.braviatv_1

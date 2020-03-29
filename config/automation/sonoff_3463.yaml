@@ -1,3 +1,5 @@
+---
+
 - alias: update available tasmota sonoff 3463
   id: '1556957332'
   trigger:

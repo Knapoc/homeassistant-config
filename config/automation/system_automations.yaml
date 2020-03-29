@@ -1,3 +1,5 @@
+---
+
 - alias: Startup Theme
   id: '1500779867'
   trigger:
@@ -109,16 +111,6 @@
         topic: sonoff_3463/cmnd/Status
         payload: '0'
 
-# - alias: HACS update notifications
-#   id: '1561215168000'
-#   trigger:
-#     platform: numeric_state
-#     entity_id: sensor.hacs
-#     above: 5
-#   action:
-#     service: !secret notify_ios
-#     data_template:
-#       message: 'Custom component updates available: {{ states.sensor.hacs.state }}.'
 - alias: 'Start HomeKit'
   id: '1576691942'
   trigger:

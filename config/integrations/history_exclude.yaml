@@ -1,3 +1,5 @@
+---
+
 entities:
   - sensor.sonoff_3028_version
   - sensor.sonoff_maddox_version

@@ -1,3 +1,5 @@
+---
+
 light.badezimmer:
   friendly_name: Badezimmerlicht
   custom_ui_state_card: state-card-custom-light

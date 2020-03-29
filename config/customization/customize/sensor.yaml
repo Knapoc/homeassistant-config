@@ -1,3 +1,5 @@
+---
+
 sensor.asuswrt_download:
   unit_of_measurement: GB
 sensor.asuswrt_upload:

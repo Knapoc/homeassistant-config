@@ -1,3 +1,5 @@
+---
+
 time_turnoff_devices:
   name: Turn-off time devices
   has_date: false

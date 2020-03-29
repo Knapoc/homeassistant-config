@@ -1,3 +1,5 @@
+---
+
 homeassistant:
   name: Home
   latitude: !secret hass_config_lat

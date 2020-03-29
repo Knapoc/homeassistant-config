@@ -1,3 +1,5 @@
+---
+
 'tasmota_upgrade_wemosd1_1':
   sequence:
     - data:
