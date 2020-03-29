@@ -5,6 +5,9 @@ yaml-files:
   - '*.yml'
   - '.yamllint'
 
+ignore: |
+  config/themes/*
+
 rules:
   braces: enable
   brackets: enable
