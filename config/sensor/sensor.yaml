@@ -29,3 +29,12 @@
   name: disk_used_sda1
   unit_of_measurement: kB
   value_template: '{{ value_json.spaceused }}'
+
+- platform: history_stats
+  name: stats_ratio_athome
+  entity_id: !secret person_1
+  state: 'home'
+  type: ratio
+  end: '{{ now() }}'
+  duration:
+    days: 7
