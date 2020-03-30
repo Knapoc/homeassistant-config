@@ -87,6 +87,8 @@
       - condition: numeric_state
         entity_id: counter.vacuum_counter
         above: 0
+      - condition: template
+        value_template: '{{ states.vacuum.robovac.state != "on" }}'
   action:
     - service: !secret notify_ios
       data_template:
