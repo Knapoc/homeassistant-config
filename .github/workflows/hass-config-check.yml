@@ -41,7 +41,9 @@ jobs:
           mkdir -p /tmp/diskinfo && chmod 775 /tmp/diskinfo
           touch /tmp/diskinfo/fail2ban.log && touch /tmp/diskinfo/diskinfo.txt && touch /tmp/diskinfo/diskinfo1.txt && touch /tmp/diskinfo/sshkey
           chmod 775 /tmp/diskinfo/*
-      - name: check config
+      - name: Home Assistant get version
+        run: python3 -m homeassistant --version
+      - name: Home Assistant check config
         run: python3 -m homeassistant --config config/ --script check_config
 
   hass-rc:
@@ -64,5 +66,7 @@ jobs:
           mkdir -p /tmp/diskinfo && chmod 775 /tmp/diskinfo
           touch /tmp/diskinfo/fail2ban.log && touch /tmp/diskinfo/diskinfo.txt && touch /tmp/diskinfo/diskinfo1.txt && touch /tmp/diskinfo/sshkey
           chmod 775 /tmp/diskinfo/*
-      - name: check config
+      - name: Home Assistant get version
+        run: python3 -m homeassistant --version
+      - name: Home Assistant check config
         run: python3 -m homeassistant --config config/ --script check_config
