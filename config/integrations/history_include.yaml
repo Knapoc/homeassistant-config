@@ -16,6 +16,8 @@ entities:
   - sensor.processor_use
   - sensor.disk_free
   - sensor.disk_use_percent
+  - sensor.disk_useperc_sda1
+  - sensor.disk_useperc_sda2
   - sensor.memory_free
   - sensor.memory_use_percent
   - sensor.database_size
@@ -34,6 +36,7 @@ entities:
   - sensor.speedtest_upload
   - sensor.speedtest_ping
   - sensor.sent_eth0
+  - sensor.stats_ratio_athome
   - sensor.trade_volume
   - sensor.uberx_price
   - sensor.uberx_time
