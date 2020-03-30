@@ -45,14 +45,13 @@ DEFAULT_PORT = ''
 ICON = 'mdi:playstation'
 CONF_GAMES_FILENAME = 'games_filename'
 CONF_IMAGEMAP_JSON = 'imagemap_json'
-CONF_CMD = 'cmd'
 CONF_LOCAL_STORE = "local_store"
 CONF_PS4_IP = "ps4_ip"
 
 PS4_GAMES_FILE = 'ps4-games.json'
-MEDIA_IMAGE_DEFAULT = ''
+MEDIA_IMAGE_DEFAULT = None
 MEDIA_IMAGEMAP_JSON = 'https://github.com/hmn/ps4-imagemap/raw/master/games.json'
-LOCAL_STORE = ''
+LOCAL_STORE = None
 
 MIN_TIME_BETWEEN_SCANS = timedelta(seconds=10)
 MIN_TIME_BETWEEN_FORCED_SCANS = timedelta(seconds=1)
@@ -103,8 +102,7 @@ class PS4Device(MediaPlayerDevice):
         self._games_map_json = gamesmap_json
         self._games_map = {}
         self._local_store = local_store
-        if self._local_store == '':
-            self.load_games_map()
+        self.load_games_map()
         self.update()
 
     @util.Throttle(MIN_TIME_BETWEEN_SCANS, MIN_TIME_BETWEEN_FORCED_SCANS)
@@ -129,11 +127,16 @@ class PS4Device(MediaPlayerDevice):
             self._current_source_id = None
 
     def load_games_map(self):
-        import urllib.request, json
+        import urllib.request
+        import json
 
         try:
-            with urllib.request.urlopen(self._games_map_json) as url:
-                self._games_map = json.loads(url.read().decode())
+            if self._local_store is not None:
+                with open(self._local_store) as local_games_maps_json:
+                    self._games_map = json.load(local_games_maps_json)
+            else:
+                with urllib.request.urlopen(self._games_map_json) as url:
+                    self._games_map = json.loads(url.read().decode())
 
         except Exception as e:
             _LOGGER.error("gamesmap json file could not be loaded, %s" % e)
