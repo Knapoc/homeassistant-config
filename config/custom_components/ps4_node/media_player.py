@@ -134,7 +134,7 @@ class PS4Device(MediaPlayerDevice):
         try:
             with urllib.request.urlopen(self._games_map_json) as url:
                 self._games_map = json.loads(url.read().decode())
-            #self._games_map = json.loads(requests.get(self._games_map_json, verify=False))
+
         except Exception as e:
             _LOGGER.error("gamesmap json file could not be loaded, %s" % e)
 
