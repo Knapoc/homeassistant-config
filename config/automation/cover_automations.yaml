@@ -45,8 +45,47 @@
     service: cover.close_cover
     data_template:
       entity_id: >
-        {% set entities = 'cover.fyrtur_1',
-                          'cover.fyrtur_2',
-                          'cover.fyrtur_3',
-                          'cover.fyrtur_4' %}
+        {% if is_state('binary_sensor.window_openclose_1', 'off') %}
+          {% set entities = 'cover.fyrtur_1' %}
+        {% endif %}
+        {% if is_state('binary_sensor.window_openclose_2', 'off') %}
+          {% set entities = entities + 'cover.fyrtur_2' %}
+        {% endif %}
+        {% if is_state('binary_sensor.window_openclose_3', 'off') %}
+          {% set entities = entities + 'cover.fyrtur_3' %}
+        {% endif %}
+        {% if is_state('binary_sensor.window_openclose_4', 'off') %}
+          {% set entities = entities + 'cover.fyrtur_4' %}
+        {% endif %}
         {{ states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','>',0) | map(attribute='entity_id') | join(', ') }}
+- alias: 'stop cover if window is open'
+  id: '1585950689'
+  trigger:
+    - platform: state
+      entity_id: 'cover.fyrtur_1'
+      to: 'closed'
+    - platform: state
+      entity_id: 'cover.fyrtur_2'
+      to: 'closed'
+    - platform: state
+      entity_id: 'cover.fyrtur_3'
+      to: 'closed'
+    - platform: state
+      entity_id: 'cover.fyrtur_4'
+      to: 'closed'
+  condition:
+    - condition: template
+      value_template: >
+        {% if trigger.entity_id == "cover.fyrtur_1" %}
+          {{ is_state('binary_sensor.window_openclose_1', 'on') }}
+        {% elif trigger.entity_id == "cover.fyrtur_2" %}
+          {{ is_state('binary_sensor.window_openclose_2', 'on') }}
+        {% elif trigger.entity_id == "cover.fyrtur_3" %}
+          {{ is_state('binary_sensor.window_openclose_3', 'on') }}
+        {% elif trigger.entity_id == "cover.fyrtur_4" %}
+          {{ is_state('binary_sensor.window_openclose_4', 'on') }}
+        {% endif %}
+  action:
+    service: cover.stop_cover
+    data_template:
+      entity_id: '{{ trigger.entity_id }}'
