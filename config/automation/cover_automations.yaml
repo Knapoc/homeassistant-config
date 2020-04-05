@@ -5,7 +5,7 @@
   id: '1583686217'
   trigger:
     platform: template
-    value_template: '{{ states.sensor.time.state == states.sensor.wakeup_open_time_covers.state }}'
+    value_template: "{{ states('sensor.time') == states('sensor.wakeup_open_time_covers') }}"
   condition:
     condition: and
     conditions:

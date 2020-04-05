@@ -54,8 +54,7 @@
   id: '1553548400'
   trigger:
     platform: template
-    value_template: '{{ states.sensor.time.state == (states.input_datetime.time_turnoff_devices.attributes.timestamp
-      | int | timestamp_custom("%H:%M", False)) }}'
+    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.time_turnoff_devices', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
   condition:
     condition: state
     entity_id: binary_sensor.workday_sensor

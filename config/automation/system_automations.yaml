@@ -16,7 +16,7 @@
     - service_template: frontend.set_theme
       data_template:
         name: >
-          {% if states.sun.sun.state == "above_horizon" %}
+          {% if states('sun.sun') == 'above_horizon' %}
             home_light
           {% else %}
             grey_night
@@ -25,12 +25,14 @@
 - alias: Update notifications
   id: '1500779868'
   trigger:
-    platform: state
-    entity_id: updater.updater
+    - platform: state
+      entity_id: binary_sensor.updater
+      from: 'off'
+      to: 'on'
   action:
-    service: !secret notify_ios
-    data_template:
-      message: Home Assistant {{ states.updater.updater.state }} is now available.
+    - service: !secret notify_ios
+      data_template:
+        message: "Home Assistant {{ state_attr('binary_sensor.updater', 'newest_version') }} is available."
 
 - alias: SSL expiry notification
   id: '1500779870'
@@ -41,7 +43,7 @@
   action:
     service: !secret notify_ios
     data_template:
-      message: 'Warning - SSL certificate expires in {{ states.sensor.ssl_certificate_expiry.state }} days and has not been automatically renewed.'
+      message: "Warning - SSL certificate expires in {{ states('sensor.ssl_certificate_expiry') }} days and has not been automatically renewed."
 
 - alias: Disk Use Alarm
   id: '1500589867'
@@ -52,7 +54,7 @@
   action:
     service: !secret notify_ios
     data_template:
-      message: 'Your harddrive is running out of space: /dev/root: {{ states.sensor.disk_use_percent.state }}%'
+      message: "Your harddrive is running out of space: /dev/root: {{ states('sensor.disk_use_percent') }}%"
 
 - alias: Disk Use Alarm sda1
   id: '1500589868'
@@ -63,8 +65,7 @@
   action:
     service: !secret notify_ios
     data_template:
-      message: 'Your harddrive is running out of space: /dev/sda1: {{ states.sensor.disk_useperc_sda1.state
-        }}%'
+      message: "Your harddrive is running out of space: /dev/sda1: {{ states('sensor.disk_useperc_sda1') }}%"
 
 - alias: Disk Use Alarm sda2
   id: '1500589869'
@@ -75,8 +76,7 @@
   action:
     service: !secret notify_ios
     data_template:
-      message: 'Your harddrive is running out of space: /dev/sda2: {{ states.sensor.disk_useperc_sda2.state
-        }}%'
+      message: "Your harddrive is running out of space: /dev/sda2: {{ states('sensor.disk_useperc_sda2') }}%"
 
 - alias: Log Level
   id: '1500589870'
@@ -85,7 +85,7 @@
     entity_id: input_select.log_level
   condition:
     condition: template
-    value_template: '{{ states.input_select.log_level.state != "none" }}'
+    value_template: "{{ states('input_select.log_level') != 'none' }}"
   action:
     service: logger.set_level
     data_template:

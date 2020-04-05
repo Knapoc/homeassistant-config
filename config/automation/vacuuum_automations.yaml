@@ -39,9 +39,9 @@
               #   after: '07:00:00'
               #   before: '15:00:00'
               - condition: template
-                value_template: '{{ states.sensor.time.state >= states.input_datetime.robovac_cleaning_from.state }}'
+                value_template: "{{ states('sensor.time') >= states('input_datetime.robovac_cleaning_from') }}"
               - condition: template
-                value_template: '{{ states.sensor.time.state <= states.input_datetime.robovac_cleaning_to.state }}'
+                value_template: "{{ states('sensor.time') <= states('input_datetime.robovac_cleaning_to') }}"
           - condition: and
             conditions:
               - condition: numeric_state
@@ -88,11 +88,11 @@
         entity_id: counter.vacuum_counter
         above: 0
       - condition: template
-        value_template: '{{ states.vacuum.robovac.state != "on" }}'
+        value_template: "{{ states('vacuum.robovac') != 'on' }}"
   action:
     - service: !secret notify_ios
       data_template:
-        message: 'Schurli ist zu entleeren. Anzahl der Saugvorgänge: {{ states.counter.vacuum_counter.state }}'
+        message: "Schurli ist zu entleeren. Anzahl der Saugvorgänge: {{ states('counter.vacuum_counter') }}"
         data:
           push:
             category: emptyrobovac

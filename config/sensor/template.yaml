@@ -10,11 +10,11 @@
     wakeup_start_time_lights:
       friendly_name: 'Fade-in Startzeit'
       value_template: >
-        {% if states.input_datetime.wakeup_alarm_time and states.input_number.wakeup_duration %}
-        {% set alarmtime = states.input_datetime.wakeup_alarm_time.state %}
-        {% set alarm_hour = alarmtime.split(":")[0] | int %}
-        {% set alarm_min = alarmtime.split(":")[1] | int %}
-        {% set light_dur = states.input_number.wakeup_duration.state | int %}
+        {% if states('input_datetime.wakeup_alarm_time') and states('input_number.wakeup_duration') %}
+        {% set alarmtime = states('input_datetime.wakeup_alarm_time') %}
+        {% set alarm_hour = alarmtime.split(':')[0] | int %}
+        {% set alarm_min = alarmtime.split(':')[1] | int %}
+        {% set light_dur = states('input_number.wakeup_duration') | int %}
         {% set alarm_min_light = alarm_min - light_dur %}
         {% if alarm_min_light  < 0 %}
         {% set alarm_min_light = alarm_min_light + 60 %}
@@ -28,11 +28,11 @@
     wakeup_open_time_covers:
       friendly_name: 'Rollo öffnen Startzeit'
       value_template: >
-        {% if states.input_datetime.wakeup_alarm_time and states.input_number.wakeup_cover_open_delay %}
-        {% set alarmtime = states.input_datetime.wakeup_alarm_time.state %}
-        {% set alarm_hour = alarmtime.split(":")[0] | int %}
-        {% set alarm_min = alarmtime.split(":")[1] | int %}
-        {% set cover_dur = states.input_number.wakeup_cover_open_delay.state | int %}
+        {% if states('input_datetime.wakeup_alarm_time') and states('input_number.wakeup_cover_open_delay') %}
+        {% set alarmtime = states('input_datetime.wakeup_alarm_time') %}
+        {% set alarm_hour = alarmtime.split(':')[0] | int %}
+        {% set alarm_min = alarmtime.split(':')[1] | int %}
+        {% set cover_dur = states('input_number.wakeup_cover_open_delay') | int %}
         {% set alarm_min_cover = alarm_min + cover_dur %}
         {% if alarm_min_cover  > 59 %}
         {% set alarm_min_cover = alarm_min_cover - 60 %}
@@ -46,19 +46,19 @@
     robovac_battery:
       unit_of_measurement: '%'
       friendly_name: Batterie
-      value_template: '{{ states.vacuum.robovac.attributes.battery_level }}'
-      icon_template: '{{ states.vacuum.robovac.attributes.battery_icon }}'
+      value_template: "{{ state_attr('vacuum.robovac', 'battery_level') }}"
+      icon_template: "{{ state_attr('vacuum.robovac', 'battery_icon') }}"
     robovac_status:
       friendly_name: Status
-      value_template: '{{ states.vacuum.robovac.attributes.status }}'
+      value_template: "{{ state_attr('vacuum.robovac', 'status') }}"
     robovac_fanspeed:
       friendly_name: "Saugkraft"
-      value_template: '{{ states.vacuum.robovac.attributes.fan_speed }}'
+      value_template: "{{ state_attr('vacuum.robovac', 'fan_speed') }}"
     disk_useperc_sda2:
-      value_template: '{{ ((states.sensor.disk_used_sda2.state | int) / (states.sensor.disk_size_sda2.state | int) * 100) | round(1) }}'
+      value_template: "{{ ((states('sensor.disk_used_sda2') | int) / (states('sensor.disk_size_sda2') | int) * 100) | round(1) }}"
       unit_of_measurement: '%'
     disk_useperc_sda1:
-      value_template: '{{ ((states.sensor.disk_used_sda1.state | int) / (states.sensor.disk_size_sda1.state | int) * 100) | round(1) }}'
+      value_template: "{{ ((states('sensor.disk_used_sda1') | int) / (states('sensor.disk_size_sda1') | int) * 100) | round(1) }}"
       unit_of_measurement: '%'
     count_automations:
       entity_id: sensor.date
@@ -104,4 +104,4 @@
       value_template: "{{ states.light | list | length }}"
     lights_on:
       entity_id: sensor.time
-      value_template: '{{ states.light | selectattr("state", "equalto", "on") | rejectattr("attributes.is_deconz_group") | list | length }}'
+      value_template: "{{ states.light | selectattr('state', 'equalto', 'on') | rejectattr('attributes.is_deconz_group') | list | length }}"

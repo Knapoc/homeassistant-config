@@ -13,7 +13,7 @@ wakeup_schlafzimmer:
       data_template:
         entity_id: light.deckenspots
         brightness: 40
-        transition: '{{ states.input_number.wakeup_duration.state | multiply(60) | int }}'
+        transition: "{{ states('input_number.wakeup_duration') | multiply(60) | int }}"
 magic_mirror_shutdown:
   sequence:
     - service: shell_command.shutdown_rpi
