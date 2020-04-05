@@ -47,7 +47,8 @@
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (state_attr('input_datetime.time_close_covers_night', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
-  condition: and
+  condition:
+    condition: and
     conditions:
       - condition: state
         entity_id: !secret person_1
