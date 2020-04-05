@@ -759,7 +759,7 @@
               cards:
                 - type: glance
                   title: Home Assistant
-                  columns: 7
+                  columns: 8
                   show_name: false
                   entities:
                     - entity: sensor.count_automations
