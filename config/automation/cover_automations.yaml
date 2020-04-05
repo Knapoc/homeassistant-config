@@ -23,6 +23,16 @@
           - condition: state
             entity_id: binary_sensor.workday_sensor
             state: 'on'
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: "{{ (state_attr('cover.fyrtur_1', 'current_position')|int) < 100 }}"
+          - condition: template
+            value_template: "{{ (state_attr('cover.fyrtur_2', 'current_position')|int) < 100 }}"
+          - condition: template
+            value_template: "{{ (state_attr('cover.fyrtur_3', 'current_position')|int) < 100 }}"
+          - condition: template
+            value_template: "{{ (state_attr('cover.fyrtur_4', 'current_position')|int) < 100 }}"
   action:
     service: cover.open_cover
     data_template:
@@ -37,10 +47,21 @@
   trigger:
     platform: template
     value_template: "{{ states('sensor.time') == (state_attr('input_datetime.time_close_covers_night', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
-  condition:
-    - condition: state
-      entity_id: !secret person_1
-      state: home
+  condition: and
+    conditions:
+      - condition: state
+        entity_id: !secret person_1
+        state: home
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: "{{ (state_attr('cover.fyrtur_1', 'current_position')|int) > 0 }}"
+          - condition: template
+            value_template: "{{ (state_attr('cover.fyrtur_2', 'current_position')|int) > 0 }}"
+          - condition: template
+            value_template: "{{ (state_attr('cover.fyrtur_3', 'current_position')|int) > 0 }}"
+          - condition: template
+            value_template: "{{ (state_attr('cover.fyrtur_4', 'current_position')|int) > 0 }}"
   action:
     service: cover.close_cover
     data_template:
