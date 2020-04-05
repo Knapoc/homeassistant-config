@@ -771,6 +771,9 @@
                     - entity: sensor.count_lights
                       name: Lights
                       icon: mdi:lightbulb
+                    - entity: sensor.count_covers
+                      name: Covers
+                      icon: mdi:blinds
                     - entity: sensor.count_scripts
                       name: Scripts
                       icon: mdi:script-text
@@ -782,6 +785,7 @@
                       icon: mdi:toggle-switch
                     - entity: sensor.count_zones
                       name: Zones
+                      icon: mdi:crosshairs-gps
                 - type: entities
                   show_header_toggle: false
                   entities:

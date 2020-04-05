@@ -63,6 +63,9 @@
     count_automations:
       entity_id: sensor.date
       value_template: "{{ states.automation | list | length }}"
+    count_covers:
+      entity_id: sensor.date
+      value_template: "{{ states.cover | list | length }}"
     count_scripts:
       entity_id: sensor.date
       value_template: "{{ states.script | list | length }}"
