@@ -133,8 +133,8 @@
               name: Load
               points_per_hour: 2
               font_size: 65
-#                show:
-#                  fill: false
+              # show:
+              #   fill: false
               hours_to_show: 6
               line_color:
                 - red
@@ -580,7 +580,7 @@
                   - height: 60px
             - type: custom:mini-graph-card
               name: Speedtest
-#                   line_color: "#4169E1"
+              # line_color: "#4169E1"
               font_size: 55
               align_state: left
               hours_to_show: 24
