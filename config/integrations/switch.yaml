@@ -12,6 +12,17 @@
   payload_not_available: "Offline"
   retain: false
 
+- platform: mqtt
+  name: desk charger outlet
+  command_topic: "sonoff_0528/cmnd/POWER"
+  state_topic: "sonoff_0528/stat/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
 - platform: template
   switches:
     magic_mirror:
