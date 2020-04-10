@@ -27,7 +27,6 @@ automation: !include_dir_merge_list automation/
 config:
 conversation:
 frontend:
-  javascript_version: latest
   themes: !include_dir_merge_named themes
 history:
   include: !include integrations/history_include.yaml
