@@ -879,7 +879,7 @@
             - type: custom:stack-in-card
               style: |
                 ha-card {
-                  height: 115px;
+                  height: 130px;
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
                   box-shadow:
