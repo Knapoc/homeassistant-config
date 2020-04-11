@@ -80,10 +80,6 @@
   value_template: "{{ value_json['StatusFWR'].Version[:5] }}"
 
 - platform: mqtt
-  name: sonoff_maddox_version
-  state_topic: "sonoff-version"
-
-- platform: mqtt
   name: yuccaelephantipes_moisture
   state_topic: "miflora/YuccaElephantipes"
   value_template: "{{ value_json.moisture }}"

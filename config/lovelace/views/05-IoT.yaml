@@ -38,8 +38,6 @@
                   - height: 10px
             - type: entities
               entities:
-                - entity: sensor.sonoff_maddox_version
-                  name: Tasmota version
                 - entity: automation.get_tasmota_device_info
                   name: Tasmota status
               style: |
