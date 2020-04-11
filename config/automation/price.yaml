@@ -7,10 +7,10 @@
     platform: event
     event_type: state_changed
     event_data:
-      domain: sensor
+      domain: binary_sensor
   condition:
     condition: template
-    value_template: "{{ trigger.event.data.entity_id.startswith('sensor.nintendo_wishlist_') and trigger.event.data.old_state.state == '0' }}"
+    value_template: "{{ trigger.event.data.entity_id.startswith('binary_sensor.nintendo_wishlist_') and trigger.event.data.old_state.state == 'off' and trigger.event.data.new_state.state == 'on' }}"
   action:
     service: !secret notify_ios
     data_template:
