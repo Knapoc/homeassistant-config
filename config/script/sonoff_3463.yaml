@@ -4,7 +4,7 @@
 'tasmota_upgrade_sonoff_3463':
   sequence:
     - data:
-        payload: http://sonoff.maddox.co.uk/tasmota/sonoff-minimal.bin
+        payload: 'http://thehackbox.org/tasmota/release/tasmota-minimal.bin'
         topic: sonoff_3463/cmnd/OtaUrl
       service: mqtt.publish
     - delay: 00:00:05
@@ -14,7 +14,7 @@
       service: mqtt.publish
     - delay: 00:03:00
     - data:
-        payload: http://sonoff.maddox.co.uk/tasmota/sonoff.bin
+        payload: 'http://thehackbox.org/tasmota/release/tasmota.bin'
         topic: sonoff_3463/cmnd/OtaUrl
       service: mqtt.publish
     - delay: 00:00:05
