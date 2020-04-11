@@ -105,7 +105,7 @@
         payload: '0'
     - service: mqtt.publish
       data:
-        topic: sonoff_3082/cmnd/Status
+        topic: sonoff_0528/cmnd/Status
         payload: '0'
     - service: mqtt.publish
       data:
