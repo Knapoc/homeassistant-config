@@ -1,0 +1,14 @@
+---
+# covers
+
+- platform: group
+  name: living_room_group
+  entities:
+    - cover.fyrtur_1
+    - cover.fyrtur_2
+
+- platform: group
+  name: bed_room_group
+  entities:
+    - cover.fyrtur_3
+    - cover.fyrtur_4

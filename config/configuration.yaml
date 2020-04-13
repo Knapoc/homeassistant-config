@@ -61,6 +61,7 @@ zeroconf:
 binary_sensor: !include integrations/binary_sensor.yaml
 breaking_changes:
 counter: !include integrations/counter.yaml
+cover: !include integrations/cover.yaml
 device_tracker: !include integrations/device_tracker.yaml
 group: !include integrations/groups.yaml
 homekit: !include integrations/homekit.yaml
