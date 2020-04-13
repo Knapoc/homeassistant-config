@@ -393,8 +393,6 @@
                       entity_id: cover.fyrtur_4
                   hold_action:
                     action: more-info
-    # - type: vertical-stack  # right column
-    #   cards:
         - type: markdown  ### column
           content: |
             # Settings
