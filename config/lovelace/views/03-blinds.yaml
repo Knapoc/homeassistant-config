@@ -7,7 +7,7 @@
   cards:
     - type: vertical-stack  # left column
       cards:
-        - type: markdown  ### column
+        - type: markdown  ### blinds living room
           content: |
             # Living room
           style: |
@@ -24,7 +24,14 @@
             }
         - type: markdown
           content: >
-            # Blinds
+            {% set entities = 'cover.fyrtur_1', 'cover.fyrtur_2' %}
+            {% if (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',0) | list | length) == 2 %}
+              # All blinds are closed
+            {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) != 2 %}
+              # The blinds are partially closed
+            {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) == 2 %}
+              # All blinds are open
+            {% endif %}
           style: |
             ha-card {
              height: 50px;
@@ -37,57 +44,163 @@
               font-family: Helvetica;
               letter-spacing: '-0.01em';
             }
-        - type: horizontal-stack
+        - type: vertical-stack  ### Living room buttons
           cards:
-            - type: 'custom:button-card'
-              show_icon: false
-              show_name: false
-              style: |
-                ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
-              styles:
-                card:
-                  - width: 5px
-                  - height: 10px
-            - type: entities
-              show_header_toggle: false
-              entities:
-                - entity: cover.fyrtur_1
-                  name: Fyrtur 1
-                - entity: binary_sensor.window_openclose_1
-                  name: Window sensor 1
-                  icon: mdi:window-closed-variant
-                - entity: cover.fyrtur_2
-                  name: Fyrtur 2
-                - entity: binary_sensor.window_openclose_2
-                  name: Window sensor 2
-                  icon: mdi:window-closed-variant
-              style: |
-                ha-card {
-                  background-color: var(--primary-background-color);
-                  border-radius: 15px;
-                  box-shadow:
-                    {% if is_state('sun.sun', 'above_horizon') %}
-                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
-                    {% else %}
-                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
-                    {% endif %}
-                }
-            - type: 'custom:button-card'
-              show_icon: false
-              show_name: false
-              style: |
-                ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
-              styles:
-                card:
-                  - width: 5px
-                  - height: 10px
-        - type: markdown  ### column
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 5px
+                      - height: 60px
+                - type: 'custom:button-card'  # group
+                  entity: cover.living_room_group
+                  icon: mdi:sofa
+                  show_icon: true
+                  show_name: false
+                  state:
+                    - styles:
+                        icon:
+                          - color: 'var(--paper-item-icon-active-color)  '
+                      value: 'on'
+                  style: |
+                    ha-card {
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.living_room_group', 'closed') %}
+                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.living_room_group', 'open') %}
+                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.living_room_group', 'closed') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.living_room_group', 'open') %}
+                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}
+                    }
+                  styles:
+                    card:
+                      - width: 80px
+                      - height: 80px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: var(--primary-text-color)
+                  tap_action:
+                    action: toggle
+                  double_tap_action:
+                    action: call-service
+                    service: cover.stop_cover
+                    service_data:
+                      entity_id: cover.living_room_group
+                  hold_action:
+                    action: more-info
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 10px
+                      - height: 60px
+                - type: 'custom:button-card'  # fyrtur 1
+                  entity: cover.fyrtur_1
+                  show_icon: true
+                  show_name: false
+                  style: |
+                    ha-card {
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_1', 'closed') %}
+                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_1', 'open') %}
+                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_1', 'closed') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_1', 'open') %}
+                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}
+                    }
+                  styles:
+                    card:
+                      - width: 80px
+                      - height: 80px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: >
+                          [[[
+                            if (states['binary_sensor.window_openclose_1'].state == 'on') return 'var(--paper-item-icon-active-color)';
+                            else return 'var(--primary-text-color)';
+                          ]]]
+                  tap_action:
+                    action: toggle
+                  double_tap_action:
+                    action: call-service
+                    service: cover.stop_cover
+                    service_data:
+                      entity_id: cover.fyrtur_1
+                  hold_action:
+                    action: more-info
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 10px
+                      - height: 60px
+                - type: 'custom:button-card'  # fyrtur 2
+                  entity: cover.fyrtur_2
+                  show_icon: true
+                  show_name: false
+                  style: |
+                    ha-card {
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_2', 'closed') %}
+                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_2', 'open') %}
+                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_2', 'closed') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_2', 'open') %}
+                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}
+                    }
+                  styles:
+                    card:
+                      - width: 80px
+                      - height: 80px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: >
+                          [[[
+                            if (states['binary_sensor.window_openclose_2'].state == 'on') return 'var(--paper-item-icon-active-color)';
+                            else return 'var(--primary-text-color)';
+                          ]]]
+                  tap_action:
+                    action: toggle
+                  double_tap_action:
+                    action: call-service
+                    service: cover.stop_cover
+                    service_data:
+                      entity_id: cover.fyrtur_2
+                  hold_action:
+                    action: more-info
+        - type: markdown  ### blinds bed room
           content: |
             # Bed room
           style: |
@@ -104,7 +217,14 @@
             }
         - type: markdown
           content: >
-            # Blinds
+            {% set entities = 'cover.fyrtur_3', 'cover.fyrtur_4' %}
+            {% if (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',0) | list | length) == 2 %}
+              # All blinds are closed
+            {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) != 2 %}
+              # The blinds are partially closed
+            {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) == 2 %}
+              # All blinds are open
+            {% endif %}
           style: |
             ha-card {
              height: 50px;
@@ -117,58 +237,164 @@
               font-family: Helvetica;
               letter-spacing: '-0.01em';
             }
-        - type: horizontal-stack
+        - type: vertical-stack  ### Bed room buttons
           cards:
-            - type: 'custom:button-card'
-              show_icon: false
-              show_name: false
-              style: |
-                ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
-              styles:
-                card:
-                  - width: 5px
-                  - height: 10px
-            - type: entities
-              show_header_toggle: false
-              entities:
-                - entity: cover.fyrtur_3
-                  name: Fyrtur 3
-                - entity: binary_sensor.window_openclose_3
-                  name: Window sensor 3
-                  icon: mdi:window-closed-variant
-                - entity: cover.fyrtur_4
-                  name: Fyrtur 4
-                - entity: binary_sensor.window_openclose_4
-                  name: Window sensor 4
-                  icon: mdi:window-closed-variant
-              style: |
-                ha-card {
-                  background-color: var(--primary-background-color);
-                  border-radius: 15px;
-                  box-shadow:
-                    {% if is_state('sun.sun', 'above_horizon') %}
-                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
-                    {% else %}
-                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
-                    {% endif %}
-                }
-            - type: 'custom:button-card'
-              show_icon: false
-              show_name: false
-              style: |
-                ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
-              styles:
-                card:
-                  - width: 5px
-                  - height: 10px
-    - type: vertical-stack  # right column
-      cards:
+            - type: horizontal-stack
+              cards:
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 5px
+                      - height: 60px
+                - type: 'custom:button-card'  # group
+                  entity: cover.bed_room_group
+                  icon: mdi:bed-empty
+                  show_icon: true
+                  show_name: false
+                  state:
+                    - styles:
+                        icon:
+                          - color: 'var(--paper-item-icon-active-color)  '
+                      value: 'on'
+                  style: |
+                    ha-card {
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.bed_room_group', 'closed') %}
+                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.bed_room_group', 'open') %}
+                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.bed_room_group', 'closed') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.bed_room_group', 'open') %}
+                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}
+                    }
+                  styles:
+                    card:
+                      - width: 80px
+                      - height: 80px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: var(--primary-text-color)
+                  tap_action:
+                    action: toggle
+                  double_tap_action:
+                    action: call-service
+                    service: cover.stop_cover
+                    service_data:
+                      entity_id: cover.bed_room_group
+                  hold_action:
+                    action: more-info
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 10px
+                      - height: 60px
+                - type: 'custom:button-card'  # fyrtur 3
+                  entity: cover.fyrtur_3
+                  show_icon: true
+                  show_name: false
+                  style: |
+                    ha-card {
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_3', 'closed') %}
+                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_3', 'open') %}
+                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_3', 'closed') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_3', 'open') %}
+                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}
+                    }
+                  styles:
+                    card:
+                      - width: 80px
+                      - height: 80px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: >
+                          [[[
+                            if (states['binary_sensor.window_openclose_3'].state == 'on') return 'var(--paper-item-icon-active-color)';
+                            else return 'var(--primary-text-color)';
+                          ]]]
+                  tap_action:
+                    action: toggle
+                  double_tap_action:
+                    action: call-service
+                    service: cover.stop_cover
+                    service_data:
+                      entity_id: cover.fyrtur_3
+                  hold_action:
+                    action: more-info
+                - type: 'custom:button-card'
+                  show_icon: false
+                  show_name: false
+                  style: |
+                    ha-card {
+                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    box-shadow: 2px 2px rgba(0,0,0,0.0);
+                    }
+                  styles:
+                    card:
+                      - width: 10px
+                      - height: 60px
+                - type: 'custom:button-card'  # fyrtur 4
+                  entity: cover.fyrtur_4
+                  show_icon: true
+                  show_name: false
+                  style: |
+                    ha-card {
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_4', 'closed') %}
+                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_4', 'open') %}
+                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_4', 'closed') %}
+                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_4', 'open') %}
+                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                        {% endif %}
+                    }
+                  styles:
+                    card:
+                      - width: 80px
+                      - height: 80px
+                      - border-radius: 15px
+                      - background-color: var(--primary-background-color)
+                    icon:
+                      - color: >
+                          [[[
+                            if (states['binary_sensor.window_openclose_4'].state == 'on') return 'var(--paper-item-icon-active-color)';
+                            else return 'var(--primary-text-color)';
+                          ]]]
+                  tap_action:
+                    action: toggle
+                  double_tap_action:
+                    action: call-service
+                    service: cover.stop_cover
+                    service_data:
+                      entity_id: cover.fyrtur_4
+                  hold_action:
+                    action: more-info
+    # - type: vertical-stack  # right column
+    #   cards:
         - type: markdown  ### column
           content: |
             # Settings
