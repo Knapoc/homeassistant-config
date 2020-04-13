@@ -5,7 +5,7 @@
   alias: Plant care water
   trigger:
     - platform: numeric_state
-      entity_id: sensor.yuccaelephantipes_moisture
+      entity_id: sensor.yuccaaloifolia_moisture
       below: 15
   condition:
     condition: and
@@ -26,7 +26,7 @@
   alias: Plant Care fertilizer
   trigger:
     - platform: numeric_state
-      entity_id: sensor.yuccaelephantipes_conductivity
+      entity_id: sensor.yuccaaloifolia_conductivity
       below: 350
   condition:
     condition: and
@@ -45,7 +45,7 @@
   alias: Plant Care battery
   trigger:
     - platform: numeric_state
-      entity_id: sensor.yuccaelephantipes_battery
+      entity_id: sensor.yuccaaloifolia_battery
       below: 10
   condition:
     condition: and

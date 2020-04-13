@@ -80,31 +80,31 @@
   value_template: "{{ value_json['StatusFWR'].Version[:5] }}"
 
 - platform: mqtt
-  name: yuccaelephantipes_moisture
-  state_topic: "miflora/YuccaElephantipes"
+  name: yuccaaloifolia_moisture
+  state_topic: "miflora/YuccaAloifolia"
   value_template: "{{ value_json.moisture }}"
   unit_of_measurement: "%"
 
 - platform: mqtt
-  name: yuccaelephantipes_light
-  state_topic: "miflora/YuccaElephantipes"
+  name: yuccaaloifolia_light
+  state_topic: "miflora/YuccaAloifolia"
   value_template: "{{ value_json.light }}"
   unit_of_measurement: "lux"
 
 - platform: mqtt
-  name: yuccaelephantipes_temperature
-  state_topic: "miflora/YuccaElephantipes"
+  name: yuccaaloifolia_temperature
+  state_topic: "miflora/YuccaAloifolia"
   value_template: "{{ value_json.temperature }}"
   unit_of_measurement: "°C"
 
 - platform: mqtt
-  name: yuccaelephantipes_conductivity
-  state_topic: "miflora/YuccaElephantipes"
+  name: yuccaaloifolia_conductivity
+  state_topic: "miflora/YuccaAloifolia"
   value_template: "{{ value_json.conductivity }}"
   unit_of_measurement: "µS/cm"
 
 - platform: mqtt
-  name: yuccaelephantipes_battery
-  state_topic: "miflora/YuccaElephantipes"
+  name: yuccaaloifolia_battery
+  state_topic: "miflora/YuccaAloifolia"
   value_template: "{{ value_json.battery }}"
   unit_of_measurement: "%"

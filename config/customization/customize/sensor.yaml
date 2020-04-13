@@ -103,9 +103,9 @@ sensor.wemosd1_room_humidity:
   icon: mdi:water-percent
 sensor.wemosd1_room_temperature:
   friendly_name: Temperatur - Zimmer
-sensor.yuccaelephantipes_moisture:
+sensor.yuccaaloifolia_moisture:
   friendly_name: Yucca - Feuchtigkeit
-sensor.yuccaelephantipes_conductivity:
+sensor.yuccaaloifolia_conductivity:
   friendly_name: Yucca - Leitfähigkeit
-sensor.yuccaelephantipes_battery:
+sensor.yuccaaloifolia_battery:
   friendly_name: Yucca - Batterie

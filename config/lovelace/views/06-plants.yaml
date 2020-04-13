@@ -103,7 +103,7 @@
                   - width: 5px
                   - height: 60px
             - type: plant-status
-              entity: plant.yucca_elephantipes
+              entity: plant.yucca_aloifolia
               style: |
                 ha-card {
                   background-color: var(--primary-background-color);
