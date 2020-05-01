@@ -7,8 +7,6 @@ advertise_ip: !secret host_ip
 # safe_mode: true
 filter:
   include_domains:
-    # - media_playerh
-    # - light
     - switch
     - cover
   include_entities:
@@ -16,7 +14,6 @@ filter:
     - input_boolean.loop_livingcolors_2
     - light.deckenleuchte
     - light.stehlampe
-    # - light.deckenspots
     - light.hue_spot_1
     - light.hue_spot_2
     - light.hue_spot_3
@@ -30,6 +27,7 @@ filter:
     - media_player.playstation_4
     - sensor.wemosd1_room_humidity
     - sensor.wemosd1_room_temperature
+    - vacuum.robovac
   exclude_entities:
     - cover.living_room_group
     - cover.bed_room_group
@@ -50,5 +48,5 @@ entity_config:
     name: "Temparatur"
   switch.magic_mirror:
     name: "Magic Mirror"
-  switch.robovac:
+  vacuum.robovac:
     name: "Staubsauger"
