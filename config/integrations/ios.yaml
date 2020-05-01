@@ -8,12 +8,12 @@ push:
         - identifier: 'EMPTY_ROBOVAC_LATER'
           title: 'später'
           activationMode: 'background'
-          authenticationRequired: no
-          destructive: no
+          authenticationRequired: false
+          destructive: false
           behavior: 'default'
         - identifier: 'EMPTY_ROBOVAC_NOW'
           title: 'jetzt'
           activationMode: 'background'
-          authenticationRequired: no
-          destructive: no
+          authenticationRequired: false
+          destructive: false
           behavior: 'default'
