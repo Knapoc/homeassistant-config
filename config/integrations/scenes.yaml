@@ -14,8 +14,7 @@
       device_class: tv
       friendly_name: Sony Bravia TV
       icon: mdi:television
-      media_content_id: Netflix
-      media_content_type: tvshow
+      source: 'Netflix'
       state: 'on'
       supported_features: 24509
       volume_level: 0.11
