@@ -127,8 +127,6 @@ speedtestdotnet:
     - ping
     - download
     - upload
-  scan_interval:
-    hours: 3
 
 weather:
   - platform: darksky
