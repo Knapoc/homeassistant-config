@@ -3,7 +3,7 @@
 
 wohnzimmer:
   entities:
-    - media_player.braviatv_1
+    - media_player.sony_bravia_tv
     - media_player.playstation_4
     - light.deckenleuchte
     - light.stehlampe

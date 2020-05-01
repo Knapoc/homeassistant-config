@@ -10,7 +10,7 @@
       state: 'off'
     light.stehlampe:
       state: 'on'
-    media_player.braviatv_1:
+    media_player.sony_bravia_tv:
       device_class: tv
       friendly_name: Sony Bravia TV
       icon: mdi:television
@@ -33,7 +33,7 @@
       min_mireds: 153
       state: 'on'
       supported_features: 43
-    media_player.braviatv_1:
+    media_player.sony_bravia_tv:
       source: HDMI 2
       state: 'on'
       volume_level: 0.17

@@ -23,7 +23,7 @@ filter:
     - light.light_9
     - light.light_10
     - light.light_11
-    - media_player.braviatv_1
+    - media_player.sony_bravia_tv
     - media_player.playstation_4
     - sensor.wemosd1_room_humidity
     - sensor.wemosd1_room_temperature
@@ -36,7 +36,7 @@ entity_config:
     name: "Loop 1"
   input_boolean.loop_livingcolors_2:
     name: "Loop 2"
-  media_player.braviatv_1:
+  media_player.sony_bravia_tv:
     name: Fernseher
   media_player.playstation_4:
     name: "Playstation 4"

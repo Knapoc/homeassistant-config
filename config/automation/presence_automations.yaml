@@ -14,7 +14,7 @@
     - service: homeassistant.turn_off
       data:
         entity_id:
-          - media_player.braviatv_1
+          - media_player.sony_bravia_tv
           - media_player.playstation_4
           - light.schlafzimmer
           - light.badezimmer
@@ -63,7 +63,7 @@
     - service: homeassistant.turn_off
       data:
         entity_id:
-          - media_player.braviatv_1
+          - media_player.sony_bravia_tv
           - media_player.playstation_4
           - light.schlafzimmer
           - light.badezimmer

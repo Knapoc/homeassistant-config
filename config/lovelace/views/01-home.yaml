@@ -768,7 +768,7 @@
                   - width: 5px
                   - height: 60px
             - type: custom:mini-media-player  # tv
-              entity: media_player.braviatv_1
+              entity: media_player.sony_bravia_tv
               hide:
                 info: true
               style: |

@@ -1,45 +1,6 @@
 ---
 # media player config
 
-- platform: braviatv_psk
-  name: braviatv_1
-  host: !secret tv_tv1_ip
-  psk: !secret tv_tv1_psk
-  mac: !secret tv_tv1_mac
-  android: true
-  sourcefilter:
-    - 'HDMI 1'
-    - 'HDMI 2'
-    - 'HDMI 3/ARC'
-    - 'HDMI 4'
-    - 'ORF eins HD'
-    - 'ORF 2 Wien HD'
-    - 'ATV HD'
-    - 'PULS 4 HD'
-    - 'Servus TV HD'
-    - 'Das Erste HD'
-    - 'ZDF HD'
-    - 'ORF III HD'
-    - 'ProSieben HD'
-    - 'SAT.1 HD'
-    - 'RTL II'
-    - 'kabel eins HD'
-    - 'VOX'
-    - 'ATV II HD'
-    - 'kabel eins Doku'
-    - 'arte HD'
-    - 'N24 doku'
-    - 'ntv'
-    - 'ZDF neo HD'
-    - 'ZDF info HD'
-    - 'Sky 1 HD'
-    - 'PULS24 HD'
-    - 'One HD'
-    - 'Sky Sport HD 1'
-    - 'Sky Sport HD 2'
-    - 'Sky Sport Austria 1 HD'
-    - 'Sky Sport Austria 2 HD'
-    - 'ORF Sport+ HD'
 - platform: ps4_node
   host: !secret ps4waker_host
   ps4_ip: !secret ps4_ip
