@@ -105,6 +105,7 @@
                   - height: 60px
             - type: custom:simple-weather-card
               entity: weather.dark_sky
+              name: at home
               style: |
                 ha-card {
                   --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
