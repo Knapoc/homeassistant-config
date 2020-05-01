@@ -45,7 +45,6 @@ mobile_app:
 person: !include integrations/person.yaml
 recorder:
   db_url: !secret mysql_db
-  purge_interval: 1
   purge_keep_days: 30
   include: !include integrations/recorder_include.yaml
   exclude: !include integrations/recorder_exclude.yaml
