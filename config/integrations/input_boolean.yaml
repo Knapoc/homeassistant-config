@@ -6,9 +6,11 @@ loop_livingcolors_1:
 loop_livingcolors_2:
   name: Loop LivingColors Stehlampe
 wakeup:
-  name: 'Aufwachbeleuchtung'
+  name: 'Wake up light'
   icon: mdi:power
 wakeup_weekends:
   icon: mdi:calendar
+  name: 'Wake up lights on weekends'
 vacuum_weekends:
   icon: mdi:calendar
+  name: 'Vacuum on weekends'
