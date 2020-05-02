@@ -48,35 +48,25 @@
 - alias: Disk Use Alarm
   id: '1500589867'
   trigger:
-    platform: numeric_state
-    entity_id: sensor.disk_use
-    above: 90
+    - platform: numeric_state
+      entity_id: sensor.disk_use
+      above: 90
+    - platform: numeric_state
+      entity_id: sensor.disk_use_percent_lv0
+      above: 90
+    - platform: numeric_state
+      entity_id: sensor.disk_use_percent_lv1
+      above: 90
+    - platform: numeric_state
+      entity_id: sensor.disk_use_percent_sda1
+      above: 90
+    - platform: numeric_state
+      entity_id: sensor.disk_use_percent_sda2
+      above: 90
   action:
     service: !secret notify_ios
     data_template:
-      message: "Your harddrive is running out of space: /dev/root: {{ states('sensor.disk_use_percent') }}%"
-
-- alias: Disk Use Alarm sda1
-  id: '1500589868'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.disk_useperc_sda1
-    above: 90
-  action:
-    service: !secret notify_ios
-    data_template:
-      message: "Your harddrive is running out of space: /dev/sda1: {{ states('sensor.disk_useperc_sda1') }}%"
-
-- alias: Disk Use Alarm sda2
-  id: '1500589869'
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.disk_useperc_sda2
-    above: 90
-  action:
-    service: !secret notify_ios
-    data_template:
-      message: "Your harddrive is running out of space: /dev/sda2: {{ states('sensor.disk_useperc_sda2') }}%"
+      message: "Your harddrive is running out of space - {{ state_attr(trigger.entity_id, 'friendly_name') }}: {{ states(trigger.entity_id) }}%"
 
 - alias: Log Level
   id: '1500589870'
