@@ -289,7 +289,7 @@
                 card:
                   - width: 5px
                   - height: 60px
-        - type: horizontal-stack
+        - type: horizontal-stack  # bars
           cards:
             - type: 'custom:button-card'
               show_icon: false
@@ -303,16 +303,31 @@
                 card:
                   - width: 5px
                   - height: 60px
-            - type: custom:gauge-card
-              entity: sensor.disk_use_percent
-              title: SSD
-              min: 0
-              max: 100
-              scale: 27px
+            - type: custom:bar-card
+              entities: 
+                - entity: sensor.disk_use_percent
+                  name: lv - /
+                - entity: sensor.disk_use_percent_lv0
+                  name: lv - /home
+                - entity: sensor.disk_use_percent_lv1
+                  name: lv - /srv
+                - entity: sensor.disk_use_percent_sda1
+                - entity: sensor.disk_use_percent_sda2
+              height: 20px
+              width: 70%
               severity:
-                red: 80
-                green: 0
-                amber: 60
+                - color: green
+                  from: 0
+                  to: 60
+                - color: orange
+                  from: 61
+                  to: 90
+                - color: red
+                  from: 91
+                  to: 100
+              positions:
+                name: outside
+                indicator: inside
               style: |
                 ha-card {
                   background-color: var(--primary-background-color);
@@ -324,66 +339,16 @@
                       -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
                     {% endif %}
                 }
-                .gauge-a {
-                  background-color: var(--paper-card-background-color);
+                bar-card-value {
+                    margin: auto;
+                    font-size: 12px;
                 }
-                .gauge-b {
-                  background-color: var(--primary-background-color);
+                bar-card-row {
+                    height: 24px;
                 }
-            - type: custom:gauge-card
-              entity: sensor.disk_useperc_sda1
-              title: sda1
-              min: 0
-              max: 100
-              scale: 27px
-              severity:
-                red: 80
-                green: 0
-                amber: 60
-              style: |
-                ha-card {
-                  background-color: var(--primary-background-color);
-                  border-radius: 15px;
-                  box-shadow:
-                    {% if is_state('sun.sun', 'above_horizon') %}
-                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
-                    {% else %}
-                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
-                    {% endif %}
-                }
-                .gauge-a {
-                  background-color: var(--paper-card-background-color);
-                }
-                .gauge-b {
-                  background-color: var(--primary-background-color);
-                }
-            - type: custom:gauge-card
-              entity: sensor.disk_useperc_sda2
-              title: sda2
-              min: 0
-              max: 100
-              scale: 27px
-              severity:
-                red: 80
-                green: 0
-                amber: 60
-              style: |
-                ha-card {
-                  background-color: var(--primary-background-color);
-                  border-radius: 15px;
-                  box-shadow:
-                    {% if is_state('sun.sun', 'above_horizon') %}
-                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
-                    {% else %}
-                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
-                    {% endif %}
-                }
-                .gauge-a {
-                  background-color: var(--paper-card-background-color);
-                }
-                .gauge-b {
-                  background-color: var(--primary-background-color);
-                }
+                bar-card-currentbar, bar-card-backgroundbar {
+                    border-radius: 4px;
+                  }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false

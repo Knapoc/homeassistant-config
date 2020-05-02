@@ -31,3 +31,5 @@ resources:
     type: module
   - url: /hacsfiles/gauge-card/gauge-card.js
     type: js
+  - url: /hacsfiles/bar-card/bar-card.js
+    type: module
