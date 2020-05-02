@@ -7,26 +7,50 @@
     - 'date'
 
 - platform: file
-  file_path: !secret path_disk_0
-  name: disk_size_sda2
+  file_path: !secret path_disk_1
+  name: disk_size_lv0
   unit_of_measurement: kB
   value_template: '{{ value_json.spacetotal }}'
 
 - platform: file
-  file_path: !secret path_disk_0
-  name: disk_used_sda2
+  file_path: !secret path_disk_1
+  name: disk_used_lv0
   unit_of_measurement: kB
   value_template: '{{ value_json.spaceused }}'
 
 - platform: file
-  file_path: !secret path_disk_1
+  file_path: !secret path_disk_2
+  name: disk_size_lv1
+  unit_of_measurement: kB
+  value_template: '{{ value_json.spacetotal }}'
+
+- platform: file
+  file_path: !secret path_disk_2
+  name: disk_used_lv1
+  unit_of_measurement: kB
+  value_template: '{{ value_json.spaceused }}'
+
+- platform: file
+  file_path: !secret path_disk_3
   name: disk_size_sda1
   unit_of_measurement: kB
   value_template: '{{ value_json.spacetotal }}'
 
 - platform: file
-  file_path: !secret path_disk_1
+  file_path: !secret path_disk_3
   name: disk_used_sda1
+  unit_of_measurement: kB
+  value_template: '{{ value_json.spaceused }}'
+
+- platform: file
+  file_path: !secret path_disk_4
+  name: disk_size_sda2
+  unit_of_measurement: kB
+  value_template: '{{ value_json.spacetotal }}'
+
+- platform: file
+  file_path: !secret path_disk_4
+  name: disk_used_sda2
   unit_of_measurement: kB
   value_template: '{{ value_json.spaceused }}'
 

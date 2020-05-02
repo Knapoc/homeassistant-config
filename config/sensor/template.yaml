@@ -43,11 +43,29 @@
         {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_cover < 10 %}0{% endif %}{{ alarm_min_cover }}
         {% endif %}
         {% endif %}
-    disk_useperc_sda2:
-      value_template: "{{ ((states('sensor.disk_used_sda2') | int) / (states('sensor.disk_size_sda2') | int) * 100) | round(1) }}"
+    disk_use_percent_lv0:
+      value_template: "{{ ((states('sensor.disk_used_lv0') | int) / (states('sensor.disk_size_lv0') | int) * 100) | round(1) }}"
+      entity_id:
+        - sensor.disk_used_lv0
+        - sensor.disk_size_lv0
       unit_of_measurement: '%'
-    disk_useperc_sda1:
+    disk_use_percent_lv1:
+      value_template: "{{ ((states('sensor.disk_used_lv1') | int) / (states('sensor.disk_size_lv1') | int) * 100) | round(1) }}"
+      entity_id:
+        - sensor.disk_used_lv1
+        - sensor.disk_size_lv1
+      unit_of_measurement: '%'
+    disk_use_percent_sda1:
       value_template: "{{ ((states('sensor.disk_used_sda1') | int) / (states('sensor.disk_size_sda1') | int) * 100) | round(1) }}"
+      entity_id:
+        - sensor.disk_used_sda1
+        - sensor.disk_size_sda1
+      unit_of_measurement: '%'
+    disk_use_percent_sda2:
+      value_template: "{{ ((states('sensor.disk_used_sda2') | int) / (states('sensor.disk_size_sda2') | int) * 100) | round(1) }}"
+      entity_id:
+        - sensor.disk_used_sda2
+        - sensor.disk_size_sda2
       unit_of_measurement: '%'
     count_automations:
       entity_id: sensor.date

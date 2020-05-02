@@ -16,8 +16,10 @@ entities:
   - sensor.processor_use
   - sensor.disk_free
   - sensor.disk_use_percent
-  - sensor.disk_useperc_sda1
-  - sensor.disk_useperc_sda2
+  - sensor.disk_use_percent_lv0
+  - sensor.disk_use_percent_lv1
+  - sensor.disk_use_percent_sda1
+  - sensor.disk_use_percent_sda2
   - sensor.memory_free
   - sensor.memory_use_percent
   - sensor.database_size
