@@ -21,8 +21,6 @@ sensor.database_size_hass:
 sensor.database_size_nc:
   friendly_name: Datenbankgröße NC
   icon: mdi:database
-sensor.disk_free:
-  friendly_name: SSD
 sensor.disk_use_percent:
   friendly_name: SSD
 sensor.fail2ban_homeassistant:
@@ -60,24 +58,6 @@ sensor.network_out_eth0:
 sensor.processor_use:
   friendly_name: CPU
   icon: mdi:desktop-classic
-# sensor.sonoff_3028_version:
-#  friendly_name: Tasmota Version
-# sensor.sonoff_office_humidity:
-#  friendly_name: Luftfeuchtigkeit - Büro
-#  icon: mdi:water-percent
-#  homebridge_hidden: false
-# sensor.sonoff_office_temperature:
-#  friendly_name: Temperatur - Büro
-#  homebridge_hidden: false
-# sensor.sonoff_rssi:
-#  friendly_name: Signalstärke
-#  icon: mdi:signal-variant
-# sensor.sonoff_uptime:
-#  friendly_name: Betriebszeit
-#  icon: mdi:arrow-up-thick
-# sensor.sonoff_vcc:
-#  friendly_name: Versorgungsspannung
-#  icon: mdi:flash
 sensor.speedtest_download:
   friendly_name: Download
   icon: mdi:download
