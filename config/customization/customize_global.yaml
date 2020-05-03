@@ -10,3 +10,7 @@
   friendly_name: home
 "zone.*":
   track_ios: false
+"sensor.*temperature*":
+  device_class: temperature
+"sensor.*humidity*":
+  device_class: humidity
