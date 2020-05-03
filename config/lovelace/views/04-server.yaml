@@ -313,7 +313,7 @@
                   name: lv - /srv
                 - entity: sensor.disk_use_percent_sda1
                 - entity: sensor.disk_use_percent_sda2
-              height: 20px
+              height: 22px
               width: 70%
               severity:
                 - color: green
@@ -348,7 +348,10 @@
                 }
                 bar-card-currentbar, bar-card-backgroundbar {
                     border-radius: 4px;
-                  }
+                }
+                bar-card-indicator {
+                    left: 3px;
+                }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
