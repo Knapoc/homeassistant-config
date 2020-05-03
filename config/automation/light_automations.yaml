@@ -71,26 +71,23 @@
       brightness: 132
 
 - id: '1555301143'
-  alias: turn off loop-effect Stehlampe
+  alias: Turn off loop-effect
   trigger:
     - platform: state
       entity_id: light.stehlampe
       to: 'off'
-  action:
-    - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.loop_livingcolors_2
-
-- id: '1555301144'
-  alias: turn off loop-effect Deckenspots
-  trigger:
     - platform: state
       entity_id: light.deckenspots
       to: 'off'
   action:
     - service: input_boolean.turn_off
-      data:
-        entity_id: input_boolean.loop_livingcolors_1
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'light.stehlampe' -%}
+            input_boolean.loop_livingcolors_2
+          {% elif trigger.entity_id == 'light.deckenspots' -%}
+            input_boolean.loop_livingcolors_1
+          {% endif %}
 
 - id: '1555301145'
   alias: Gaming PS4
@@ -168,24 +165,17 @@
     - service: light.turn_off
       data:
         entity_id: light.badezimmer
-- id: "1563724325"
-  alias: turn toilet lights off 2
-  trigger:
-    - platform: state
-      entity_id: light.toilette
-      to: 'on'
-      for:
-        minutes: 25
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.toilette
 - id: "1569688815"
   alias: turn toilet lights off
   trigger:
     - platform: state
       entity_id: binary_sensor.motion_sensor
       to: 'off'
+    - platform: state
+      entity_id: light.toilette
+      to: 'on'
+      for:
+        minutes: 15
   condition:
     condition: state
     entity_id: light.toilette
