@@ -74,13 +74,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('cover.living_room_group', 'open') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.living_room_group', 'closed') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.living_room_group', 'open') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.living_room_group', 'closed') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -120,13 +120,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_1', 'open') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_1', 'closed') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_1', 'open') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_1', 'closed') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -170,13 +170,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_2', 'open') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_2', 'closed') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_2', 'open') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_2', 'closed') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -267,13 +267,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('cover.bed_room_group', 'open') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.bed_room_group', 'closed') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.bed_room_group', 'open') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.bed_room_group', 'closed') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -313,13 +313,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_3', 'open') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_3', 'closed') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_3', 'open') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_3', 'closed') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -363,13 +363,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_4', 'open') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_4', 'closed') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_4', 'open') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_4', 'closed') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -442,6 +442,7 @@
               entities:
                 - entity: sensor.wakeup_open_time_covers
                   name: Blind opening time
+                  icon: mdi:clock
                 - entity: input_number.wakeup_cover_open_delay
                   name: Delay
                 - entity: input_datetime.time_close_covers_night
@@ -450,12 +451,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow:
-                    {% if is_state('sun.sun', 'above_horizon') %}
-                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
-                    {% else %}
-                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
-                    {% endif %}
+                  box-shadow: var(--softui-standard-boxshadow);
                 }
             - type: 'custom:button-card'
               show_icon: false

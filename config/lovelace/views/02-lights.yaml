@@ -67,13 +67,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -114,13 +114,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.stehlampe', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.stehlampe', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -161,13 +161,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_2', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_2', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_2', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_2', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -234,12 +234,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') %}
-                          -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') %}
-                          -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
+                      box-shadow: var(--softui-bigbutton-boxshadow);
                     }
                   styles:
                     card:
@@ -318,12 +313,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') %}
-                          -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') %}
-                          -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
+                      box-shadow: var(--softui-bigbutton-boxshadow);
                     }
                   styles:
                     card:
@@ -402,12 +392,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') %}
-                          -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') %}
-                          -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
+                      box-shadow: var(--softui-bigbutton-boxshadow);
                     }
                   styles:
                     card:
@@ -486,12 +471,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') %}
-                          -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') %}
-                          -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
+                      box-shadow: var(--softui-bigbutton-boxshadow);
                     }
                   styles:
                     card:
@@ -600,13 +580,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenspots', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenspots', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -647,13 +627,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_1', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_1', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_1', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_1', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -694,13 +674,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_2', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_2', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_2', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_2', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -741,13 +721,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_3', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_3', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_3', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_3', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -788,13 +768,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_1r', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_1', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_1', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_1', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -861,12 +841,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') %}
-                          -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') %}
-                          -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
+                      box-shadow: var(--softui-bigbutton-boxshadow);
                     }
                   styles:
                     card:
@@ -945,12 +920,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') %}
-                          -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') %}
-                          -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
+                      box-shadow: var(--softui-bigbutton-boxshadow);
                     }
                   styles:
                     card:
@@ -1029,12 +999,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') %}
-                          -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') %}
-                          -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
+                      box-shadow: var(--softui-bigbutton-boxshadow);
                     }
                   styles:
                     card:
@@ -1115,12 +1080,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') %}
-                          -8px -8px 8px 0 rgba(255,255,255,.5),8px 8px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') %}
-                          -8px -8px 8px 0 rgba(50, 50, 50,.5),8px 8px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
+                      box-shadow: var(--softui-bigbutton-boxshadow);
                     }
                   styles:
                     card:
@@ -1231,13 +1191,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.kuche', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.kuche', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -1278,13 +1238,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.light_10', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_10', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_10', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_10', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -1325,13 +1285,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.light_11', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_11', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_11', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_11', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -1406,13 +1366,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.badezimmer', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.badezimmer', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.badezimmer', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.badezimmer', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -1453,13 +1413,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.toilette', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.toilette', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.toilette', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.toilette', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -1500,13 +1460,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.vorzimmer', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.vorzimmer', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.vorzimmer', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.vorzimmer', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:
@@ -1547,13 +1507,13 @@
                     ha-card {
                       box-shadow:
                         {% if is_state('sun.sun', 'above_horizon') and is_state('light.schreibtischlampe', 'on') %}
-                          inset -4px -4px 8px 0 rgba(255,255,255,.5), inset 4px 4px 8px 0 rgba(0,0,0,.03);
+                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'above_horizon') and is_state('light.schreibtischlampe', 'off') %}
-                          -5px -5px 8px 0 rgba(255,255,255,.5),5px 5px 8px 0 rgba(0,0,0,.03);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.schreibtischlampe', 'on') %}
-                          inset -4px -4px 10px 0 rgba(50, 50, 50,.5), inset 4px 4px 12px 0 rgba(0,0,0,.3);
+                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
                         {% elif is_state('sun.sun', 'below_horizon') and is_state('light.schreibtischlampe', 'off') %}
-                          -5px -5px 8px 0 rgba(50, 50, 50,.5),5px 5px 8px 0 rgba(0,0,0,.15);
+                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
                   styles:

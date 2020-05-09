@@ -57,12 +57,7 @@
         #         ha-card {
         #           background-color: var(--primary-background-color);
         #           border-radius: 15px;
-        #           box-shadow:
-        #             {% if is_state('sun.sun', 'above_horizon') %}
-        #               -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
-        #             {% else %}
-        #               -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
-        #             {% endif %}
+        #           box-shadow: var(--softui-standard-boxshadow);
         #         }
         #     - type: 'custom:button-card'
         #       show_icon: false
@@ -108,12 +103,7 @@
                 ha-card {
                   background-color: var(--primary-background-color);
                   border-radius: 15px;
-                  box-shadow:
-                    {% if is_state('sun.sun', 'above_horizon') %}
-                      -4px -4px 4px 0 rgba(255,255,255,.5),4px 4px 4px 0 rgba(0,0,0,.03);
-                    {% else %}
-                      -4px -4px 4px 0 rgba(50, 50, 50,.5),4px 4px 4px 0 rgba(0,0,0,.15);
-                    {% endif %}
+                  box-shadow: var(--softui-standard-boxshadow);
                 }
             - type: 'custom:button-card'
               show_icon: false
