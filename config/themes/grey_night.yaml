@@ -87,3 +87,8 @@ grey_night:
   table-row-background-color: "hsl(var(--huesat) 12%)"
   text-primary-color: "hsl(var(--huesat) 90%)"
   paper-input-container-shared-input-style_-_font-size: "var(--font-size)"
+  # softui
+  softui-boxshadow-top: "rgba(50, 50, 50,.5)"
+  softui-boxshadow-bottom: "rgba(0,0,0,.15)"
+  softui-bigbutton-boxshadow: "-8px -8px 8px 0 var(--softui-boxshadow-top),8px 8px 8px 0 var(--softui-boxshadow-bottom)"
+  softui-standard-boxshadow: "-4px -4px 4px 0 var(--softui-boxshadow-top),4px 4px 4px 0 var(--softui-boxshadow-bottom)"
