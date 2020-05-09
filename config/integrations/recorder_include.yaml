@@ -12,4 +12,4 @@ domains:
   - vacuum
   - cover
 entities:
-  - binary_sensor.presence_10
+  - binary_sensor.motion_sensor
