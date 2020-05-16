@@ -697,9 +697,6 @@
                 - type: entities
                   show_header_toggle: false
                   entities:
-                    - entity: sensor.potential_breaking_changes
-                      name: Breaking changes
-                      icon: mdi:alert-circle
                     - entity: input_select.log_level
             - type: 'custom:button-card'
               show_icon: false
