@@ -18,7 +18,6 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - !secret proxy_ip
-  base_url: !secret hass_baseurl
 
 # default config
 automation: !include_dir_merge_list automation/
