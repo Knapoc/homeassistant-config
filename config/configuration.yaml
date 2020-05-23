@@ -86,12 +86,6 @@ asuswrt:
     - upload
     - download
 
-hacs:
-  token: !secret github_at
-  sidepanel_icon: hacs:hacs
-  options:
-    release_limit: 10
-
 eufy_vacuum:
   devices:
     - name: Robovac
