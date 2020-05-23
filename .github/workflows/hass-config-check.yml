@@ -38,9 +38,8 @@ jobs:
       - name: prepare files
         run: |
           mv .not_secrets.yaml config/secrets.yaml
-          mkdir -p /tmp/diskinfo && chmod 775 /tmp/diskinfo
-          touch /tmp/diskinfo/fail2ban.log && touch /tmp/diskinfo/diskinfo1.txt && touch /tmp/diskinfo/diskinfo2.txt && touch /tmp/diskinfo/diskinfo3.txt && touch /tmp/diskinfo/diskinfo4.txt && touch /tmp/diskinfo/sshkey
-          chmod 775 /tmp/diskinfo/*
+          touch /tmp/fail2ban.log && touch /tmp/sshkey
+          chmod 775 /tmp/fail2ban.log && chmod 775 /tmp/sshkey
       - name: Home Assistant get version
         run: python3 -m homeassistant --version
       - name: Home Assistant check config
@@ -63,9 +62,8 @@ jobs:
       - name: prepare files
         run: |
           mv .not_secrets.yaml config/secrets.yaml
-          mkdir -p /tmp/diskinfo && chmod 775 /tmp/diskinfo
-          touch /tmp/diskinfo/fail2ban.log && touch /tmp/diskinfo/diskinfo1.txt && touch /tmp/diskinfo/diskinfo2.txt && touch /tmp/diskinfo/diskinfo3.txt && touch /tmp/diskinfo/diskinfo4.txt && touch /tmp/diskinfo/sshkey
-          chmod 775 /tmp/diskinfo/*
+          touch /tmp/fail2ban.log && touch /tmp/sshkey
+          chmod 775 /tmp/fail2ban.log && chmod 775 /tmp/sshkey
       - name: Home Assistant get version
         run: python3 -m homeassistant --version
       - name: Home Assistant check config

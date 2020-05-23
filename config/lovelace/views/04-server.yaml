@@ -275,7 +275,7 @@
                   - height: 60px
             - type: custom:bar-card
               entities:
-                - entity: sensor.disk_use_percent
+                - entity: sensor.disk_use_percent_lv
                   name: lv - /
                 - entity: sensor.disk_use_percent_lv0
                   name: lv - /home

@@ -21,8 +21,9 @@ sensor.database_size_hass:
 sensor.database_size_nc:
   friendly_name: Datenbankgröße NC
   icon: mdi:database
-sensor.disk_use_percent:
+sensor.disk_use_percent_lv:
   friendly_name: '/dev/lv'
+  icon: mdi:harddisk
 sensor.disk_use_percent_lv0:
   friendly_name: '/dev/lv0'
   icon: mdi:harddisk

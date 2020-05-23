@@ -13,8 +13,6 @@ homeassistant:
   customize_glob: !include customization/customize_global.yaml
   auth_providers:
     - type: homeassistant
-  whitelist_external_dirs:
-    - /tmp/diskinfo
 
 http:
   use_x_forwarded_for: true
