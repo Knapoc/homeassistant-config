@@ -10,9 +10,13 @@ import voluptuous as vol
 import homeassistant.util as util
 from homeassistant.components.media_player import (
     DOMAIN,
-    MediaPlayerDevice,
     PLATFORM_SCHEMA
 )
+
+try:
+    from homeassistant.components.media_player import MediaPlayerEntity
+except ImportError:
+    from homeassistant.components.media_player import MediaPlayerDevice as MediaPlayerEntity
 
 from homeassistant.components.media_player.const import (
     MEDIA_TYPE_CHANNEL,
@@ -87,7 +91,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     add_devices([PS4Device(name, ps4, games_map_json, local_store)], True)
 
 
-class PS4Device(MediaPlayerDevice):
+class PS4Device(MediaPlayerEntity):
     """Representation of a PS4."""
 
     def __init__(self, name, ps4, gamesmap_json, local_store):
