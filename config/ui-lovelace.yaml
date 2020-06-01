@@ -12,7 +12,6 @@ custom_header:
   hide_tabs:
     - plants
     - settings
-    - price
 
 x-vacuum-buttons: &vacuum-buttons
   color: auto
