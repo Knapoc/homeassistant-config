@@ -17,8 +17,6 @@ resources:
     type: module
   - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
     type: module
-  - url: /hacsfiles/nintendo-wishlist-card/nintendo-wishlist-card.js
-    type: js
   - url: /hacsfiles/simple-weather-card/simple-weather-card-bundle.js
     type: module
   - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js

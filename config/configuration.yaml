@@ -66,7 +66,6 @@ input_number: !include integrations/input_number.yaml
 input_select: !include integrations/input_select.yaml
 ios: !include integrations/ios.yaml
 media_player: !include integrations/media_player.yaml
-nintendo_wishlist: !include integrations/nintendo_wishlist.yaml
 notify: !include integrations/notify.yaml
 plant: !include integrations/plant.yaml
 sensor: !include_dir_merge_list sensor/
