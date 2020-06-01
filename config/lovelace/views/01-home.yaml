@@ -99,7 +99,7 @@
                   - width: 5px
                   - height: 60px
             - type: custom:simple-weather-card
-              entity: weather.dark_sky
+              entity: weather.openweathermap
               name: at home
               style: |
                 ha-card {

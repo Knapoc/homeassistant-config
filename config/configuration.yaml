@@ -119,6 +119,5 @@ speedtestdotnet:
     - upload
 
 weather:
-  - platform: darksky
-    api_key: !secret darksky_ak
-    mode: daily
+  - platform: openweathermap
+    api_key: !secret owm_ak
