@@ -2,8 +2,15 @@ import logging
 from typing import List
 
 from homeassistant import core
-from homeassistant.components.binary_sensor import BinarySensorDevice
 from homeassistant.util import slugify
+
+try:
+    from homeassistant.components.binary_sensor import BinarySensorEntity
+except ImportError:
+    # Prior to HA 0.110
+    from homeassistant.components.binary_sensor import (
+        BinarySensorDevice as BinarySensorEntity,
+    )
 
 from .const import DOMAIN
 from .types import SwitchGame
@@ -23,7 +30,7 @@ async def async_setup_platform(
     async_add_entities(sensors, True)
 
 
-class SwitchGameQueryEntity(BinarySensorDevice):
+class SwitchGameQueryEntity(BinarySensorEntity):
     """Represents a Query for a switch game."""
 
     def __init__(self, coordinator, game_title: str):
@@ -66,3 +73,17 @@ class SwitchGameQueryEntity(BinarySensorDevice):
     @property
     def device_state_attributes(self):
         return {"matches": self.matches}
+
+    async def async_update(self):
+        """Update the entity.
+
+        This is only used by the generic entity update service. Normal updates
+        happen via the coordinator.
+        """
+        await self.coordinator.async_request_refresh()
+
+    async def async_added_to_hass(self):
+        """Subscribe entity to updates when added to hass."""
+        self.async_on_remove(
+            self.coordinator.async_add_listener(self.async_write_ha_state)
+        )
