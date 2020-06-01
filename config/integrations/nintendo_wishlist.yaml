@@ -2,6 +2,8 @@
 # nintendo wishlist
 
 country: AT
+scan_interval:
+  hours: 6
 wishlist:
   - "80 DAYS"
   - "Untitled Goose Game"
