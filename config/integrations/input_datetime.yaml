@@ -13,11 +13,19 @@ time_close_covers_night:
   name: Close covers
   has_date: false
   has_time: true
-robovac_cleaning_from:
-  name: von
+vacuum_schedule_1_from:
+  name: Vacuum morning schedule start
   has_date: false
   has_time: true
-robovac_cleaning_to:
-  name: bis
+vacuum_schedule_1_to:
+  name: Vacuum morning schedule end
+  has_date: false
+  has_time: true
+vacuum_schedule_2_from:
+  name: Vacuum afternoon schedule start
+  has_date: false
+  has_time: true
+vacuum_schedule_2_to:
+  name: Vacuum afternoon schedule end
   has_date: false
   has_time: true

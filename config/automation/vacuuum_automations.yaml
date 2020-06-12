@@ -29,30 +29,26 @@
         conditions:
           - condition: and
             conditions:
-              - condition: state
-                entity_id: sensor.robovac_battery
-                state: '100'
+              - condition: template
+                value_template: "{{ state_attr('vacuum.robovac', 'battery_level') == 100 }}"
               - condition: numeric_state
                 entity_id: counter.vacuum_counter
                 below: 2
-              # - condition: time
-              #   after: '07:00:00'
-              #   before: '15:00:00'
               - condition: template
-                value_template: "{{ states('sensor.time') >= states('input_datetime.robovac_cleaning_from') }}"
+                value_template: "{{ states('sensor.time') >= states('input_datetime.vacuum_schedule_1_from') }}"
               - condition: template
-                value_template: "{{ states('sensor.time') <= states('input_datetime.robovac_cleaning_to') }}"
+                value_template: "{{ states('sensor.time') <= states('input_datetime.vacuum_schedule_1_to') }}"
           - condition: and
             conditions:
-              - condition: numeric_state
-                entity_id: sensor.robovac_battery
-                above: 85
+              - condition: template
+                value_template: "{{ state_attr('vacuum.robovac', 'battery_level') > 85 }}"
               - condition: state
                 entity_id: counter.vacuum_counter
                 state: '1'
-              - condition: time
-                after: '13:00:00'
-                before: '15:30:00'
+              - condition: template
+                value_template: "{{ states('sensor.time') >= states('input_datetime.vacuum_schedule_2_from') }}"
+              - condition: template
+                value_template: "{{ states('sensor.time') <= states('input_datetime.vacuum_schedule_2_to') }}"
   action:
     - service: vacuum.turn_on
       data:
