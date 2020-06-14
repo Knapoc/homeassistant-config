@@ -9,14 +9,12 @@
       cards:
         - type: markdown  ### blinds living room
           content: |
-            # Living room
+            ### Living room
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -26,19 +24,17 @@
           content: >
             {% set entities = 'cover.fyrtur_1', 'cover.fyrtur_2' %}
             {% if (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',0) | list | length) == 2 %}
-              # All blinds are closed
+              **All blinds are closed**
             {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) != 2 %}
-              # The blinds are partially closed
+              **The blinds are partially closed**
             {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) == 2 %}
-              # All blinds are open
+              **All blinds are open**
             {% endif %}
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -202,14 +198,12 @@
                     action: more-info
         - type: markdown  ### blinds bed room
           content: |
-            # Bed room
+            ### Bed room
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -219,19 +213,17 @@
           content: >
             {% set entities = 'cover.fyrtur_3', 'cover.fyrtur_4' %}
             {% if (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',0) | list | length) == 2 %}
-              # All blinds are closed
+              **All blinds are closed**
             {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) != 2 %}
-              # The blinds are partially closed
+              **The blinds are partially closed**
             {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) == 2 %}
-              # All blinds are open
+              **All blinds are open**
             {% endif %}
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -395,14 +387,12 @@
                     action: more-info
         - type: markdown  ### column
           content: |
-            # Settings
+            ### Settings
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -410,14 +400,12 @@
             }
         - type: markdown
           content: >
-            # Various settings
+            **Various settings**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;

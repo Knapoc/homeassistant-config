@@ -9,14 +9,12 @@
       cards:
         - type: markdown  ### column
           content: |
-            # Living room
+            ### Living room
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -24,14 +22,12 @@
             }
         - type: markdown
           content: >
-            # Lights and effects
+            **Lights and effects**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -184,14 +180,12 @@
                     action: more-info
         - type: markdown  ### Scenes
           content: |
-            # Living room
+            ### Living room
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -199,14 +193,12 @@
             }
         - type: markdown
           content: |
-            # Light scenes
+            **Light scenes**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -254,14 +246,12 @@
                   cards:
                     - type: markdown
                       content: |
-                        # Bright
+                        ### Bright
                       style: |
                         ha-card {
                           height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
-                        }
-                        h1 {
                           font-size: 20px;
                           font-weight: bold;
                           font-family: Helvetica;
@@ -269,13 +259,11 @@
                         }
                     - type: markdown
                       content: |
-                        # Warm white on full brightness
+                        **Warm white on full brightness**
                       style: |
                         ha-card {
-                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                           }
-                        h1 {
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
                           font-family: Helvetica;
@@ -333,14 +321,12 @@
                   cards:
                     - type: markdown
                       content: |
-                        # Energize
+                        ### Energize
                       style: |
                         ha-card {
                           height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
-                        }
-                        h1 {
                           font-size: 20px;
                           font-weight: bold;
                           font-family: Helvetica;
@@ -348,13 +334,11 @@
                         }
                     - type: markdown
                       content: |
-                        # Cool daylight
+                        **Cool daylight**
                       style: |
                         ha-card {
-                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                           }
-                        h1 {
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
                           font-family: Helvetica;
@@ -412,14 +396,12 @@
                   cards:
                     - type: markdown
                       content: |
-                        # Read
+                        ### Read
                       style: |
                         ha-card {
                           height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
-                        }
-                        h1 {
                           font-size: 20px;
                           font-weight: bold;
                           font-family: Helvetica;
@@ -427,13 +409,11 @@
                         }
                     - type: markdown
                       content: |
-                        # Daylight to read
+                        **Daylight to read**
                       style: |
                         ha-card {
-                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                           }
-                        h1 {
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
                           font-family: Helvetica;
@@ -491,14 +471,12 @@
                   cards:
                     - type: markdown
                       content: |
-                        # Nightlight
+                        ### Nightlight
                       style: |
                         ha-card {
                           height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
-                        }
-                        h1 {
                           font-size: 20px;
                           font-weight: bold;
                           font-family: Helvetica;
@@ -506,13 +484,11 @@
                         }
                     - type: markdown
                       content: |
-                        # Warm light dimmed
+                        **Warm light dimmed**
                       style: |
                         ha-card {
-                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                           }
-                        h1 {
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
                           font-family: Helvetica;
@@ -522,14 +498,12 @@
       cards:
         - type: markdown  ### column
           content: |
-            # Bed room
+            ### Bed room
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -537,14 +511,12 @@
             }
         - type: markdown
           content: >
-            # Lights and effects
+            **Lights and effects**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -791,14 +763,12 @@
                     action: more-info
         - type: markdown  ### Scenes
           content: |
-            # Bed room
+            ### Bed room
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -806,14 +776,12 @@
             }
         - type: markdown
           content: |
-            # Light scenes
+            **Light scenes**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -861,14 +829,12 @@
                   cards:
                     - type: markdown
                       content: |
-                        # Bright
+                        ### Bright
                       style: |
                         ha-card {
                           height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
-                        }
-                        h1 {
                           font-size: 20px;
                           font-weight: bold;
                           font-family: Helvetica;
@@ -876,13 +842,11 @@
                         }
                     - type: markdown
                       content: |
-                        # Warm white on full brightness
+                        **Warm white on full brightness**
                       style: |
                         ha-card {
-                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                           }
-                        h1 {
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
                           font-family: Helvetica;
@@ -940,14 +904,12 @@
                   cards:
                     - type: markdown
                       content: |
-                        # Energize
+                        ### Energize
                       style: |
                         ha-card {
                           height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
-                        }
-                        h1 {
                           font-size: 20px;
                           font-weight: bold;
                           font-family: Helvetica;
@@ -955,13 +917,11 @@
                         }
                     - type: markdown
                       content: |
-                        # Cool daylight
+                        **Cool daylight**
                       style: |
                         ha-card {
-                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                           }
-                        h1 {
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
                           font-family: Helvetica;
@@ -1019,30 +979,24 @@
                   cards:
                     - type: markdown
                       content: |
-                        # Read
+                        ### Read
                       style: |
                         ha-card {
                           height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
-                        }
-                        h1 {
                           font-size: 20px;
                           font-weight: bold;
                           font-family: Helvetica;
                           letter-spacing: '-0.01em';
                         }
-      # This is the smaller text beside the third button
-      # Change this to what you want it to say
                     - type: markdown
                       content: |
-                        # Daylight to read
+                        **Daylight to read**
                       style: |
                         ha-card {
-                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                           }
-                        h1 {
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
                           font-family: Helvetica;
@@ -1100,30 +1054,24 @@
                   cards:
                     - type: markdown
                       content: |
-                        # Nightlight
+                        ### Nightlight
                       style: |
                         ha-card {
                           height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
-                        }
-                        h1 {
                           font-size: 20px;
                           font-weight: bold;
                           font-family: Helvetica;
                           letter-spacing: '-0.01em';
                         }
-      # This is the smaller text beside the third button
-      # Change this to what you want it to say
                     - type: markdown
                       content: |
-                        # Warm light dimmed
+                        **Warm light dimmed**
                       style: |
                         ha-card {
-                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                           }
-                        h1 {
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
                           font-family: Helvetica;
@@ -1133,14 +1081,12 @@
       cards:
         - type: markdown  ### column
           content: |
-            # Kitchen
+            ### Kitchen
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -1148,14 +1094,12 @@
             }
         - type: markdown
           content: >
-            # Lights
+            **Lights**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -1308,14 +1252,12 @@
                     action: more-info
         - type: markdown  ### column
           content: |
-            # Other
+            ### Other
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -1323,14 +1265,12 @@
             }
         - type: markdown
           content: >
-            # Lights in other rooms
+            **Lights in other rooms**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;

@@ -8,14 +8,12 @@
       cards:
         - type: markdown  ### HOME column
           content: |
-            # Home
+            ### Home
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -23,14 +21,12 @@
             }
         - type: markdown
           content: |
-            # The temperature is {{states('sensor.wemosd1_room_temperature')}}°C with a humidity of {{states('sensor.wemosd1_room_humidity')}}%
+            **The temperature is {{states('sensor.wemosd1_room_temperature')}}°C with a humidity of {{states('sensor.wemosd1_room_humidity')}}%**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -167,14 +163,12 @@
                   - height: 60px
         - type: markdown  ### Scenes
           content: |
-            # Scenes
+            ### Scenes
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -182,14 +176,12 @@
             }
         - type: markdown
           content: |
-            # Most used scenes
+            **Most used scenes**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -237,14 +229,12 @@
                   cards:
                     - type: markdown
                       content: |
-                        # TV
+                        ### TV
                       style: |
                         ha-card {
                           height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
-                        }
-                        h1 {
                           font-size: 20px;
                           font-weight: bold;
                           font-family: Helvetica;
@@ -252,13 +242,11 @@
                         }
                     - type: markdown
                       content: |
-                        # Netflix and living colors loop
+                        **Netflix and living colors loop**
                       style: |
                         ha-card {
-                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                           }
-                        h1 {
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
                           font-family: Helvetica;
@@ -316,14 +304,12 @@
                   cards:
                     - type: markdown
                       content: |
-                        # Gaming
+                        ### Gaming
                       style: |
                         ha-card {
                           height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
-                        }
-                        h1 {
                           font-size: 20px;
                           font-weight: bold;
                           font-family: Helvetica;
@@ -331,13 +317,11 @@
                         }
                     - type: markdown
                       content: |
-                        # PS4 gaming with lights
+                        **PS4 gaming with lights**
                       style: |
                         ha-card {
-                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                           }
-                        h1 {
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
                           font-family: Helvetica;
@@ -395,14 +379,12 @@
                   cards:
                     - type: markdown
                       content: |
-                        # Bright
+                        ### Bright
                       style: |
                         ha-card {
                           height: 20px;
                           --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
-                        }
-                        h1 {
                           font-size: 20px;
                           font-weight: bold;
                           font-family: Helvetica;
@@ -410,13 +392,11 @@
                         }
                     - type: markdown
                       content: |
-                        # Ceiling light bright scene
+                        **Ceiling light bright scene**
                       style: |
                         ha-card {
-                        --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                           }
-                        h1 {
+                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
                           font-family: Helvetica;
@@ -426,14 +406,12 @@
       cards:
         - type: markdown  ### Lights
           content: |
-            # Lights
+            ### Lights
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -441,14 +419,12 @@
             }
         - type: markdown
           content: |
-            # There {% if is_state('sensor.lights_on', '0') %} are currently no lights {% elif is_state('sensor.lights_on', '1') %} is {{states('sensor.lights_on')}} light {% else %} are {{states('sensor.lights_on')}} lights {% endif %} on
+            **There {% if is_state('sensor.lights_on', '0') %} are currently no lights {% elif is_state('sensor.lights_on', '1') %} is {{states('sensor.lights_on')}} light {% else %} are {{states('sensor.lights_on')}} lights {% endif %} on**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -695,14 +671,12 @@
                     action: more-info
         - type: markdown  ### Devices
           content: |
-            # Devices
+            ### Devices
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -710,14 +684,12 @@
             }
         - type: markdown
           content: |
-            # Most used devices
+            **Most used devices**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -951,14 +923,12 @@
                   - height: 60px
         - type: markdown  # Miscellaneous
           content: |
-            # Miscellaneous
+            ### Miscellaneous
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -966,14 +936,12 @@
             }
         - type: markdown  # Lights, plants and settings
           content: |
-            # Lights, plants and settings
+            **Lights, plants and settings**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;

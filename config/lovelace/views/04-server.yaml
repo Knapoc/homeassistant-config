@@ -8,14 +8,12 @@
       cards:
         - type: markdown  ### column
           content: |
-            # Server
+            ### Server
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -23,14 +21,12 @@
             }
         - type: markdown
           content: >
-            # Basic server information
+            **Basic server information**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -333,14 +329,12 @@
       cards:
         - type: markdown  ### column
           content: |
-            # Database
+            ### Database
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -348,14 +342,12 @@
             }
         - type: markdown
           content: >
-            # Sizes of the database server
+            **Sizes of the database server**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -402,14 +394,12 @@
                   - height: 60px
         - type: markdown  ### column
           content: |
-            # Network
+            ### Network
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -417,14 +407,12 @@
             }
         - type: markdown
           content: >
-            # Information and statistics
+            **Information and statistics**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -540,18 +528,16 @@
                 card:
                   - width: 5px
                   - height: 60px
-    - type: vertical-stack  # left column
+    - type: vertical-stack  # right column
       cards:
         - type: markdown  ### column
           content: |
-            # Fail2Ban
+            ### Fail2Ban
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -559,14 +545,12 @@
             }
         - type: markdown
           content: >
-            # IP bans
+            **IP bans**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -614,14 +598,12 @@
                   - height: 60px
         - type: markdown  ### column
           content: |
-            # Home-Assistant
+            ### Home-Assistant
           style: |
             ha-card {
-               height: 20px;
-               --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-               box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 20px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
               font-family: Helvetica;
@@ -629,14 +611,12 @@
             }
         - type: markdown
           content: >
-            # Statistics and information
+            **Statistics and information**
           style: |
             ha-card {
-             height: 50px;
-             --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
-             box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
-            h1 {
+              height: 50px;
+              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
               font-family: Helvetica;
@@ -666,7 +646,6 @@
               mode: vertical
               cards:
                 - type: glance
-                  title: Home Assistant
                   columns: 8
                   show_name: false
                   entities:
