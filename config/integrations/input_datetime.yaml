@@ -21,11 +21,3 @@ vacuum_schedule_1_to:
   name: Vacuum morning schedule end
   has_date: false
   has_time: true
-vacuum_schedule_2_from:
-  name: Vacuum afternoon schedule start
-  has_date: false
-  has_time: true
-vacuum_schedule_2_to:
-  name: Vacuum afternoon schedule end
-  has_date: false
-  has_time: true
