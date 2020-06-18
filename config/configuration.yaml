@@ -32,6 +32,8 @@ logger:
   default: error
   logs:
     homeassistant.components.http.ban: warning
+    homeassistant.components.braviatv: debug
+    bravia_tv: debug
     # homeassistant.components.homekit: debug
     # pyhap: debug
     # pydeconz: debug
