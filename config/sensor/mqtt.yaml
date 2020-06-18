@@ -163,3 +163,14 @@
     {% else %}
       {{ states('sensor.disk_use_percent_sda2') }}
     {% endif %}
+
+- platform: mqtt
+  name: CPU Temperature
+  state_topic: 'telegraf/intelnuc/temp'
+  unit_of_measurement: '°C'
+  value_template: >-
+    {% if value_json['tags'].sensor == 'coretemp_packageid0_input' %}
+      {{ (value_json['fields'].temp | float) | round(2) }}
+    {% else %}
+      {{ states('sensor.cpu_temperature') }}
+    {% endif %}

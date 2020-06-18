@@ -17,14 +17,6 @@
     - type: load_1m
     - type: load_5m
     - type: load_15m
-    - type: process
-      arg: homeassistant
-
-- platform: command_line
-  name: CPU Temperature
-  command: cat /sys/class/thermal/thermal_zone1/temp
-  unit_of_measurement: '°C'
-  value_template: '{{ (value|int / 1000)|round(1) }}'
 
 - platform: cpuspeed
 
