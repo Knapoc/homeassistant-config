@@ -117,7 +117,7 @@
                 - sensor.cpu_speed
             - type: custom:mini-graph-card
               name: Load
-              points_per_hour: 2
+              points_per_hour: 12
               font_size: 65
               # show:
               #   fill: false
@@ -184,7 +184,7 @@
               max: 100
               scale: 27px
               severity:
-                red: 60
+                red: 80
                 green: 0
                 amber: 45
               style: |
