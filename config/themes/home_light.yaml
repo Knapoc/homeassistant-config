@@ -35,15 +35,16 @@ home_light:
   label-badge-text-color: "#4D5575"
   label-badge-red: "#C7484C"
   label-badge-green: "#6DC071"
-  label-badge-blue: "#51AAD1"
+  label-badge-blue: "#5F9BEA"
   label-badge-yellow: "#D9B757"
   label-badge-gray: "#5F6267"
   # Cards
+  card-background-color: "#FFFFFF"
   ha-card-border-radius: "10px"
   ha-card-box-shadow: 1px 1px 5px 0px rgb(230, 230, 230)
-  paper-dialog-background-color: "#FFFFFF"
-  paper-card-background-color: var(--paper-dialog-background-color)
-  paper-listbox-background-color: var(--paper-dialog-background-color)
+  paper-dialog-background-color: var(--card-background-color)
+  paper-card-background-color: var(--card-background-color)
+  paper-listbox-background-color: var(--card-background-color)
   # Switches
   switch-checked-button-color: "#5F9BEA"
   switch-checked-track-color: "#75a2f0"
@@ -62,12 +63,10 @@ home_light:
   material-background-color: var(--paper-card-background-color)
   material-secondary-background-color: var(--primary-background-color)
   mdc-theme-surface: var(--paper-card-background-color)
-  
+  # HACS
+  hacs-chip-background-color: var(--primary-color)
   # softui
   softui-boxshadow-top: "rgba(255,255,255,.5)"
   softui-boxshadow-bottom: "rgba(0,0,0,.03)"
   softui-bigbutton-boxshadow: "-8px -8px 8px 0 var(--softui-boxshadow-top),8px 8px 8px 0 var(--softui-boxshadow-bottom)"
   softui-standard-boxshadow: "-4px -4px 4px 0 var(--softui-boxshadow-top),4px 4px 4px 0 var(--softui-boxshadow-bottom)"
-  
-  # tabs
-  # paper-tabs-selection-bar-color: "green"
