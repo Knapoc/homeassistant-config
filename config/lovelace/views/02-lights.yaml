@@ -13,7 +13,7 @@
           style: |
             ha-card {
               height: 20px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
@@ -26,7 +26,7 @@
           style: |
             ha-card {
               height: 50px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
@@ -42,7 +42,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -89,7 +89,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -136,7 +136,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -184,7 +184,7 @@
           style: |
             ha-card {
               height: 20px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
@@ -197,7 +197,7 @@
           style: |
             ha-card {
               height: 50px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
@@ -213,7 +213,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                       box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -250,7 +250,7 @@
                       style: |
                         ha-card {
                           height: 20px;
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
                           font-weight: bold;
@@ -262,7 +262,7 @@
                         **Warm white on full brightness**
                       style: |
                         ha-card {
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
@@ -274,7 +274,7 @@
               show_name: false
               style: |
                 ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                   box-shadow: 2px 2px rgba(0,0,0,0.0);
                 }
               styles:
@@ -288,7 +288,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                       box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -325,7 +325,7 @@
                       style: |
                         ha-card {
                           height: 20px;
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
                           font-weight: bold;
@@ -337,7 +337,7 @@
                         **Cool daylight**
                       style: |
                         ha-card {
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
@@ -349,7 +349,7 @@
               show_name: false
               style: |
                 ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                   box-shadow: 2px 2px rgba(0,0,0,0.0);
                 }
               styles:
@@ -363,7 +363,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                       box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -400,7 +400,7 @@
                       style: |
                         ha-card {
                           height: 20px;
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
                           font-weight: bold;
@@ -412,7 +412,7 @@
                         **Daylight to read**
                       style: |
                         ha-card {
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
@@ -424,7 +424,7 @@
               show_name: false
               style: |
                 ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                   box-shadow: 2px 2px rgba(0,0,0,0.0);
                 }
               styles:
@@ -438,7 +438,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                       box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -475,7 +475,7 @@
                       style: |
                         ha-card {
                           height: 20px;
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
                           font-weight: bold;
@@ -487,7 +487,7 @@
                         **Warm light dimmed**
                       style: |
                         ha-card {
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
@@ -502,7 +502,7 @@
           style: |
             ha-card {
               height: 20px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
@@ -515,7 +515,7 @@
           style: |
             ha-card {
               height: 50px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
@@ -531,7 +531,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -578,7 +578,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -625,7 +625,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -672,7 +672,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -719,7 +719,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -767,7 +767,7 @@
           style: |
             ha-card {
               height: 20px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
@@ -780,7 +780,7 @@
           style: |
             ha-card {
               height: 50px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
@@ -796,7 +796,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                       box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -833,7 +833,7 @@
                       style: |
                         ha-card {
                           height: 20px;
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
                           font-weight: bold;
@@ -845,7 +845,7 @@
                         **Warm white on full brightness**
                       style: |
                         ha-card {
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
@@ -857,7 +857,7 @@
               show_name: false
               style: |
                 ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                   box-shadow: 2px 2px rgba(0,0,0,0.0);
                 }
               styles:
@@ -871,7 +871,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                       box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -908,7 +908,7 @@
                       style: |
                         ha-card {
                           height: 20px;
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
                           font-weight: bold;
@@ -920,7 +920,7 @@
                         **Cool daylight**
                       style: |
                         ha-card {
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
@@ -932,7 +932,7 @@
               show_name: false
               style: |
                 ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                   box-shadow: 2px 2px rgba(0,0,0,0.0);
                 }
               styles:
@@ -946,7 +946,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                       box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -983,7 +983,7 @@
                       style: |
                         ha-card {
                           height: 20px;
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
                           font-weight: bold;
@@ -995,7 +995,7 @@
                         **Daylight to read**
                       style: |
                         ha-card {
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
@@ -1007,7 +1007,7 @@
               show_name: false
               style: |
                 ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                   box-shadow: 2px 2px rgba(0,0,0,0.0);
                 }
               styles:
@@ -1021,7 +1021,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                      --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                       box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -1058,7 +1058,7 @@
                       style: |
                         ha-card {
                           height: 20px;
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
                           font-weight: bold;
@@ -1070,7 +1070,7 @@
                         **Warm light dimmed**
                       style: |
                         ha-card {
-                          --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 15px;
                           font-weight: thin;
@@ -1085,7 +1085,7 @@
           style: |
             ha-card {
               height: 20px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
@@ -1098,7 +1098,7 @@
           style: |
             ha-card {
               height: 50px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
@@ -1114,7 +1114,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -1161,7 +1161,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -1208,7 +1208,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -1256,7 +1256,7 @@
           style: |
             ha-card {
               height: 20px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
               font-weight: bold;
@@ -1269,7 +1269,7 @@
           style: |
             ha-card {
               height: 50px;
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 14px;
               font-weight: thin;
@@ -1285,7 +1285,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -1332,7 +1332,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -1379,7 +1379,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -1426,7 +1426,7 @@
                   show_name: false
                   style: |
                     ha-card {
-                    --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                     box-shadow: 2px 2px rgba(0,0,0,0.0);
                     }
                   styles:
@@ -1473,7 +1473,7 @@
           show_name: false
           style: |
             ha-card {
-              --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
             }
           styles:
