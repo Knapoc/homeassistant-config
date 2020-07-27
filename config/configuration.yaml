@@ -83,6 +83,8 @@ asuswrt:
     - download
 
 mqtt:
+  discovery: true
+  discovery_prefix: homeassistant
   broker: !secret mqtt_ip
   port: !secret mqtt-int_port
   client_id: homeassistant-1
