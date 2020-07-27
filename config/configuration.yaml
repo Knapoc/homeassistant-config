@@ -82,14 +82,6 @@ asuswrt:
     - upload
     - download
 
-eufy_vacuum:
-  devices:
-    - name: Robovac
-      address: !secret robovac_ip
-      access_token: !secret robovac_localkey
-      id: !secret robovac_devid
-      type: T2118
-
 mqtt:
   broker: !secret mqtt_ip
   port: !secret mqtt-int_port
