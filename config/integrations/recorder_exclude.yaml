@@ -18,3 +18,4 @@ entities:
   - sensor.uberx_price
   - sensor.network_in_eth0
   - sensor.network_out_eth0
+  - sensor.valetudo_map

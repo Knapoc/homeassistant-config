@@ -174,3 +174,9 @@
     {% else %}
       {{ states('sensor.cpu_temperature') }}
     {% endif %}
+
+- platform: mqtt
+  state_topic: "valetudo/roborock/state"
+  json_attributes_topic: "valetudo/roborock/map_data"
+  name: valetudo_map
+  value_template: 'OK'
