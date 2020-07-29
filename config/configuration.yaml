@@ -105,6 +105,16 @@ owntracks:
   new_device_defaults:
     track_new_devices: false
 
+panel_iframe:
+  valetudo:
+    title: 'Valetudo'
+    url: !secret valetudo_url
+    icon: mdi:robot-vacuum
+  phoscon:
+    title: 'Phoscon'
+    url: !secret phoscon_url
+    icon: mdi:zigbee
+
 speedtestdotnet:
   monitored_conditions:
     - ping
