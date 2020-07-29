@@ -29,5 +29,7 @@ resources:
     type: module
   - url: /hacsfiles/gauge-card/gauge-card.js
     type: js
+  - url: /hacsfiles/lovelace-valetudo-map-card/valetudo-map-card.js
+    type: module
   - url: /hacsfiles/bar-card/bar-card.js
     type: module
