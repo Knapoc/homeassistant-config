@@ -3,15 +3,15 @@
 push:
   categories:
     - name: Staubsauger entleeren
-      identifier: 'emptyrobovac'
+      identifier: 'emptyroborock'
       actions:
-        - identifier: 'EMPTY_ROBOVAC_LATER'
+        - identifier: 'EMPTY_ROBOROCK_LATER'
           title: 'später'
           activationMode: 'background'
           authenticationRequired: false
           destructive: false
           behavior: 'default'
-        - identifier: 'EMPTY_ROBOVAC_NOW'
+        - identifier: 'EMPTY_ROBOROCK_NOW'
           title: 'jetzt'
           activationMode: 'background'
           authenticationRequired: false

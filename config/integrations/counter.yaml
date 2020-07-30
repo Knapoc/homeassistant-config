@@ -1,7 +1,12 @@
 ---
 # counter
 
-vacuum_counter:
+vacuum_dustbin:
+    initial: 0
+    restore: true
+    step: 1
+    icon: mdi:history
+vacuum_runs_per_day:
     initial: 0
     restore: true
     step: 1
