@@ -11,7 +11,7 @@
     conditions:
       - condition: numeric_state
         entity_id: counter.vacuum_dustbin
-        below: 2
+        below: 7
       - condition: numeric_state
         entity_id: counter.vacuum_runs_per_day
         below: 1
@@ -42,8 +42,10 @@
 - id: '1555971391'
   alias: roborock clean counter
   trigger:
-    - platform: template
-      value_template: "{{ states('vacuum.roborock') == 'cleaning' }}"
+    - platform: state
+      entity_id: vacuum.roborock
+      from: 'docked'
+      to: 'cleaning'
   action:
     - service: counter.increment
       data:
@@ -70,13 +72,13 @@
         before: '22:00:00'
       - condition: numeric_state
         entity_id: counter.vacuum_dustbin
-        above: 0
+        above: 3
       - condition: template
         value_template: "{{ states('vacuum.roborock') != 'cleaning' }}"
   action:
     - service: !secret notify_ios
       data_template:
-        message: "Augustin ist zu entleeren. Anzahl der Saugvorgänge: {{ states('counter.vacuum_dustbin') }}"
+        message: "Staubsauger ist zu entleeren. Anzahl der Saugvorgänge: {{ states('counter.vacuum_dustbin') }}"
         data:
           push:
             category: emptyroborock
@@ -98,6 +100,12 @@
     entity_id: !secret person_1
     state: 'home'
   action:
+    - service: vacuum.send_command
+      data:
+        entity_id: vacuum.roborock
+        command: 'go_to'
+        params:
+          'spot_id': 'Kitchen bin'
     - service: counter.reset
       data:
         entity_id: counter.vacuum_dustbin
