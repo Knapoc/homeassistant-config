@@ -821,17 +821,17 @@
               cards:
                 - type: entities
                   entities:
-                    - entity: vacuum.robovac
+                    - entity: vacuum.roborock
                       type: custom:multiple-entity-row
-                      name: Robovac
+                      name: Roborock
                       show_state: false
                       entities:
-                        - attribute: status
+                        - attribute: state
                           name: Status
                         - attribute: battery_level
                           name: Battery
                           unit: '%'
-                        - entity: counter.vacuum_counter
+                        - entity: counter.vacuum_dustbin
                           name: Count
                   style: |
                     ha-card {
@@ -841,7 +841,7 @@
                   cards:
                     - type: custom:button-card
                       color: auto
-                      entity: vacuum.robovac
+                      entity: vacuum.roborock
                       size: 25%
                       icon: mdi:play
                       show_name: false
@@ -852,10 +852,10 @@
                         action: call-service
                         service: vacuum.turn_on
                         service_data:
-                          entity_id: vacuum.robovac
+                          entity_id: vacuum.roborock
                     - type: custom:button-card
                       color: auto
-                      entity: vacuum.robovac
+                      entity: vacuum.roborock
                       size: 25%
                       icon: mdi:pause
                       show_name: false
@@ -866,10 +866,10 @@
                         action: call-service
                         service: vacuum.pause
                         service_data:
-                          entity_id: vacuum.robovac
+                          entity_id: vacuum.roborock
                     - type: custom:button-card
                       color: auto
-                      entity: vacuum.robovac
+                      entity: vacuum.roborock
                       size: 25%
                       icon: mdi:broom
                       show_name: false
@@ -880,10 +880,10 @@
                         action: call-service
                         service: vacuum.clean_spot
                         service_data:
-                          entity_id: vacuum.robovac
+                          entity_id: vacuum.roborock
                     - type: custom:button-card
                       color: auto
-                      entity: vacuum.robovac
+                      entity: vacuum.roborock
                       size: 25%
                       icon: mdi:map-marker
                       show_name: false
@@ -894,10 +894,10 @@
                         action: call-service
                         service: vacuum.locate
                         service_data:
-                          entity_id: vacuum.robovac
+                          entity_id: vacuum.roborock
                     - type: custom:button-card
                       color: auto
-                      entity: vacuum.robovac
+                      entity: vacuum.roborock
                       size: 25%
                       icon: mdi:home-map-marker
                       show_name: false
@@ -908,7 +908,7 @@
                         action: call-service
                         service: vacuum.return_to_base
                         service_data:
-                          entity_id: vacuum.robovac
+                          entity_id: vacuum.roborock
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
