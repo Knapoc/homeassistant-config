@@ -2,7 +2,7 @@
 # vacuum automations
 
 - id: '1555971390'
-  alias: robovac auto turn on
+  alias: roborock auto turn on
   trigger:
     - platform: time_pattern
       minutes: '/15'
@@ -10,8 +10,11 @@
     condition: and
     conditions:
       - condition: numeric_state
-        entity_id: counter.vacuum_counter
+        entity_id: counter.vacuum_dustbin
         below: 2
+      - condition: numeric_state
+        entity_id: counter.vacuum_runs_per_day
+        below: 1
       - condition: state
         entity_id: sensor.is_home
         state: 'false'
@@ -26,7 +29,7 @@
             entity_id: binary_sensor.workday_sensor
             state: 'on'
       - condition: template
-        value_template: "{{ state_attr('vacuum.robovac', 'battery_level') == 100 }}"
+        value_template: "{{ state_attr('vacuum.roborock', 'battery_level') == 100 }}"
       - condition: template
         value_template: "{{ states('sensor.time') >= states('input_datetime.vacuum_schedule_1_from') }}"
       - condition: template
@@ -34,20 +37,23 @@
   action:
     - service: vacuum.turn_on
       data:
-        entity_id: vacuum.robovac
+        entity_id: vacuum.roborock
 
 - id: '1555971391'
-  alias: robovac clean counter
+  alias: roborock clean counter
   trigger:
     - platform: template
-      value_template: "{{ is_state_attr('vacuum.robovac', 'status', 'cleaning') }}"
+      value_template: "{{ states('vacuum.roborock') == 'cleaning' }}"
   action:
     - service: counter.increment
       data:
-        entity_id: counter.vacuum_counter
+        entity_id: counter.vacuum_dustbin
+    - service: counter.increment
+      data:
+        entity_id: counter.vacuum_runs_per_day
 
 - id: '1555975479'
-  alias: robovac clean notification
+  alias: roborock clean notification
   trigger:
     - platform: time_pattern
       hours: '/2'
@@ -63,25 +69,25 @@
         after: '07:00:00'
         before: '22:00:00'
       - condition: numeric_state
-        entity_id: counter.vacuum_counter
+        entity_id: counter.vacuum_dustbin
         above: 0
       - condition: template
-        value_template: "{{ states('vacuum.robovac') != 'on' }}"
+        value_template: "{{ states('vacuum.roborock') != 'cleaning' }}"
   action:
     - service: !secret notify_ios
       data_template:
-        message: "Schurli ist zu entleeren. Anzahl der Saugvorgänge: {{ states('counter.vacuum_counter') }}"
+        message: "Augustin ist zu entleeren. Anzahl der Saugvorgänge: {{ states('counter.vacuum_dustbin') }}"
         data:
           push:
-            category: emptyrobovac
+            category: emptyroborock
 
-- alias: robovac cleaned
+- alias: roborock cleaned
   id: '1555975480'
   trigger:
     - platform: event
       event_type: ios.notification_action_fired
       event_data:
-        actionName: EMPTY_ROBOVAC_NOW
+        actionName: EMPTY_ROBOROCK_NOW
     - platform: event
       event_type: deconz_event
       event_data:
@@ -94,4 +100,14 @@
   action:
     - service: counter.reset
       data:
-        entity_id: counter.vacuum_counter
+        entity_id: counter.vacuum_dustbin
+
+- alias: roborock reset runs per day
+  id: '1596000980'
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  action:
+    - service: counter.reset
+      data:
+        entity_id: counter.vacuum_runs_per_day
