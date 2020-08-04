@@ -35,7 +35,7 @@
       - condition: template
         value_template: "{{ states('sensor.time') <= states('input_datetime.vacuum_schedule_1_to') }}"
   action:
-    - service: vacuum.turn_on
+    - service: vacuum.start
       data:
         entity_id: vacuum.roborock
 
