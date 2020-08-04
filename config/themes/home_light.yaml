@@ -70,3 +70,6 @@ home_light:
   softui-boxshadow-bottom: "rgba(0,0,0,.03)"
   softui-bigbutton-boxshadow: "-8px -8px 8px 0 var(--softui-boxshadow-top),8px 8px 8px 0 var(--softui-boxshadow-bottom)"
   softui-standard-boxshadow: "-4px -4px 4px 0 var(--softui-boxshadow-top),4px 4px 4px 0 var(--softui-boxshadow-bottom)"
+  # valetudo-map
+  # valetudo-map-floor-color: "#E3E3E3"
+  # valetudo-map-wall-color: var(--accent-color)

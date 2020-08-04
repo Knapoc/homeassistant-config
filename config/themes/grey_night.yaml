@@ -92,3 +92,6 @@ grey_night:
   softui-boxshadow-bottom: "rgba(0,0,0,.15)"
   softui-bigbutton-boxshadow: "-8px -8px 8px 0 var(--softui-boxshadow-top),8px 8px 8px 0 var(--softui-boxshadow-bottom)"
   softui-standard-boxshadow: "-4px -4px 4px 0 var(--softui-boxshadow-top),4px 4px 4px 0 var(--softui-boxshadow-bottom)"
+  # valetudo-map
+  # valetudo-map-floor-color: "hsl(var(--huesat) 45%)"
+  # valetudo-map-wall-color: "hsl(var(--huesat) 75%)"
