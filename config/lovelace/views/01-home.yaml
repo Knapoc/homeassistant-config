@@ -715,7 +715,7 @@
                 info: true
               style: |
                 ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                   border-radius: 15px;
                   box-shadow: var(--softui-standard-boxshadow);
                 }
@@ -767,7 +767,7 @@
                 controls: true
               style: |
                 ha-card {
-                  --paper-card-background-color: 'rgba(11, 11, 11, 0.00)';
+                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                   border-radius: 15px;
                   box-shadow: var(--softui-standard-boxshadow);
                 }
