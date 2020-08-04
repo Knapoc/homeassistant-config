@@ -1,0 +1,407 @@
+---
+# Vacuum view
+
+- icon: mdi:robot-vacuum
+  title: vacuum
+  path: vacuum
+  cards:
+    - type: vertical-stack
+      cards:
+        - type: markdown
+          content: |
+            ### Roborock
+          style: |
+            ha-card {
+              height: 20px;
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: |
+            **Controls**
+          style: |
+            ha-card {
+              height: 50px;
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: custom:stack-in-card
+              style: |
+                ha-card {
+                  height: 130px;
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  box-shadow: var(--softui-standard-boxshadow);
+                }
+              mode: vertical
+              cards:
+                - type: entities
+                  entities:
+                    - entity: vacuum.roborock
+                      type: custom:multiple-entity-row
+                      name: Roborock
+                      show_state: false
+                      entities:
+                        - attribute: state
+                          name: Status
+                        - attribute: battery_level
+                          name: Battery
+                          unit: '%'
+                        - entity: counter.vacuum_dustbin
+                          name: Count
+                  style: |
+                    ha-card {
+                      height: 70px;
+                    }
+                - type: horizontal-stack
+                  cards:
+                    - type: custom:button-card
+                      color: auto
+                      entity: vacuum.roborock
+                      size: 25%
+                      icon: mdi:play
+                      show_name: false
+                      styles:
+                        icon:
+                          - color: var(--primary-text-color)
+                      tap_action:
+                        action: call-service
+                        service: vacuum.start
+                        service_data:
+                          entity_id: vacuum.roborock
+                    - type: custom:button-card
+                      color: auto
+                      entity: vacuum.roborock
+                      size: 25%
+                      icon: mdi:pause
+                      show_name: false
+                      styles:
+                        icon:
+                          - color: var(--primary-text-color)
+                      tap_action:
+                        action: call-service
+                        service: vacuum.pause
+                        service_data:
+                          entity_id: vacuum.roborock
+                    - type: custom:button-card
+                      color: auto
+                      entity: vacuum.roborock
+                      size: 25%
+                      icon: mdi:stop
+                      show_name: false
+                      styles:
+                        icon:
+                          - color: var(--primary-text-color)
+                      tap_action:
+                        action: call-service
+                        service: vacuum.stop
+                        service_data:
+                          entity_id: vacuum.roborock
+                    - type: custom:button-card
+                      color: auto
+                      entity: vacuum.roborock
+                      size: 25%
+                      icon: mdi:broom
+                      show_name: false
+                      styles:
+                        icon:
+                          - color: var(--primary-text-color)
+                      tap_action:
+                        action: call-service
+                        service: vacuum.clean_spot
+                        service_data:
+                          entity_id: vacuum.roborock
+                    - type: custom:button-card
+                      color: auto
+                      entity: vacuum.roborock
+                      size: 25%
+                      icon: mdi:map-marker
+                      show_name: false
+                      styles:
+                        icon:
+                          - color: var(--primary-text-color)
+                      tap_action:
+                        action: call-service
+                        service: vacuum.locate
+                        service_data:
+                          entity_id: vacuum.roborock
+                    - type: custom:button-card
+                      color: auto
+                      entity: vacuum.roborock
+                      size: 25%
+                      icon: mdi:home-map-marker
+                      show_name: false
+                      styles:
+                        icon:
+                          - color: var(--primary-text-color)
+                      tap_action:
+                        action: call-service
+                        service: vacuum.return_to_base
+                        service_data:
+                          entity_id: vacuum.roborock
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: markdown
+          content: |
+            ### Map
+          style: |
+            ha-card {
+              height: 20px;
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: |
+            **Room map and last run**
+          style: |
+            ha-card {
+              height: 50px;
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: 'custom:valetudo-map-card'
+              title: ''
+              entity: sensor.valetudo_map
+              dock_icon: mdi:dots-vertical
+              dock_color: '--secondary-text-color'
+              # floor_color: '--valetudo-map-floor-color'
+              # wall_color: '--valetudo-map-wall-color'
+              style: |
+                ha-card {
+                  height: 160px;
+                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                  border-radius: 15px;
+                  box-shadow: var(--softui-standard-boxshadow);
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+    - type: vertical-stack
+      cards:
+        - type: markdown
+          content: |
+            ### Maintenance
+          style: |
+            ha-card {
+              height: 20px;
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: |
+            **Consumables and usage**
+          style: |
+            ha-card {
+              height: 50px;
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: entities
+              # title: Anderes
+              show_header_toggle: false
+              entities:
+                - type: attribute
+                  entity: vacuum.roborock
+                  name: Main brush
+                  attribute: mainBrush
+                  suffix: h
+                - type: attribute
+                  entity: vacuum.roborock
+                  name: Side brush
+                  attribute: sideBrush
+                  suffix: h
+                - type: attribute
+                  entity: vacuum.roborock
+                  name: Filter
+                  attribute: filter
+                  suffix: h
+                - type: attribute
+                  entity: vacuum.roborock
+                  name: Sensor
+                  attribute: sensor
+                  suffix: h
+              style: |
+                ha-card {
+                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                  border-radius: 15px;
+                  box-shadow: var(--softui-standard-boxshadow);
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: markdown
+          content: |
+            ### Schedule
+          style: |
+            ha-card {
+              height: 20px;
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+              font-size: 20px;
+              font-weight: bold;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: markdown
+          content: |
+            **cleaning schedule settings**
+          style: |
+            ha-card {
+              height: 50px;
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+              font-size: 14px;
+              font-weight: thin;
+              font-family: Helvetica;
+              letter-spacing: '-0.01em';
+            }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+            - type: entities
+              # title: Anderes
+              show_header_toggle: false
+              entities:
+                - type: custom:multiple-entity-row
+                  entity: input_datetime.vacuum_schedule_1_to
+                  name: Main schedule
+                  entities:
+                    - entity: input_datetime.vacuum_schedule_1_from
+                      name: false
+                - entity: input_boolean.vacuum_weekends
+                  name: Vacuum on weekends/holidays
+              style: |
+                ha-card {
+                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                  border-radius: 15px;
+                  box-shadow: var(--softui-standard-boxshadow);
+                }
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              style: |
+                ha-card {
+                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                box-shadow: 2px 2px rgba(0,0,0,0.0);
+                }
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+        - type: 'custom:button-card'
+          show_icon: false
+          show_name: false
+          style: |
+            ha-card {
+              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+              box-shadow: 2px 2px rgba(0,0,0,0.0);
+            }
+          styles:
+            card:
+              - width: 5px
+              - height: 10px
