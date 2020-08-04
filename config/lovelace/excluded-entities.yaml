@@ -1,9 +1,9 @@
 ---
 # Lovelace excludes
-- automation.robovac_auto_turn_on
-- automation.robovac_clean_counter
-- automation.robovac_clean_notification
-- automation.robovac_cleaned
+- automation.roborock_auto_turn_on
+- automation.roborock_clean_counter
+- automation.roborock_clean_notification
+- automation.roborock_cleaned
 - automation.lights_and_tv_off
 - automation.random_light_deckenspots
 - automation.turn_off_loop_effect_deckenspots
