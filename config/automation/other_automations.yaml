@@ -1,0 +1,34 @@
+---
+# other automations
+
+- alias: Turn on desk plug
+  id: '1597432589'
+  trigger:
+    - platform: time
+      at: '07:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.pc22927
+        state: 'home'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+      - condition: state
+        entity_id: !secret person_1
+        state: 'home'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.desk_charger_outlet
+
+- alias: Turn off desk plug
+  id: '1597432590'
+  trigger:
+    - platform: time
+      at: '19:00:00'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.desk_charger_outlet
