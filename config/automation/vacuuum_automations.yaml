@@ -106,6 +106,7 @@
         command: 'go_to'
         params:
           'spot_id': 'Kitchen bin'
+    - wait_template: "{{ is_state(trigger.entity_id, 'returning') }}"
     - service: counter.reset
       data:
         entity_id: counter.vacuum_dustbin
