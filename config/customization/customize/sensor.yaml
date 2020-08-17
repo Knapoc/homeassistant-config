@@ -91,14 +91,13 @@ sensor.uberx_price:
 sensor.uptime:
   friendly_name: HA Betriebszeit
   icon: mdi:arrow-up-thick
-sensor.wemosd1_room_humidity:
+sensor.living_room_humidity:
   friendly_name: Luftfeuchtigkeit - Zimmer
-  icon: mdi:water-percent
-sensor.wemosd1_room_temperature:
+sensor.living_room_temperature:
   friendly_name: Temperatur - Zimmer
-sensor.yuccaaloifolia_moisture:
+sensor.yucca_aloifolia_moisture:
   friendly_name: Yucca - Feuchtigkeit
-sensor.yuccaaloifolia_conductivity:
+sensor.yucca_aloifolia_soil_conductivity:
   friendly_name: Yucca - Leitfähigkeit
 sensor.yuccaaloifolia_battery:
   friendly_name: Yucca - Batterie

@@ -29,8 +29,8 @@ entities:
   - sensor.received_eth0
   - sensor.sonoff_office_temperature
   - sensor.sonoff_office_humidity
-  - sensor.wemosd1_room_temperature
-  - sensor.wemosd1_room_humidity
+  - sensor.living_room_temperature
+  - sensor.living_room_humidity
   - sensor.sonoff_rssi
   - sensor.sonoff_uptime
   - sensor.sonoff_vcc

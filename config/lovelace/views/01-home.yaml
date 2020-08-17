@@ -21,7 +21,7 @@
             }
         - type: markdown
           content: |
-            **The temperature is {{states('sensor.wemosd1_room_temperature')}}°C with a humidity of {{states('sensor.wemosd1_room_humidity')}}%**
+            **The temperature is {{states('sensor.living_room_temperature')}}°C with a humidity of {{states('sensor.living_room_humidity')}}%**
           style: |
             ha-card {
               height: 50px;

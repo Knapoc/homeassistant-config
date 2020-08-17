@@ -25,8 +25,8 @@ filter:
     - light.light_11
     - media_player.sony_bravia_tv
     - media_player.playstation_4
-    - sensor.wemosd1_room_humidity
-    - sensor.wemosd1_room_temperature
+    - sensor.living_room_humidity
+    - sensor.living_room_temperature
     - vacuum.roborock
   exclude_entities:
     - cover.living_room_group
@@ -42,9 +42,9 @@ entity_config:
     name: "Playstation 4"
     feature_list:
       - feature: on_off
-  sensor.wemosd1_room_humidity:
+  sensor.living_room_humidity:
     name: "Luftfeuchtigkeit"
-  sensor.wemosd1_room_temperature:
+  sensor.living_room_temperature:
     name: "Temparatur"
   switch.magic_mirror:
     name: "Magic Mirror"
