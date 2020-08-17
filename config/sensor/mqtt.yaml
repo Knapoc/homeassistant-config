@@ -2,18 +2,6 @@
 # mqtt sensors
 
 - platform: mqtt
-  name: wemosd1_room_temperature
-  state_topic: "wemosd1_1/tele/SENSOR"
-  value_template: "{{ value_json['SHT3X-0x45'].Temperature }}"
-  unit_of_measurement: "°C"
-
-- platform: mqtt
-  name: wemosd1_room_humidity
-  state_topic: "wemosd1_1/tele/SENSOR"
-  value_template: "{{ value_json['SHT3X-0x45'].Humidity }}"
-  unit_of_measurement: "%"
-
-- platform: mqtt
   name: s20_mm_uptime
   state_topic: "sonoff_3463/tele/STATE"
   value_template: "{{ (value_json.UptimeSec | float / 60 / 60) | round(2) }}"
@@ -36,28 +24,6 @@
   value_template: "{{ value_json['StatusFWR'].Version[:5] }}"
 
 - platform: mqtt
-  name: wemosd1_version
-  state_topic: "wemosd1_1/stat/STATUS2"
-  value_template: "{{ value_json['StatusFWR'].Version[:5] }}"
-
-- platform: mqtt
-  name: wemosd1_ip
-  state_topic: "wemosd1_1/stat/STATUS5"
-  value_template: "{{ value_json['StatusNET'].IPAddress }}"
-
-- platform: mqtt
-  name: wemosd1_uptime
-  state_topic: "wemosd1_1/tele/STATE"
-  value_template: "{{ (value_json.UptimeSec | float / 60 / 60) | round(2) }}"
-  unit_of_measurement: "hours"
-
-- platform: mqtt
-  name: wemosd1_rssi
-  state_topic: "wemosd1_1/tele/STATE"
-  value_template: "{{ value_json['Wifi'].RSSI }}"
-  unit_of_measurement: "dBm"
-
-- platform: mqtt
   name: s20_deskoutlet_uptime
   state_topic: "sonoff_0528/tele/STATE"
   value_template: "{{ (value_json.UptimeSec | float / 60 / 60) | round(2) }}"
@@ -78,36 +44,6 @@
   name: s20_deskoutlet_version
   state_topic: "sonoff_0528/stat/STATUS2"
   value_template: "{{ value_json['StatusFWR'].Version[:5] }}"
-
-- platform: mqtt
-  name: yuccaaloifolia_moisture
-  state_topic: "miflora/YuccaAloifolia"
-  value_template: "{{ value_json.moisture }}"
-  unit_of_measurement: "%"
-
-- platform: mqtt
-  name: yuccaaloifolia_light
-  state_topic: "miflora/YuccaAloifolia"
-  value_template: "{{ value_json.light }}"
-  unit_of_measurement: "lux"
-
-- platform: mqtt
-  name: yuccaaloifolia_temperature
-  state_topic: "miflora/YuccaAloifolia"
-  value_template: "{{ value_json.temperature }}"
-  unit_of_measurement: "°C"
-
-- platform: mqtt
-  name: yuccaaloifolia_conductivity
-  state_topic: "miflora/YuccaAloifolia"
-  value_template: "{{ value_json.conductivity }}"
-  unit_of_measurement: "µS/cm"
-
-- platform: mqtt
-  name: yuccaaloifolia_battery
-  state_topic: "miflora/YuccaAloifolia"
-  value_template: "{{ value_json.battery }}"
-  unit_of_measurement: "%"
 
 - platform: mqtt
   name: disk_use_percent_lv
