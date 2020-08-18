@@ -14,3 +14,8 @@
   end: '{{ now() }}'
   duration:
     days: 7
+
+- platform: command_line
+  name: latest_valetudo
+  command: curl -s https://github.com/Hypfer/Valetudo/releases/latest | cut -d'"' -f2 | rev | cut -d'/' -f1 | rev
+  scan_interval: 21600
