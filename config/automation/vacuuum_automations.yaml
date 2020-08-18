@@ -120,3 +120,15 @@
     - service: counter.reset
       data:
         entity_id: counter.vacuum_runs_per_day
+
+- alias: New Valetudo SW Version
+  id: '1597738993'
+  mode: single
+  trigger:
+    - platform: template
+      value_template: "{{ states('sensor.latest_valetudo') != states('sensor.version_valetudo') }}"
+  action:
+    - service: persistent_notification.create
+      data:
+        message: '{{ states(''sensor.latest_valetudo'') }}'
+        title: Valetudo upgrade pending
