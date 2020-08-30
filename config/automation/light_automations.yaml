@@ -29,9 +29,12 @@
 - alias: Random light - Deckenspots
   id: '1500581871'
   trigger:
-    platform: time_pattern
-    minutes: /2
-    seconds: 0
+    - platform: time_pattern
+      minutes: /2
+      seconds: 0
+    - platform: state
+      entity_id: input_boolean.loop_livingcolors_1
+      to: 'on'
   condition:
     condition: state
     entity_id: input_boolean.loop_livingcolors_1
@@ -51,9 +54,12 @@
 - alias: Random light - Stehlampe
   id: '1500581872'
   trigger:
-    platform: time_pattern
-    minutes: /2
-    seconds: 0
+    - platform: time_pattern
+      minutes: /2
+      seconds: 0
+    - platform: state
+      entity_id: input_boolean.loop_livingcolors_2
+      to: 'on'
   condition:
     condition: state
     entity_id: input_boolean.loop_livingcolors_2
@@ -165,6 +171,7 @@
     - service: light.turn_off
       data:
         entity_id: light.badezimmer
+
 - id: "1569688815"
   alias: turn toilet lights off
   trigger:
@@ -184,6 +191,7 @@
     - service: light.turn_off
       data:
         entity_id: light.toilette
+
 - id: "1569688816"
   alias: turn toilet lights on
   trigger:
