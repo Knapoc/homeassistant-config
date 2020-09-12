@@ -110,6 +110,9 @@
     - service: counter.reset
       data:
         entity_id: counter.vacuum_dustbin
+    - service: counter.decrement
+      data:
+        entity_id: counter.vacuum_runs_per_day
 
 - alias: roborock reset runs per day
   id: '1596000980'

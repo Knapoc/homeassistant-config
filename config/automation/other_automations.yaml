@@ -10,7 +10,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: device_tracker.pc22927
+        entity_id: !secret device3
         state: 'home'
       - condition: state
         entity_id: binary_sensor.workday_sensor
