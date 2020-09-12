@@ -42,6 +42,4 @@ entities:
   - sensor.trade_volume
   - sensor.uberx_price
   - sensor.uberx_time
-  - sensor.asuswrt_download
-  - sensor.asuswrt_upload
   - vacuum.roborock
