@@ -120,7 +120,3 @@ speedtestdotnet:
     - ping
     - download
     - upload
-
-weather:
-  - platform: openweathermap
-    api_key: !secret owm_ak
