@@ -371,24 +371,6 @@
                     - entity: sensor.esp32_living_room_wifi_signal_sensor
                       name: RSSI
                       icon: mdi:signal-variant
-                # - type: entities
-                #   show_header_toggle: false
-                #   entities:
-                #     - type: custom:fold-entity-row
-                #       head:
-                #         type: section
-                #         label: Scripts
-                #       entities:
-                #         - entity: script.tasmota_status_wemosd1_1
-                #           name: Status
-                #         - entity: script.tasmota_fwstatus_wemosd1_1
-                #           name: FW-Status
-                #         - entity: script.tasmota_restart_wemosd1_1
-                #           name: Neustart
-                #         - entity: script.tasmota_reset_wemosd1_1
-                #           name: Reset
-                #         - entity: script.tasmota_upgrade_wemosd1_1
-                #           name: Upgrade
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
