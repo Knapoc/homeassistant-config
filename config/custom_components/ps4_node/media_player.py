@@ -46,7 +46,7 @@ SUPPORT_PS4 = SUPPORT_TURN_OFF | SUPPORT_TURN_ON | \
 
 DEFAULT_NAME = 'Playstation 4'
 DEFAULT_PORT = ''
-ICON = 'mdi:playstation'
+ICON = 'mdi:sony-playstation'
 CONF_GAMES_FILENAME = 'games_filename'
 CONF_IMAGEMAP_JSON = 'imagemap_json'
 CONF_LOCAL_STORE = "local_store"
