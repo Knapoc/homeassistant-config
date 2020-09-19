@@ -32,6 +32,14 @@ filter:
     - cover.living_room_group
     - cover.bed_room_group
 entity_config:
+  cover.fyrtur_1:
+    linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_1
+  cover.fyrtur_2:
+    linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_2
+  cover.fyrtur_3:
+    linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_3
+  cover.fyrtur_4:
+    linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_4
   input_boolean.loop_livingcolors_1:
     name: "Loop 1"
   input_boolean.loop_livingcolors_2:
