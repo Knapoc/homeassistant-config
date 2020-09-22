@@ -108,3 +108,4 @@ ui-pics
 ui-lovelace-old.yaml
 config/custom_components/hacs/services.yaml
 config/www/*.png
+config/image
