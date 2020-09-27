@@ -72,7 +72,7 @@
         before: '22:00:00'
       - condition: numeric_state
         entity_id: counter.vacuum_dustbin
-        above: 3
+        above: 4
       - condition: template
         value_template: "{{ states('vacuum.roborock') != 'cleaning' }}"
   action:
