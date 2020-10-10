@@ -5,8 +5,6 @@ mode: yaml
 resources:
   - url: /hacsfiles/lovelace-card-tools/card-tools.js
     type: module
-  - url: /hacsfiles/custom-header/custom-header.js
-    type: module
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
     type: module
   - url: /hacsfiles/stack-in-card/stack-in-card.js

@@ -2,20 +2,6 @@
 
 title: Home
 
-custom_header:
-  compact_mode: true
-  # background: var(--app-header-background-color);
-  # hide_header: true
-  voice_hide: true
-  hide_config: true
-  hidden_tab_redirect: false
-  elements_color: var(--primary-text-color);
-  tab_indicator_color: var(--primary-text-color);
-  hide_tabs:
-    - plants
-    - alarm
-    - vacuum
-
 x-vacuum-buttons: &vacuum-buttons
   color: auto
   entity: vacuum.roborock
