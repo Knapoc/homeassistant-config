@@ -3,6 +3,7 @@
 
 - icon: mdi:robot-vacuum
   title: vacuum
+  visible: false
   path: vacuum
   cards:
     - type: vertical-stack

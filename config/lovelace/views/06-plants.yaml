@@ -3,6 +3,7 @@
 
 - icon: mdi:sprout
   title: plants
+  visible: false
   path: plants
   cards:
     - type: vertical-stack

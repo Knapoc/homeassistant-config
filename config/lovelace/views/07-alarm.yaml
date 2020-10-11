@@ -3,6 +3,7 @@
 
 - icon: mdi:alarm
   title: Alarm
+  visible: false
   path: alarm
   cards:
     - type: vertical-stack
