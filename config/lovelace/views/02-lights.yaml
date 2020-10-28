@@ -12,7 +12,7 @@
             ### Living room
           style: |
             ha-card {
-              height: 20px;
+              height: 20px !important;
               --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
@@ -183,7 +183,7 @@
             ### Living room
           style: |
             ha-card {
-              height: 20px;
+              height: 20px !important;
               --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
@@ -249,7 +249,7 @@
                         ### Bright
                       style: |
                         ha-card {
-                          height: 20px;
+                          height: 20px !important;
                           --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
@@ -324,7 +324,7 @@
                         ### Energize
                       style: |
                         ha-card {
-                          height: 20px;
+                          height: 20px !important;
                           --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
@@ -399,7 +399,7 @@
                         ### Read
                       style: |
                         ha-card {
-                          height: 20px;
+                          height: 20px !important;
                           --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
@@ -474,7 +474,7 @@
                         ### Nightlight
                       style: |
                         ha-card {
-                          height: 20px;
+                          height: 20px !important;
                           --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
@@ -501,7 +501,7 @@
             ### Bed room
           style: |
             ha-card {
-              height: 20px;
+              height: 20px !important;
               --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
@@ -766,7 +766,7 @@
             ### Bed room
           style: |
             ha-card {
-              height: 20px;
+              height: 20px !important;
               --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
@@ -832,7 +832,7 @@
                         ### Bright
                       style: |
                         ha-card {
-                          height: 20px;
+                          height: 20px !important;
                           --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
@@ -907,7 +907,7 @@
                         ### Energize
                       style: |
                         ha-card {
-                          height: 20px;
+                          height: 20px !important;
                           --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
@@ -982,7 +982,7 @@
                         ### Read
                       style: |
                         ha-card {
-                          height: 20px;
+                          height: 20px !important;
                           --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
@@ -1057,7 +1057,7 @@
                         ### Nightlight
                       style: |
                         ha-card {
-                          height: 20px;
+                          height: 20px !important;
                           --ha-card-background: 'rgba(11, 11, 11, 0.00)';
                           box-shadow: 2px 2px rgba(0,0,0,0.0);
                           font-size: 20px;
@@ -1084,7 +1084,7 @@
             ### Kitchen
           style: |
             ha-card {
-              height: 20px;
+              height: 20px !important;
               --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
@@ -1255,7 +1255,7 @@
             ### Other
           style: |
             ha-card {
-              height: 20px;
+              height: 20px !important;
               --ha-card-background: 'rgba(11, 11, 11, 0.00)';
               box-shadow: 2px 2px rgba(0,0,0,0.0);
               font-size: 20px;
