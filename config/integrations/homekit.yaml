@@ -1,60 +1,73 @@
 ---
 # homekit config
 
-auto_start: false
-port: 51827
-advertise_ip: !secret host_ip
-# safe_mode: true
-filter:
-  include_domains:
-    - switch
-    - cover
-  include_entities:
-    - input_boolean.loop_livingcolors_1
-    - input_boolean.loop_livingcolors_2
-    - light.deckenleuchte
-    - light.stehlampe
-    - light.hue_spot_1
-    - light.hue_spot_2
-    - light.hue_spot_3
-    - light.schreibtischlampe
-    - light.light_7
-    - light.light_8
-    - light.light_9
-    - light.light_10
-    - light.light_11
-    - media_player.sony_bravia_tv
-    - media_player.playstation_4
-    - sensor.living_room_humidity
-    - sensor.living_room_temperature
-    - vacuum.roborock
-  exclude_entities:
-    - cover.living_room_group
-    - cover.bed_room_group
-entity_config:
-  cover.fyrtur_1:
-    linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_1
-  cover.fyrtur_2:
-    linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_2
-  cover.fyrtur_3:
-    linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_3
-  cover.fyrtur_4:
-    linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_4
-  input_boolean.loop_livingcolors_1:
-    name: "Loop 1"
-  input_boolean.loop_livingcolors_2:
-    name: "Loop 2"
-  media_player.sony_bravia_tv:
-    name: Fernseher
-  media_player.playstation_4:
-    name: "Playstation 4"
-    feature_list:
-      - feature: on_off
-  sensor.living_room_humidity:
-    name: "Luftfeuchtigkeit"
-  sensor.living_room_temperature:
-    name: "Temparatur"
-  switch.magic_mirror:
-    name: "Magic Mirror"
-  vacuum.roborock:
-    name: "Staubsauger"
+- mode: bridge
+  auto_start: false
+  port: 51827
+  advertise_ip: !secret host_ip
+  # safe_mode: true
+  filter:
+    include_domains:
+      - switch
+      - cover
+    include_entities:
+      - input_boolean.loop_livingcolors_1
+      - input_boolean.loop_livingcolors_2
+      - light.deckenleuchte
+      - light.stehlampe
+      - light.hue_spot_1
+      - light.hue_spot_2
+      - light.hue_spot_3
+      - light.nachttischlampe
+      - light.schreibtischlampe
+      - light.light_7
+      - light.light_8
+      - light.light_9
+      - light.light_10
+      - light.light_11
+      - media_player.playstation_4
+      - sensor.living_room_humidity
+      - sensor.living_room_temperature
+      - vacuum.roborock
+    exclude_entities:
+      - cover.living_room_group
+      - cover.bed_room_group
+  entity_config:
+    cover.fyrtur_1:
+      linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_1
+    cover.fyrtur_2:
+      linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_2
+    cover.fyrtur_3:
+      linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_3
+    cover.fyrtur_4:
+      linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_4
+    input_boolean.loop_livingcolors_1:
+      name: "Loop 1"
+    input_boolean.loop_livingcolors_2:
+      name: "Loop 2"
+    media_player.playstation_4:
+      name: "Playstation 4"
+      feature_list:
+        - feature: on_off
+    sensor.living_room_humidity:
+      name: "Luftfeuchtigkeit"
+    sensor.living_room_temperature:
+      name: "Temparatur"
+    switch.magic_mirror:
+      name: "Magic Mirror"
+    vacuum.roborock:
+      name: "Staubsauger"
+- name: Fernseher
+  mode: accessory
+  auto_start: false
+  port: 51828
+  advertise_ip: !secret host_ip
+  filter:
+    include_domains:
+      - switch
+      - cover
+    include_entities:
+      - media_player.sony_bravia_tv
+  entity_config:
+    media_player.sony_bravia_tv:
+      name: Fernseher
