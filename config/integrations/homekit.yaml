@@ -63,9 +63,6 @@
   port: 51828
   advertise_ip: !secret host_ip
   filter:
-    include_domains:
-      - switch
-      - cover
     include_entities:
       - media_player.sony_bravia_tv
   entity_config:
