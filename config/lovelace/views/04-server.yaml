@@ -55,7 +55,7 @@
                   format: relative
                 - entity: sensor.uptime
                   name: Home-Assistant Uptime
-                - entity: sensor.ssl_certificate_expiry
+                - entity: sensor.cert_expiry_timestamp_stauber_io
                   name: Cert expiry
                   icon: mdi:certificate
               style: |

@@ -37,13 +37,12 @@
 - alias: SSL expiry notification
   id: '1500779870'
   trigger:
-    platform: numeric_state
-    entity_id: sensor.ssl_certificate_expiry
-    below: 21
+    platform: template
+    value_template: "{% if ( ( as_timestamp(states('sensor.cert_expiry_timestamp_stauber_io')) - as_timestamp(now()) ) / 86400 ) | round(0) <= 21 %}true{% endif %}"
   action:
     service: !secret notify_ios
     data_template:
-      message: "Warning - SSL certificate expires in {{ states('sensor.ssl_certificate_expiry') }} days and has not been automatically renewed."
+      message: "Warning - SSL certificate expires in {{ ( ( as_timestamp(states('sensor.cert_expiry_timestamp_stauber_io')) - as_timestamp(now()) ) / 86400 ) | round(0) }} days and has not been automatically renewed."
 
 - alias: Disk Use Alarm
   id: '1500589867'
