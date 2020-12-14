@@ -3,10 +3,6 @@
 
 - platform: template
   sensors:
-    is_home:
-      friendly_name: 'Is someone home?'
-      entity_id: !secret person_1
-      value_template: !secret template_1
     wakeup_start_time_lights:
       friendly_name: 'Fade-in Startzeit'
       value_template: >

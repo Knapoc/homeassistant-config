@@ -29,9 +29,9 @@
   alias: Turn off magic mirror
   trigger:
     - platform: state
-      entity_id: sensor.is_home
-      from: 'true'
-      to: 'false'
+      entity_id: binary_sensor.is_home
+      from: 'on'
+      to: 'off'
       for:
         minutes: 15
   action:

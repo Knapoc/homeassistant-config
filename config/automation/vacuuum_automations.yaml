@@ -16,8 +16,8 @@
         entity_id: counter.vacuum_runs_per_day
         below: 1
       - condition: state
-        entity_id: sensor.is_home
-        state: 'false'
+        entity_id: binary_sensor.is_home
+        state: 'off'
         for:
           minutes: 20
       - condition: or

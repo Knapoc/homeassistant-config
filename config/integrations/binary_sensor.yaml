@@ -9,3 +9,10 @@
   name: Raspberry Pi
   count: 2
   scan_interval: 60
+- platform: template
+  sensors:
+    is_home:
+      friendly_name: 'Is someone home?'
+      unique_id: 'C14BD5FE-1DF8-4FD7-9562-BFADB487918D'
+      device_class: presence
+      value_template: !secret template_1
