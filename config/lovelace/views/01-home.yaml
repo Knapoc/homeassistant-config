@@ -528,6 +528,11 @@
                     action: toggle
                   hold_action:
                     action: more-info
+                  double_tap_action:
+                    action: call-service
+                    service: input_boolean.toggle
+                    service_data:
+                      entity_id: input_boolean.loop_livingcolors_2
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
@@ -575,6 +580,11 @@
                     action: toggle
                   hold_action:
                     action: more-info
+                  double_tap_action:
+                    action: call-service
+                    service: input_boolean.toggle
+                    service_data:
+                      entity_id: input_boolean.loop_livingcolors_1
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
@@ -995,6 +1005,17 @@
               tap_action:
                 action: navigate
                 navigation_path: /lovelace/lights
+              hold_action:
+                action: call-service
+                service: light.toggle
+                service_data:
+                  entity_id:
+                    - light.badezimmer
+                    - light.kuche
+                    - light.schlafzimmer
+                    - light.toilette
+                    - light.vorzimmer
+                    - light.wohnzimmer
             - type: 'custom:button-card'  # Spacer
               show_icon: false
               show_name: false
@@ -1026,6 +1047,15 @@
               tap_action:
                 action: navigate
                 navigation_path: /lovelace/blinds
+              hold_action:
+                action: call-service
+                service: cover.toggle
+                service_data:
+                  entity_id:
+                    - cover.fyrtur_1
+                    - cover.fyrtur_2
+                    - cover.fyrtur_3
+                    - cover.fyrtur_4
             - type: 'custom:button-card'  # Spacer
               show_icon: false
               show_name: false
