@@ -22,7 +22,6 @@
 
 - platform: uptime
   name: Uptime
-  unit_of_measurement: hours
 
 - platform: version
   name: hass_version
