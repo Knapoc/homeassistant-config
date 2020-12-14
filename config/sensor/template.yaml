@@ -40,54 +40,37 @@
         {% endif %}
         {% endif %}
     count_automations:
-      entity_id: sensor.date
       value_template: "{{ states.automation | list | length }}"
     count_covers:
-      entity_id: sensor.date
       value_template: "{{ states.cover | list | length }}"
     count_scripts:
-      entity_id: sensor.date
       value_template: "{{ states.script | list | length }}"
     count_device_trackers:
-      entity_id: sensor.date
       value_template: "{{ states.device_tracker | list | length }}"
     count_binary_sensors:
-      entity_id: sensor.date
       value_template: "{{ states.binary_sensor | list | length }}"
     count_sensors:
-      entity_id: sensor.date
       value_template: "{{ states.sensor | list | length }}"
     count_switches:
-      entity_id: sensor.date
       value_template: "{{ states.switch | list | length }}"
     count_zones:
-      entity_id: sensor.date
       value_template: "{{ states.zone | list | length }}"
     count_input_booleans:
-      entity_id: sensor.date
       value_template: "{{ states.input_boolean | list | length }}"
     count_input_numbers:
-      entity_id: sensor.date
       value_template: "{{ states.input_number | list | length }}"
     count_input_texts:
-      entity_id: sensor.date
       value_template: "{{ states.input_text | list | length }}"
     count_input_selects:
-      entity_id: sensor.date
       value_template: "{{ states.input_select | list | length }}"
     count_input_datetimes:
-      entity_id: sensor.date
       value_template: "{{ states.input_datetime | list | length }}"
     count_lights:
-      entity_id: sensor.date
       value_template: "{{ states.light | list | length }}"
     lights_on:
-      entity_id: sensor.time
       value_template: "{{ states.light | selectattr('state', 'equalto', 'on') | rejectattr('attributes.is_deconz_group') | list | length }}"
     esp32_living_room_uptime:
-      entity_id: sensor.esp32_living_room_uptime_raw
       value_template: "{{ ((states('sensor.esp32_living_room_uptime_raw') | float) / 60 / 60) | round(2) }}"
       unit_of_measurement: "h"
     esp32_living_room_version:
-      entity_id: sensor.esp32_living_room_version_raw
       value_template: "{{ states('sensor.esp32_living_room_version_raw').split(' ',1)[0] }}"
