@@ -36,6 +36,9 @@ sensor.disk_use_percent_sda1:
 sensor.disk_use_percent_sda2:
   friendly_name: '/dev/sda2'
   icon: mdi:harddisk
+sensor.disk_use_percent_sdb1:
+  friendly_name: '/dev/sdb1'
+  icon: mdi:harddisk
 sensor.fail2ban_homeassistant:
   friendly_name: homeassistant
   icon: mdi:shield
