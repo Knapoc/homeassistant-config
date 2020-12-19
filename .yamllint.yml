@@ -7,6 +7,8 @@ yaml-files:
 
 ignore: |
   config/themes/*
+  config/blueprints/automation/Bram_Kragten/*
+  config/blueprints/automation/aleksander.lyse/*
 
 rules:
   braces: enable

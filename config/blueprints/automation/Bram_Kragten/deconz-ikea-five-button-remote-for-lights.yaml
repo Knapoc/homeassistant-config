@@ -152,5 +152,5 @@ action:
     - '{{ event == 4002 }}'
     sequence: !input 'button_right_short'
   - conditions:
-    - '{{ event == 5001 }}'
+    - '{{ event == 4001 }}'
     sequence: !input 'button_right_long'
