@@ -32,6 +32,10 @@
     exclude_entities:
       - cover.living_room_group
       - cover.bed_room_group
+      - switch.adaptive_lighting_main_lights
+      - switch.adaptive_lighting_adapt_brightness_main_lights
+      - switch.adaptive_lighting_adapt_color_main_lights
+      - switch.adaptive_lighting_sleep_mode_main_lights
   entity_config:
     cover.fyrtur_1:
       linked_battery_sensor: sensor.fyrtur_block_out_roller_blind_battery_level_1
