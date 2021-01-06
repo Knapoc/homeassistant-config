@@ -40,15 +40,3 @@
     - service: switch.turn_off
       data:
         entity_id: switch.desk_charger_outlet
-- alias: magic-cube night stand
-  id: '1606310911'
-  trigger:
-    - platform: event
-      event_type: deconz_event
-      event_data:
-        id: magic_cube
-        event: 7007
-  action:
-    - service: light.toggle
-      data:
-        entity_id: light.nachttischlampe

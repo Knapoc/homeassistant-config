@@ -207,3 +207,31 @@
       data_template:
         entity_id: light.toilette
         brightness_pct: "{% if '07:00' < states('sensor.time') < '22:00' %}100{% else %}5{% endif %}"
+
+- id: '1609056340356'
+  alias: Mi Magic Cube
+  description: ''
+  use_blueprint:
+    path: bergstrom/mi-magic-cube-deconz-45-actions.yaml
+    input:
+      remote: a0b7f469e80183add666c9a85c9c1084
+      cube_shake:
+        - type: toggle
+          device_id: f9c4b764194911eb9b57a98c1840daa3
+          entity_id: light.nachttischlampe
+          domain: light
+      rotate_clockwise:
+        - type: brightness_increase
+          device_id: f9c4b764194911eb9b57a98c1840daa3
+          entity_id: light.nachttischlampe
+          domain: light
+      rotate_counter_clockwise:
+        - type: brightness_decrease
+          device_id: f9c4b764194911eb9b57a98c1840daa3
+          entity_id: light.nachttischlampe
+          domain: light
+      one_to_one:
+      - type: toggle
+        device_id: c415d227da5448fc83453f4441dde0c7
+        entity_id: light.deckenspots
+        domain: light
