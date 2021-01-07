@@ -159,54 +159,34 @@
       data:
         entity_id: scene.deckenleuchte_grp_nightlight
 
-- id: "1563723839"
-  alias: turn bathroom lights off
-  trigger:
-    - platform: state
-      entity_id: light.badezimmer
-      to: 'on'
-      for:
-        minutes: 45
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.badezimmer
+- id: '1609948156898'
+  alias: Motion-activated Toilet light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      no_motion_wait: '60'
+      motion_entity: binary_sensor.motion_sensor
+      light_target:
+        entity_id: light.light_8
 
-- id: "1569688815"
+- id: '1609948156899'
   alias: turn toilet lights off
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor
-      to: 'off'
-    - platform: state
-      entity_id: light.toilette
-      to: 'on'
-      for:
-        minutes: 15
-  condition:
-    condition: state
-    entity_id: light.toilette
-    state: 'on'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.toilette
+  description: ''
+  use_blueprint:
+    path: knapoc/light_off_time.yaml
+    input:
+      on_time: '600'
+      light_entity: light.light_8
 
-- id: "1569688816"
-  alias: turn toilet lights on
-  trigger:
-    platform: state
-    entity_id: binary_sensor.motion_sensor
-    to: 'on'
-  condition:
-    condition: state
-    entity_id: light.toilette
-    state: 'off'
-  action:
-    - service: light.turn_on
-      data_template:
-        entity_id: light.toilette
-        brightness_pct: "{% if '07:00' < states('sensor.time') < '22:00' %}100{% else %}5{% endif %}"
+- id: '1609948156900'
+  alias: turn bathroom lights off
+  description: ''
+  use_blueprint:
+    path: knapoc/light_off_time.yaml
+    input:
+      on_time: '2700'
+      light_entity: light.light_7
 
 - id: '1609056340356'
   alias: Mi Magic Cube
