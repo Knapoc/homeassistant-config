@@ -210,7 +210,7 @@
           entity_id: light.nachttischlampe
           domain: light
       one_to_one:
-      - type: toggle
-        device_id: c415d227da5448fc83453f4441dde0c7
-        entity_id: light.deckenspots
-        domain: light
+        - type: toggle
+          device_id: c415d227da5448fc83453f4441dde0c7
+          entity_id: light.deckenspots
+          domain: light
