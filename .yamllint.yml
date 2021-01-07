@@ -9,6 +9,7 @@ ignore: |
   config/themes/*
   config/blueprints/automation/Bram_Kragten/*
   config/blueprints/automation/aleksander.lyse/*
+  config/blueprints/automation/bergstrom/*
 
 rules:
   braces: enable
