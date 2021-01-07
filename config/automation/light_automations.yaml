@@ -164,7 +164,7 @@
   use_blueprint:
     path: homeassistant/motion_light.yaml
     input:
-      no_motion_wait: '60'
+      no_motion_wait: '120'
       motion_entity: binary_sensor.motion_sensor
       light_target:
         entity_id: light.light_8
@@ -186,6 +186,15 @@
     input:
       on_time: '2700'
       light_entity: light.light_7
+
+- id: '1609948156901'
+  alias: turn hall lights off
+  description: ''
+  use_blueprint:
+    path: knapoc/light_off_time.yaml
+    input:
+      on_time: '2700'
+      light_entity: light.light_9
 
 - id: '1609056340356'
   alias: Mi Magic Cube
