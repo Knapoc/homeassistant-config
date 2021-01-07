@@ -124,7 +124,6 @@
     - platform: state
       entity_id: media_player.playstation_4
       from: playing
-
   condition:
     - condition: state
       entity_id: sun.sun
