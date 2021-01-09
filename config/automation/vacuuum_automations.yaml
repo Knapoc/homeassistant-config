@@ -83,6 +83,35 @@
           push:
             category: emptyroborock
 
+- alias: roborock maintenance notification
+  id: '1610223727000'
+  trigger:
+    - platform: template
+      value_template: "{{ is_state_attr('vacuum.roborock', 'mainBrush', 0) }}"
+    - platform: template
+      value_template: "{{ is_state_attr('vacuum.roborock', 'sideBrush', 0) }}"
+    - platform: template
+      value_template: "{{ is_state_attr('vacuum.roborock', 'filter', 0) }}"
+    - platform: template
+      value_template: "{{ is_state_attr('vacuum.roborock', 'sensor', 0) }}"
+  action:
+    - service: !secret notify_ios
+      data_template:
+        message: >
+          Vacuum has to be maintained.
+          {% if state_attr('vacuum.roborock', 'mainBrush') <= 1 %}
+            Main brush: {{ state_attr('vacuum.roborock', 'mainBrush') }}h left.
+          {% endif %}
+          {% if state_attr('vacuum.roborock', 'sideBrush') <= 1 %}
+            Side brush: {{ state_attr('vacuum.roborock', 'sideBrush') }}h left.
+          {% endif %}
+          {% if state_attr('vacuum.roborock', 'filter') < 1= %}
+            Filter: {{ state_attr('vacuum.roborock', 'filter') }}h left.
+          {% endif %}
+          {% if state_attr('vacuum.roborock', 'sensor') < 1= %}
+            Sensor: {{ state_attr('vacuum.roborock', 'sensor') }}h left.
+          {% endif %}
+
 - alias: roborock cleaned
   id: '1555975480'
   trigger:
