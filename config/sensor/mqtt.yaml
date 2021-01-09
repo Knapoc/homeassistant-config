@@ -79,28 +79,6 @@
     {% endif %}
 
 - platform: mqtt
-  name: disk_use_percent_sda1
-  state_topic: 'telegraf/intelnuc/disk'
-  unit_of_measurement: '%'
-  value_template: >-
-    {% if value_json['tags'].device == 'sda1' %}
-      {{ (value_json['fields'].used_percent | float) | round(2) }}
-    {% else %}
-      {{ states('sensor.disk_use_percent_sda1') }}
-    {% endif %}
-
-- platform: mqtt
-  name: disk_use_percent_sda2
-  state_topic: 'telegraf/intelnuc/disk'
-  unit_of_measurement: '%'
-  value_template: >-
-    {% if value_json['tags'].device == 'sda2' %}
-      {{ (value_json['fields'].used_percent | float) | round(2) }}
-    {% else %}
-      {{ states('sensor.disk_use_percent_sda2') }}
-    {% endif %}
-
-- platform: mqtt
   name: disk_use_percent_sdb1
   state_topic: 'telegraf/intelnuc/disk'
   unit_of_measurement: '%'
@@ -109,6 +87,28 @@
       {{ (value_json['fields'].used_percent | float) | round(2) }}
     {% else %}
       {{ states('sensor.disk_use_percent_sdb1') }}
+    {% endif %}
+
+- platform: mqtt
+  name: disk_use_percent_sdb2
+  state_topic: 'telegraf/intelnuc/disk'
+  unit_of_measurement: '%'
+  value_template: >-
+    {% if value_json['tags'].device == 'sdb2' %}
+      {{ (value_json['fields'].used_percent | float) | round(2) }}
+    {% else %}
+      {{ states('sensor.disk_use_percent_sdb2') }}
+    {% endif %}
+
+- platform: mqtt
+  name: disk_use_percent_sda1
+  state_topic: 'telegraf/intelnuc/disk'
+  unit_of_measurement: '%'
+  value_template: >-
+    {% if value_json['tags'].device == 'sda1' %}
+      {{ (value_json['fields'].used_percent | float) | round(2) }}
+    {% else %}
+      {{ states('sensor.disk_use_percent_sda1') }}
     {% endif %}
 
 - platform: mqtt

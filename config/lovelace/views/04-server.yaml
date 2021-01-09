@@ -278,8 +278,8 @@
                 - entity: sensor.disk_use_percent_lv1
                   name: lv - /srv
                 - entity: sensor.disk_use_percent_sda1
-                - entity: sensor.disk_use_percent_sda2
                 - entity: sensor.disk_use_percent_sdb1
+                - entity: sensor.disk_use_percent_sdb2
               height: 22px
               width: 70%
               severity:

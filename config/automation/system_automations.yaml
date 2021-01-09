@@ -57,10 +57,10 @@
       entity_id: sensor.disk_use_percent_lv1
       above: 90
     - platform: numeric_state
-      entity_id: sensor.disk_use_percent_sda1
+      entity_id: sensor.disk_use_percent_sdb1
       above: 90
     - platform: numeric_state
-      entity_id: sensor.disk_use_percent_sda2
+      entity_id: sensor.disk_use_percent_sdb2
       above: 90
   action:
     service: !secret notify_ios
