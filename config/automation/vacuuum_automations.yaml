@@ -105,10 +105,10 @@
           {% if state_attr('vacuum.roborock', 'sideBrush') <= 1 %}
             Side brush: {{ state_attr('vacuum.roborock', 'sideBrush') }}h left.
           {% endif %}
-          {% if state_attr('vacuum.roborock', 'filter') < 1= %}
+          {% if state_attr('vacuum.roborock', 'filter') <= 1 %}
             Filter: {{ state_attr('vacuum.roborock', 'filter') }}h left.
           {% endif %}
-          {% if state_attr('vacuum.roborock', 'sensor') < 1= %}
+          {% if state_attr('vacuum.roborock', 'sensor') <= 1 %}
             Sensor: {{ state_attr('vacuum.roborock', 'sensor') }}h left.
           {% endif %}
 
