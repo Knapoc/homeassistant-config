@@ -1592,6 +1592,12 @@
                     action: toggle
                   hold_action:
                     action: more-info
+                  double_tap_action:
+                    action: call-service
+                    service: adaptive_lighting.set_manual_control
+                    service_data:
+                      entity_id: switch.adaptive_lighting_main_lights
+                      manual_control: false
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
