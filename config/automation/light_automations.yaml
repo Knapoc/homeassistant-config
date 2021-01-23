@@ -159,12 +159,12 @@
         entity_id: scene.deckenleuchte_grp_nightlight
 
 - id: '1609948156898'
-  alias: Motion-activated Toilet light
+  alias: Motion-activated toilet light
   description: ''
   use_blueprint:
     path: homeassistant/motion_light.yaml
     input:
-      no_motion_wait: '120'
+      no_motion_wait: '180'
       motion_entity: binary_sensor.motion_sensor
       light_target:
         entity_id: light.light_8
