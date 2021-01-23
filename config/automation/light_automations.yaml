@@ -169,6 +169,17 @@
       light_target:
         entity_id: light.light_8
 
+- id: '1609948156902'
+  alias: Motion-activated bathroom light
+  description: ''
+  use_blueprint:
+    path: homeassistant/motion_light.yaml
+    input:
+      no_motion_wait: '300'
+      motion_entity: binary_sensor.motion_sensor_2
+      light_target:
+        entity_id: light.light_7
+
 - id: '1609948156899'
   alias: turn toilet lights off
   description: ''
