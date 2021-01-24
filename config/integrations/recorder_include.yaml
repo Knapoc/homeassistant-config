@@ -13,3 +13,4 @@ domains:
   - cover
 entities:
   - binary_sensor.motion_sensor
+  - binary_sensor.motion_sensor_2
