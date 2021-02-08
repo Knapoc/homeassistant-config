@@ -1517,7 +1517,7 @@
                     action: more-info
         - type: markdown  ### column
           content: |
-            ### Main lights
+            ### Adaptive lighting
           style: |
             ha-card {
               height: 20px !important;
@@ -1530,7 +1530,14 @@
             }
         - type: markdown
           content: >
-            **Adaptive lighting switches**
+            {% if state_attr('switch.adaptive_lighting_main_lights', 'manual_control')|length > 0 %}
+              **Manually controlled:{{ " " }}
+              {%- for i in state_attr('switch.adaptive_lighting_main_lights', 'manual_control') -%}
+                {{ state_attr(i, 'friendly_name') }}{{ ", " if not loop.last }}
+              {%- endfor -%}**
+            {% else %}
+              **No manually controlled lights**
+            {% endif %}
           style: |
             ha-card {
               height: 50px;
