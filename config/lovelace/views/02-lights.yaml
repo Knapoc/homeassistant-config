@@ -1293,7 +1293,7 @@
                       - width: 5px
                       - height: 60px
                 - type: 'custom:button-card'  # button
-                  entity: light.badezimmer
+                  entity: light.light_7
                   icon: 'mdi:shower'
                   show_icon: true
                   show_name: false
@@ -1305,13 +1305,13 @@
                   style: |
                     ha-card {
                       box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.badezimmer', 'on') %}
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.light_7', 'on') %}
                           inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.badezimmer', 'off') %}
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_7', 'off') %}
                           -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.badezimmer', 'on') %}
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_7', 'on') %}
                           inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.badezimmer', 'off') %}
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_7', 'off') %}
                           -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }
@@ -1340,7 +1340,7 @@
                       - width: 2px
                       - height: 60px
                 - type: 'custom:button-card'  # button
-                  entity: light.toilette
+                  entity: light.light_8
                   icon: 'mdi:paper-roll'
                   show_icon: true
                   show_name: false
@@ -1352,13 +1352,13 @@
                   style: |
                     ha-card {
                       box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.toilette', 'on') %}
+                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.light_8', 'on') %}
                           inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.toilette', 'off') %}
+                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_8', 'off') %}
                           -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.toilette', 'on') %}
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_8', 'on') %}
                           inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.toilette', 'off') %}
+                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_8', 'off') %}
                           -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
                         {% endif %}
                     }

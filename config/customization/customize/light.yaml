@@ -1,7 +1,7 @@
 ---
 # light customization
 
-light.badezimmer:
+light.light_7:
   friendly_name: Badezimmerlicht
   custom_ui_state_card: state-card-custom-light
 light.deckenleuchte:
@@ -15,7 +15,7 @@ light.kuche:
 light.schlafzimmer:
   friendly_name: Zimmerlicht
   custom_ui_state_card: state-card-custom-light
-light.toilette:
+light.light_8:
   friendly_name: Toilettenlicht
   custom_ui_state_card: state-card-custom-light
 light.vorzimmer:

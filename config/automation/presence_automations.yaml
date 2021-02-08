@@ -17,10 +17,10 @@
           - media_player.sony_bravia_tv
           - media_player.playstation_4
           - light.schlafzimmer
-          - light.badezimmer
+          - light.light_7
           - light.kuche
           - light.vorzimmer
-          - light.toilette
+          - light.light_8
           - light.wohnzimmer
           - input_boolean.loop_livingcolors_1
           - input_boolean.loop_livingcolors_2
@@ -66,8 +66,8 @@
           - media_player.sony_bravia_tv
           - media_player.playstation_4
           - light.schlafzimmer
-          - light.badezimmer
+          - light.light_7
           - light.kuche
           - light.vorzimmer
-          - light.toilette
+          - light.light_8
           - light.wohnzimmer
