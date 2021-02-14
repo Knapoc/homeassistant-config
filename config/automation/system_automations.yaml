@@ -83,27 +83,6 @@
     data_template:
       homeassistant.components: '{{ trigger.to_state.state }}'
 
-- alias: get tasmota device info
-  id: '1500581879'
-  trigger:
-    - platform: homeassistant
-      event: start
-    - platform: time
-      at: 09:00:00
-  action:
-    - service: mqtt.publish
-      data:
-        topic: wemosd1_1/cmnd/Status
-        payload: '0'
-    - service: mqtt.publish
-      data:
-        topic: sonoff_0528/cmnd/Status
-        payload: '0'
-    - service: mqtt.publish
-      data:
-        topic: sonoff_3463/cmnd/Status
-        payload: '0'
-
 - alias: 'Start HomeKit'
   id: '1576691942'
   trigger:

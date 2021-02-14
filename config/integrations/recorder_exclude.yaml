@@ -7,15 +7,19 @@ entities:
   - sensor.time
   - sensor.date
   - sensor.season
-  - sensor.sonoff_maddox_version
-  - sensor.sonoff_3028_version
   - sensor.wakeup_alarm_time
   - sensor.wakeup_fadein_duration
   - sensor.wakeup_start_time_lights
   - automation.automatic_theme_change
   - sensor.uptime
-  - sensor.uberx_time
-  - sensor.uberx_price
   - sensor.network_in_eth0
   - sensor.network_out_eth0
   - sensor.valetudo_map
+  - sensor.sonoffs20_magicmirror_version_raw
+  - sensor.sonoffs20_magicmirror_version
+  - sensor.sonoffs20_magicmirror_uptime_raw
+  - sensor.sonoffs20_magicmirror_uptime
+  - sensor.sonoffs20_desk_version_raw
+  - sensor.sonoffs20_desk_version
+  - sensor.sonoffs20_desk_uptime_raw
+  - sensor.sonoffs20_desk_uptime

@@ -1,28 +1,6 @@
 ---
 # switch configuration
 
-- platform: mqtt
-  name: magic mirror power
-  command_topic: "sonoff_3463/cmnd/POWER"
-  state_topic: "sonoff_3463/stat/POWER"
-  qos: 1
-  payload_on: "ON"
-  payload_off: "OFF"
-  payload_available: "Online"
-  payload_not_available: "Offline"
-  retain: false
-
-- platform: mqtt
-  name: desk charger outlet
-  command_topic: "sonoff_0528/cmnd/POWER"
-  state_topic: "sonoff_0528/stat/POWER"
-  qos: 1
-  payload_on: "ON"
-  payload_off: "OFF"
-  payload_available: "Online"
-  payload_not_available: "Offline"
-  retain: false
-
 - platform: template
   switches:
     magic_mirror:
@@ -35,6 +13,6 @@
       turn_on:
         service: switch.turn_on
         data:
-          entity_id: switch.magic_mirror_power
+          entity_id: switch.sonoff_s20_magicmirror_relay
       turn_off:
         service: script.magic_mirror_shutdown

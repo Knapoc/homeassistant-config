@@ -74,3 +74,13 @@
       unit_of_measurement: "h"
     esp32_living_room_version:
       value_template: "{{ states('sensor.esp32_living_room_version_raw').split(' ',1)[0] }}"
+    sonoffs20_desk_uptime:
+      value_template: "{{ ((states('sensor.sonoffs20_desk_uptime_raw') | float) / 60 / 60) | round(2) }}"
+      unit_of_measurement: "h"
+    sonoffs20_desk_version:
+      value_template: "{{ states('sensor.sonoffs20_desk_version_raw').split(' ',1)[0] }}"
+    sonoffs20_magicmirror_uptime:
+      value_template: "{{ ((states('sensor.sonoffs20_magicmirror_uptime_raw') | float) / 60 / 60) | round(2) }}"
+      unit_of_measurement: "h"
+    sonoffs20_magicmirror_version:
+      value_template: "{{ states('sensor.sonoffs20_magicmirror_version_raw').split(' ',1)[0] }}"

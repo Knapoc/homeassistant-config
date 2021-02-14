@@ -25,7 +25,7 @@
   action:
     - service: switch.turn_on
       data:
-        entity_id: switch.desk_charger_outlet
+        entity_id: switch.sonoff_s20_magicmirror_relay
 
 - alias: Turn off desk plug
   id: '1597432590'
@@ -39,4 +39,4 @@
   action:
     - service: switch.turn_off
       data:
-        entity_id: switch.desk_charger_outlet
+        entity_id: switch.sonoff_s20_magicmirror_relay

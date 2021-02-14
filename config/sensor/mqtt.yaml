@@ -2,50 +2,6 @@
 # mqtt sensors
 
 - platform: mqtt
-  name: s20_mm_uptime
-  state_topic: "sonoff_3463/tele/STATE"
-  value_template: "{{ (value_json.UptimeSec | float / 60 / 60) | round(2) }}"
-  unit_of_measurement: "hours"
-
-- platform: mqtt
-  name: s20_mm_rssi
-  state_topic: "sonoff_3463/tele/STATE"
-  value_template: "{{ value_json['Wifi'].RSSI }}"
-  unit_of_measurement: "dBm"
-
-- platform: mqtt
-  name: s20_mm_ip
-  state_topic: "sonoff_3463/stat/STATUS5"
-  value_template: "{{ value_json['StatusNET'].IPAddress }}"
-
-- platform: mqtt
-  name: s20_mm_version
-  state_topic: "sonoff_3463/stat/STATUS2"
-  value_template: "{{ value_json['StatusFWR'].Version[:5] }}"
-
-- platform: mqtt
-  name: s20_deskoutlet_uptime
-  state_topic: "sonoff_0528/tele/STATE"
-  value_template: "{{ (value_json.UptimeSec | float / 60 / 60) | round(2) }}"
-  unit_of_measurement: "hours"
-
-- platform: mqtt
-  name: s20_deskoutlet_rssi
-  state_topic: "sonoff_0528/tele/STATE"
-  value_template: "{{ value_json['Wifi'].RSSI }}"
-  unit_of_measurement: "dBm"
-
-- platform: mqtt
-  name: s20_deskoutlet_ip
-  state_topic: "sonoff_0528/stat/STATUS5"
-  value_template: "{{ value_json['StatusNET'].IPAddress }}"
-
-- platform: mqtt
-  name: s20_deskoutlet_version
-  state_topic: "sonoff_0528/stat/STATUS2"
-  value_template: "{{ value_json['StatusFWR'].Version[:5] }}"
-
-- platform: mqtt
   name: disk_use_percent_lv
   state_topic: 'telegraf/intelnuc/disk'
   unit_of_measurement: '%'

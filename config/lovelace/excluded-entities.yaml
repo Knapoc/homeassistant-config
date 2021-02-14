@@ -14,8 +14,3 @@
 - automation.gaming_ps4
 - automation.stop_playing_ps4
 - automation.wakeup_light_bedroom
-- automation.get_tasmota_device_info
-- automation.update_available_tasmota_sonoff_3463
-- automation.upgrade_tasmota_sonoff_3463
-- automation.update_available_tasmota_wemosd1_1
-- automation.upgrade_tasmota_wemosd1_1

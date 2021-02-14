@@ -22,4 +22,4 @@ magic_mirror_shutdown:
     - delay: 00:01:30
     - service: switch.turn_off
       data:
-        entity_id: switch.magic_mirror_power
+        entity_id: switch.sonoff_s20_magicmirror_relay
