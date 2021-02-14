@@ -1,3 +1,5 @@
+---
+
 blueprint:
   name: Time-based Light Turn Off
   description: Turn off a light based on time
