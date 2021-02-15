@@ -67,7 +67,7 @@ ios: !include integrations/ios.yaml
 media_player: !include integrations/media_player.yaml
 notify: !include integrations/notify.yaml
 plant: !include integrations/plant.yaml
-sensor: !include_dir_merge_list sensor/
+sensor: !include_dir_merge_list integrations/sensor/
 shell_command: !include integrations/shell_command.yaml
 switch: !include integrations/switch.yaml
 zone: !include integrations/zone.yaml
