@@ -22,6 +22,11 @@
       - condition: state
         entity_id: !secret person_1
         state: 'home'
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: switch.sonoff_s20_desk_relay
+            state: 'on'
   action:
     - service: switch.turn_on
       data:
@@ -36,6 +41,12 @@
       entity_id: !secret device3
       to: 'not_home'
       for: '00:30:00'
+  condition:
+    condition: not
+    conditions:
+      - condition: state
+        entity_id: switch.sonoff_s20_desk_relay
+        state: 'off'
   action:
     - service: switch.turn_off
       data:
