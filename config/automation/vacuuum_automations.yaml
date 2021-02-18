@@ -134,7 +134,7 @@
         entity_id: vacuum.roborock
         command: 'go_to'
         params:
-          'spot_id': 'Kitchen bin'
+          'spot_id': '47b39976-941f-403f-a5a9-14f8b9ac6c94'
     - wait_template: "{{ is_state('vacuum.roborock', 'returning') }}"
     - service: counter.reset
       data:
