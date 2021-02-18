@@ -14,7 +14,6 @@ entities:
   - sensor.uptime
   - sensor.network_in_eth0
   - sensor.network_out_eth0
-  - sensor.valetudo_map
   - sensor.sonoffs20_magicmirror_version_raw
   - sensor.sonoffs20_magicmirror_version
   - sensor.sonoffs20_magicmirror_uptime_raw

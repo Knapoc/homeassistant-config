@@ -65,7 +65,7 @@
                       name: Roborock
                       show_state: false
                       entities:
-                        - attribute: state
+                        - entity: vacuum.roborock
                           name: Status
                         - attribute: battery_level
                           name: Battery
@@ -216,7 +216,7 @@
                   - height: 60px
             - type: 'custom:valetudo-map-card'
               title: ''
-              entity: sensor.valetudo_map
+              entity: camera.roborock_map
               dock_icon: mdi:dots-vertical
               dock_color: '--secondary-text-color'
               # floor_color: '--valetudo-map-floor-color'
@@ -286,29 +286,17 @@
               # title: Anderes
               show_header_toggle: false
               entities:
-                - type: attribute
-                  entity: vacuum.roborock
+                - entity: sensor.roborock_main_brush_hours
                   name: Main brush
-                  attribute: mainBrush
-                  suffix: h
                   icon: mdi:progress-wrench
-                - type: attribute
-                  entity: vacuum.roborock
+                - entity: sensor.roborock_right_side_brush_hours
                   name: Side brush
-                  attribute: sideBrush
-                  suffix: h
                   icon: mdi:progress-wrench
-                - type: attribute
-                  entity: vacuum.roborock
+                - entity: sensor.roborock_main_filter_hours
                   name: Filter
-                  attribute: filter
-                  suffix: h
                   icon: mdi:progress-wrench
-                - type: attribute
-                  entity: vacuum.roborock
+                - entity: sensor.roborock_sensor_hours
                   name: Sensor
-                  attribute: sensor
-                  suffix: h
                   icon: mdi:progress-clock
               style: |
                 ha-card {

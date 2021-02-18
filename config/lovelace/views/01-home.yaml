@@ -837,7 +837,7 @@
                       name: Roborock
                       show_state: false
                       entities:
-                        - attribute: state
+                        - entity: vacuum.roborock
                           name: Status
                         - attribute: battery_level
                           name: Battery

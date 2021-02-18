@@ -74,6 +74,18 @@
       unit_of_measurement: "h"
     esp32_living_room_version:
       value_template: "{{ states('sensor.esp32_living_room_version_raw').split(' ',1)[0] }}"
+    roborock_main_brush_hours:
+      value_template: "{{ ((states('sensor.roborock_main_brush') | float) / 60 ) | round(2) }}"
+      unit_of_measurement: "h"
+    roborock_main_filter_hours:
+      value_template: "{{ ((states('sensor.roborock_main_filter') | float) / 60 ) | round(2) }}"
+      unit_of_measurement: "h"
+    roborock_right_side_brush_hours:
+      value_template: "{{ ((states('sensor.roborock_right_side_brush') | float) / 60 ) | round(2) }}"
+      unit_of_measurement: "h"
+    roborock_sensor_hours:
+      value_template: "{{ ((states('sensor.roborock_sensor') | float) / 60 ) | round(2) }}"
+      unit_of_measurement: "h"
     sonoffs20_desk_uptime:
       value_template: "{{ ((states('sensor.sonoffs20_desk_uptime_raw') | float) / 60 / 60) | round(2) }}"
       unit_of_measurement: "h"

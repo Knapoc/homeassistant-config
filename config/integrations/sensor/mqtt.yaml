@@ -79,12 +79,6 @@
     {% endif %}
 
 - platform: mqtt
-  state_topic: "valetudo/roborock/state"
-  json_attributes_topic: "valetudo/roborock/map_data"
-  name: valetudo_map
-  value_template: 'OK'
-
-- platform: mqtt
   name: version_valetudo
   state_topic: "homeassistant/vacuum/valetudo_XXXXXX/config"
   value_template: "{{ value_json.device['sw_version'] }}"
