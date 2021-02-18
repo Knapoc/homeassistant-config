@@ -78,6 +78,8 @@
                     entities:
                       - input_datetime.wakeup_alarm_time
                       - input_number.wakeup_duration
+                      - entity: input_number.wakeup_target_brightness
+                        name: Target brightness
                       - entity: input_boolean.wakeup_weekends
                         name: Weekends
             - type: 'custom:button-card'

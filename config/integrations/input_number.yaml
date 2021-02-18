@@ -14,3 +14,9 @@ wakeup_cover_open_delay:
   min: 0
   max: 60
   step: 5
+wakeup_target_brightness:
+  name: 'wake-up target brightness'
+  icon: mdi:brightness-6
+  min: 0
+  max: 255
+  step: 1

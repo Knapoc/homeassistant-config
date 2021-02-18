@@ -24,7 +24,29 @@
             entity_id: binary_sensor.workday_sensor
             state: 'on'
   action:
-    service: script.wakeup_schlafzimmer
+    - service: adaptive_lighting.set_manual_control
+      data:
+        entity_id: switch.adaptive_lighting_main_lights
+        lights: light.deckenspots
+        manual_control: true
+    - service: light.turn_on
+      data:
+        entity_id: light.deckenspots
+        brightness: 2
+        color_temp: 497
+    - delay:
+        seconds: 1
+    - service: light.turn_on
+      data_template:
+        entity_id: light.deckenspots
+        brightness: "{{ states('input_number.wakeup_target_brightness') | int }}"
+        transition: "{{ states('input_number.wakeup_duration') | multiply(60) | int }}"
+    - delay: "{{ states('input_number.wakeup_duration') | multiply(120) | int }}"
+    - service: adaptive_lighting.set_manual_control
+      data:
+        entity_id: switch.adaptive_lighting_main_lights
+        lights: light.deckenspots
+        manual_control: false
 
 - alias: Random light - Deckenspots
   id: '1500581871'
