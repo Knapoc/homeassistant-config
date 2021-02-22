@@ -507,13 +507,18 @@
                   - width: 5px
                   - height: 60px
             - type: glance
+              columns: 5
               entities:
-                - entity: sensor.fail2ban_homeassistant
-                  name: Homeassistant
-                - entity: sensor.fail2ban_nextcloud
-                  name: Nextcloud
-                - entity: sensor.fail2ban_sshd
-                  name: SSH
+                - entity: !secret f2b_jail1_sensor
+                  name: !secret f2b_jail1_sensor_name
+                - entity: !secret f2b_jail2_sensor
+                  name: !secret f2b_jail2_sensor_name
+                - entity: !secret f2b_jail3_sensor
+                  name: !secret f2b_jail3_sensor_name
+                - entity: !secret f2b_jail4_sensor
+                  name: !secret f2b_jail4_sensor_name
+                - entity: !secret f2b_jail5_sensor
+                  name: !secret f2b_jail5_sensor_name
               style: |
                 ha-card {
                   background-color: var(--primary-background-color);

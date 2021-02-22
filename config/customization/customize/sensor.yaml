@@ -39,15 +39,6 @@ sensor.disk_use_percent_sdb2:
 sensor.disk_use_percent_sda1:
   friendly_name: '/dev/sda1'
   icon: mdi:harddisk
-sensor.fail2ban_homeassistant:
-  friendly_name: homeassistant
-  icon: mdi:shield
-sensor.fail2ban_nextcloud:
-  friendly_name: nextcloud
-  icon: mdi:shield
-sensor.fail2ban_sshd:
-  friendly_name: sshd
-  icon: mdi:shield
 sensor.google_travel_time_dev1_dynamic_home:
   friendly_name: Heimweg - dynamisch
   icon: mdi:google-circles-extended
