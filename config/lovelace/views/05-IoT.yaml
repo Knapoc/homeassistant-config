@@ -9,39 +9,44 @@
       cards:
         - type: markdown
           content: |
-            ### Magic Mirror
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Magic Mirror
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
         - type: horizontal-stack
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: custom:stack-in-card
               mode: vertical
-              style: |
-                ha-card {
-                  background-color: var(--primary-background-color);
-                  border-radius: 15px;
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
+              card_mod:
+                style: |
+                  ha-card {
+                    background-color: var(--primary-background-color);
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
               cards:
                 - type: entities
                   show_header_toggle: false
@@ -68,50 +73,52 @@
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: markdown
           content: |
-            ### Desk outlet
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Desk outlet
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
         - type: horizontal-stack
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: custom:stack-in-card
               mode: vertical
-              style: |
-                ha-card {
-                  background-color: var(--primary-background-color);
-                  border-radius: 15px;
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
+              card_mod:
+                style: |
+                  ha-card {
+                    background-color: var(--primary-background-color);
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
               cards:
                 - type: entities
                   show_header_toggle: false
@@ -136,52 +143,54 @@
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
     - type: vertical-stack
       cards:
         - type: markdown
           content: |
-            ### ESP32 - living room
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # ESP32 - living room
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
         - type: horizontal-stack
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: custom:stack-in-card
               mode: vertical
-              style: |
-                ha-card {
-                  background-color: var(--primary-background-color);
-                  border-radius: 15px;
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
+              card_mod:
+                style: |
+                  ha-card {
+                    background-color: var(--primary-background-color);
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
               cards:
                 - type: glance
                   # title: wemosd1 - 1
@@ -201,24 +210,18 @@
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: 'custom:button-card'  # Spacer
           show_icon: false
           show_name: false
-          style: |
-            ha-card {
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
           styles:
             card:
               - width: 5px
               - height: 10px
+              - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+              - --ha-card-background: 'rgba(11, 11, 11, 0.00)'

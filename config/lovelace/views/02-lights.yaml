@@ -9,30 +9,29 @@
       cards:
         - type: markdown  ### column
           content: |
-            ### Living room
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: >
-            **Lights and effects**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Living room
+            ## Lights and effects
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: vertical-stack  ### Light Buttons
           cards:
             - type: horizontal-stack
@@ -40,15 +39,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.deckenleuchte
                   icon: 'mdi:wall-sconce-flat'
@@ -57,27 +53,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -87,15 +73,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.stehlampe
                   icon: 'mdi:floor-lamp'
@@ -104,27 +87,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.stehlampe', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.stehlampe', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -134,15 +107,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: input_boolean.loop_livingcolors_2
                   icon: 'mdi:sync'
@@ -151,27 +121,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_2', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_2', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_2', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_2', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -180,30 +140,29 @@
                     action: more-info
         - type: markdown  ### Scenes
           content: |
-            ### Living room
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: |
-            **Light scenes**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Living room
+            ## Light scenes
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: vertical-stack
           cards:
             - type: horizontal-stack  # Bright Scene
@@ -211,29 +170,23 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                      box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 80px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'
                   icon: 'mdi:brightness-5'
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow: var(--softui-bigbutton-boxshadow);
-                    }
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-bigbutton-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -242,73 +195,62 @@
                     service_data:
                       entity_id: scene.deckenleuchte_grp_bright
                     haptic: medium
-                - type: vertical-stack
-                  cards:
-                    - type: markdown
-                      content: |
-                        ### Bright
-                      style: |
+                - type: markdown
+                  content: |
+                    # Bright
+                    ## Warm white on full brightness
+                  card_mod:
+                    style:
+                      .: |
                         ha-card {
-                          height: 20px !important;
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 20px;
-                          font-weight: bold;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 70px !important;
                         }
-                    - type: markdown
-                      content: |
-                        **Warm white on full brightness**
-                      style: |
-                        ha-card {
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 15px;
-                          font-weight: thin;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
-                        }
+                      ha-markdown:
+                        $: |
+                          ha-markdown-element {
+                            letter-spacing: 0;
+                          }
+                          h1 {
+                            font-size: 20px !important;
+                            margin-block-end: 0.2em !important;
+                          }
+                          h2 {
+                            font-size: 15px !important;
+                            margin-block-start: 0.2em !important;
+                          }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: horizontal-stack  # Energize Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                      box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 80px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'
                   icon: 'mdi:white-balance-sunny'
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow: var(--softui-bigbutton-boxshadow);
-                    }
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-bigbutton-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -317,73 +259,62 @@
                     service_data:
                       entity_id: scene.deckenleuchte_grp_energize
                     haptic: medium
-                - type: vertical-stack
-                  cards:
-                    - type: markdown
-                      content: |
-                        ### Energize
-                      style: |
+                - type: markdown
+                  content: |
+                    # Energize
+                    ## Cool daylight
+                  card_mod:
+                    style:
+                      .: |
                         ha-card {
-                          height: 20px !important;
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 20px;
-                          font-weight: bold;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 70px !important;
                         }
-                    - type: markdown
-                      content: |
-                        **Cool daylight**
-                      style: |
-                        ha-card {
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 15px;
-                          font-weight: thin;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
-                        }
+                      ha-markdown:
+                        $: |
+                          ha-markdown-element {
+                            letter-spacing: 0;
+                          }
+                          h1 {
+                            font-size: 20px !important;
+                            margin-block-end: 0.2em !important;
+                          }
+                          h2 {
+                            font-size: 15px !important;
+                            margin-block-start: 0.2em !important;
+                          }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: horizontal-stack  # Read Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                      box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 80px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'
                   icon: 'mdi:book-open-page-variant'
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow: var(--softui-bigbutton-boxshadow);
-                    }
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-bigbutton-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -392,73 +323,62 @@
                     service_data:
                       entity_id: scene.deckenleuchte_grp_read
                     haptic: medium
-                - type: vertical-stack
-                  cards:
-                    - type: markdown
-                      content: |
-                        ### Read
-                      style: |
+                - type: markdown
+                  content: |
+                    # Read
+                    ## Daylight to read
+                  card_mod:
+                    style:
+                      .: |
                         ha-card {
-                          height: 20px !important;
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 20px;
-                          font-weight: bold;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 70px !important;
                         }
-                    - type: markdown
-                      content: |
-                        **Daylight to read**
-                      style: |
-                        ha-card {
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 15px;
-                          font-weight: thin;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
-                        }
+                      ha-markdown:
+                        $: |
+                          ha-markdown-element {
+                            letter-spacing: 0;
+                          }
+                          h1 {
+                            font-size: 20px !important;
+                            margin-block-end: 0.2em !important;
+                          }
+                          h2 {
+                            font-size: 15px !important;
+                            margin-block-start: 0.2em !important;
+                          }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: horizontal-stack  # Night Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                      box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 80px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'
                   icon: 'mdi:weather-night'
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow: var(--softui-bigbutton-boxshadow);
-                    }
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-bigbutton-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -467,61 +387,58 @@
                     service_data:
                       entity_id: scene.deckenleuchte_grp_nightlight
                     haptic: medium
-                - type: vertical-stack
-                  cards:
-                    - type: markdown
-                      content: |
-                        ### Nightlight
-                      style: |
+                - type: markdown
+                  content: |
+                    # Nightlight
+                    ## Warm light dimmed
+                  card_mod:
+                    style:
+                      .: |
                         ha-card {
-                          height: 20px !important;
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 20px;
-                          font-weight: bold;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 70px !important;
                         }
-                    - type: markdown
-                      content: |
-                        **Warm light dimmed**
-                      style: |
-                        ha-card {
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 15px;
-                          font-weight: thin;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
-                        }
+                      ha-markdown:
+                        $: |
+                          ha-markdown-element {
+                            letter-spacing: 0;
+                          }
+                          h1 {
+                            font-size: 20px !important;
+                            margin-block-end: 0.2em !important;
+                          }
+                          h2 {
+                            font-size: 15px !important;
+                            margin-block-start: 0.2em !important;
+                          }
     - type: vertical-stack  # middle column
       cards:
         - type: markdown  ### column
           content: |
-            ### Bed room
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: >
-            **Lights and effects**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Bed room
+            ## Lights and effects
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: vertical-stack  ### Light Buttons
           cards:
             - type: horizontal-stack
@@ -529,15 +446,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.deckenspots
                   icon: 'mdi:track-light'
@@ -546,27 +460,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenspots', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenspots', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -576,15 +480,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.hue_spot_1
                   icon: 'mdi:lightbulb'
@@ -593,27 +494,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_1', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_1', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_1', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_1', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -623,15 +514,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.hue_spot_2
                   icon: 'mdi:lightbulb'
@@ -640,27 +528,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_2', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_2', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_2', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_2', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -670,15 +548,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.hue_spot_3
                   icon: 'mdi:lightbulb'
@@ -687,27 +562,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_3', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.hue_spot_3', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_3', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.hue_spot_3', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -717,15 +582,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: input_boolean.loop_livingcolors_1
                   icon: 'mdi:sync'
@@ -734,27 +596,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_1r', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('input_boolean.loop_livingcolors_1', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_1', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('input_boolean.loop_livingcolors_1', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -763,30 +615,29 @@
                     action: more-info
         - type: markdown  ### Scenes
           content: |
-            ### Bed room
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: |
-            **Light scenes**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Bed room
+            ## Light scenes
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: vertical-stack
           cards:
             - type: horizontal-stack  # Bright Scene
@@ -794,29 +645,23 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                      box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 80px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'
                   icon: 'mdi:brightness-5'
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow: var(--softui-bigbutton-boxshadow);
-                    }
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-bigbutton-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -825,73 +670,62 @@
                     service_data:
                       entity_id: scene.deckenspots_bright
                     haptic: medium
-                - type: vertical-stack
-                  cards:
-                    - type: markdown
-                      content: |
-                        ### Bright
-                      style: |
+                - type: markdown
+                  content: |
+                    # Bright
+                    ## Warm white on full brightness
+                  card_mod:
+                    style:
+                      .: |
                         ha-card {
-                          height: 20px !important;
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 20px;
-                          font-weight: bold;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 70px !important;
                         }
-                    - type: markdown
-                      content: |
-                        **Warm white on full brightness**
-                      style: |
-                        ha-card {
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 15px;
-                          font-weight: thin;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
-                        }
+                      ha-markdown:
+                        $: |
+                          ha-markdown-element {
+                            letter-spacing: 0;
+                          }
+                          h1 {
+                            font-size: 20px !important;
+                            margin-block-end: 0.2em !important;
+                          }
+                          h2 {
+                            font-size: 15px !important;
+                            margin-block-start: 0.2em !important;
+                          }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: horizontal-stack  # Energize Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                      box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 80px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'
                   icon: 'mdi:white-balance-sunny'
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow: var(--softui-bigbutton-boxshadow);
-                    }
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-bigbutton-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -900,73 +734,62 @@
                     service_data:
                       entity_id: scene.deckenspots_energize
                     haptic: medium
-                - type: vertical-stack
-                  cards:
-                    - type: markdown
-                      content: |
-                        ### Energize
-                      style: |
+                - type: markdown
+                  content: |
+                    # Energize
+                    ## Cool daylight
+                  card_mod:
+                    style:
+                      .: |
                         ha-card {
-                          height: 20px !important;
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 20px;
-                          font-weight: bold;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 70px !important;
                         }
-                    - type: markdown
-                      content: |
-                        **Cool daylight**
-                      style: |
-                        ha-card {
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 15px;
-                          font-weight: thin;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
-                        }
+                      ha-markdown:
+                        $: |
+                          ha-markdown-element {
+                            letter-spacing: 0;
+                          }
+                          h1 {
+                            font-size: 20px !important;
+                            margin-block-end: 0.2em !important;
+                          }
+                          h2 {
+                            font-size: 15px !important;
+                            margin-block-start: 0.2em !important;
+                          }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: horizontal-stack  # Read Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                      box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 80px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'
                   icon: 'mdi:book-open-page-variant'
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow: var(--softui-bigbutton-boxshadow);
-                    }
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-bigbutton-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -975,73 +798,62 @@
                     service_data:
                       entity_id: scene.deckenspots_read
                     haptic: medium
-                - type: vertical-stack
-                  cards:
-                    - type: markdown
-                      content: |
-                        ### Read
-                      style: |
+                - type: markdown
+                  content: |
+                    # Read
+                    ## Daylight to read
+                  card_mod:
+                    style:
+                      .: |
                         ha-card {
-                          height: 20px !important;
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 20px;
-                          font-weight: bold;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 70px !important;
                         }
-                    - type: markdown
-                      content: |
-                        **Daylight to read**
-                      style: |
-                        ha-card {
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 15px;
-                          font-weight: thin;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
-                        }
+                      ha-markdown:
+                        $: |
+                          ha-markdown-element {
+                            letter-spacing: 0;
+                          }
+                          h1 {
+                            font-size: 20px !important;
+                            margin-block-end: 0.2em !important;
+                          }
+                          h2 {
+                            font-size: 15px !important;
+                            margin-block-start: 0.2em !important;
+                          }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: horizontal-stack  # Night Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                      box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 80px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'
                   icon: 'mdi:weather-night'
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow: var(--softui-bigbutton-boxshadow);
-                    }
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-bigbutton-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1050,61 +862,58 @@
                     service_data:
                       entity_id: scene.deckenspots_nightlight
                     haptic: medium
-                - type: vertical-stack
-                  cards:
-                    - type: markdown
-                      content: |
-                        ### Nightlight
-                      style: |
+                - type: markdown
+                  content: |
+                    # Nightlight
+                    ## Warm light dimmed
+                  card_mod:
+                    style:
+                      .: |
                         ha-card {
-                          height: 20px !important;
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 20px;
-                          font-weight: bold;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 70px !important;
                         }
-                    - type: markdown
-                      content: |
-                        **Warm light dimmed**
-                      style: |
-                        ha-card {
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 15px;
-                          font-weight: thin;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
-                        }
+                      ha-markdown:
+                        $: |
+                          ha-markdown-element {
+                            letter-spacing: 0;
+                          }
+                          h1 {
+                            font-size: 20px !important;
+                            margin-block-end: 0.2em !important;
+                          }
+                          h2 {
+                            font-size: 15px !important;
+                            margin-block-start: 0.2em !important;
+                          }
     - type: vertical-stack  # right column
       cards:
         - type: markdown  ### column
           content: |
-            ### Kitchen
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: >
-            **Lights**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Kitchen
+            ## Lights
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: vertical-stack  ### Light Buttons
           cards:
             - type: horizontal-stack
@@ -1112,15 +921,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.kuche
                   icon: 'mdi:silverware-fork-knife'
@@ -1129,27 +935,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.kuche', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.kuche', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1159,15 +955,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.light_10
                   icon: 'mdi:lightbulb'
@@ -1176,27 +969,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.light_10', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_10', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_10', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_10', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1206,15 +989,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.light_11
                   icon: 'mdi:lightbulb'
@@ -1223,27 +1003,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.light_11', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_11', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_11', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_11', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1252,30 +1022,29 @@
                     action: more-info
         - type: markdown  ### column
           content: |
-            ### Other
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: >
-            **Lights in other rooms**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Other
+            ## Lights in other rooms
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: vertical-stack  ### Light Buttons
           cards:
             - type: horizontal-stack
@@ -1283,15 +1052,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.light_7
                   icon: 'mdi:shower'
@@ -1300,27 +1066,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.light_7', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_7', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_7', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_7', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1330,15 +1086,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.light_8
                   icon: 'mdi:paper-roll'
@@ -1347,27 +1100,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.light_8', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_8', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_8', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_8', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1377,15 +1120,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.vorzimmer
                   icon: 'mdi:ceiling-light'
@@ -1394,27 +1134,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.vorzimmer', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.vorzimmer', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.vorzimmer', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.vorzimmer', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1424,15 +1154,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.nachttischlampe
                   icon: 'mdi:coach-lamp'
@@ -1441,27 +1168,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.nachttischlampe', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.nachttischlampe', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.nachttischlampe', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.nachttischlampe', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1471,15 +1188,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.schreibtischlampe
                   icon: 'mdi:desk-lamp'
@@ -1488,27 +1202,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.schreibtischlampe', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.schreibtischlampe', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.schreibtischlampe', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.schreibtischlampe', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1517,37 +1221,36 @@
                     action: more-info
         - type: markdown  ### column
           content: |
-            ### Adaptive lighting
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: >
+            # Adaptive lighting
             {% if state_attr('switch.adaptive_lighting_main_lights', 'manual_control')|length > 0 %}
-              **Manually controlled:{{ " " }}
+              ## Manually controlled:{{ " " }}
               {%- for i in state_attr('switch.adaptive_lighting_main_lights', 'manual_control') -%}
                 {{ state_attr(i, 'friendly_name') }}{{ ", " if not loop.last }}
-              {%- endfor -%}**
+              {%- endfor -%}
             {% else %}
-              **No manually controlled lights**
+              ## No manually controlled lights
             {% endif %}
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: vertical-stack  ### Light Buttons
           cards:
             - type: horizontal-stack
@@ -1555,15 +1258,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: switch.adaptive_lighting_main_lights
                   icon: 'mdi:theme-light-dark'
@@ -1572,27 +1272,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('switch.adaptive_lighting_main_lights', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('switch.adaptive_lighting_main_lights', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('switch.adaptive_lighting_main_lights', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('switch.adaptive_lighting_main_lights', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1608,15 +1298,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: switch.adaptive_lighting_adapt_brightness_main_lights
                   icon: 'mdi:brightness-6'
@@ -1625,27 +1312,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('switch.adaptive_lighting_adapt_brightness_main_lights', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('switch.adaptive_lighting_adapt_brightness_main_lights', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('switch.adaptive_lighting_adapt_brightness_main_lights', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('switch.adaptive_lighting_adapt_brightness_main_lights', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1655,15 +1332,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: switch.adaptive_lighting_adapt_color_main_lights
                   icon: 'mdi:contrast'
@@ -1672,27 +1346,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('switch.adaptive_lighting_adapt_color_main_lights', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('switch.adaptive_lighting_adapt_color_main_lights', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('switch.adaptive_lighting_adapt_color_main_lights', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('switch.adaptive_lighting_adapt_color_main_lights', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1702,15 +1366,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: switch.adaptive_lighting_sleep_mode_main_lights
                   icon: 'mdi:weather-night'
@@ -1719,27 +1380,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('switch.adaptive_lighting_sleep_mode_main_lights', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('switch.adaptive_lighting_sleep_mode_main_lights', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('switch.adaptive_lighting_sleep_mode_main_lights', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('switch.adaptive_lighting_sleep_mode_main_lights', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -1749,12 +1400,9 @@
         - type: 'custom:button-card'  # Spacer
           show_icon: false
           show_name: false
-          style: |
-            ha-card {
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
           styles:
             card:
               - width: 5px
               - height: 10px
+              - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+              - --ha-card-background: 'rgba(11, 11, 11, 0.00)'

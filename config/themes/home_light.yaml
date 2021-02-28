@@ -69,6 +69,8 @@ home_light:
   # softui
   softui-boxshadow-top: "rgba(255,255,255,.5)"
   softui-boxshadow-bottom: "rgba(0,0,0,.03)"
+  softui-onoffbutton-active-boxshadow: "inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 var(--softui-boxshadow-bottom)"
+  softui-onoffbutton-inactive-boxshadow: "-5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 var(--softui-boxshadow-bottom)"
   softui-bigbutton-boxshadow: "-8px -8px 8px 0 var(--softui-boxshadow-top),8px 8px 8px 0 var(--softui-boxshadow-bottom)"
   softui-standard-boxshadow: "-4px -4px 4px 0 var(--softui-boxshadow-top),4px 4px 4px 0 var(--softui-boxshadow-bottom)"
   # valetudo-map

@@ -10,52 +10,49 @@
       cards:
         - type: markdown
           content: |
-            ### Alarm and sleep schedule
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: |
-            **Various settings for alarm automations & co.**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Alarm and sleep schedule
+            ## Various settings for alarm automations & co.
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: horizontal-stack
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: custom:stack-in-card
               mode: vertical
-              style: |
-                ha-card {
-                  background-color: var(--primary-background-color);
-                  border-radius: 15px;
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
+              card_mod:
+                style: |
+                  ha-card {
+                    background-color: var(--primary-background-color);
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
               # title: Wake up light
               cards:
                 - type: entities
@@ -68,13 +65,14 @@
                       state: 'on'
                   card:
                     type: entities
-                    style: |
-                      ha-card {
-                        background-color: var(--primary-background-color);
-                        border-radius: 15px;
-                        #box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.0);
-                        box-shadow: 2px 2px rgba(0,0,0,0.0);
-                      }
+                    card_mod:
+                      style: |
+                        ha-card {
+                          background-color: var(--primary-background-color);
+                          border-radius: 15px;
+                          #box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.0);
+                          box-shadow: 2px 2px rgba(0,0,0,0.0);
+                        }
                     entities:
                       - input_datetime.wakeup_alarm_time
                       - input_number.wakeup_duration
@@ -85,74 +83,60 @@
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: 'custom:button-card'
           show_icon: false
           show_name: false
-          style: |
-            ha-card {
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
           styles:
             card:
               - width: 5px
               - height: 10px
+              - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+              - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: horizontal-stack
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: entities
               # title: Anderes
               show_header_toggle: false
               entities:
                 - entity: input_datetime.time_turnoff_devices
                   name: Turn-off time living room
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  border-radius: 15px;
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
+              card_mod:
+                style: |
+                  ha-card {
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: 'custom:button-card'
           show_icon: false
           show_name: false
-          style: |
-            ha-card {
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
           styles:
             card:
               - width: 5px
               - height: 10px
+              - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+              - --ha-card-background: 'rgba(11, 11, 11, 0.00)'

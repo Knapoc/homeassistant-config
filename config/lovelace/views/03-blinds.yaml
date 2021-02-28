@@ -9,37 +9,36 @@
       cards:
         - type: markdown  ### blinds living room
           content: |
-            ### Living room
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: >
+            # Living room
             {% set entities = 'cover.fyrtur_1', 'cover.fyrtur_2' %}
             {% if (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',0) | list | length) == 2 %}
-              **All blinds are closed**
+              ## All blinds are closed
             {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) != 2 %}
-              **The blinds are partially closed**
+              ## The blinds are partially closed
             {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) == 2 %}
-              **All blinds are open**
+              ## All blinds are open
             {% endif %}
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: vertical-stack  ### Living room buttons
           cards:
             - type: horizontal-stack
@@ -47,15 +46,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # group
                   entity: cover.living_room_group
                   icon: mdi:sofa
@@ -63,28 +59,16 @@
                   show_name: false
                   state:
                     - styles:
-                        icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
-                      value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.living_room_group', 'open') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.living_room_group', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.living_room_group', 'open') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.living_room_group', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
+                      value: 'open'
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -99,38 +83,28 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 10px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # fyrtur 1
                   entity: cover.fyrtur_1
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_1', 'open') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_1', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_1', 'open') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_1', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
+                  state:
+                    - styles:
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
+                      value: 'open'
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: >
                           [[[
@@ -149,38 +123,28 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 10px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # fyrtur 2
                   entity: cover.fyrtur_2
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_2', 'open') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_2', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_2', 'open') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_2', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
+                  state:
+                    - styles:
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
+                      value: 'open'
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: >
                           [[[
@@ -198,37 +162,36 @@
                     action: more-info
         - type: markdown  ### blinds bed room
           content: |
-            ### Bed room
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: >
+            # Bed room
             {% set entities = 'cover.fyrtur_3', 'cover.fyrtur_4' %}
             {% if (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',0) | list | length) == 2 %}
-              **All blinds are closed**
+              ## All blinds are closed
             {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) != 2 %}
-              **The blinds are partially closed**
+              ## The blinds are partially closed
             {% elif (states | selectattr('entity_id','in', entities) | selectattr('attributes.current_position','==',100) | list | length) == 2 %}
-              **All blinds are open**
+              ## All blinds are open
             {% endif %}
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: vertical-stack  ### Bed room buttons
           cards:
             - type: horizontal-stack
@@ -236,15 +199,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # group
                   entity: cover.bed_room_group
                   icon: mdi:bed-empty
@@ -252,28 +212,16 @@
                   show_name: false
                   state:
                     - styles:
-                        icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
-                      value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.bed_room_group', 'open') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.bed_room_group', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.bed_room_group', 'open') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.bed_room_group', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
+                      value: 'open'
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -288,38 +236,28 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 10px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # fyrtur 3
                   entity: cover.fyrtur_3
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_3', 'open') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_3', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_3', 'open') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_3', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
+                  state:
+                    - styles:
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
+                      value: 'open'
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: >
                           [[[
@@ -338,38 +276,28 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 10px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # fyrtur 4
                   entity: cover.fyrtur_4
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_4', 'open') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('cover.fyrtur_4', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_4', 'open') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('cover.fyrtur_4', 'closed') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
+                  state:
+                    - styles:
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
+                      value: 'open'
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: >
                           [[[
@@ -387,44 +315,40 @@
                     action: more-info
         - type: markdown  ### column
           content: |
-            ### Settings
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: >
-            **Various settings**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Settings
+            ## Various settings
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: horizontal-stack
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: entities
               show_header_toggle: false
               entities:
@@ -435,34 +359,28 @@
                   name: Delay
                 - entity: input_datetime.time_close_covers_night
                   name: Blind closing time
-              style: |
-                ha-card {
-                  background-color: var(--primary-background-color);
-                  border-radius: 15px;
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
+              card_mod:
+                style: |
+                  ha-card {
+                    background-color: var(--primary-background-color);
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
-
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: 'custom:button-card'
           show_icon: false
           show_name: false
-          style: |
-            ha-card {
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
           styles:
             card:
               - width: 5px
               - height: 10px
+              - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+              - --ha-card-background: 'rgba(11, 11, 11, 0.00)'

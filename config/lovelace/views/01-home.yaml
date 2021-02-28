@@ -8,185 +8,164 @@
       cards:
         - type: markdown  ### HOME column
           content: |
-            ### Home
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: |
-            **The temperature is {{states('sensor.living_room_temperature')}}°C with a humidity of {{states('sensor.living_room_humidity')}}%**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Home
+            ## The temperature is {{states('sensor.living_room_temperature')}}°C with a humidity of {{states('sensor.living_room_humidity')}}%
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: horizontal-stack  # Users
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: entities
               show_header_toggle: false
               entities:
                 - !secret person_1
-              style: |
-                 ha-card {
-                   background-color: var(--primary-background-color);
-                   border-radius: 15px;
-                   box-shadow: var(--softui-standard-boxshadow);
-                 }
+              card_mod:
+                style: |
+                  ha-card {
+                    background-color: var(--primary-background-color);
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: 'custom:button-card'
           show_icon: false
           show_name: false
-          style: |
-            ha-card {
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
           styles:
             card:
               - width: 5px
               - height: 10px
+              - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+              - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: horizontal-stack  # weather
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: custom:simple-weather-card
               entity: weather.openweathermap
               name: at home
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  border-radius: 15px;
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
+              card_mod:
+                style: |
+                  ha-card {
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: 'custom:button-card'
           show_icon: false
           show_name: false
-          style: |
-            ha-card {
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
           styles:
             card:
               - width: 5px
               - height: 10px
+              - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+              - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: horizontal-stack  # search
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: custom:search-card
               max_results: 10
-              style: |
-                 ha-card {
-                   background-color: var(--primary-background-color);
-                   border-radius: 15px;
-                   box-shadow: var(--softui-standard-boxshadow);
-                 }
+              card_mod:
+                style: |
+                   ha-card {
+                     background-color: var(--primary-background-color);
+                     border-radius: 15px;
+                     box-shadow: var(--softui-standard-boxshadow);
+                   }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: markdown  ### Scenes
           content: |
-            ### Scenes
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: |
-            **Most used scenes**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Scenes
+            ## Most used scenes
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: vertical-stack
           cards:
             - type: horizontal-stack  # Netflix Scene
@@ -194,29 +173,23 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                      box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 80px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'
                   icon: 'mdi:movie-open'
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow: var(--softui-bigbutton-boxshadow);
-                    }
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-bigbutton-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -225,73 +198,62 @@
                     service_data:
                       entity_id: scene.tv_at_night
                     haptic: medium
-                - type: vertical-stack
-                  cards:
-                    - type: markdown
-                      content: |
-                        ### TV
-                      style: |
+                - type: markdown
+                  content: |
+                    # TV
+                    ## Netflix and living colors loop
+                  card_mod:
+                    style:
+                      .: |
                         ha-card {
-                          height: 20px !important;
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 20px;
-                          font-weight: bold;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 70px !important;
                         }
-                    - type: markdown
-                      content: |
-                        **Netflix and living colors loop**
-                      style: |
-                        ha-card {
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 15px;
-                          font-weight: thin;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
-                        }
+                      ha-markdown:
+                        $: |
+                          ha-markdown-element {
+                            letter-spacing: 0;
+                          }
+                          h1 {
+                            font-size: 20px !important;
+                            margin-block-end: 0.2em !important;
+                          }
+                          h2 {
+                            font-size: 15px !important;
+                            margin-block-start: 0.2em !important;
+                          }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: horizontal-stack  # Gaming Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                      box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 80px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'
                   icon: 'mdi:gamepad-square'
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow: var(--softui-bigbutton-boxshadow);
-                    }
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-bigbutton-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -300,73 +262,62 @@
                     service_data:
                       entity_id: scene.gaming
                     haptic: medium
-                - type: vertical-stack
-                  cards:
-                    - type: markdown
-                      content: |
-                        ### Gaming
-                      style: |
+                - type: markdown
+                  content: |
+                    # Gaming
+                    ## PS4 gaming with lights
+                  card_mod:
+                    style:
+                      .: |
                         ha-card {
-                          height: 20px !important;
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 20px;
-                          font-weight: bold;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 70px !important;
                         }
-                    - type: markdown
-                      content: |
-                        **PS4 gaming with lights**
-                      style: |
-                        ha-card {
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 15px;
-                          font-weight: thin;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
-                        }
+                      ha-markdown:
+                        $: |
+                          ha-markdown-element {
+                            letter-spacing: 0;
+                          }
+                          h1 {
+                            font-size: 20px !important;
+                            margin-block-end: 0.2em !important;
+                          }
+                          h2 {
+                            font-size: 15px !important;
+                            margin-block-start: 0.2em !important;
+                          }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 10px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: horizontal-stack  # Bright Scene
               cards:
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                      --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                      box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 80px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'
                   icon: 'mdi:brightness-5'
                   show_icon: true
                   show_name: false
-                  style: |
-                    ha-card {
-                      box-shadow: var(--softui-bigbutton-boxshadow);
-                    }
                   styles:
                     card:
                       - width: 80px
                       - height: 80px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-bigbutton-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -375,61 +326,58 @@
                     service_data:
                       entity_id: scene.deckenleuchte_grp_bright
                     haptic: medium
-                - type: vertical-stack
-                  cards:
-                    - type: markdown
-                      content: |
-                        ### Bright
-                      style: |
+                - type: markdown
+                  content: |
+                    # Bright
+                    ## Ceiling light bright scene
+                  card_mod:
+                    style:
+                      .: |
                         ha-card {
-                          height: 20px !important;
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 20px;
-                          font-weight: bold;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
+                          --ha-card-background: none !important;
+                          box-shadow: none !important;
+                          height: 70px !important;
                         }
-                    - type: markdown
-                      content: |
-                        **Ceiling light bright scene**
-                      style: |
-                        ha-card {
-                          --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                          box-shadow: 2px 2px rgba(0,0,0,0.0);
-                          font-size: 15px;
-                          font-weight: thin;
-                          font-family: Helvetica;
-                          letter-spacing: '-0.01em';
-                        }
+                      ha-markdown:
+                        $: |
+                          ha-markdown-element {
+                            letter-spacing: 0;
+                          }
+                          h1 {
+                            font-size: 20px !important;
+                            margin-block-end: 0.2em !important;
+                          }
+                          h2 {
+                            font-size: 15px !important;
+                            margin-block-start: 0.2em !important;
+                          }
     - type: vertical-stack  # right column
       cards:
         - type: markdown  ### Lights
           content: |
-            ### Lights
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: |
-            **There {% if is_state('sensor.lights_on', '0') %} are currently no lights {% elif is_state('sensor.lights_on', '1') %} is {{states('sensor.lights_on')}} light {% else %} are {{states('sensor.lights_on')}} lights {% endif %} on**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Lights
+            ## There {% if is_state('sensor.lights_on', '0') %} are currently no lights {% elif is_state('sensor.lights_on', '1') %} is {{states('sensor.lights_on')}} light {% else %} are {{states('sensor.lights_on')}} lights {% endif %} on
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: vertical-stack  ### Light Buttons
           cards:
             - type: horizontal-stack
@@ -437,15 +385,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 5px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.deckenleuchte
                   icon: 'mdi:wall-sconce-flat'
@@ -454,27 +399,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenleuchte', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenleuchte', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -484,15 +419,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.stehlampe
                   icon: 'mdi:floor-lamp'
@@ -501,27 +433,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.stehlampe', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.stehlampe', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.stehlampe', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -536,15 +458,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.deckenspots
                   icon: 'mdi:track-light'
@@ -553,27 +472,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.deckenspots', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.deckenspots', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.deckenspots', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -588,15 +497,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.kuche
                   icon: 'mdi:silverware-fork-knife'
@@ -605,27 +511,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.kuche', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.kuche', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.kuche', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -635,15 +531,12 @@
                 - type: 'custom:button-card'
                   show_icon: false
                   show_name: false
-                  style: |
-                    ha-card {
-                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                    box-shadow: 2px 2px rgba(0,0,0,0.0);
-                    }
                   styles:
                     card:
                       - width: 2px
                       - height: 60px
+                      - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                      - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
                 - type: 'custom:button-card'  # button
                   entity: light.light_7
                   icon: 'mdi:shower'
@@ -652,27 +545,17 @@
                   state:
                     - styles:
                         icon:
-                          - color: 'var(--paper-item-icon-active-color)  '
+                          - color: var(--paper-item-icon-active-color)
+                        card:
+                          - box-shadow: var(--softui-onoffbutton-active-boxshadow)
                       value: 'on'
-                  style: |
-                    ha-card {
-                      box-shadow:
-                        {% if is_state('sun.sun', 'above_horizon') and is_state('light.light_7', 'on') %}
-                          inset -4px -4px 8px 0 var(--softui-boxshadow-top), inset 4px 4px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'above_horizon') and is_state('light.light_7', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.03);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_7', 'on') %}
-                          inset -4px -4px 10px 0 var(--softui-boxshadow-top), inset 4px 4px 12px 0 rgba(0,0,0,.3);
-                        {% elif is_state('sun.sun', 'below_horizon') and is_state('light.light_7', 'off') %}
-                          -5px -5px 8px 0 var(--softui-boxshadow-top),5px 5px 8px 0 rgba(0,0,0,.15);
-                        {% endif %}
-                    }
                   styles:
                     card:
                       - width: 55px
                       - height: 55px
                       - border-radius: 15px
                       - background-color: var(--primary-background-color)
+                      - box-shadow: var(--softui-onoffbutton-inactive-boxshadow)
                     icon:
                       - color: var(--primary-text-color)
                   tap_action:
@@ -681,92 +564,80 @@
                     action: more-info
         - type: markdown  ### Devices
           content: |
-            ### Devices
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown
-          content: |
-            **Most used devices**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Devices
+            ## Most used devices
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: horizontal-stack
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: custom:mini-media-player  # tv
               entity: media_player.sony_bravia_tv
               hide:
                 info: true
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  border-radius: 15px;
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
+              card_mod:
+                style: |
+                  ha-card {
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: 'custom:button-card'
           show_icon: false
           show_name: false
-          style: |
-            ha-card {
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
           styles:
             card:
               - width: 5px
               - height: 10px
+              - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+              - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: horizontal-stack
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: custom:mini-media-player  # ps4
               entity: media_player.playstation_4
               source: icon
@@ -776,58 +647,51 @@
                 play_pause: true
                 play_stop: false
                 controls: true
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  border-radius: 15px;
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
+              card_mod:
+                style: |
+                  ha-card {
+                    --ha-card-background: 'rgba(11, 11, 11, 0.00)';
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: 'custom:button-card'
           show_icon: false
           show_name: false
-          style: |
-            ha-card {
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
           styles:
             card:
               - width: 5px
               - height: 10px
+              - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+              - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: horizontal-stack
           cards:
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: custom:stack-in-card
-              style: |
-                ha-card {
-                  height: 115px;
-                  background-color: var(--primary-background-color);
-                  border-radius: 15px;
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
+              card_mod:
+                style: |
+                  ha-card {
+                    height: 115px;
+                    background-color: var(--primary-background-color);
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
               mode: vertical
               cards:
                 - type: entities
@@ -844,10 +708,11 @@
                           unit: '%'
                         - entity: counter.vacuum_dustbin
                           name: Count
-                  style: |
-                    ha-card {
-                      height: 70px;
-                    }
+                  card_mod:
+                    style: |
+                      ha-card {
+                        height: 70px;
+                      }
                 - type: horizontal-stack
                   cards:
                     - type: custom:button-card
@@ -937,69 +802,59 @@
             - type: 'custom:button-card'
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
         - type: markdown  # Miscellaneous
           content: |
-            ### Miscellaneous
-          style: |
-            ha-card {
-              height: 20px !important;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 20px;
-              font-weight: bold;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
-        - type: markdown  # Lights, plants, vacuum and alarm
-          content: |
-            **Lights, plants and settings**
-          style: |
-            ha-card {
-              height: 50px;
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-              font-size: 14px;
-              font-weight: thin;
-              font-family: Helvetica;
-              letter-spacing: '-0.01em';
-            }
+            # Miscellaneous
+            ## Lights, plants and settings
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+                  h2 {
+                    font-size: 15px !important;
+                    margin-block-start: 0.2em !important;
+                  }
         - type: horizontal-stack
           cards:
             - type: 'custom:button-card'  # Spacer
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 5px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: 'custom:button-card'  # Lights
               icon: 'mdi:lightbulb'
               show_icon: true
               show_name: false
-              style: |
-                ha-card {
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
               styles:
                 card:
                   - width: 55px
                   - height: 55px
                   - border-radius: 15px
                   - background-color: var(--primary-background-color)
+                  - box-shadow: var(--softui-standard-boxshadow)
                 icon:
                   - color: var(--primary-text-color)
               tap_action:
@@ -1019,29 +874,23 @@
             - type: 'custom:button-card'  # Spacer
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 2px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: 'custom:button-card'  # Blinds
               icon: 'mdi:window-closed'
               show_icon: true
               show_name: false
-              style: |
-                ha-card {
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
               styles:
                 card:
                   - width: 55px
                   - height: 55px
                   - border-radius: 15px
                   - background-color: var(--primary-background-color)
+                  - box-shadow: var(--softui-standard-boxshadow)
                 icon:
                   - color: var(--primary-text-color)
               tap_action:
@@ -1059,29 +908,23 @@
             - type: 'custom:button-card'  # Spacer
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 2px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: 'custom:button-card'  # Plants
               icon: 'mdi:sprout'
               show_icon: true
               show_name: false
-              style: |
-                ha-card {
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
               styles:
                 card:
                   - width: 55px
                   - height: 55px
                   - border-radius: 15px
                   - background-color: var(--primary-background-color)
+                  - box-shadow: var(--softui-standard-boxshadow)
                 icon:
                   - color: var(--primary-text-color)
               tap_action:
@@ -1090,29 +933,23 @@
             - type: 'custom:button-card'  # Spacer
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 2px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: 'custom:button-card'  # Vacuum
               icon: 'mdi:robot-vacuum'
               show_icon: true
               show_name: false
-              style: |
-                ha-card {
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
               styles:
                 card:
                   - width: 55px
                   - height: 55px
                   - border-radius: 15px
                   - background-color: var(--primary-background-color)
+                  - box-shadow: var(--softui-standard-boxshadow)
                 icon:
                   - color: var(--primary-text-color)
               tap_action:
@@ -1121,29 +958,23 @@
             - type: 'custom:button-card'  # Spacer
               show_icon: false
               show_name: false
-              style: |
-                ha-card {
-                  --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-                  box-shadow: 2px 2px rgba(0,0,0,0.0);
-                }
               styles:
                 card:
                   - width: 2px
                   - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: 'custom:button-card'  # Alarm
               icon: 'mdi:alarm'
               show_icon: true
               show_name: false
-              style: |
-                ha-card {
-                  box-shadow: var(--softui-standard-boxshadow);
-                }
               styles:
                 card:
                   - width: 55px
                   - height: 55px
                   - border-radius: 15px
                   - background-color: var(--primary-background-color)
+                  - box-shadow: var(--softui-standard-boxshadow)
                 icon:
                   - color: var(--primary-text-color)
               tap_action:
@@ -1152,12 +983,9 @@
         - type: 'custom:button-card'  # Spacer
           show_icon: false
           show_name: false
-          style: |
-            ha-card {
-              --ha-card-background: 'rgba(11, 11, 11, 0.00)';
-              box-shadow: 2px 2px rgba(0,0,0,0.0);
-            }
           styles:
             card:
               - width: 5px
               - height: 10px
+              - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+              - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
