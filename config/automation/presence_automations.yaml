@@ -10,6 +10,8 @@
       to: not_home
       for:
         minutes: 5
+    - platform: tag
+      tag_id: aff22e09-b9ba-4925-9170-0c6a7d614184
   action:
     - service: homeassistant.turn_off
       data:

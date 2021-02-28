@@ -256,3 +256,15 @@
           device_id: c415d227da5448fc83453f4441dde0c7
           entity_id: light.deckenspots
           domain: light
+
+- id: '1614239882832'
+  alias: Tag nightstandlamp is scanned
+  trigger:
+    - platform: tag
+      tag_id: 2809481d-ade3-4905-afcd-787291190fb2
+  action:
+    - type: toggle
+      device_id: f9c4b764194911eb9b57a98c1840daa3
+      entity_id: light.nachttischlampe
+      domain: light
+  mode: single
