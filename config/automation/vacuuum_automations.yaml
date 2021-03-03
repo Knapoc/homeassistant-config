@@ -86,30 +86,34 @@
 - alias: roborock maintenance notification
   id: '1610223727000'
   trigger:
-    - platform: template
-      value_template: "{{ is_state_attr('vacuum.roborock', 'mainBrush', 0) }}"
-    - platform: template
-      value_template: "{{ is_state_attr('vacuum.roborock', 'sideBrush', 0) }}"
-    - platform: template
-      value_template: "{{ is_state_attr('vacuum.roborock', 'filter', 0) }}"
-    - platform: template
-      value_template: "{{ is_state_attr('vacuum.roborock', 'sensor', 0) }}"
+    - platform: numeric_state
+      entity_id: sensor.roborock_main_brush
+      below: 1
+    - platform: numeric_state
+      entity_id: sensor.roborock_right_side_brush
+      below: 1
+    - platform: numeric_state
+      entity_id: sensor.roborock_main_filter
+      below: 1
+    - platform: numeric_state
+      entity_id: sensor.roborock_main_sensor
+      below: 1
   action:
     - service: !secret notify_ios
       data_template:
         message: >
           Vacuum has to be maintained.
-          {% if state_attr('vacuum.roborock', 'mainBrush') <= 1 %}
-            Main brush: {{ state_attr('vacuum.roborock', 'mainBrush') }}h left.
+          {% if states('sensor.roborock_main_brush') | int <= 1 %}
+            Main brush: {{ states('sensor.roborock_main_brush_hours') }}h left.
           {% endif %}
-          {% if state_attr('vacuum.roborock', 'sideBrush') <= 1 %}
-            Side brush: {{ state_attr('vacuum.roborock', 'sideBrush') }}h left.
+          {% if states('sensor.roborock_right_side_brush') | int <= 1 %}
+            Side brush: {{ states('sensor.roborock_right_side_brush_hours') }}h left.
           {% endif %}
-          {% if state_attr('vacuum.roborock', 'filter') <= 1 %}
-            Filter: {{ state_attr('vacuum.roborock', 'filter') }}h left.
+          {% if states('sensor.roborock_main_filter') | int <= 1 %}
+            Filter: {{ states('sensor.roborock_main_filter_hours') }}h left.
           {% endif %}
-          {% if state_attr('vacuum.roborock', 'sensor') <= 1 %}
-            Sensor: {{ state_attr('vacuum.roborock', 'sensor') }}h left.
+          {% if states('sensor.roborock_sensor') | int <= 1 %}
+            Sensor: {{ states('sensor.roborock_sensor_hours') }}h left.
           {% endif %}
 
 - alias: roborock cleaned
