@@ -56,7 +56,6 @@ zeroconf:
 binary_sensor: !include integrations/binary_sensor.yaml
 counter: !include integrations/counter.yaml
 cover: !include integrations/cover.yaml
-device_tracker: !include integrations/device_tracker.yaml
 group: !include integrations/groups.yaml
 homekit: !include integrations/homekit.yaml
 input_boolean: !include integrations/input_boolean.yaml
@@ -73,13 +72,6 @@ switch: !include integrations/switch.yaml
 zone: !include integrations/zone.yaml
 
 ### other components
-asuswrt:
-  host: !secret router_ip
-  username: !secret router_login
-  ssh_key: !secret router_ssh
-  sensors:
-    - upload
-    - download
 
 mqtt:
   discovery: true
