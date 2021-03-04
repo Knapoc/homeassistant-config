@@ -415,6 +415,10 @@
               entities:
                 - entity: sensor.dns_lookup
                   name: Public IP
+                  icon: mdi:wan
+                - entity: sensor.asuswrt_devices_connected
+                  name: Clients
+                  icon: mdi:lan
                 - entity: sensor.asuswrt_download
                   name: Download
                   icon: mdi:download
