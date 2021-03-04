@@ -1,0 +1,10 @@
+{
+  "domain": "ps4_node",
+  "name": "Client to control PS4 over REST-API",
+  "version": "0.3.0",
+  "documentation": "https://github.com/knapoc",
+  "dependencies": [],
+  "requirements": [],
+  "config_flow": false,
+  "codeowners": [ "@knapoc" ]
+}
