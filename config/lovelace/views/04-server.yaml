@@ -480,7 +480,7 @@
                   - box-shadow: '2px 2px rgba(0,0,0,0.0)'
                   - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: glance
-              columns: 5
+              columns: 4
               entities:
                 - entity: !secret f2b_jail1_sensor
                   name: !secret f2b_jail1_sensor_name
@@ -490,8 +490,6 @@
                   name: !secret f2b_jail3_sensor_name
                 - entity: !secret f2b_jail4_sensor
                   name: !secret f2b_jail4_sensor_name
-                - entity: !secret f2b_jail5_sensor
-                  name: !secret f2b_jail5_sensor_name
               card_mod:
                 style: |
                   ha-card {

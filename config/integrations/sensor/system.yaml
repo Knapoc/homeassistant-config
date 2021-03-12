@@ -46,7 +46,6 @@
     - !secret f2b_jail2
     - !secret f2b_jail3
     - !secret f2b_jail4
-    - !secret f2b_jail5
 
 - platform: dnsip
   name: dns_lookup
