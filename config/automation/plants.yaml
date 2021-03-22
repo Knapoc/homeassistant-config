@@ -5,7 +5,10 @@
   alias: Plant care water
   trigger:
     - platform: numeric_state
-      entity_id: sensor.yuccaaloifolia_moisture
+      entity_id: sensor.yucca_aloifolia_moisture
+      below: 15
+    - platform: numeric_state
+      entity_id: sensor.howea_forsteriana_moisture
       below: 15
   condition:
     condition: and
@@ -26,7 +29,10 @@
   alias: Plant Care fertilizer
   trigger:
     - platform: numeric_state
-      entity_id: sensor.yuccaaloifolia_conductivity
+      entity_id: sensor.yucca_aloifolia_soil_conductivity
+      below: 350
+    - platform: numeric_state
+      entity_id: sensor.howea_forsteriana_soil_conductivity
       below: 350
   condition:
     condition: and
@@ -41,22 +47,3 @@
     - service: !secret notify_ios
       data_template:
         message: '{{ trigger.to_state.name }}: {{ trigger.to_state.state }}. Bitte düngen.'
-- id: '1566533533'
-  alias: Plant Care battery
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.yuccaaloifolia_battery
-      below: 10
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: !secret person_1
-        state: 'home'
-      - condition: time
-        after: '07:00:00'
-        before: '22:00:00'
-  action:
-    - service: !secret notify_ios
-      data_template:
-        message: '{{ trigger.to_state.name }}: {{ trigger.to_state.state }}%. Bitte Batterie wechseln.'

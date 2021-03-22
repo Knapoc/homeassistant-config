@@ -13,3 +13,16 @@ Yucca aloifolia:
   max_conductivity: 2000
   min_temperature: 8
   max_temperature: 32
+
+Howea forsteriana:
+  sensors:
+    moisture: sensor.howea_forsteriana_moisture
+    temperature: sensor.howea_forsteriana_temperature
+    conductivity: sensor.howea_forsteriana_soil_conductivity
+    brightness: sensor.howea_forsteriana_illuminance
+  min_moisture: 15
+  max_moisture: 60
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_temperature: 8
+  max_temperature: 32

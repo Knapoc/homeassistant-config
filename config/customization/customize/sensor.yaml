@@ -47,12 +47,10 @@ sensor.google_travel_time_dev1_transit:
   icon: mdi:train
 sensor.hass_version:
   friendly_name: HA-Version
-sensor.howeaforsteriana_moisture:
+sensor.howea_forsteriana_moisture:
   friendly_name: Kentia - Feuchtigkeit
-sensor.howeaforsteriana_conductivity:
+sensor.howea_forsteriana_soil_conductivity:
   friendly_name: Kentia - Leitfähigkeit
-sensor.howeaforsteriana_battery:
-  friendly_name: Kentia - Batterie
 sensor.memory_use_percent:
   friendly_name: RAM
   icon: mdi:memory
@@ -93,5 +91,3 @@ sensor.yucca_aloifolia_moisture:
   friendly_name: Yucca - Feuchtigkeit
 sensor.yucca_aloifolia_soil_conductivity:
   friendly_name: Yucca - Leitfähigkeit
-sensor.yuccaaloifolia_battery:
-  friendly_name: Yucca - Batterie
