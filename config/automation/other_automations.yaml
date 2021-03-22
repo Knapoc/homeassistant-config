@@ -51,3 +51,16 @@
     - service: switch.turn_off
       data:
         entity_id: switch.sonoff_s20_desk_relay
+- id: '1614873068229'
+  alias: Low battery level detection & notification for all battery sensors
+  description: ''
+  use_blueprint:
+    path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+    input:
+      threshold: 10
+      time: '10:00:00'
+      actions:
+        - service: notify.mobile_app_juergen_s_iphone
+          data:
+            message: 'Low battery warning for: {{sensors}}'
+            title: Battery alert!
