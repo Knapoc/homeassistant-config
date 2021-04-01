@@ -83,14 +83,6 @@
     data_template:
       homeassistant.components: '{{ trigger.to_state.state }}'
 
-- alias: 'Start HomeKit'
-  id: '1576691942'
-  trigger:
-    - platform: homeassistant
-      event: start
-  action:
-    - delay: 00:03
-    - service: homekit.start
 - alias: HACS pending update notification
   id: '1577405128'
   trigger:

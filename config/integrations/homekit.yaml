@@ -2,7 +2,6 @@
 # homekit config
 
 - mode: bridge
-  auto_start: false
   port: 51827
   advertise_ip: !secret host_ip
   # safe_mode: true
@@ -63,7 +62,6 @@
       name: "Staubsauger"
 - name: Fernseher
   mode: accessory
-  auto_start: false
   port: 51828
   advertise_ip: !secret host_ip
   filter:
