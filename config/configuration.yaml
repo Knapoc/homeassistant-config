@@ -36,6 +36,9 @@ logger:
     # pyhap: debug
     # pydeconz: debug
     # homeassistant.components.deconz: debug
+  filters:
+    homeassistant.components.shell_command:
+      - '^Error running command\:.*ssh.*sudo shutdown -h now.*return code: 255$'
 lovelace: !include lovelace/lovelace.yaml
 map:
 mobile_app:
