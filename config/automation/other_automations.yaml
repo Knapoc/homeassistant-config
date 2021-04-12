@@ -51,6 +51,7 @@
     - service: switch.turn_off
       data:
         entity_id: switch.sonoff_s20_desk_relay
+
 - id: '1614873068229'
   alias: Low battery level detection & notification for all battery sensors
   description: ''
