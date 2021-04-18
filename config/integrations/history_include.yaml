@@ -7,12 +7,15 @@ domains:
   - person
   - cover
 entities:
+  - binary_sensor.bed_occupancy
   - binary_sensor.motion_sensor
   - binary_sensor.motion_sensor_2
   - light.zimmer
   - light.buro
   - light.wohnzimmer
   - switch.wind_machine
+  - sensor.bed_pressure_1
+  - sensor.bed_pressure_2
   - sensor.cpu_temperature
   - sensor.processor_use
   - sensor.disk_free

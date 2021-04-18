@@ -16,3 +16,12 @@
       unique_id: 'C14BD5FE-1DF8-4FD7-9562-BFADB487918D'
       device_class: presence
       value_template: !secret template_1
+    bed_occupancy:
+      device_class: occupancy
+      value_template: >-
+        {{ (states('sensor.bed_pressure_1')|float > 0.5)
+        or (states('sensor.bed_pressure_2')|float > 0.5) }}
+      delay_on:
+        minutes: 3
+      delay_off:
+        minutes: 5
