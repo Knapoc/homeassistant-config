@@ -4,25 +4,18 @@
 - alias: 'open covers in the morning'
   id: '1583686217'
   trigger:
-    platform: template
-    value_template: "{{ states('sensor.time') == states('sensor.wakeup_open_time_covers') }}"
+    - platform: state
+      entity_id: binary_sensor.bed_occupancy
+      to: "off"
+      for:
+        minutes: "10"
   condition:
     condition: and
     conditions:
-      - condition: state
-        entity_id: input_boolean.wakeup
-        state: 'on'
-      - condition: state
-        entity_id: !secret person_1
-        state: home
-      - condition: or
-        conditions:
-          - condition: state
-            entity_id: input_boolean.wakeup_weekends
-            state: 'on'
-          - condition: state
-            entity_id: binary_sensor.workday_sensor
-            state: 'on'
+      - condition: time
+        alias: "Time 05~10"
+        after: "05:00:00"
+        before: "11:00:00"
       - condition: or
         conditions:
           - condition: template
