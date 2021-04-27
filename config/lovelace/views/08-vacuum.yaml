@@ -207,7 +207,7 @@
                   - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
             - type: 'custom:valetudo-map-card'
               title: ''
-              entity: camera.roborock_map
+              entity: camera.roborock_map_data
               dock_icon: mdi:dots-vertical
               dock_color: '--secondary-text-color'
               card_mod:
