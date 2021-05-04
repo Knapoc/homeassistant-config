@@ -74,6 +74,11 @@
       unit_of_measurement: "h"
     esp32_living_room_version:
       value_template: "{{ states('sensor.esp32_living_room_version_raw').split(' ',1)[0] }}"
+    esp32_bed_room_uptime:
+      value_template: "{{ ((states('sensor.esp32_bed_room_uptime_raw') | float) / 60 / 60) | round(2) }}"
+      unit_of_measurement: "h"
+    esp32_bed_room_version:
+      value_template: "{{ states('sensor.esp32_bed_room_version_raw').split(' ',1)[0] }}"
     roborock_main_brush_hours:
       value_template: "{{ ((states('sensor.roborock_main_brush') | float) / 60 ) | round(2) }}"
       unit_of_measurement: "h"

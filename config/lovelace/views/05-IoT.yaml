@@ -225,3 +225,77 @@
               - height: 10px
               - box-shadow: '2px 2px rgba(0,0,0,0.0)'
               - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
+        - type: markdown
+          content: |
+            # ESP32 - bed room
+          card_mod:
+            style:
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                  height: 70px !important;
+                }
+              ha-markdown:
+                $: |
+                  ha-markdown-element {
+                    letter-spacing: 0;
+                  }
+                  h1 {
+                    font-size: 20px !important;
+                    margin-block-end: 0.2em !important;
+                  }
+        - type: horizontal-stack
+          cards:
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
+            - type: custom:stack-in-card
+              mode: vertical
+              card_mod:
+                style: |
+                  ha-card {
+                    background-color: var(--primary-background-color);
+                    border-radius: 15px;
+                    box-shadow: var(--softui-standard-boxshadow);
+                  }
+              cards:
+                - type: glance
+                  # title: wemosd1 - 1
+                  entities:
+                    - entity: sensor.esp32_bed_room_version
+                      name: Version
+                      icon: mdi:alpha-v-box
+                    - entity: sensor.esp32_bed_room_ip_address
+                      name: IP
+                      icon: mdi:map-marker
+                    - entity: sensor.esp32_bed_room_uptime
+                      name: Uptime
+                      icon: mdi:arrow-up-thick
+                    - entity: sensor.esp32_bed_room_wifi_signal_sensor
+                      name: RSSI
+                      icon: mdi:signal-variant
+            - type: 'custom:button-card'
+              show_icon: false
+              show_name: false
+              styles:
+                card:
+                  - width: 5px
+                  - height: 60px
+                  - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+                  - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
+        - type: 'custom:button-card'  # Spacer
+          show_icon: false
+          show_name: false
+          styles:
+            card:
+              - width: 5px
+              - height: 10px
+              - box-shadow: '2px 2px rgba(0,0,0,0.0)'
+              - --ha-card-background: 'rgba(11, 11, 11, 0.00)'
