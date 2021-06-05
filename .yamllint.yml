@@ -6,10 +6,14 @@ yaml-files:
   - '.yamllint'
 
 ignore: |
-  config/themes/*
-  config/blueprints/automation/Bram_Kragten/*
-  config/blueprints/automation/aleksander.lyse/*
-  config/blueprints/automation/bergstrom/*
+  config/themes/
+  config/blueprints/automation/
+  config/blueprints/script/
+  !config/blueprints/automation/knapoc/
+  !config/blueprints/automation/homeassistant/
+  !config/blueprints/script/knapoc/
+  !config/blueprints/script/homeassistant/
+  config/custom_components/
 
 rules:
   braces: enable
