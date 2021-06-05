@@ -19,8 +19,8 @@
     bed_occupancy:
       device_class: occupancy
       value_template: >-
-        {{ (states('sensor.bed_pressure_1')|float > 0.5)
-        or (states('sensor.bed_pressure_2')|float > 0.5) }}
+        {{ (states('sensor.bed_pressure_1')|float > 0.15)
+        or (states('sensor.bed_pressure_2')|float > 0.15) }}
       delay_on:
         minutes: 3
       delay_off:
