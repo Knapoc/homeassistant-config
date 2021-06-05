@@ -65,3 +65,14 @@
           data:
             message: 'Low battery warning for: {{sensors}}'
             title: Battery alert!
+- id: '1623831661000'
+  alias: 'Alert me about weather warnings'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.meteoalarm
+      from: 'off'
+  action:
+    - service: !secret notify_ios
+      data:
+        title: "{{state_attr('binary_sensor.meteoalarm', 'headline')}}"
+        message: "{{state_attr('binary_sensor.meteoalarm', 'description')}} is effective on {{state_attr('binary_sensor.meteoalarm', 'effective')}}"

@@ -25,3 +25,6 @@
         minutes: 3
       delay_off:
         minutes: 5
+- platform: meteoalarm
+  country: !secret meteo_country
+  province: !secret meteo_province
