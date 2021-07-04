@@ -136,7 +136,7 @@
     - service: mqtt.publish
       data:
         topic: valetudo/roborock/GoToLocationCapability/go/set
-        payload: '["37b097a4-c502-47a9-b025-594255d4eb27"]'
+        payload: "37b097a4-c502-47a9-b025-594255d4eb27"
     - wait_template: "{{ is_state('vacuum.roborock', 'returning') }}"
     - service: counter.reset
       data:
