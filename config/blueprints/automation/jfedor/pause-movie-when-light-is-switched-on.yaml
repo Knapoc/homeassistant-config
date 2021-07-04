@@ -17,7 +17,8 @@ blueprint:
           domain: light
     timeout:
       name: Resume playback timeout
-      description: If the light is turned back off within this time, playback will
+      description:
+        If the light is turned back off within this time, playback will
         resume.
       default: 5
       selector:
@@ -30,30 +31,30 @@ blueprint:
   source_url: https://community.home-assistant.io/t/pause-movie-when-light-is-switched-on/289882
 mode: single
 trigger:
-- platform: state
-  entity_id: !input 'light'
-  from: 'off'
-  to: 'on'
-condition:
-- condition: state
-  entity_id: !input 'media_player'
-  state: playing
-- condition: not
-  conditions:
-  - condition: state
-    entity_id: !input 'media_player'
-    state: music
-    attribute: media_content_type
-action:
-- service: media_player.media_pause
-  entity_id: !input 'media_player'
-- wait_for_trigger:
   - platform: state
-    entity_id: !input 'light'
-    from: 'on'
-    to: 'off'
-  continue_on_timeout: false
-  timeout:
-    minutes: !input 'timeout'
-- service: media_player.media_play
-  entity_id: !input 'media_player'
+    entity_id: !input "light"
+    from: "off"
+    to: "on"
+condition:
+  - condition: state
+    entity_id: !input "media_player"
+    state: playing
+  - condition: not
+    conditions:
+      - condition: state
+        entity_id: !input "media_player"
+        state: music
+        attribute: media_content_type
+action:
+  - service: media_player.media_pause
+    entity_id: !input "media_player"
+  - wait_for_trigger:
+      - platform: state
+        entity_id: !input "light"
+        from: "on"
+        to: "off"
+    continue_on_timeout: false
+    timeout:
+      minutes: !input "timeout"
+  - service: media_player.media_play
+    entity_id: !input "media_player"
